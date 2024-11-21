@@ -1,19 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth Scrolling for nav links
     const navLinks = document.querySelectorAll('#navbar .nav-links a');
 
     navLinks.forEach((link) => {
         link.addEventListener('click', function (e) {
-            // Only prevent default if the link is an internal link
             if (this.getAttribute('href').startsWith('#')) {
                 e.preventDefault();
 
-                // Remove 'active' class from all links
                 navLinks.forEach((link) => link.classList.remove('active'));
-                // Add 'active' class to the clicked link
                 this.classList.add('active');
 
-                // Scroll to the section
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
 
@@ -28,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-    // Project Details Functionality
     const projectItems = document.querySelectorAll('.project-item');
     const projectDetails = document.getElementById('project-details');
 
@@ -104,10 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 20000);
     }
 
-    // Create particles at regular intervals
     setInterval(createParticle, 2000);
 
-    // Function to create BokehParticles
     function createBokehParticle() {
         const bokehParticle = document.createElement('div');
         bokehParticle.classList.add('bokeh-particle');
@@ -119,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         bokehParticle.style.left = Math.random() * window.innerWidth + 'px';
         bokehParticle.style.top = Math.random() * pageHeight + 'px';
 
-        // Randomize movement direction
         const directionX = Math.random() - 0.5;
         const directionY = Math.random();
         bokehParticle.style.setProperty('--direction-x', directionX);
