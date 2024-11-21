@@ -1,0 +1,686 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: hsl(0, 0%, 5%);
+    --primary-color: #c38aff;
+    --text-color: #e0e0e0;
+    --secondary-text-color: #b3b3b3;
+}
+
+/* Global Styles */
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, var(--background-color), hsl(0, 0%, 2%));
+    color: var(--text-color);
+}
+
+/* Slanted Background Styles */
+.slanted-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #231a32a2, #170f2a83); /* Dark purple gradient */
+    z-index: -1;
+    pointer-events: none;
+    animation: slantedBackgroundAnimation 24s ease-in-out infinite alternate;
+    clip-path: polygon(0% 0%, 100% 120px, 100% 100%, 0% calc(100% - 120px));
+
+    /* Mask properties */
+    mask-image: url('images/dither-mask.png');
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    /* Vendor prefixes for better browser support */
+    -webkit-mask-image: url('images/dither-mask.png');
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+/* Animation Keyframes */
+@keyframes slantedBackgroundAnimation {
+    0%, 100% {
+        clip-path: polygon(0% 0%, 100% 120px, 100% 100%, 0% calc(100% - 120px));
+    }
+    50% {
+        clip-path: polygon(0% 0%, 100% 36px, 100% 100%, 0% calc(100% - 36px));
+    }
+}
+
+/* Center content horizontally and vertically */
+section {
+    padding: 20px 20px; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section h1,
+section h2 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+}
+
+section p {
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+    font-size: 1.2em;
+}
+
+/* Ribbon Header */
+.ribbon-header {
+    background-color: hsl(0, 0%, 10%);
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    z-index: 1000;
+    box-shadow: 6px 6px 16px rgb(0, 0, 0, 0.7);
+    border-radius: 20px;
+    max-width: calc(100% - 40px);
+    width: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Reduced spacing for compact look */
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Aligns links vertically with the icons */
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s; /* Added transform */
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+/* Make r7321 stand out */
+.nav-links li:first-child a {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    font-family: 'Fira Code', monospace;
+}
+
+/* Navigation Icons */
+.nav-icons {
+    display: flex;
+    gap: 20px; /* Reduced spacing between icons for compact look */
+    align-items: center;
+}
+
+.nav-icons a {
+    color: var(--text-color);
+    font-size: 1.3em;
+    transition: color 0.3s;
+    cursor: pointer; /* Pointer cursor to indicate clickable icon */
+}
+
+.nav-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.project-item {
+    background-color: #1f1e1f;
+    padding: 20px;
+    cursor: pointer;
+    flex: 1 1 calc(30% - 20px);
+    max-width: 500px;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+    text-align: center;
+}
+
+.project-item:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 6px 6px 16px rgb(0, 0, 0, 0.6);
+}
+
+.project-item h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+/* Updates Section */
+.updates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.update-item {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.update-item:hover {
+    transform: scale(1.02);
+    background-color: #333;
+}
+
+.update-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.4em;
+    color: var(--primary-color);
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 60px); /* Adjusted based on header height */
+    margin-top: 0; /* Adjusted for actual header height */
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 320px;
+    background-color: hsl(0, 0%, 10%);
+    padding: 20px;
+    margin: 0 10px 40px 20px; /* Combined padding and margin */
+    border-radius: 15px;
+    box-shadow: 6px 6px 16px rgb(0, 0, 0, 0.6);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: calc(100vh - 160px); /* Adjust based on header and margins */
+}
+
+/* Custom Scrollbar Styling for Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-text-color);
+    border-radius: 16px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color);
+}
+
+/* Firefox Scrollbar */
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-text-color) transparent;
+}
+
+.sidebar .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .post-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: 10px; /* Space between list items */
+    width: 100%;
+    max-width: 300px;
+    border-bottom: 2px solid #2a2a2a;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sidebar .post-list li.active {
+    background-color: #2a1a3e; /* Darkish purple */
+}
+
+.sidebar .post-list li:hover {
+    background-color: #3e2a5e; /* Slightly brighter purple */
+}
+
+.post-title {
+    font-size: clamp(0.5em, 1.3em, 1.5em); /* Responsive font size */
+    white-space: normal; /* Allow text to wrap */
+    overflow: visible; /* Prevent clipping */
+    text-overflow: ellipsis; /* Optional: Add "..." for overflow */
+    word-wrap: break-word; /* Break long words if necessary */
+}
+
+.post-date {
+    font-size: 0.7em;
+    min-width: 60px;
+    color: var(--secondary-text-color);
+    margin-right: 15px; /* Space between title and date */
+}
+
+/* Content Area Styles */
+.content-area {
+    flex: 1;
+    padding: 0px 40px 30px 40px;
+    overflow-y: auto;
+    background-color: hsl(0, 0%, 10%);
+    margin: 0 20px 20px 20px; /* Combined margin */
+    max-height: calc(100vh - 160px); /* Adjust based on header and margins */
+    border-radius: 15px;
+    box-shadow: 6px 6px 24px rgb(0, 0, 0, 0.6);
+}
+
+.post-content {
+    display: none;
+}
+
+.post-content.active {
+    display: block;
+}
+
+.post-content h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.post-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Ensure images in post content are responsive */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Center images and add vertical spacing */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navbar Adjustments */
+    .ribbon-header {
+        position: static; /* Remove fixed positioning */
+        left: 0;
+        transform: none;
+        width: 100%;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        padding: 10px; /* Increased horizontal padding */
+        box-sizing: border-box; /* Include padding in width calculations */
+        margin: 0 20px; /* Add horizontal margin to prevent touching edges */
+        margin-top: 10px;
+    }
+
+    /* Adjust nav-links */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center links */
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+    }
+
+    /* First three links on one row */
+    .nav-links li:nth-child(-n+3) {
+        display: flex; /* Use flex to arrange links in a row */
+        justify-content: center; /* Center the links */
+        gap: 0px; /* Space between links */
+        width: 100%;
+        flex: 1; /* Allow links to take equal space */
+    }
+
+    /* Social icons on a separate row */
+    .nav-links li.nav-icons {
+        display: flex; /* Use flex to arrange icons in a row */
+        justify-content: center; /* Center the icons */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        gap: 15px; /* Space between icons */
+        margin-top: 0px; /* Space above icons */
+        width: 100%;
+    }
+
+    /* Adjust nav-icons */
+    .nav-icons a {
+        font-size: 2em; /* Increased icon size */
+        flex: 1; /* Allow icons to take equal space */
+        text-align: center; /* Center icons within their flex items */
+    }
+
+    .nav-icons {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the icons */
+    align-items: center; /* Vertically align icons */
+    flex-wrap: wrap; /* Allow icons to wrap if they exceed the width */
+    gap: 10px; /* Add space between icons */
+    max-width: 100%; /* Prevent the icons from exceeding the container's width */
+    padding: 10px; /* Optional padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+    overflow: hidden; /* Prevent any overflow */
+    }
+    
+    .nav-icons a {
+        flex: 1 1 auto; /* Allow icons to shrink and grow */
+        max-width: 10%; /* Ensure icons don't grow too large */
+        text-align: center; /* Center align the icons */
+    }
+    
+    .nav-icons i {
+    font-size: 0.8em; /* Set a baseline size for the icons */
+    max-width: 100%; /* Ensure the icons scale down to fit */
+    height: auto; /* Maintain aspect ratio */
+    }
+
+
+    /* Optional: Hide scrollbar for a cleaner look */
+    .nav-icons::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-icons {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    /* Adjust font sizes */
+    .nav-links li a {
+        font-size: 1.8em;
+    }
+    
+    .nav-links li:first-child {
+        margin-bottom: 5px; /* Reduce space below "r7321" */
+    }
+
+    .nav-links li:first-child a {
+        font-size: 2.5em;
+    }
+
+    /* Remove extra top padding on mobile */
+    body {
+        padding-top: 0;
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    /* Main Container Adjustments */
+    .main-container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+        padding: 10px 8px; /* Reduced padding */
+        height: auto; /* Allow container to expand */
+        overflow: visible; /* Allow content to overflow for scrolling */
+    }
+
+    /* Sidebar Adjustments */
+    .sidebar {
+        order: 1;
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        max-height: 180px; /* Adjusted height */
+        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .sidebar .post-list {
+        display: block; /* Stack list items vertically */
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar .post-list li {
+        margin-bottom: 5px; /* Reduced spacing between labels */
+        width: 100%;
+        max-width: none;
+        padding: 8px 10px; /* Adjusted padding */
+    }
+
+    .post-title {
+        font-size: 1em; /* Adjusted font size */
+    }
+
+    /* Content Area Adjustments */
+    .content-area {
+        order: 2;
+        margin: 10px 0;
+        padding: 10px;
+        max-height: none; /* Remove height restriction */
+        overflow: visible; /* Allow content to expand */
+    }
+
+    /* Adjust project and update buttons */
+    .project-button,
+    .update-button {
+        flex: 1 1 calc(100% - 20px); /* Full width minus gap */
+        min-width: auto;
+        max-width: none;
+    }
+
+    /* Ensure post content scrolls */
+    .content-area {
+        overflow-y: auto; /* Allow vertical scrolling within content */
+    }
+
+    /* Fix images in post content */
+    .post-content img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto; /* Center images and add vertical spacing */
+    }
+}
+
+/* Recent Updates Section */
+#recent-updates {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#recent-updates h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.updates-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.update-button {
+    background-color: #262527;
+    padding: 20px; /* Increased padding */
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    flex: 1 1 calc(33% - 40px); /* Adjust to fit three per row */
+    max-width: 200px;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 6px 6px 16px rgb(0, 0, 0, 0.6);
+}
+
+.update-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-10px);
+}
+
+.update-button h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.update-button p {
+    margin: 5px 0 0;
+    color: var(--secondary-text-color);
+}
+
+/* Featured Projects Section */
+#featured-projects {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#featured-projects h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.projects-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Changed from center to space-between */
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.project-button {
+    background-color: #232225;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-color);
+    flex: 1 1 calc(33.333% - 40px); /* Adjusted to fit three per row */
+    min-width: 400px;
+    transition: transform 0.3s, background-color 0.2s;
+    box-shadow: 6px 6px 16px rgb(0, 0, 0, 0.6);
+}
+
+.project-button:hover {
+    background-color: #5a4599;
+    transform: translateY(-16px);
+}
+
+.project-button img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-button h3 {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+/* Particle Styles */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatParticle 20s linear forwards;
+}
+
+/* Bokeh Particle Styles */
+.bokeh-particle {
+    position: absolute;
+    width: var(--bokeh-size);
+    height: var(--bokeh-size);
+    background: rgba(96, 77, 173, 0.1); /* Adjust color as desired */
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: bokehParticleAnimation 20s linear forwards;
+}
+
+/* Keyframes for Particle Movement */
+/* Example: Increase upward movement */
+@keyframes floatParticle {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(
+            calc(1000px * var(--direction-x)),
+            calc(-500px - 300px * var(--direction-y))
+        );
+        opacity: 0;
+    }
+}
+
+@keyframes bokehParticleAnimation {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(
+            calc(500px * var(--direction-x)),
+            calc(-400px - 200px * var(--direction-y))
+        );
+        opacity: 0;
+    }
+}
+
+/* Additional Styles Specific to the Header Image */
+.header-image-container {
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden; /* Ensures overflow is hidden */
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and box-shadow */
+    transform-origin: top center; /* Optional: Center scaling */
+}
+
+.header-image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    display: block;
+}
+
+.header-image-container:hover {
+    transform: scale(1.8); /* Enlarge image to 150% on hover */
+    box-shadow: 0 25px 100px rgba(0, 0, 0, 1); /* Updated box-shadow on hover */
+}

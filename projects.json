@@ -1,0 +1,24 @@
+[
+    {
+        "id": "s7",
+        "title": "Sunrise 7",
+        "date": "Feb 2020",
+        "image": "images/sunrise7.gif",
+        "content": "<p>Sunrise 7 was my first released game.</p>"
+    },
+    {
+        "id": "tfl",
+        "title": "Tears Fall Low",
+        "date": "June 2023",
+        "image": "images/tfl.gif",
+        "content": "<p>Tears Fall Low is a precision platformer inspired by Celeste and Ori.</p>"
+    },
+    {
+        "id": "sidereal",
+        "title": "Sidereal",
+        "date": "In Development",
+        "image": "images/sidereal.gif",
+        "content": "<p>Sidereal is currently being developed.</p>"
+    }
+    
+]
