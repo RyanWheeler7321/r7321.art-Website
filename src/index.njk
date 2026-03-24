@@ -14,7 +14,6 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     <div class="home-column-panel home-updates-panel">
       <div class="home-section-heading">
         <h2>Updates</h2>
-        <a href="/updates/">View All</a>
       </div>
 
       <div class="home-stack-list">
@@ -51,7 +50,6 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     <section class="home-projects">
       <div class="home-section-heading">
         <h2>Projects</h2>
-        <a href="/projects/">View All</a>
       </div>
 
       <div class="home-project-grid">
@@ -72,7 +70,6 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     <div class="home-column-panel home-tools-panel">
       <div class="home-section-heading">
         <h2>Tools</h2>
-        <a href="/tools/">View All</a>
       </div>
 
       {% if tools.length %}
@@ -84,6 +81,11 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
               {% endif %}
               <div>
                 <h3>{{ tool.data.title }}</h3>
+                <div class="tag-row tool-card-tags">
+                  {% for tag in tool.data.tags | displayTags | limit(2) %}
+                    <span class="tag-chip">{{ tag }}</span>
+                  {% endfor %}
+                </div>
               </div>
             </a>
           {% endfor %}

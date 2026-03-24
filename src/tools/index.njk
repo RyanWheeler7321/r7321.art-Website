@@ -24,13 +24,14 @@ description: Tools
     {% for tool in collections.tools %}
       {% set toolTagsDisplay = tool.data.tags | displayTags %}
       <article class="tool-grid-card" data-tool-item data-tags="{% for tag in toolTagsDisplay %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}">
-        <a href="{{ tool.url }}">
+        <a class="tool-grid-media" href="{{ tool.url }}">
           {% if tool.data.thumbnail %}
             <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
           {% endif %}
         </a>
         <div class="tool-grid-copy">
           <h2><a href="{{ tool.url }}">{{ tool.data.title }}</a></h2>
+          <p>{{ tool.data.summary }}</p>
           <div class="tag-row">
             {% for tag in toolTagsDisplay %}
               <span class="tag-chip">{{ tag }}</span>

@@ -144,19 +144,23 @@ src="https://sketchfab.com/models/${modelId}/embed"
 </figure>`
   );
 
-  eleventyConfig.addShortcode("cta", (url, label, meta = "") => `
-    <a class="inline-card-link" href="${url}" target="_blank" rel="noopener">
-      <span class="inline-card-label">${label}</span>
-      ${meta ? `<span class="inline-card-meta">${meta}</span>` : ""}
-    </a>
-  `);
+  eleventyConfig.addShortcode("cta", (url, label, meta = "") =>
+    `<div class="inline-card-wrap">
+<a class="inline-card-link" href="${url}" target="_blank" rel="noopener">
+<span class="inline-card-label">${label}</span>
+${meta ? `<span class="inline-card-meta">${meta}</span>` : ""}
+</a>
+</div>`
+  );
 
-  eleventyConfig.addShortcode("download", (url, label, meta = "") => `
-    <a class="inline-card-link inline-card-download" href="${url}">
-      <span class="inline-card-label">${label}</span>
-      ${meta ? `<span class="inline-card-meta">${meta}</span>` : ""}
-    </a>
-  `);
+  eleventyConfig.addShortcode("download", (url, label, meta = "") =>
+    `<div class="inline-card-wrap">
+<a class="inline-card-link inline-card-download" href="${url}">
+<span class="inline-card-label">${label}</span>
+${meta ? `<span class="inline-card-meta">${meta}</span>` : ""}
+</a>
+</div>`
+  );
 
   eleventyConfig.addPairedShortcode("callout", (content, tone = "note", title = "") => `
     <aside class="callout callout-${tone}">
