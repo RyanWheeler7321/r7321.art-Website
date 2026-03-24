@@ -10,19 +10,19 @@ module.exports = {
     { label: "Tools", href: "/tools/" }
   ],
   socials: [
-    { label: "GitHub", href: "https://github.com/RyanWheeler7321", icon: "fab fa-github" },
-    { label: "ArtStation", href: "https://www.artstation.com/ryanwheeler", icon: "fab fa-artstation" },
     {
       label: "Steam",
       href: "https://store.steampowered.com/developer/Ryan%20Wheeler",
       icon: "fab fa-steam"
     },
+    { label: "GitHub", href: "https://github.com/RyanWheeler7321", icon: "fab fa-github" },
+    { label: "ArtStation", href: "https://www.artstation.com/ryanwheeler", icon: "fab fa-artstation" },
+    { label: "Patreon", href: "https://www.patreon.com/c/ryanwheeler", icon: "fab fa-patreon" },
     {
       label: "Spotify",
       href: "https://open.spotify.com/artist/5EDLG2BbKVD04uyJV9Sv6J",
       icon: "fab fa-spotify"
     },
-    { label: "Patreon", href: "https://www.patreon.com/c/ryanwheeler", icon: "fab fa-patreon" },
     { label: "YouTube", href: "https://www.youtube.com/@ryanwheeler7321", icon: "fab fa-youtube" },
     {
       label: "Reddit",
