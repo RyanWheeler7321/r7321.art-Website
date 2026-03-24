@@ -49,10 +49,8 @@ description: Updates
         >
           <img src="{{ update.data.thumbnail }}" alt="{{ update.data.title }}">
           <div class="browse-item-copy">
-            <div class="list-card-head">
-              <strong>{{ update.data.title }}</strong>
-              <span>{{ update.date | teaserDate }}</span>
-            </div>
+            <strong>{{ update.data.title }}</strong>
+            <span class="browse-item-date">{{ update.date | teaserDate }}</span>
           </div>
         </a>
       {% endfor %}

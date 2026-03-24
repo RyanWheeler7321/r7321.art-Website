@@ -22,7 +22,7 @@ I've spent several weeks experimenting with game ideas, figuring out what my nex
 
 {% image "/images/updates/new-game-projects/three-potions-01.webp", "Three Potions" %}
 
-*Three Potions* is a 2D mission-based hack-and-slash action game, with limited resources and challenged boss fights. I've made the Steam page for this one public, you can check it out and wishlist it here:
+*Three Potions* is a 2D mission-based hack-and-slash action game, with limited resources and challenging boss fights. I've made the Steam page for this one public, you can check it out and wishlist it here:
 
 {% cta "https://store.steampowered.com/app/2324790/Three_Potions/", "Three Potions on Steam" %}
 

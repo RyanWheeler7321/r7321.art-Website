@@ -36,5 +36,4 @@ Learned a lot making this game, can't wait to apply everything I've learned for 
 
 But some things I envisioned a long time ago came together pretty well, and I hope people find them interesting.
 
-That's the main project for this week, took up all most all my time. Completing and finalizing a game like this takes more than most people think. Lots more to come, though.
-
+That's the main project for this week, took up almost all my time. Completing and finalizing a game like this takes more than most people think. Lots more to come, though.

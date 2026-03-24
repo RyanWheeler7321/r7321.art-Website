@@ -15,10 +15,12 @@ description: Projects
         <img src="{{ project.data.thumbnail }}" alt="{{ project.data.title }}">
       </a>
       <div class="project-card-copy">
-        <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+        <div class="project-card-head">
+          <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+          <span class="project-card-date">{{ project.data.dateLabel }}</span>
+        </div>
         <p>{{ project.data.summary }}</p>
         <div class="meta-row">
-          <span>{{ project.data.dateLabel }}</span>
           {% for tag in project.data.tags | displayTags %}
             <span class="tag-chip">{{ tag }}</span>
           {% endfor %}

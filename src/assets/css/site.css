@@ -426,8 +426,8 @@ p {
 
 .home-layout {
   display: grid;
-  grid-template-columns: minmax(250px, 310px) minmax(0, 1fr) minmax(220px, 280px);
-  gap: 30px;
+  grid-template-columns: minmax(220px, 270px) minmax(0, 1fr) minmax(220px, 270px);
+  gap: 40px;
   align-items: start;
 }
 
@@ -436,14 +436,15 @@ p {
   gap: 22px;
   align-self: start;
   width: 100%;
-  max-width: 310px;
+  max-width: 270px;
 }
 
 .home-main-column {
   display: grid;
   gap: 24px;
-  width: min(100%, 980px);
-  justify-self: center;
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
   min-width: 0;
 }
 
@@ -471,42 +472,35 @@ p {
 
 .home-list-card {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
+  grid-template-columns: 76px minmax(0, 1fr);
   align-items: center;
-  gap: 12px;
-  padding: 10px;
+  gap: 10px;
+  padding: 10px 12px;
 }
 
 .home-list-card img {
-  width: 88px;
-  height: 88px;
+  width: 76px;
+  height: 76px;
   max-height: none;
   aspect-ratio: 1 / 1;
   border-radius: 10px;
   object-fit: cover;
 }
 
-.list-card-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.list-card-head h3,
-.list-card-head strong {
+.update-button-copy h3,
+.browse-item-copy strong {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.15;
 }
 
-.list-card-head p,
-.list-card-head span {
-  flex-shrink: 0;
+.list-card-date,
+.browse-item-date {
+  display: block;
+  margin-top: 6px;
   color: var(--text-faint);
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   line-height: 1.2;
-  padding-top: 2px;
 }
 
 .tool-card-list {
@@ -516,7 +510,7 @@ p {
 
 .tool-card {
   display: grid;
-  grid-template-columns: 84px 1fr;
+  grid-template-columns: 76px 1fr;
   gap: 12px;
   padding: 12px;
   border-radius: 12px;
@@ -529,6 +523,10 @@ p {
   object-fit: cover;
 }
 
+.tool-card:not(:has(img)) {
+  grid-template-columns: 1fr;
+}
+
 .page-title-block {
   padding-top: 8px;
 }
@@ -539,8 +537,8 @@ p {
 
 .browse-layout {
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: 390px minmax(0, 1fr);
+  gap: 26px;
   align-items: start;
 }
 
@@ -577,9 +575,14 @@ p {
   min-height: 42px;
   border: 1px solid rgba(195, 138, 255, 0.18);
   border-radius: 10px;
-  background: rgba(195, 138, 255, 0.08);
-  color: var(--text);
+  background: #120d18;
+  color: #ffffff;
   padding: 0 12px;
+}
+
+.filter-select option {
+  background: #120d18;
+  color: #ffffff;
 }
 
 .browse-list {
@@ -617,12 +620,6 @@ p {
 
 .browse-item-copy strong {
   display: block;
-  margin-bottom: 6px;
-}
-
-.browse-item-copy span {
-  color: var(--text-faint);
-  font-size: 0.92rem;
 }
 
 .browse-preview {
@@ -675,6 +672,24 @@ p {
 .project-card,
 .tool-grid-card {
   overflow: hidden;
+}
+
+.project-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.project-card-head h2 {
+  font-size: 1.55rem;
+}
+
+.project-card-date {
+  flex-shrink: 0;
+  color: var(--text-faint);
+  font-size: 0.9rem;
 }
 
 .project-card-media {

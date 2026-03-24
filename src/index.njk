@@ -22,10 +22,8 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
           <a class="update-button home-list-card" href="{{ update.url }}">
             <img src="{{ update.data.thumbnail }}" alt="{{ update.data.title }}">
             <div class="update-button-copy">
-              <div class="list-card-head">
-                <h3>{{ update.data.title }}</h3>
-                <p>{{ update.date | teaserDate }}</p>
-              </div>
+              <h3>{{ update.data.title }}</h3>
+              <p class="list-card-date">{{ update.date | teaserDate }}</p>
             </div>
           </a>
         {% endfor %}
@@ -81,7 +79,9 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
         <div class="home-stack-list">
           {% for tool in tools %}
             <a class="tool-card home-list-card" href="{{ tool.url }}">
-              <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+              {% if tool.data.thumbnail %}
+                <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+              {% endif %}
               <div>
                 <h3>{{ tool.data.title }}</h3>
               </div>
