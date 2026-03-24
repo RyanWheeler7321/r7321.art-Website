@@ -6,12 +6,6 @@ The site is currently built as a static 11ty project with markdown-based content
 
 ### Development
 
-Install dependencies:
-
-```bash
-npm install
-```
-
 Start local development:
 
 ```bash
