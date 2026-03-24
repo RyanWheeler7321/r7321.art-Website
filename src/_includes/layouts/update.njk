@@ -7,9 +7,7 @@ pageClass: page-update-detail
 
 <section class="detail-hero shell">
   <div class="detail-hero-copy">
-    <p class="eyebrow">Update</p>
     <h1>{{ title }}</h1>
-    <p class="detail-summary">{{ summary }}</p>
     <div class="detail-meta">
       <span>{{ date | readableDate }}</span>
       {% if projectLabel or project %}
@@ -39,13 +37,13 @@ pageClass: page-update-detail
 
   <aside class="detail-aside">
     <div class="detail-aside-card">
-      <p class="aside-title">In this post</p>
+      <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
     </div>
 
     {% if relatedProject %}
       <div class="detail-aside-card">
-        <p class="aside-title">Related project</p>
+        <p class="aside-title">Project</p>
         <a class="mini-card" href="{{ relatedProject.url }}">
           <img src="{{ relatedProject.data.thumbnail }}" alt="{{ relatedProject.data.title }}">
           <span>{{ relatedProject.data.title }}</span>
@@ -55,7 +53,7 @@ pageClass: page-update-detail
 
     {% if relatedUpdates.length %}
       <div class="detail-aside-card">
-        <p class="aside-title">More from this thread</p>
+        <p class="aside-title">Related updates</p>
         <div class="stack-list">
           {% for entry in relatedUpdates %}
             <a class="stack-link" href="{{ entry.url }}">

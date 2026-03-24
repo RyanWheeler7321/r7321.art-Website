@@ -87,62 +87,62 @@ module.exports = function (eleventyConfig) {
     }).format(new Date(value))
   );
 
-  eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "") => `
-    <figure class="media-frame ${classes}".trim()>
-      <img src="${src}" alt="${alt}" loading="lazy">
-      ${formatCaption(caption)}
-    </figure>
-  `);
+  eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "") =>
+    `<figure class="${["media-frame", classes].filter(Boolean).join(" ")}">
+<img src="${src}" alt="${alt}" loading="lazy">
+${formatCaption(caption)}
+</figure>`
+  );
 
-  eleventyConfig.addShortcode("gif", (src, alt = "", caption = "") => `
-    <figure class="media-frame media-frame-gif">
-      <img src="${src}" alt="${alt}" loading="lazy">
-      ${formatCaption(caption)}
-    </figure>
-  `);
+  eleventyConfig.addShortcode("gif", (src, alt = "", caption = "") =>
+    `<figure class="media-frame media-frame-gif">
+<img src="${src}" alt="${alt}" loading="lazy">
+${formatCaption(caption)}
+</figure>`
+  );
 
-  eleventyConfig.addPairedShortcode("gallery", (content, caption = "") => `
-    <figure class="media-gallery">
-      <div class="media-gallery-grid">
-        ${content}
-      </div>
-      ${formatCaption(caption)}
-    </figure>
-  `);
+  eleventyConfig.addPairedShortcode("gallery", (content, caption = "") =>
+    `<figure class="media-gallery">
+<div class="media-gallery-grid">
+${content}
+</div>
+${formatCaption(caption)}
+</figure>`
+  );
 
-  eleventyConfig.addShortcode("youtube", (videoId, title = "YouTube video") => `
-    <figure class="embed-frame">
-      <div class="embed-shell">
-        <iframe
-          src="https://www.youtube.com/embed/${videoId}"
-          title="${title}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </figure>
-  `);
+  eleventyConfig.addShortcode("youtube", (videoId, title = "YouTube video") =>
+    `<figure class="embed-frame">
+<div class="embed-shell">
+<iframe
+src="https://www.youtube.com/embed/${videoId}"
+title="${title}"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen
+></iframe>
+</div>
+</figure>`
+  );
 
-  eleventyConfig.addShortcode("sketchfab", (modelId, title = "Sketchfab model") => `
-    <figure class="embed-frame">
-      <div class="embed-shell">
-        <iframe
-          title="${title}"
-          loading="lazy"
-          frameborder="0"
-          allowfullscreen
-          mozallowfullscreen="true"
-          webkitallowfullscreen="true"
-          allow="autoplay; fullscreen; xr-spatial-tracking"
-          execution-while-out-of-viewport
-          execution-while-not-rendered
-          web-share
-          src="https://sketchfab.com/models/${modelId}/embed"
-        ></iframe>
-      </div>
-    </figure>
-  `);
+  eleventyConfig.addShortcode("sketchfab", (modelId, title = "Sketchfab model") =>
+    `<figure class="embed-frame">
+<div class="embed-shell">
+<iframe
+title="${title}"
+loading="lazy"
+frameborder="0"
+allowfullscreen
+mozallowfullscreen="true"
+webkitallowfullscreen="true"
+allow="autoplay; fullscreen; xr-spatial-tracking"
+execution-while-out-of-viewport
+execution-while-not-rendered
+web-share
+src="https://sketchfab.com/models/${modelId}/embed"
+></iframe>
+</div>
+</figure>`
+  );
 
   eleventyConfig.addShortcode("cta", (url, label, meta = "") => `
     <a class="inline-card-link" href="${url}" target="_blank" rel="noopener">

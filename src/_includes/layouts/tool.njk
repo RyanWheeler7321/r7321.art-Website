@@ -4,9 +4,7 @@ pageClass: page-tool-detail
 ---
 <section class="detail-hero shell">
   <div class="detail-hero-copy">
-    <p class="eyebrow">Tool</p>
     <h1>{{ title }}</h1>
-    <p class="detail-summary">{{ summary }}</p>
     <div class="tag-row">
       {% for tag in tags | displayTags %}
         <span class="tag-chip">{{ tag }}</span>
@@ -39,7 +37,7 @@ pageClass: page-tool-detail
 
   <aside class="detail-aside">
     <div class="detail-aside-card">
-      <p class="aside-title">Page map</p>
+      <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
     </div>
   </aside>

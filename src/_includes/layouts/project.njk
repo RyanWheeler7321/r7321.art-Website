@@ -6,9 +6,7 @@ pageClass: page-project-detail
 
 <section class="detail-hero shell detail-hero-project">
   <div class="detail-hero-copy">
-    <p class="eyebrow">Project</p>
     <h1>{{ title }}</h1>
-    <p class="detail-summary">{{ summary }}</p>
     <div class="detail-meta">
       {% if status %}<span>{{ status }}</span>{% endif %}
       <span>{{ dateLabel or (date | readableDate) }}</span>
@@ -49,7 +47,7 @@ pageClass: page-project-detail
 
   <aside class="detail-aside">
     <div class="detail-aside-card">
-      <p class="aside-title">Page map</p>
+      <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
     </div>
 
@@ -68,4 +66,3 @@ pageClass: page-project-detail
     {% endif %}
   </aside>
 </section>
-

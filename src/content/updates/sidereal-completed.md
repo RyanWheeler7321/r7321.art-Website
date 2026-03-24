@@ -3,50 +3,38 @@ layout: layouts/update.njk
 title: Sidereal Completed
 slug: sidereal-completed
 date: 2024-11-29
-summary: Sidereal hit the finish line, Veyn got a public showcase, and the week was mostly about closing loops cleanly.
+summary: This week was a lot of reorganizing and adjusting, along with finally wrapping up this game I've been working on for a little over a year.
 thumbnail: /images/updates/sidereal-completed/sidereal-01.webp
 tags:
   - updates
   - Project Progress
-  - 3D Art
-  - Character Art
 project: sidereal
 projectLabel: Sidereal
 permalink: /updates/sidereal-completed/index.html
 ---
-This week was mostly reorganizing, adjusting, and finally wrapping up a game I had been building for a little over a year.
+This week was a lot of reorganizing and adjusting, along with finally wrapping up this game I've been working on for a little over a year. Going forward I intend to focus on smaller, higher quality games with shorter development times.
 
-Going forward I wanted to focus on smaller, higher-quality games with shorter development times. *Sidereal* was still worth finishing because it did exactly what it needed to do as a learning-heavy project.
+As my first released 3D game, and with a ton of content, *Sidereal* was originally meant to be primarily a learning experience, and it fulfilled that purpose pretty well.
 
-## Sidereal
+{% cta "https://store.steampowered.com/app/2702590/Sidereal/", "Sidereal on Steam" %}
 
-{% cta "https://store.steampowered.com/app/2702590/Sidereal/", "Sidereal on Steam", "Store page" %}
+{% youtube "9M4hlaKGVJY", "Sidereal" %}
 
-{% youtube "9M4hlaKGVJY", "Sidereal trailer" %}
+After cutting a ton of potential content, *Sidereal* is completed and will be released on Steam for free once it is approved, which should be next week.
 
-After cutting a lot of possible content, *Sidereal* was complete and only waiting on Steam approval.
+{% image "/images/updates/sidereal-completed/sidereal-01.webp", "Sidereal Finished 11 - 29 - 24-20241129172536176.webp" %}
 
-{% image "/images/updates/sidereal-completed/sidereal-01.webp", "Sidereal completed screenshot" %}
+It's a walking-simulator exploration sandbox with a bunch of narrative ideas and environmental elements. I'm not even sure how long it would take to beat, but there is an ending.
 
-It is a walking-simulator exploration sandbox with narrative ideas, environmental storytelling, and a lot of one-off content.
+{% image "/images/updates/sidereal-completed/sidereal-02.webp", "Sidereal Finished 11 - 29 - 24-20241129172525055.webp" %}
 
-{% image "/images/updates/sidereal-completed/sidereal-02.webp", "Sidereal world screenshot" %}
+The game has a lot of unique assets, including hundreds of unique item images and models, some of which I decided to use AI to speed up development time. Like I said last week, even if it saves time, using AI really sucks the fun and interest of whatever it is you're making. Any interesting stuff still has to be done by hand, so in the future using it to fill small gaps and quick optimizations will be helpful, but pretty much anything contributing value or interest to the game I still have to make myself.
 
-The game ended up carrying a large number of unique assets, including hundreds of item images and models. Some of those were accelerated with AI assistance, but the same conclusion kept repeating: filler work can speed up, interesting work still has to be done manually.
+{% image "/images/updates/sidereal-completed/sidereal-03.webp", "Sidereal Finished 11 - 29 - 24-20241129172918688.webp" %}
 
-{% image "/images/updates/sidereal-completed/sidereal-03.webp", "Sidereal final environment screenshot" %}
+Learned a lot making this game, can't wait to apply everything I've learned for tighter, more interesting stories in the future.
 
-I learned a lot making the game and was already looking forward to applying those lessons to tighter, more focused projects.
+But some things I envisioned a long time ago came together pretty well, and I hope people find them interesting.
 
-## Veyn
-
-{% image "/images/updates/sidereal-completed/veyn-01.webp", "Veyn character render" %}
-
-This character was made roughly a month earlier, fully rigged and textured, at around 70k tris. The goal was to make a realistic real-time character from one of my own future-game character designs.
-
-{% image "/images/updates/sidereal-completed/veyn-02.webp", "Second Veyn character render" %}
-
-Some parts landed better than others. The pants and shoes could have used more care, and the hair still read a little flat, but the result was still strong enough to show publicly.
-
-{% sketchfab "a0e32994e046478ea77c8bddc66d9fea", "Veyn on Sketchfab" %}
+That's the main project for this week, took up all most all my time. Completing and finalizing a game like this takes more than most people think. Lots more to come, though.
 

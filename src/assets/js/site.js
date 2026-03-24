@@ -60,7 +60,7 @@ function initParticles() {
       if (particle.y > canvas.height + 20) particle.y = -20;
 
       context.beginPath();
-      context.fillStyle = `rgba(149, 214, 255, ${particle.alpha})`;
+      context.fillStyle = `rgba(195, 138, 255, ${particle.alpha})`;
       context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
       context.fill();
     });
@@ -82,7 +82,7 @@ function initBrowsePanels() {
   document.querySelectorAll("[data-browser]").forEach((browser) => {
     const items = [...browser.querySelectorAll("[data-item]")];
     const panels = [...browser.querySelectorAll("[data-panel]")];
-    const filterButtons = [...browser.querySelectorAll("[data-filter-group]")];
+    const filterControls = [...browser.querySelectorAll("[data-filter-group]")];
     const state = {
       tag: "all",
       project: "all"
@@ -129,18 +129,15 @@ function initBrowsePanels() {
       });
     });
 
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const group = button.dataset.filterGroup;
-        const value = button.dataset.filterValue;
+    filterControls.forEach((control) => {
+      const handler = () => {
+        const group = control.dataset.filterGroup;
+        const value = control.tagName === "SELECT" ? control.value : control.dataset.filterValue;
         state[group] = value;
-
-        browser
-          .querySelectorAll(`[data-filter-group="${group}"]`)
-          .forEach((entry) => entry.classList.toggle("is-active", entry === button));
-
         applyFilters();
-      });
+      };
+
+      control.addEventListener(control.tagName === "SELECT" ? "change" : "click", handler);
     });
 
     const hash = window.location.hash.replace("#", "");
@@ -210,4 +207,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initToolFilters();
   initToc();
 });
-

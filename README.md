@@ -1,49 +1,52 @@
 # r7321.art
 
-Source code for the redesigned static site at `r7321.art`.
+Source code for my website.
 
-## Stack
+The site is currently built as a static 11ty project with markdown-based content for updates, projects, and tools.
 
-- 11ty for static builds
-- Markdown + front matter for updates, projects, and tools
-- Plain CSS and vanilla JS for layout, filters, navigation, and progressive enhancements
+### Development
 
-## Commands
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start local development:
+
+```bash
 npm run dev
+```
+
+Build the site:
+
+```bash
 npm run build
 ```
 
-## Content Structure
+### Structure
 
-- Updates: `src/content/updates/*.md`
-- Projects: `src/content/projects/*.md`
-- Tools: `src/content/tools/*.md`
-- Shared data: `src/_data/site.js`
-- Layouts: `src/_includes/layouts/`
-- Styles: `src/assets/css/site.css`
-- Scripts: `src/assets/js/site.js`
-- Static images: `src/images/`
+- `src/content/updates` contains update posts
+- `src/content/projects` contains project pages
+- `src/content/tools` contains tool pages
+- `src/images` contains site images and post media
+- `src/_includes` contains layouts
+- `src/assets` contains CSS and JavaScript
 
-## Weekly Publishing Flow
+### Notes
 
-1. Gather notes, links, media, and downloads.
-2. Draft the update or project entry with Kara.
-3. Add the final content as Markdown in the repo.
-4. Put media in a matching folder under `src/images/`.
-5. Run `npm run build` and review locally.
+The site supports:
 
-## Scaffolds
+- standalone update pages
+- standalone project pages
+- update tag filtering
+- project filtering in updates
+- a tools section for public releases and assets
 
-Starter files live in `scaffolds/`:
+### Scaffolds
+
+Starter files for new content live in:
 
 - `scaffolds/update.md`
 - `scaffolds/project.md`
 - `scaffolds/tool.md`
-
-## Notes
-
-- The repo is now the source of truth.
-- The old `uploadOnSave` workflow should stay disabled.
