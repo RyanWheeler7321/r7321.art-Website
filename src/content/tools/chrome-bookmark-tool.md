@@ -5,6 +5,7 @@ slug: chrome-bookmark-tool
 date: 2025-02-19
 summary: Custom Chrome extension for additional bookmark functionality.
 thumbnail: /images/tools/chrome-bookmark-tool/icon128.png
+icon: fas fa-bookmark
 tags:
   - tools
   - Browser Tool
@@ -21,4 +22,3 @@ Clone the files and enable developer mode in Chrome, hit load unpacked and selec
 Click extension pin to open menu, then select your desired bookmark folder.
 
 You can use the buttons to open a random bookmark from the selected folder, or open all bookmarks from the selected folder.
-

@@ -4,6 +4,7 @@ title: Krita Random Exporter
 slug: krita-random-exporter
 date: 2024-11-18
 summary: Python script for exporting large amounts of varying images from Krita.
+icon: fas fa-image
 tags:
   - tools
   - Krita Script

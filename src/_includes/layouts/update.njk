@@ -20,12 +20,6 @@ pageClass: page-update-detail
       {% endfor %}
     </div>
   </div>
-
-  {% if thumbnail %}
-    <div class="detail-hero-media">
-      <img src="{{ thumbnail }}" alt="{{ title }}">
-    </div>
-  {% endif %}
 </section>
 
 <section class="shell detail-layout">
@@ -36,7 +30,7 @@ pageClass: page-update-detail
   </article>
 
   <aside class="detail-aside">
-    <div class="detail-aside-card">
+    <div class="detail-aside-card" data-toc-card>
       <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
     </div>

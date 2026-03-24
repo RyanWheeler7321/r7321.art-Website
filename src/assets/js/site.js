@@ -174,13 +174,16 @@ function initToolFilters() {
 function initToc() {
   document.querySelectorAll("[data-prose]").forEach((prose) => {
     const toc = prose.closest("section")?.querySelector("[data-toc]");
+    const tocCard = prose.closest("section")?.querySelector("[data-toc-card]");
     if (!toc) {
       return;
     }
 
     const headings = [...prose.querySelectorAll("h2, h3")];
     if (!headings.length) {
-      toc.innerHTML = "<p class=\"toc-empty\">No sections in this entry.</p>";
+      if (tocCard) {
+        tocCard.hidden = true;
+      }
       return;
     }
 

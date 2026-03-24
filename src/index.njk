@@ -38,13 +38,15 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     </section>
 
     <section class="home-feature">
-      <h1>{{ featuredProject.data.title }}</h1>
+      <div class="home-feature-top">
+        <h1>{{ featuredProject.data.title }}</h1>
+        {% if featuredProject.data.externalLinks and featuredProject.data.externalLinks[0] %}
+          <a class="feature-link" href="{{ featuredProject.data.externalLinks[0].url }}" target="_blank" rel="noopener">
+            {{ featuredProject.data.externalLinks[0].label }}
+          </a>
+        {% endif %}
+      </div>
       <p>{{ featuredProject.data.summary }}</p>
-      {% if featuredProject.data.externalLinks and featuredProject.data.externalLinks[0] %}
-        <a class="feature-link" href="{{ featuredProject.data.externalLinks[0].url }}" target="_blank" rel="noopener">
-          {{ featuredProject.data.externalLinks[0].label }}
-        </a>
-      {% endif %}
     </section>
 
     <section class="home-projects">
@@ -78,6 +80,10 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
             <a class="tool-card home-list-card" href="{{ tool.url }}">
               {% if tool.data.thumbnail %}
                 <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+              {% else %}
+                <span class="tool-icon-fallback tool-icon-fallback-small" aria-hidden="true">
+                  <i class="{{ tool.data.icon or 'fas fa-circle' }}"></i>
+                </span>
               {% endif %}
               <div>
                 <h3>{{ tool.data.title }}</h3>

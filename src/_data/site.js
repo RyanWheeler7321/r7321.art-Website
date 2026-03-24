@@ -23,7 +23,6 @@ module.exports = {
       icon: "fab fa-spotify"
     },
     { label: "Patreon", href: "https://www.patreon.com/c/ryanwheeler", icon: "fab fa-patreon" },
-    { label: "Email", href: "mailto:ryanwheeler7321@gmail.com", icon: "fas fa-envelope" },
     { label: "YouTube", href: "https://www.youtube.com/@ryanwheeler7321", icon: "fab fa-youtube" },
     {
       label: "Reddit",
@@ -31,6 +30,7 @@ module.exports = {
       icon: "fab fa-reddit"
     },
     { label: "X", href: "https://x.com/ryanwheeler7321", icon: "fab fa-x-twitter" },
-    { label: "Bluesky", href: "https://bsky.app/profile/r7321.art", icon: "fab fa-bluesky" }
+    { label: "Bluesky", href: "https://bsky.app/profile/r7321.art", icon: "fab fa-bluesky" },
+    { label: "Email", href: "mailto:ryanwheeler7321@gmail.com", icon: "fas fa-envelope" }
   ]
 };
