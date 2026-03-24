@@ -977,6 +977,15 @@ p {
   grid-template-columns: minmax(0, 920px);
 }
 
+.detail-hero-centered {
+  justify-content: center;
+}
+
+.detail-hero-copy-centered {
+  text-align: center;
+  justify-self: center;
+}
+
 .page-tool-detail .detail-hero {
   align-items: start;
 }
@@ -997,12 +1006,35 @@ p {
   margin-bottom: 16px;
 }
 
+.detail-hero-copy-centered .detail-summary {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .detail-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin: 0 0 18px;
   color: var(--text-faint);
+}
+
+.detail-meta-split {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-meta-split .tag-row {
+  justify-content: flex-start;
+}
+
+.detail-date {
+  white-space: nowrap;
+}
+
+.detail-subnote {
+  color: var(--text-faint);
+  font-size: 0.94rem;
 }
 
 .detail-hero-media {
@@ -1167,7 +1199,7 @@ p {
 
 .media-frame .progressive-media,
 .media-gallery .progressive-media {
-  --content-media-max-height: min(33rem, 52vh);
+  --content-media-max-height: min(19rem, 26vh);
   width: min(100%, calc(var(--content-media-max-height) * (var(--ratio-w) / var(--ratio-h))));
   max-height: var(--content-media-max-height);
 }
@@ -1175,7 +1207,7 @@ p {
 .media-frame img,
 .media-gallery img {
   width: 100%;
-  max-height: min(33rem, 52vh);
+  max-height: min(19rem, 26vh);
   border-radius: 16px;
   box-shadow: var(--shadow);
   object-fit: contain;
@@ -1574,6 +1606,15 @@ p {
   .project-card-subhead {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .detail-meta-split {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-meta-split .tag-row {
+    justify-content: center;
   }
 
   .browse-layout {

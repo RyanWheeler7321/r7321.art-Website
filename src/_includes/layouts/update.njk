@@ -6,26 +6,26 @@ pageClass: page-update-detail
 {% set relatedUpdates = collections.updates | filterByProject(project) | excludeSlug(slug) | limit(3) %}
 {% set hasBodyContent = content | trim %}
 {% set hasAsideContent = relatedProject or relatedUpdates.length %}
+{% set displayTags = tags | displayTags %}
 
-<section class="detail-hero shell detail-hero-copy-first">
-  <div class="detail-hero-copy">
+<section class="detail-hero shell detail-hero-copy-first detail-hero-centered">
+  <div class="detail-hero-copy detail-hero-copy-centered">
     <h1>{{ title }}</h1>
     {% if summary %}
       <p class="detail-summary">{{ summary }}</p>
     {% endif %}
-    <div class="detail-meta">
-      <span>{{ date | readableDate }}</span>
-      {% if projectLabel or project %}
-        <span>Primary thread: {{ projectLabel or project }}</span>
-      {% endif %}
+    <div class="detail-meta detail-meta-split">
+      <div class="tag-row tag-row-compact">
+        {% for tag in displayTags %}
+          <span class="tag-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <span class="detail-date">{{ date | readableDate }}</span>
     </div>
-    <div class="tag-row">
-      {% for tag in tags | displayTags %}
-        <span class="tag-chip">{{ tag }}</span>
-      {% endfor %}
-    </div>
+    {% if projectLabel or project %}
+      <p class="detail-subnote">Primary thread: {{ projectLabel or project }}</p>
+    {% endif %}
   </div>
-
 </section>
 
 {% if hasBodyContent or hasAsideContent %}
@@ -41,11 +41,6 @@ pageClass: page-update-detail
     {% endif %}
 
     <aside class="detail-aside">
-      <div class="detail-aside-card" data-toc-card>
-        <p class="aside-title">Sections</p>
-        <nav data-toc class="toc-list"></nav>
-      </div>
-
       {% if relatedProject %}
         <div class="detail-aside-card">
           <p class="aside-title">Project</p>
