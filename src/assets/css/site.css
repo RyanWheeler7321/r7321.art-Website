@@ -1032,11 +1032,6 @@ p {
   white-space: nowrap;
 }
 
-.detail-subnote {
-  color: var(--text-faint);
-  font-size: 0.94rem;
-}
-
 .detail-hero-media {
   overflow: hidden;
   border-radius: 18px;
@@ -1063,6 +1058,10 @@ p {
 
 .detail-layout-single {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.detail-layout-update {
+  max-width: 1200px;
 }
 
 .detail-layout-with-aside {
@@ -1199,7 +1198,7 @@ p {
 
 .media-frame .progressive-media,
 .media-gallery .progressive-media {
-  --content-media-max-height: min(19rem, 26vh);
+  --content-media-max-height: min(38rem, 52vh);
   width: min(100%, calc(var(--content-media-max-height) * (var(--ratio-w) / var(--ratio-h))));
   max-height: var(--content-media-max-height);
 }
@@ -1207,7 +1206,7 @@ p {
 .media-frame img,
 .media-gallery img {
   width: 100%;
-  max-height: min(19rem, 26vh);
+  max-height: min(38rem, 52vh);
   border-radius: 16px;
   box-shadow: var(--shadow);
   object-fit: contain;
@@ -1243,10 +1242,10 @@ p {
 }
 
 .content-column-text {
-  padding: 22px;
-  border: 1px solid rgba(195, 138, 255, 0.14);
-  border-radius: 18px;
-  background: rgba(195, 138, 255, 0.05);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .content-column-media {

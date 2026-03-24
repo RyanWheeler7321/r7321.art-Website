@@ -2,10 +2,7 @@
 layout: layouts/base.njk
 pageClass: page-update-detail
 ---
-{% set relatedProject = collections.projects | findBySlug(project) %}
-{% set relatedUpdates = collections.updates | filterByProject(project) | excludeSlug(slug) | limit(3) %}
 {% set hasBodyContent = content | trim %}
-{% set hasAsideContent = relatedProject or relatedUpdates.length %}
 {% set displayTags = tags | displayTags %}
 
 <section class="detail-hero shell detail-hero-copy-first detail-hero-centered">
@@ -22,48 +19,15 @@ pageClass: page-update-detail
       </div>
       <span class="detail-date">{{ date | readableDate }}</span>
     </div>
-    {% if projectLabel or project %}
-      <p class="detail-subnote">Primary thread: {{ projectLabel or project }}</p>
-    {% endif %}
   </div>
 </section>
 
-{% if hasBodyContent or hasAsideContent %}
-  <section class="shell detail-layout detail-layout-with-aside">
-    {% if hasBodyContent %}
-      <article class="detail-article">
-        <div class="detail-prose" data-prose>
-          {{ content | safe }}
-        </div>
-      </article>
-    {% else %}
-      <div class="detail-layout-spacer" aria-hidden="true"></div>
-    {% endif %}
-
-    <aside class="detail-aside">
-      {% if relatedProject %}
-        <div class="detail-aside-card">
-          <p class="aside-title">Project</p>
-          <a class="mini-card" href="{{ relatedProject.url }}">
-            <img src="{{ relatedProject.data.thumbnail }}" alt="{{ relatedProject.data.title }}">
-            <span>{{ relatedProject.data.title }}</span>
-          </a>
-        </div>
-      {% endif %}
-
-      {% if relatedUpdates.length %}
-        <div class="detail-aside-card">
-          <p class="aside-title">Related updates</p>
-          <div class="stack-list">
-            {% for entry in relatedUpdates %}
-              <a class="stack-link" href="{{ entry.url }}">
-                <strong>{{ entry.data.title }}</strong>
-                <span>{{ entry.date | teaserDate }}</span>
-              </a>
-            {% endfor %}
-          </div>
-        </div>
-      {% endif %}
-    </aside>
+{% if hasBodyContent %}
+  <section class="shell detail-layout detail-layout-single detail-layout-update">
+    <article class="detail-article">
+      <div class="detail-prose" data-prose>
+        {{ content | safe }}
+      </div>
+    </article>
   </section>
 {% endif %}
