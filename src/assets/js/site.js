@@ -27,7 +27,8 @@ function initNavigation() {
         inner.style.setProperty("--header-fit-scale", "1");
 
         if (mobileQuery.matches) {
-          const mobileScale = Math.max(1, Math.min(1.08, (window.innerWidth - 20) / 390));
+          const trayWidth = Math.max(280, header.clientWidth - 28);
+          const mobileScale = Math.max(1, Math.min(1.34, trayWidth / 300));
           inner.style.setProperty("--mobile-menu-scale", mobileScale.toFixed(3));
           return;
         }
@@ -272,17 +273,39 @@ function initProgressiveMedia() {
       return;
     }
 
+    let loaded = false;
     const markLoaded = () => {
+      if (loaded || !full.naturalWidth) {
+        return;
+      }
+      loaded = true;
       wrapper.classList.add("is-loaded");
-      full.classList.add("is-loaded");
     };
 
-    if (full.complete) {
+    if (full.complete && full.naturalWidth) {
       markLoaded();
       return;
     }
 
+    if (typeof full.decode === "function") {
+      full.decode().then(markLoaded).catch(() => {});
+    }
+
     full.addEventListener("load", markLoaded, { once: true });
+
+    let tries = 0;
+    const interval = window.setInterval(() => {
+      tries += 1;
+      if (full.complete && full.naturalWidth) {
+        markLoaded();
+        window.clearInterval(interval);
+        return;
+      }
+
+      if (tries > 40) {
+        window.clearInterval(interval);
+      }
+    }, 250);
   });
 }
 

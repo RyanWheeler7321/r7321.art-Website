@@ -36,9 +36,22 @@ function identifySize(filePath) {
   return { width, height };
 }
 
-function buildPlaceholder(sourcePath, outputPath) {
+function getPlaceholderSettings(relPosix) {
+  if (relPosix === "brand/headerimage.png") {
+    return { width: 1280, quality: 64 };
+  }
+
+  if (relPosix.startsWith("projects/")) {
+    return { width: 420, quality: 50 };
+  }
+
+  return { width: 420, quality: 40 };
+}
+
+function buildPlaceholder(sourcePath, outputPath, relPosix) {
   const ext = path.extname(sourcePath).toLowerCase();
   const inputArg = ext === ".gif" ? `${sourcePath}[0]` : sourcePath;
+  const settings = getPlaceholderSettings(relPosix);
   execFileSync(
     "magick",
     [
@@ -46,9 +59,9 @@ function buildPlaceholder(sourcePath, outputPath) {
       "-auto-orient",
       "-strip",
       "-resize",
-      "64x64>",
+      `${settings.width}x`,
       "-quality",
-      "26",
+      String(settings.quality),
       outputPath
     ],
     { stdio: "ignore" }
@@ -69,7 +82,7 @@ for (const file of allFiles) {
 
   await ensureDir(path.dirname(placeholderAbs));
   const { width, height } = identifySize(file);
-  buildPlaceholder(file, placeholderAbs);
+  buildPlaceholder(file, placeholderAbs, relPosix);
 
   manifest[publicPath] = {
     width,

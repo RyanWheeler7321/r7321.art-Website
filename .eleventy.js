@@ -45,16 +45,17 @@ const imageManifest = loadImageManifest();
 
 function renderManagedImage(src, alt = "", classes = "", eager = false) {
   const meta = imageManifest[src];
-  const loading = eager ? "eager" : "lazy";
+  const loading = eager ? "eager" : "auto";
+  const fetchpriority = eager ? "high" : "auto";
   const classAttr = classes ? ` ${classes}` : "";
 
   if (!meta) {
-    return `<img src="${src}" alt="${alt}" loading="${loading}">`;
+    return `<img src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}">`;
   }
 
   return `<span class="progressive-media${classAttr}" style="aspect-ratio:${meta.width}/${meta.height};">
 <img class="progressive-preview" src="${meta.placeholder}" alt="" aria-hidden="true" loading="eager" decoding="async" width="${meta.width}" height="${meta.height}">
-<img class="progressive-full" src="${src}" alt="${alt}" loading="${loading}" decoding="async" width="${meta.width}" height="${meta.height}">
+<img class="progressive-full" src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
 </span>`;
 }
 

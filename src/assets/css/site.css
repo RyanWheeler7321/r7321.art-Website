@@ -69,23 +69,20 @@ img {
 }
 
 .progressive-preview {
+  z-index: 2;
   filter: blur(0.5px) saturate(0.95);
   transform: scale(1.02);
-}
-
-.progressive-full {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 180ms ease;
 }
 
-.progressive-media.is-loaded .progressive-full,
-.progressive-full.is-loaded {
-  opacity: 1;
+.progressive-full {
+  z-index: 1;
 }
 
 .progressive-media.is-loaded .progressive-preview {
   opacity: 0;
-  transition: opacity 180ms ease;
+  pointer-events: none;
 }
 
 button,
@@ -1072,6 +1069,11 @@ p {
   box-shadow: var(--shadow);
 }
 
+.page-project-detail .detail-prose .media-frame-gif {
+  max-width: min(100%, 920px);
+  margin: 0 auto;
+}
+
 .media-frame figcaption,
 .media-gallery figcaption {
   margin-top: 8px;
@@ -1263,21 +1265,29 @@ p {
   }
 
   .nav-list {
-    gap: clamp(10px, 3.4vw, 16px);
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px clamp(12px, 3vw, 18px);
+    justify-content: stretch;
   }
 
   .nav-list a {
     font-size: clamp(1.05rem, calc(1.16rem * var(--mobile-menu-scale)), 1.22rem);
+    display: flex;
+    justify-content: center;
   }
 
   .social-list {
-    justify-content: center;
-    gap: clamp(8px, 2.5vw, 12px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(32px, 7vw, 44px), 1fr));
+    gap: 10px clamp(10px, 2.8vw, 16px);
+    justify-content: stretch;
   }
 
   .social-list a {
     font-size: clamp(1.16rem, calc(1.34rem * var(--mobile-menu-scale)), 1.42rem);
+    display: flex;
+    justify-content: center;
   }
 
   .update-button,
@@ -1369,6 +1379,7 @@ p {
 
   .social-list {
     gap: 8px 10px;
+    grid-template-columns: repeat(auto-fit, minmax(28px, 1fr));
   }
 }
 

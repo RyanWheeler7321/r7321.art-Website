@@ -57,7 +57,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-project-grid">
         {% for project in projectItems %}
           <a class="project-button home-project-card" href="{{ project.url }}">
-            {% managedImage project.data.thumbnail, project.data.title, "home-project-managed", false %}
+            {% managedImage project.data.thumbnail, project.data.title, "home-project-managed", true %}
             <div class="project-button-copy">
               <h3>{{ project.data.title }}</h3>
               <p>{{ project.data.dateLabel }}</p>
