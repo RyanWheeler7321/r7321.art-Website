@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+pageClass: page-projects
+title: Projects
+description: Browse finished and active game projects by Ryan Wheeler.
+---
+{% set featuredProject = collections.projects | featuredProject %}
+
+<section class="shell page-intro">
+  <div>
+    <p class="eyebrow">Projects</p>
+    <h1>Games and larger bodies of work, with room for actual context.</h1>
+  </div>
+  <p>
+    Projects are deliberately more visual than updates. They need to read like portfolio pieces, not list items.
+  </p>
+</section>
+
+<section class="shell project-hero-band">
+  <a class="project-hero-card" href="{{ featuredProject.url }}">
+    <div class="project-hero-image">
+      <img src="{{ featuredProject.data.heroImage or featuredProject.data.thumbnail }}" alt="{{ featuredProject.data.title }}">
+    </div>
+    <div class="project-hero-copy">
+      <p class="eyebrow">Featured project</p>
+      <h2>{{ featuredProject.data.title }}</h2>
+      <p>{{ featuredProject.data.summary }}</p>
+      <div class="meta-row">
+        <span class="tag-chip">{{ featuredProject.data.status }}</span>
+        <span>{{ featuredProject.data.dateLabel }}</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<section class="shell project-card-grid">
+  {% for project in collections.projects %}
+    <article class="project-card">
+      <a class="project-card-media" href="{{ project.url }}">
+        <img src="{{ project.data.thumbnail }}" alt="{{ project.data.title }}">
+      </a>
+      <div class="project-card-copy">
+        <div class="meta-row">
+          <span class="tag-chip">{{ project.data.status }}</span>
+          <span>{{ project.data.dateLabel }}</span>
+        </div>
+        <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+        <p>{{ project.data.summary }}</p>
+        <div class="tag-row">
+          {% for tag in project.data.tags | displayTags %}
+            <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+

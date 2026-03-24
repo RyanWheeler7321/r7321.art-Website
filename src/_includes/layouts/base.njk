@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body class="{{ pageClass or '' }}">
+  <canvas class="particle-canvas" data-particle-canvas aria-hidden="true"></canvas>
+  <div class="site-backdrop" aria-hidden="true">
+    <div class="site-backdrop-grid"></div>
+    <div class="site-glow site-glow-a"></div>
+    <div class="site-glow site-glow-b"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell site-header-inner">
+      <a class="brand-link" href="/">
+        <span class="brand-mark">~</span>
+        <span class="brand-copy">{{ site.shortTitle }}</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-nav-toggle
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" data-site-nav>
+        <ul class="nav-list">
+          {% for item in site.navigation %}
+            {% set isHome = item.href == "/" %}
+            {% set isActive = (isHome and page.url == "/") or ((not isHome) and page.url.startsWith(item.href)) %}
+            <li>
+              <a href="{{ item.href }}" class="{% if isActive %}is-active{% endif %}">
+                {{ item.label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <ul class="social-list">
+          {% for social in site.socials %}
+            <li>
+              <a href="{{ social.href }}" target="_blank" rel="noopener" aria-label="{{ social.label }}">
+                <i class="{{ social.icon }}"></i>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer-inner">
+      <div>
+        <p class="footer-kicker">{{ site.identity.eyebrow }}</p>
+        <p class="footer-copy">{{ site.description }}</p>
+      </div>
+      <div class="footer-links">
+        {% for item in site.navigation %}
+          <a href="{{ item.href }}">{{ item.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

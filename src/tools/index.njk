@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+pageClass: page-tools
+title: Tools
+description: Public tools, utilities, and downloadable assets by Ryan Wheeler.
+---
+{% set toolTags = collections.tools | collectTerms("tags") %}
+
+<section class="shell page-intro">
+  <div>
+    <p class="eyebrow">Tools</p>
+    <h1>Utilities, assets, and free releases that should be easy to grab.</h1>
+  </div>
+  <p>
+    Categories are data-driven. They only appear when you actually publish something in them.
+  </p>
+</section>
+
+{% if collections.tools.length %}
+  <section class="shell tools-filter-row" data-tool-filter>
+    <div class="chip-list">
+      <button class="chip-button is-active" type="button" data-tool-filter-value="all">All</button>
+      {% for tag in toolTags %}
+        <button class="chip-button" type="button" data-tool-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="shell tool-grid" data-tool-grid>
+    {% for tool in collections.tools %}
+      {% set toolTagsDisplay = tool.data.tags | displayTags %}
+      <article class="tool-grid-card" data-tool-item data-tags="{% for tag in toolTagsDisplay %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}">
+        <a href="{{ tool.url }}">
+          <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+        </a>
+        <div class="tool-grid-copy">
+          <h2><a href="{{ tool.url }}">{{ tool.data.title }}</a></h2>
+          <p>{{ tool.data.summary }}</p>
+          <div class="tag-row">
+            {% for tag in toolTagsDisplay %}
+              <span class="tag-chip">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% else %}
+  <section class="shell empty-state-panel">
+    <div class="empty-state-card empty-state-card-wide">
+      <p class="eyebrow">Structure first</p>
+      <h2>The tools shelf is ready, even before the first batch is filled in.</h2>
+      <p>
+        This page is built to support Unity tools, downloadable assets, raw files, GitHub releases, and optional dedicated tool pages without another redesign pass.
+      </p>
+      <p>
+        When new tool types appear, their categories will appear automatically from content metadata instead of being pre-baked into the layout.
+      </p>
+    </div>
+  </section>
+{% endif %}
+

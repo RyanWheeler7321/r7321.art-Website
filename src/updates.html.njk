@@ -1,0 +1,23 @@
+---
+permalink: updates.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=/updates/">
+  <script>
+    const redirects = {
+      u1: "/updates/website-launch/",
+      u2: "/updates/sidereal-completed/",
+      u3: "/updates/new-game-projects/"
+    };
+    const key = window.location.hash.replace("#", "");
+    window.location.replace(redirects[key] || "/updates/");
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body></body>
+</html>
+

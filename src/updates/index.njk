@@ -1,0 +1,94 @@
+---
+layout: layouts/base.njk
+pageClass: page-updates
+title: Updates
+description: Browse Ryan Wheeler's weekly updates by tag, project, and post.
+---
+{% set updateTags = collections.updates | collectTerms("tags") %}
+{% set updateProjects = collections.updates | collectTerms("projectLabel") %}
+{% set activeUpdate = collections.updates[0] %}
+
+<section class="shell page-intro">
+  <div>
+    <p class="eyebrow">Updates</p>
+    <h1>Weekly progress, grouped cleanly enough to browse later.</h1>
+  </div>
+  <p>
+    The left side stays fast to scan. The right side previews the currently selected entry. Every update also has its own standalone page.
+  </p>
+</section>
+
+<section class="shell browse-layout" data-browser data-default-panel="{{ activeUpdate.data.slug }}">
+  <aside class="browse-sidebar">
+    <div class="filter-block">
+      <p class="aside-title">Topics</p>
+      <div class="chip-list">
+        <button class="chip-button is-active" type="button" data-filter-group="tag" data-filter-value="all">All</button>
+        {% for tag in updateTags %}
+          <button class="chip-button" type="button" data-filter-group="tag" data-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="filter-block">
+      <p class="aside-title">Projects</p>
+      <div class="chip-list">
+        <button class="chip-button is-active" type="button" data-filter-group="project" data-filter-value="all">All</button>
+        {% for projectName in updateProjects %}
+          <button class="chip-button" type="button" data-filter-group="project" data-filter-value="{{ projectName | slugify }}">{{ projectName }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="browse-list">
+      {% for update in collections.updates %}
+        {% set updateTagValues = update.data.tags | displayTags %}
+        <a
+          class="browse-item {% if loop.first %}is-active{% endif %}"
+          href="#{{ update.data.slug }}"
+          data-item
+          data-slug="{{ update.data.slug }}"
+          data-tags="{% for tag in updateTagValues %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}"
+          data-project="{{ update.data.project | slugify }}"
+        >
+          <img src="{{ update.data.thumbnail }}" alt="{{ update.data.title }}">
+          <div class="browse-item-copy">
+            <div class="meta-row">
+              <span>{{ update.date | teaserDate }}</span>
+            </div>
+            <strong>{{ update.data.title }}</strong>
+            <span>{{ update.data.summary }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </aside>
+
+  <div class="browse-preview">
+    {% for update in collections.updates %}
+      <article
+        class="browse-panel {% if loop.first %}is-active{% endif %}"
+        id="{{ update.data.slug }}"
+        data-panel
+        data-slug="{{ update.data.slug }}"
+      >
+        <div class="browse-panel-meta">
+          <div>
+            <p class="eyebrow">Preview</p>
+            <h2>{{ update.data.title }}</h2>
+          </div>
+          <a class="button button-secondary" href="{{ update.url }}">Open standalone</a>
+        </div>
+        <div class="meta-row">
+          <span>{{ update.date | readableDate }}</span>
+          {% for tag in update.data.tags | displayTags %}
+            <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="browse-panel-prose detail-prose">
+          {{ update.templateContent | safe }}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

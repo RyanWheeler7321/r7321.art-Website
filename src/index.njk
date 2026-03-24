@@ -1,0 +1,167 @@
+---
+layout: layouts/base.njk
+pageClass: page-home
+title: Home
+description: Ryan Wheeler's games, art, updates, and public release hub.
+---
+{% set featuredProject = collections.projects | featuredProject %}
+{% set recentUpdates = collections.updates | limit(3) %}
+{% set latestProject = collections.projects[0] %}
+{% set tools = collections.tools | limit(4) %}
+
+<section class="hero-shell shell">
+  <div class="hero-grid">
+    <div class="hero-copy-panel">
+      <p class="eyebrow">{{ site.identity.eyebrow }}</p>
+      <h1>{{ site.identity.headline }}</h1>
+      <p class="hero-summary">{{ site.identity.summary }}</p>
+
+      <div class="cta-row">
+        <a class="button button-primary" href="{{ featuredProject.url }}">Open Featured Project</a>
+        <a class="button button-secondary" href="/updates/">Browse Updates</a>
+      </div>
+
+      <div class="hero-note-grid">
+        <div class="hero-note-card">
+          <span class="hero-note-label">Current flagship</span>
+          <strong>{{ featuredProject.data.title }}</strong>
+          <p>{{ featuredProject.data.summary }}</p>
+        </div>
+        <div class="hero-note-card">
+          <span class="hero-note-label">Publishing rhythm</span>
+          <strong>Weekly website updates</strong>
+          <p>Updates are designed to support Friday posting without turning the site into a maintenance tax.</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="hero-feature-card" href="{{ featuredProject.url }}">
+      <div class="hero-feature-image">
+        <img src="{{ featuredProject.data.heroImage or featuredProject.data.thumbnail }}" alt="{{ featuredProject.data.title }}">
+      </div>
+      <div class="hero-feature-copy">
+        <div class="hero-feature-meta meta-row">
+          <span class="tag-chip">{{ featuredProject.data.status }}</span>
+          <span>{{ featuredProject.data.dateLabel }}</span>
+        </div>
+        <h2>{{ featuredProject.data.title }}</h2>
+        <p>{{ featuredProject.data.summary }}</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="shell pillar-band">
+  {% for pillar in site.pillars %}
+    <article class="pillar-card">
+      <p class="eyebrow">{{ pillar.title }}</p>
+      <p>{{ pillar.text }}</p>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="shell section-header">
+  <div>
+    <p class="eyebrow">Recent updates</p>
+    <h2>Follow the work week by week.</h2>
+  </div>
+  <a class="section-link" href="/updates/">Open all updates</a>
+</section>
+
+<section class="shell update-preview-grid">
+  {% for update in recentUpdates %}
+    <article class="update-card">
+      <a class="update-card-image" href="{{ update.url }}">
+        <img src="{{ update.data.thumbnail }}" alt="{{ update.data.title }}">
+      </a>
+      <div class="update-card-copy">
+        <div class="meta-row">
+          <span>{{ update.date | teaserDate }}</span>
+          {% for tag in update.data.tags | displayTags | limit(2) %}
+            <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <h3><a href="{{ update.url }}">{{ update.data.title }}</a></h3>
+        <p>{{ update.data.summary }}</p>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+<section class="shell split-showcase">
+  <div class="section-panel">
+    <div class="section-header section-header-inline">
+      <div>
+        <p class="eyebrow">Projects</p>
+        <h2>Finished work and active long-form projects.</h2>
+      </div>
+      <a class="section-link" href="/projects/">Browse projects</a>
+    </div>
+
+    <div class="project-showcase-grid">
+      {% for project in collections.projects | limit(3) %}
+        <a class="project-showcase-card {% if project.data.featured %}project-showcase-card-featured{% endif %}" href="{{ project.url }}">
+          <img src="{{ project.data.thumbnail }}" alt="{{ project.data.title }}">
+          <div class="project-showcase-copy">
+            <div class="meta-row">
+              <span class="tag-chip">{{ project.data.status }}</span>
+              <span>{{ project.data.dateLabel }}</span>
+            </div>
+            <h3>{{ project.data.title }}</h3>
+            <p>{{ project.data.summary }}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="section-panel">
+    <div class="section-header section-header-inline">
+      <div>
+        <p class="eyebrow">Tools</p>
+        <h2>Public assets and utilities.</h2>
+      </div>
+      <a class="section-link" href="/tools/">Open tools</a>
+    </div>
+
+    {% if tools.length %}
+      <div class="tool-card-list">
+        {% for tool in tools %}
+          <a class="tool-card" href="{{ tool.url }}">
+            <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+            <div>
+              <h3>{{ tool.data.title }}</h3>
+              <p>{{ tool.data.summary }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state-card">
+        <p class="eyebrow">Soon</p>
+        <h3>Tools and downloadable assets will live here.</h3>
+        <p>
+          The structure is in place now so Unity tools, CC0 assets, and future download pages can be added without reshaping the whole site again.
+        </p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="shell manifesto-band">
+  <div class="manifesto-card">
+    <p class="eyebrow">Why this site exists</p>
+    <h2>A portfolio, a release log, and a weekly completion engine.</h2>
+    <p>
+      The site is meant to make finished work legible, public progress easy to follow, useful tools easy to grab, and weekly output harder to ignore.
+    </p>
+  </div>
+  {% if latestProject %}
+    <a class="manifesto-sidecard" href="{{ latestProject.url }}">
+      <span class="eyebrow">Latest project focus</span>
+      <strong>{{ latestProject.data.title }}</strong>
+      <p>{{ latestProject.data.summary }}</p>
+    </a>
+  {% endif %}
+</section>
+

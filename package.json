@@ -1,0 +1,16 @@
+{
+  "name": "r7321-art-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static source for r7321.art",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0"
+  }
+}
+

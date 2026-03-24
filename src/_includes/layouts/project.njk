@@ -1,0 +1,71 @@
+---
+layout: layouts/base.njk
+pageClass: page-project-detail
+---
+{% set relatedUpdates = collections.updates | filterByProject(slug) | limit(4) %}
+
+<section class="detail-hero shell detail-hero-project">
+  <div class="detail-hero-copy">
+    <p class="eyebrow">Project</p>
+    <h1>{{ title }}</h1>
+    <p class="detail-summary">{{ summary }}</p>
+    <div class="detail-meta">
+      {% if status %}<span>{{ status }}</span>{% endif %}
+      <span>{{ dateLabel or (date | readableDate) }}</span>
+      {% if platforms %}
+        <span>{{ platforms | join(" / ") }}</span>
+      {% endif %}
+    </div>
+    <div class="tag-row">
+      {% for tag in tags | displayTags %}
+        <span class="tag-chip">{{ tag }}</span>
+      {% endfor %}
+    </div>
+
+    {% if externalLinks %}
+      <div class="cta-row">
+        {% for link in externalLinks %}
+          <a class="button button-primary" href="{{ link.url }}" target="_blank" rel="noopener">
+            {{ link.label }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if heroImage or thumbnail %}
+    <div class="detail-hero-media project-media">
+      <img src="{{ heroImage or thumbnail }}" alt="{{ title }}">
+    </div>
+  {% endif %}
+</section>
+
+<section class="shell detail-layout">
+  <article class="detail-article">
+    <div class="detail-prose" data-prose>
+      {{ content | safe }}
+    </div>
+  </article>
+
+  <aside class="detail-aside">
+    <div class="detail-aside-card">
+      <p class="aside-title">Page map</p>
+      <nav data-toc class="toc-list"></nav>
+    </div>
+
+    {% if relatedUpdates.length %}
+      <div class="detail-aside-card">
+        <p class="aside-title">Related updates</p>
+        <div class="stack-list">
+          {% for update in relatedUpdates %}
+            <a class="stack-link" href="{{ update.url }}">
+              <strong>{{ update.data.title }}</strong>
+              <span>{{ update.date | teaserDate }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </aside>
+</section>
+

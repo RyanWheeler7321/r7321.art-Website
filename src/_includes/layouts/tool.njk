@@ -1,0 +1,46 @@
+---
+layout: layouts/base.njk
+pageClass: page-tool-detail
+---
+<section class="detail-hero shell">
+  <div class="detail-hero-copy">
+    <p class="eyebrow">Tool</p>
+    <h1>{{ title }}</h1>
+    <p class="detail-summary">{{ summary }}</p>
+    <div class="tag-row">
+      {% for tag in tags | displayTags %}
+        <span class="tag-chip">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% if externalLinks %}
+      <div class="cta-row">
+        {% for link in externalLinks %}
+          <a class="button button-primary" href="{{ link.url }}" target="_blank" rel="noopener">
+            {{ link.label }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if thumbnail %}
+    <div class="detail-hero-media">
+      <img src="{{ thumbnail }}" alt="{{ title }}">
+    </div>
+  {% endif %}
+</section>
+
+<section class="shell detail-layout">
+  <article class="detail-article">
+    <div class="detail-prose" data-prose>
+      {{ content | safe }}
+    </div>
+  </article>
+
+  <aside class="detail-aside">
+    <div class="detail-aside-card">
+      <p class="aside-title">Page map</p>
+      <nav data-toc class="toc-list"></nav>
+    </div>
+  </aside>
+</section>

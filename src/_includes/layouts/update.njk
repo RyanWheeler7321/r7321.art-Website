@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+pageClass: page-update-detail
+---
+{% set relatedProject = collections.projects | findBySlug(project) %}
+{% set relatedUpdates = collections.updates | filterByProject(project) | excludeSlug(slug) | limit(3) %}
+
+<section class="detail-hero shell">
+  <div class="detail-hero-copy">
+    <p class="eyebrow">Update</p>
+    <h1>{{ title }}</h1>
+    <p class="detail-summary">{{ summary }}</p>
+    <div class="detail-meta">
+      <span>{{ date | readableDate }}</span>
+      {% if projectLabel or project %}
+        <span>Primary thread: {{ projectLabel or project }}</span>
+      {% endif %}
+    </div>
+    <div class="tag-row">
+      {% for tag in tags | displayTags %}
+        <span class="tag-chip">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if thumbnail %}
+    <div class="detail-hero-media">
+      <img src="{{ thumbnail }}" alt="{{ title }}">
+    </div>
+  {% endif %}
+</section>
+
+<section class="shell detail-layout">
+  <article class="detail-article">
+    <div class="detail-prose" data-prose>
+      {{ content | safe }}
+    </div>
+  </article>
+
+  <aside class="detail-aside">
+    <div class="detail-aside-card">
+      <p class="aside-title">In this post</p>
+      <nav data-toc class="toc-list"></nav>
+    </div>
+
+    {% if relatedProject %}
+      <div class="detail-aside-card">
+        <p class="aside-title">Related project</p>
+        <a class="mini-card" href="{{ relatedProject.url }}">
+          <img src="{{ relatedProject.data.thumbnail }}" alt="{{ relatedProject.data.title }}">
+          <span>{{ relatedProject.data.title }}</span>
+        </a>
+      </div>
+    {% endif %}
+
+    {% if relatedUpdates.length %}
+      <div class="detail-aside-card">
+        <p class="aside-title">More from this thread</p>
+        <div class="stack-list">
+          {% for entry in relatedUpdates %}
+            <a class="stack-link" href="{{ entry.url }}">
+              <strong>{{ entry.data.title }}</strong>
+              <span>{{ entry.date | teaserDate }}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </aside>
+</section>
