@@ -27,7 +27,9 @@ async function ensureDir(target) {
 }
 
 function identifySize(filePath) {
-  const output = execFileSync("magick", ["identify", "-ping", "-format", "%w %h", filePath], {
+  const ext = path.extname(filePath).toLowerCase();
+  const inputArg = ext === ".gif" ? `${filePath}[0]` : filePath;
+  const output = execFileSync("magick", ["identify", "-ping", "-format", "%w %h", inputArg], {
     encoding: "utf8"
   }).trim();
   const [width, height] = output.split(/\s+/).map(Number);

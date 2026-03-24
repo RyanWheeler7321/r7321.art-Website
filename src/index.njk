@@ -33,7 +33,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
   <div class="home-main-column">
     <section class="home-splash">
       <a class="home-splash-link" href="{{ featuredProject.url }}">
-        <img src="{{ featuredProject.data.heroImage or featuredProject.data.thumbnail }}" alt="{{ featuredProject.data.title }}">
+        {% managedImage featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-managed", true %}
       </a>
     </section>
 
@@ -57,7 +57,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-project-grid">
         {% for project in projectItems %}
           <a class="project-button home-project-card" href="{{ project.url }}">
-            <img src="{{ project.data.thumbnail }}" alt="{{ project.data.title }}">
+            {% managedImage project.data.thumbnail, project.data.title, "home-project-managed", false %}
             <div class="project-button-copy">
               <h3>{{ project.data.title }}</h3>
               <p>{{ project.data.dateLabel }}</p>

@@ -14,13 +14,15 @@
   --radius-lg: 16px;
   --radius-md: 10px;
   --shell: min(1240px, calc(100vw - 32px));
-  --header-pad-x: clamp(18px, 2vw, 32px);
-  --header-gap: clamp(14px, 2.4vw, 46px);
-  --nav-gap: clamp(14px, 1.9vw, 22px);
-  --social-gap: clamp(10px, 1.4vw, 16px);
-  --brand-size: clamp(2.1rem, 3vw, 2.9rem);
-  --nav-size: clamp(1.2rem, 1.95vw, 1.85rem);
-  --social-size: clamp(1.35rem, 2vw, 2.1rem);
+  --header-fit-scale: 1;
+  --mobile-menu-scale: 1;
+  --header-pad-x: clamp(18px, calc(32px * var(--header-fit-scale)), 32px);
+  --header-gap: clamp(14px, calc(46px * var(--header-fit-scale)), 46px);
+  --nav-gap: clamp(12px, calc(22px * var(--header-fit-scale)), 22px);
+  --social-gap: clamp(10px, calc(16px * var(--header-fit-scale)), 16px);
+  --brand-size: clamp(2.05rem, calc(2.9rem * var(--header-fit-scale)), 2.9rem);
+  --nav-size: clamp(1.1rem, calc(1.85rem * var(--header-fit-scale)), 1.85rem);
+  --social-size: clamp(1.35rem, calc(2.1rem * var(--header-fit-scale)), 2.1rem);
 }
 
 *,
@@ -50,6 +52,47 @@ a {
 img {
   max-width: 100%;
   display: block;
+}
+
+.progressive-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  background: #120d18;
+}
+
+.progressive-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.progressive-preview,
+.progressive-full {
+  position: absolute;
+  inset: 0;
+}
+
+.progressive-preview {
+  filter: blur(0.5px) saturate(0.95);
+  transform: scale(1.02);
+}
+
+.progressive-full {
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.progressive-media.is-loaded .progressive-full,
+.progressive-full.is-loaded {
+  opacity: 1;
+}
+
+.progressive-media.is-loaded .progressive-preview {
+  opacity: 0;
+  transition: opacity 180ms ease;
 }
 
 button,
@@ -208,6 +251,11 @@ main {
   transform: translateY(-2px);
 }
 
+.social-list a:hover i,
+.social-list a:focus-visible i {
+  color: var(--primary);
+}
+
 .nav-toggle {
   display: none;
   width: 46px;
@@ -330,6 +378,10 @@ p {
 .home-splash-link:hover {
   transform: translateY(-3px) scale(1.01);
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4);
+}
+
+.home-splash-managed {
+  border-radius: 10px;
 }
 
 .home-feature {
@@ -709,6 +761,10 @@ p {
 }
 
 .home-project-card img {
+  max-height: 150px;
+}
+
+.home-project-managed {
   max-height: 150px;
 }
 
@@ -1212,7 +1268,7 @@ p {
   }
 
   .nav-list a {
-    font-size: clamp(0.95rem, 3vw, 1.12rem);
+    font-size: clamp(1rem, calc(1.12rem * var(--mobile-menu-scale)), 1.18rem);
   }
 
   .social-list {
@@ -1221,7 +1277,7 @@ p {
   }
 
   .social-list a {
-    font-size: clamp(1rem, 3.3vw, 1.22rem);
+    font-size: clamp(1.1rem, calc(1.28rem * var(--mobile-menu-scale)), 1.34rem);
   }
 
   .update-button,
