@@ -120,11 +120,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 42px;
+  gap: 52px;
   width: auto;
   max-width: calc(100% - 40px);
   margin: 0 auto;
-  padding: 15px 30px;
+  padding: 18px 38px;
   background: rgba(16, 12, 23, 0.92);
   border: 1px solid rgba(195, 138, 255, 0.12);
   border-radius: 16px;
@@ -139,7 +139,7 @@ main {
 
 .brand-copy {
   color: var(--primary);
-  font-size: 2.9rem;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
@@ -147,7 +147,7 @@ main {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 42px;
+  gap: 50px;
 }
 
 .nav-list,
@@ -156,7 +156,7 @@ main {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 16px;
+  gap: 22px;
   padding: 0;
   margin: 0;
 }
@@ -164,7 +164,7 @@ main {
 .nav-list a {
   color: rgba(255, 255, 255, 0.94);
   font-family: "Space Grotesk", sans-serif;
-  font-size: 1.78rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -178,12 +178,12 @@ main {
 }
 
 .social-list {
-  gap: 14px;
+  gap: 16px;
 }
 
 .social-list a {
   color: rgba(255, 255, 255, 0.94);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -426,7 +426,7 @@ p {
 
 .home-layout {
   display: grid;
-  grid-template-columns: minmax(220px, 270px) minmax(0, 1fr) minmax(220px, 270px);
+  grid-template-columns: minmax(250px, 310px) minmax(0, 1fr) minmax(250px, 310px);
   gap: 40px;
   align-items: start;
 }
@@ -436,7 +436,7 @@ p {
   gap: 22px;
   align-self: start;
   width: 100%;
-  max-width: 270px;
+  max-width: 310px;
 }
 
 .home-main-column {
@@ -466,7 +466,7 @@ p {
 
 .home-tools-rail {
   justify-self: end;
-  max-width: 280px;
+  max-width: 310px;
 }
 
 .home-stack-list {
@@ -531,8 +531,14 @@ p {
   grid-template-columns: 1fr;
 }
 
-.tool-card-tags {
-  margin-top: 8px;
+.home-tools-rail .home-list-card {
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.home-tools-rail .home-list-card img {
+  width: 54px;
+  height: 54px;
 }
 
 .page-title-block {
@@ -1010,7 +1016,7 @@ p {
 
 @media (max-width: 840px) {
   main {
-    padding-top: 88px;
+    padding-top: 106px;
   }
 
   .site-header {
@@ -1020,7 +1026,8 @@ p {
   .site-header-inner {
     align-items: start;
     border-radius: 16px;
-    gap: 22px;
+    gap: 18px;
+    padding: 14px 18px;
   }
 
   .nav-toggle {
@@ -1058,7 +1065,7 @@ p {
   }
 
   .nav-list a {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 
   .update-button,
@@ -1095,6 +1102,38 @@ p {
 
   .browse-sidebar {
     order: 2;
+    padding: 16px;
+  }
+
+  .browse-list {
+    max-height: 220px;
+    overflow-y: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .browse-item {
+    grid-template-columns: 62px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .browse-item img {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+@media (max-width: 980px) {
+  .browse-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .browse-preview {
+    order: 1;
+  }
+
+  .browse-sidebar {
+    order: 2;
+    position: static;
     padding: 16px;
   }
 

@@ -81,11 +81,6 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
               {% endif %}
               <div>
                 <h3>{{ tool.data.title }}</h3>
-                <div class="tag-row tool-card-tags">
-                  {% for tag in tool.data.tags | displayTags | limit(2) %}
-                    <span class="tag-chip">{{ tag }}</span>
-                  {% endfor %}
-                </div>
               </div>
             </a>
           {% endfor %}
