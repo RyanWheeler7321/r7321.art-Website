@@ -363,6 +363,58 @@ function initProgressiveLoops() {
   });
 }
 
+function initUpdateParagraphColumns() {
+  if (!document.body.classList.contains("page-update-detail")) {
+    return;
+  }
+
+  document.querySelectorAll("[data-prose]").forEach((prose) => {
+    const children = [...prose.children];
+    const paragraphRun = [];
+
+    function flushParagraphRun() {
+      if (paragraphRun.length < 2) {
+        paragraphRun.length = 0;
+        return;
+      }
+
+      for (let index = 0; index < paragraphRun.length; index += 2) {
+        const pair = paragraphRun.slice(index, index + 2);
+        const columns = document.createElement("div");
+        columns.className = "content-columns content-columns-auto";
+
+        pair.forEach((paragraph) => {
+          const column = document.createElement("div");
+          column.className = "content-column content-column-text";
+          columns.appendChild(column);
+          column.appendChild(paragraph);
+        });
+
+        pair[0].before(columns);
+      }
+
+      paragraphRun.length = 0;
+    }
+
+    children.forEach((child) => {
+      const isStandaloneParagraph =
+        child.tagName === "P" &&
+        child.parentElement === prose &&
+        !child.closest(".content-columns") &&
+        !child.closest(".inline-card-wrap");
+
+      if (isStandaloneParagraph) {
+        paragraphRun.push(child);
+        return;
+      }
+
+      flushParagraphRun();
+    });
+
+    flushParagraphRun();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initParticles();
@@ -371,4 +423,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initToc();
   initProgressiveMedia();
   initProgressiveLoops();
+  initUpdateParagraphColumns();
 });
