@@ -160,13 +160,13 @@ main {
 }
 
 .site-header-inner {
-  --header-pad-x: clamp(12px, calc(32px * var(--header-fit-scale)), 32px);
-  --header-gap: clamp(10px, calc(46px * var(--header-fit-scale)), 46px);
-  --nav-gap: clamp(8px, calc(22px * var(--header-fit-scale)), 22px);
-  --social-gap: clamp(8px, calc(16px * var(--header-fit-scale)), 16px);
-  --brand-size: clamp(1.65rem, calc(2.9rem * var(--header-fit-scale)), 2.9rem);
-  --nav-size: clamp(0.86rem, calc(1.85rem * var(--header-fit-scale)), 1.85rem);
-  --social-size: clamp(1rem, calc(2.1rem * var(--header-fit-scale)), 2.1rem);
+  --header-pad-x: clamp(12px, calc(2vw * var(--header-fit-scale) + 12px), 32px);
+  --header-gap: clamp(10px, calc(2.3vw * var(--header-fit-scale) + 10px), 46px);
+  --nav-gap: clamp(8px, calc(1.15vw * var(--header-fit-scale) + 8px), 22px);
+  --social-gap: clamp(8px, calc(0.75vw * var(--header-fit-scale) + 8px), 16px);
+  --brand-size: clamp(1.65rem, calc(2.05vw * var(--header-fit-scale) + 1rem), 2.9rem);
+  --nav-size: clamp(0.86rem, calc(1.12vw * var(--header-fit-scale) + 0.58rem), 1.85rem);
+  --social-size: clamp(1rem, calc(1.18vw * var(--header-fit-scale) + 0.55rem), 2.1rem);
   display: flex;
   align-items: center;
   justify-content: center;
