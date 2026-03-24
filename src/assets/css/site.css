@@ -16,13 +16,6 @@
   --shell: min(1240px, calc(100vw - 32px));
   --header-fit-scale: 1;
   --mobile-menu-scale: 1;
-  --header-pad-x: clamp(18px, calc(32px * var(--header-fit-scale)), 32px);
-  --header-gap: clamp(14px, calc(46px * var(--header-fit-scale)), 46px);
-  --nav-gap: clamp(12px, calc(22px * var(--header-fit-scale)), 22px);
-  --social-gap: clamp(10px, calc(16px * var(--header-fit-scale)), 16px);
-  --brand-size: clamp(2.05rem, calc(2.9rem * var(--header-fit-scale)), 2.9rem);
-  --nav-size: clamp(1.1rem, calc(1.85rem * var(--header-fit-scale)), 1.85rem);
-  --social-size: clamp(1.35rem, calc(2.1rem * var(--header-fit-scale)), 2.1rem);
 }
 
 *,
@@ -167,6 +160,13 @@ main {
 }
 
 .site-header-inner {
+  --header-pad-x: clamp(12px, calc(32px * var(--header-fit-scale)), 32px);
+  --header-gap: clamp(10px, calc(46px * var(--header-fit-scale)), 46px);
+  --nav-gap: clamp(8px, calc(22px * var(--header-fit-scale)), 22px);
+  --social-gap: clamp(8px, calc(16px * var(--header-fit-scale)), 16px);
+  --brand-size: clamp(1.65rem, calc(2.9rem * var(--header-fit-scale)), 2.9rem);
+  --nav-size: clamp(0.86rem, calc(1.85rem * var(--header-fit-scale)), 1.85rem);
+  --social-size: clamp(1rem, calc(2.1rem * var(--header-fit-scale)), 2.1rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1268,7 +1268,7 @@ p {
   }
 
   .nav-list a {
-    font-size: clamp(1rem, calc(1.12rem * var(--mobile-menu-scale)), 1.18rem);
+    font-size: clamp(1.05rem, calc(1.16rem * var(--mobile-menu-scale)), 1.22rem);
   }
 
   .social-list {
@@ -1277,7 +1277,7 @@ p {
   }
 
   .social-list a {
-    font-size: clamp(1.1rem, calc(1.28rem * var(--mobile-menu-scale)), 1.34rem);
+    font-size: clamp(1.16rem, calc(1.34rem * var(--mobile-menu-scale)), 1.42rem);
   }
 
   .update-button,

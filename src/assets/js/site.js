@@ -6,8 +6,10 @@ function initNavigation() {
   const brand = document.querySelector("[data-site-brand]");
   const toggle = document.querySelector("[data-nav-toggle]");
   const nav = document.querySelector("[data-site-nav]");
+  const navList = nav?.querySelector(".nav-list");
+  const socialList = nav?.querySelector(".social-list");
 
-  if (!toggle || !nav || !header || !inner || !brand) {
+  if (!toggle || !nav || !navList || !socialList || !header || !inner || !brand) {
     return;
   }
 
@@ -24,7 +26,7 @@ function initNavigation() {
       inner.style.setProperty("--header-fit-scale", "1");
 
       if (mobileQuery.matches) {
-        const mobileScale = Math.max(0.96, Math.min(1.08, (window.innerWidth - 20) / 390));
+        const mobileScale = Math.max(1, Math.min(1.08, (window.innerWidth - 20) / 390));
         inner.style.setProperty("--mobile-menu-scale", mobileScale.toFixed(3));
         return;
       }
@@ -33,14 +35,15 @@ function initNavigation() {
 
       const paddingLeft = getNumericStyle(inner, "paddingLeft");
       const paddingRight = getNumericStyle(inner, "paddingRight");
-      const availableWidth = inner.clientWidth - paddingLeft - paddingRight;
+      const availableWidth = Math.max(0, header.clientWidth - 40 - paddingLeft - paddingRight);
       const contentGap = getNumericStyle(inner, "columnGap") || getNumericStyle(inner, "gap");
+      const navGap = getNumericStyle(nav, "columnGap") || getNumericStyle(nav, "gap");
       const brandWidth = brand.getBoundingClientRect().width;
-      const navWidth = nav.getBoundingClientRect().width;
+      const navWidth = navList.scrollWidth + socialList.scrollWidth + navGap;
       const naturalWidth = brandWidth + navWidth + contentGap;
       const fitScale = naturalWidth > 0 ? Math.min(1, availableWidth / naturalWidth) : 1;
 
-      inner.style.setProperty("--header-fit-scale", Math.max(0.74, fitScale).toFixed(3));
+      inner.style.setProperty("--header-fit-scale", Math.max(0.52, fitScale).toFixed(3));
     });
   }
 
@@ -51,6 +54,7 @@ function initNavigation() {
   });
 
   const resizeObserver = new ResizeObserver(updateHeaderFit);
+  resizeObserver.observe(header);
   resizeObserver.observe(inner);
   resizeObserver.observe(nav);
   resizeObserver.observe(brand);
