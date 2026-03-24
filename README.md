@@ -1,10 +1,12 @@
+![r7321.art homepage preview](README-assets/homepage-preview.png)
+
 # r7321.art
 
-Source code for my website.
+Source code for `r7321.art`, the public site for Ryan Wheeler's projects, updates, and tool pages.
 
-The site is currently built as a static 11ty project with markdown-based content for updates, projects, and tools.
+The site is built as a static 11ty project with markdown-driven content, shared layouts, and a simple 
 
-### Development
+## Development
 
 Start local development:
 
@@ -18,7 +20,7 @@ Build the site:
 npm run build
 ```
 
-### Structure
+## Structure
 
 - `src/content/updates` contains update posts
 - `src/content/projects` contains project pages
@@ -27,17 +29,15 @@ npm run build
 - `src/_includes` contains layouts
 - `src/assets` contains CSS and JavaScript
 
-### Notes
-
-The site supports:
+## Site Features
 
 - standalone update pages
 - standalone project pages
-- update tag filtering
-- project filtering in updates
-- a tools section for public releases and assets
+- update filtering by tags and project
+- public tools section with individual detail pages
+- generated image placeholders for smoother media loading
 
-### Scaffolds
+## Scaffolds
 
 Starter files for new content live in:
 

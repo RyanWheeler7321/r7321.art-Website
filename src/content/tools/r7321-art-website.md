@@ -1,6 +1,6 @@
 ---
 layout: layouts/tool.njk
-title: r7321.art Website Source
+title: r7321.art Site Source
 slug: r7321-art-website
 date: 2026-03-24
 summary: Source code for the r7321.art portfolio and update site, built as a static 11ty project with markdown-driven content.
