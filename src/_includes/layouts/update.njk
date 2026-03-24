@@ -4,10 +4,15 @@ pageClass: page-update-detail
 ---
 {% set relatedProject = collections.projects | findBySlug(project) %}
 {% set relatedUpdates = collections.updates | filterByProject(project) | excludeSlug(slug) | limit(3) %}
+{% set hasBodyContent = content | trim %}
+{% set hasAsideContent = relatedProject or relatedUpdates.length %}
 
-<section class="detail-hero shell detail-hero-simple">
+<section class="detail-hero shell detail-hero-copy-first">
   <div class="detail-hero-copy">
     <h1>{{ title }}</h1>
+    {% if summary %}
+      <p class="detail-summary">{{ summary }}</p>
+    {% endif %}
     <div class="detail-meta">
       <span>{{ date | readableDate }}</span>
       {% if projectLabel or project %}
@@ -21,42 +26,49 @@ pageClass: page-update-detail
     </div>
   </div>
 
-  <div class="detail-hero-side">
-    <div class="detail-aside-card" data-toc-card>
-      <p class="aside-title">Sections</p>
-      <nav data-toc class="toc-list"></nav>
-    </div>
+</section>
 
-    {% if relatedProject %}
-      <div class="detail-aside-card">
-        <p class="aside-title">Project</p>
-        <a class="mini-card" href="{{ relatedProject.url }}">
-          <img src="{{ relatedProject.data.thumbnail }}" alt="{{ relatedProject.data.title }}">
-          <span>{{ relatedProject.data.title }}</span>
-        </a>
-      </div>
-    {% endif %}
-
-    {% if relatedUpdates.length %}
-      <div class="detail-aside-card">
-        <p class="aside-title">Related updates</p>
-        <div class="stack-list">
-          {% for entry in relatedUpdates %}
-            <a class="stack-link" href="{{ entry.url }}">
-              <strong>{{ entry.data.title }}</strong>
-              <span>{{ entry.date | teaserDate }}</span>
-            </a>
-          {% endfor %}
+{% if hasBodyContent or hasAsideContent %}
+  <section class="shell detail-layout detail-layout-with-aside">
+    {% if hasBodyContent %}
+      <article class="detail-article">
+        <div class="detail-prose" data-prose>
+          {{ content | safe }}
         </div>
-      </div>
+      </article>
+    {% else %}
+      <div class="detail-layout-spacer" aria-hidden="true"></div>
     {% endif %}
-  </div>
-</section>
 
-<section class="shell detail-layout detail-layout-single">
-  <article class="detail-article">
-    <div class="detail-prose" data-prose>
-      {{ content | safe }}
-    </div>
-  </article>
-</section>
+    <aside class="detail-aside">
+      <div class="detail-aside-card" data-toc-card>
+        <p class="aside-title">Sections</p>
+        <nav data-toc class="toc-list"></nav>
+      </div>
+
+      {% if relatedProject %}
+        <div class="detail-aside-card">
+          <p class="aside-title">Project</p>
+          <a class="mini-card" href="{{ relatedProject.url }}">
+            <img src="{{ relatedProject.data.thumbnail }}" alt="{{ relatedProject.data.title }}">
+            <span>{{ relatedProject.data.title }}</span>
+          </a>
+        </div>
+      {% endif %}
+
+      {% if relatedUpdates.length %}
+        <div class="detail-aside-card">
+          <p class="aside-title">Related updates</p>
+          <div class="stack-list">
+            {% for entry in relatedUpdates %}
+              <a class="stack-link" href="{{ entry.url }}">
+                <strong>{{ entry.data.title }}</strong>
+                <span>{{ entry.date | teaserDate }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </aside>
+  </section>
+{% endif %}

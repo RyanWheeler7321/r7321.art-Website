@@ -16,8 +16,3 @@ externalLinks:
     url: https://store.steampowered.com/app/2380130/Tears_Fall_Low/
 permalink: /projects/tears-fall-low/index.html
 ---
-{% gif "/images/projects/tears-fall-low/cover.gif", "Tears Fall Low GIF" %}
-
-Tears Fall Low is a 2D precision platformer. It's a short but compelling emotional story.
-
-{% cta "https://store.steampowered.com/app/2380130/Tears_Fall_Low/", "Steam Page" %}

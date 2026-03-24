@@ -17,14 +17,16 @@ description: Projects
       <div class="project-card-copy">
         <div class="project-card-head">
           <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
-          <span class="project-card-date">{{ project.data.dateLabel }}</span>
         </div>
-        <p>{{ project.data.summary }}</p>
-        <div class="meta-row">
+        <div class="meta-row project-card-tag-row">
           {% for tag in project.data.tags | displayTags %}
             <span class="tag-chip">{{ tag }}</span>
           {% endfor %}
         </div>
+        <div class="project-card-subhead">
+          <span class="project-card-date">{{ project.data.dateLabel }}</span>
+        </div>
+        <p>{{ project.data.summary }}</p>
       </div>
     </article>
   {% endfor %}

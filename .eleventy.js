@@ -53,9 +53,26 @@ function renderManagedImage(src, alt = "", classes = "", eager = false) {
     return `<img src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}">`;
   }
 
-  return `<span class="progressive-media${classAttr}" style="aspect-ratio:${meta.width}/${meta.height};">
+  return `<span class="progressive-media${classAttr}" style="--ratio-w:${meta.width}; --ratio-h:${meta.height}; aspect-ratio:${meta.width}/${meta.height};">
 <img class="progressive-preview" src="${meta.placeholder}" alt="" aria-hidden="true" loading="eager" decoding="async" width="${meta.width}" height="${meta.height}">
 <img class="progressive-full" src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
+</span>`;
+}
+
+function renderManagedLoop(src, alt = "", classes = "") {
+  const meta = imageManifest[src];
+  if (!meta || !meta.previewVideo || !meta.fullVideo) {
+    return renderManagedImage(src, alt, classes, true);
+  }
+
+  const classAttr = classes ? ` ${classes}` : "";
+  return `<span class="progressive-loop${classAttr}" style="aspect-ratio:${meta.width}/${meta.height};">
+<video class="loop-preview" autoplay muted loop playsinline preload="auto" aria-hidden="true" width="${meta.width}" height="${meta.height}">
+<source src="${meta.previewVideo}" type="video/mp4">
+</video>
+<video class="loop-full" muted loop playsinline preload="auto" width="${meta.width}" height="${meta.height}">
+<source src="${meta.fullVideo}" type="video/mp4">
+</video>
 </span>`;
 }
 
@@ -119,6 +136,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("managedImage", (src, alt = "", classes = "", eager = false) =>
     renderManagedImage(src, alt, classes, eager)
   );
+  eleventyConfig.addShortcode("managedLoop", (src, alt = "", classes = "") =>
+    renderManagedLoop(src, alt, classes)
+  );
 
   eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "") =>
     `<figure class="${["media-frame", classes].filter(Boolean).join(" ")}">
@@ -141,6 +161,18 @@ ${content}
 </div>
 ${formatCaption(caption)}
 </figure>`
+  );
+
+  eleventyConfig.addPairedShortcode("columns", (content, tone = "text") =>
+    `<div class="content-columns content-columns-${tone}">
+${content}
+</div>`
+  );
+
+  eleventyConfig.addPairedShortcode("column", (content, tone = "text") =>
+    `<div class="content-column content-column-${tone}">
+${content}
+</div>`
   );
 
   eleventyConfig.addShortcode("youtube", (videoId, title = "YouTube video") =>

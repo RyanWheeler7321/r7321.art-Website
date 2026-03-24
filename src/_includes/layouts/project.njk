@@ -3,10 +3,24 @@ layout: layouts/base.njk
 pageClass: page-project-detail
 ---
 {% set relatedUpdates = collections.updates | filterByProject(slug) | limit(4) %}
+{% set hasBodyContent = content | trim %}
+{% set primaryLink = externalLinks and externalLinks[0] %}
 
 <section class="detail-hero shell detail-hero-project">
   <div class="detail-hero-copy">
+    {% if primaryLink %}
+      <div class="project-hero-actions">
+        <a class="button button-primary project-hero-button" href="{{ primaryLink.url }}" target="_blank" rel="noopener">
+          {{ primaryLink.label }}
+        </a>
+      </div>
+    {% endif %}
     <h1>{{ title }}</h1>
+    <div class="tag-row tag-row-compact">
+      {% for tag in tags | displayTags %}
+        <span class="tag-chip">{{ tag }}</span>
+      {% endfor %}
+    </div>
     <div class="detail-meta">
       {% if status %}<span>{{ status }}</span>{% endif %}
       <span>{{ dateLabel or (date | readableDate) }}</span>
@@ -14,55 +28,51 @@ pageClass: page-project-detail
         <span>{{ platforms | join(" / ") }}</span>
       {% endif %}
     </div>
-    <div class="tag-row">
-      {% for tag in tags | displayTags %}
-        <span class="tag-chip">{{ tag }}</span>
-      {% endfor %}
-    </div>
-
-    {% if externalLinks %}
-      <div class="cta-row">
-        {% for link in externalLinks %}
-          <a class="button button-primary" href="{{ link.url }}" target="_blank" rel="noopener">
-            {{ link.label }}
-          </a>
-        {% endfor %}
-      </div>
+    {% if summary %}
+      <p class="detail-summary">{{ summary }}</p>
     {% endif %}
   </div>
 
   <div class="detail-hero-side">
-    {% if heroImage or thumbnail %}
+    {% if thumbnail or heroImage %}
       <div class="detail-hero-media project-media">
-        <img src="{{ heroImage or thumbnail }}" alt="{{ title }}">
-      </div>
-    {% endif %}
-
-    <div class="detail-aside-card" data-toc-card>
-      <p class="aside-title">Sections</p>
-      <nav data-toc class="toc-list"></nav>
-    </div>
-
-    {% if relatedUpdates.length %}
-      <div class="detail-aside-card">
-        <p class="aside-title">Related updates</p>
-        <div class="stack-list">
-          {% for update in relatedUpdates %}
-            <a class="stack-link" href="{{ update.url }}">
-              <strong>{{ update.data.title }}</strong>
-              <span>{{ update.date | teaserDate }}</span>
-            </a>
-          {% endfor %}
-        </div>
+        <img src="{{ thumbnail or heroImage }}" alt="{{ title }}">
       </div>
     {% endif %}
   </div>
 </section>
 
-<section class="shell detail-layout detail-layout-single">
-  <article class="detail-article">
-    <div class="detail-prose" data-prose>
-      {{ content | safe }}
-    </div>
-  </article>
-</section>
+{% if hasBodyContent or relatedUpdates.length %}
+  <section class="shell detail-layout detail-layout-with-aside">
+    {% if hasBodyContent %}
+      <article class="detail-article">
+        <div class="detail-prose" data-prose>
+          {{ content | safe }}
+        </div>
+      </article>
+    {% else %}
+      <div class="detail-layout-spacer" aria-hidden="true"></div>
+    {% endif %}
+
+    <aside class="detail-aside">
+      <div class="detail-aside-card" data-toc-card>
+        <p class="aside-title">Sections</p>
+        <nav data-toc class="toc-list"></nav>
+      </div>
+
+      {% if relatedUpdates.length %}
+        <div class="detail-aside-card">
+          <p class="aside-title">Related updates</p>
+          <div class="stack-list">
+            {% for update in relatedUpdates %}
+              <a class="stack-link" href="{{ update.url }}">
+                <strong>{{ update.data.title }}</strong>
+                <span>{{ update.date | teaserDate }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </aside>
+  </section>
+{% endif %}

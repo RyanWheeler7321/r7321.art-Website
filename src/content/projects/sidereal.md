@@ -18,8 +18,3 @@ externalLinks:
     url: https://store.steampowered.com/app/2702590/Sidereal/
 permalink: /projects/sidereal/index.html
 ---
-{% gif "/images/projects/sidereal/cover.gif", "Sidereal GIF" %}
-
-Sidereal is a 3D world exploration game. It contains 100 unique worlds, with unique visuals, music, and story settings.
-
-{% cta "https://store.steampowered.com/app/2702590/Sidereal/", "Steam Page" %}

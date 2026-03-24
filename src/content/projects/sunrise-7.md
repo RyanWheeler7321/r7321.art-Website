@@ -16,8 +16,3 @@ externalLinks:
     url: https://store.steampowered.com/app/1261900/Sunrise_7/
 permalink: /projects/sunrise-7/index.html
 ---
-{% gif "/images/projects/sunrise-7/cover.gif", "Sunrise 7 GIF" %}
-
-Sunrise 7 is a 2D platformer adventure. It was my first released game, containing procedurally generated levels and an interesting storyline, with a high difficulty.
-
-{% cta "https://store.steampowered.com/app/1261900/Sunrise_7/", "Steam Page" %}

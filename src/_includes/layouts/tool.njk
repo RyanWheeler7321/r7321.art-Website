@@ -2,39 +2,52 @@
 layout: layouts/base.njk
 pageClass: page-tool-detail
 ---
-<section class="detail-hero shell detail-hero-simple">
-  <div class="detail-hero-copy">
-    <div class="tool-detail-top">
-      <h1>{{ title }}</h1>
-      {% if externalLinks and externalLinks[0] %}
-        <a class="button button-primary tool-detail-button" href="{{ externalLinks[0].url }}" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github" aria-hidden="true"></i>
-          <span>{{ externalLinks[0].label }}</span>
-        </a>
-      {% endif %}
-    </div>
+{% set primaryAction = download or primaryAction or (externalLinks and externalLinks[0]) %}
+{% set showcaseItems = showcaseImages or [] %}
+
+<section class="shell tool-detail-header">
+  <div class="tool-detail-header-copy">
+    <h1>{{ title }}</h1>
     {% if summary %}
       <p class="detail-summary">{{ summary }}</p>
     {% endif %}
-    <div class="tag-row">
+    <div class="tag-row tool-detail-tag-row">
       {% for tag in tags | displayTags %}
         <span class="tag-chip">{{ tag }}</span>
       {% endfor %}
     </div>
-  </div>
 
-  <div class="detail-hero-side">
-    <div class="detail-aside-card" data-toc-card>
-      <p class="aside-title">Sections</p>
-      <nav data-toc class="toc-list"></nav>
-    </div>
+    {% if primaryAction %}
+      <a
+        class="button button-primary tool-primary-button"
+        href="{{ primaryAction.url }}"
+        {% if not primaryAction.download %}target="_blank" rel="noopener"{% endif %}
+      >
+        {% if primaryAction.download %}
+          <i class="fa-solid fa-download" aria-hidden="true"></i>
+        {% else %}
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        {% endif %}
+        <span>{{ primaryAction.label }}</span>
+      </a>
+    {% endif %}
   </div>
 </section>
 
-<section class="shell detail-layout detail-layout-single">
-  <article class="detail-article">
-    <div class="detail-prose" data-prose>
+<section class="shell tool-detail-body {% if showcaseItems.length %}tool-detail-body-showcase{% else %}tool-detail-body-plain{% endif %}">
+  <article class="detail-article tool-detail-article">
+    <div class="detail-prose">
       {{ content | safe }}
     </div>
   </article>
+
+  {% if showcaseItems.length %}
+    <aside class="tool-detail-showcase">
+      {% for image in showcaseItems %}
+        <figure class="media-frame tool-showcase-frame">
+          <img src="{{ image.src or image }}" alt="{{ image.alt or title }}">
+        </figure>
+      {% endfor %}
+    </aside>
+  {% endif %}
 </section>

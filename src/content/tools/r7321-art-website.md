@@ -10,6 +10,9 @@ tags:
   - tools
   - Website
   - 11ty
+showcaseImages:
+  - src: /images/updates/website-launch/website-01.webp
+    alt: r7321.art website screenshot
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/r7321.art-Website

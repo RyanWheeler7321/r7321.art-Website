@@ -246,6 +246,7 @@ function initToc() {
     if (!headings.length) {
       if (tocCard) {
         tocCard.hidden = true;
+        tocCard.classList.remove("is-ready");
       }
       return;
     }
@@ -263,6 +264,10 @@ function initToc() {
     });
 
     toc.innerHTML = links.join("");
+    if (tocCard) {
+      tocCard.hidden = false;
+      tocCard.classList.add("is-ready");
+    }
   });
 }
 
@@ -309,6 +314,55 @@ function initProgressiveMedia() {
   });
 }
 
+function initProgressiveLoops() {
+  document.querySelectorAll(".progressive-loop").forEach((wrapper) => {
+    const preview = wrapper.querySelector(".loop-preview");
+    const full = wrapper.querySelector(".loop-full");
+
+    if (!preview || !full) {
+      return;
+    }
+
+    let activated = false;
+
+    const activate = () => {
+      if (activated || !full.readyState) {
+        return;
+      }
+
+      activated = true;
+
+      try {
+        if (Number.isFinite(full.duration) && full.duration > 0 && Number.isFinite(preview.currentTime)) {
+          full.currentTime = preview.currentTime % full.duration;
+        }
+      } catch (error) {
+      }
+
+      const playResult = full.play();
+      if (playResult && typeof playResult.catch === "function") {
+        playResult.catch(() => {});
+      }
+
+      wrapper.classList.add("is-loaded");
+      preview.pause();
+    };
+
+    const previewPlay = preview.play();
+    if (previewPlay && typeof previewPlay.catch === "function") {
+      previewPlay.catch(() => {});
+    }
+
+    if (full.readyState >= 2) {
+      activate();
+      return;
+    }
+
+    full.addEventListener("loadeddata", activate, { once: true });
+    full.addEventListener("canplay", activate, { once: true });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initParticles();
@@ -316,4 +370,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initToolFilters();
   initToc();
   initProgressiveMedia();
+  initProgressiveLoops();
 });
