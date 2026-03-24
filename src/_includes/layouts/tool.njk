@@ -2,37 +2,38 @@
 layout: layouts/base.njk
 pageClass: page-tool-detail
 ---
-<section class="detail-hero shell">
+<section class="detail-hero shell detail-hero-simple">
   <div class="detail-hero-copy">
-    <h1>{{ title }}</h1>
+    <div class="tool-detail-top">
+      <h1>{{ title }}</h1>
+      {% if externalLinks and externalLinks[0] %}
+        <a class="button button-primary tool-detail-button" href="{{ externalLinks[0].url }}" target="_blank" rel="noopener">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span>{{ externalLinks[0].label }}</span>
+        </a>
+      {% endif %}
+    </div>
+    {% if summary %}
+      <p class="detail-summary">{{ summary }}</p>
+    {% endif %}
     <div class="tag-row">
       {% for tag in tags | displayTags %}
         <span class="tag-chip">{{ tag }}</span>
       {% endfor %}
     </div>
-    {% if externalLinks %}
-      <div class="cta-row">
-        {% for link in externalLinks %}
-          <a class="button button-primary" href="{{ link.url }}" target="_blank" rel="noopener">
-            {{ link.label }}
-          </a>
-        {% endfor %}
-      </div>
-    {% endif %}
   </div>
+
+  <div class="detail-hero-side">
+    <div class="detail-aside-card" data-toc-card>
+      <p class="aside-title">Sections</p>
+      <nav data-toc class="toc-list"></nav>
+    </div>
 </section>
 
-<section class="shell detail-layout">
+<section class="shell detail-layout detail-layout-single">
   <article class="detail-article">
     <div class="detail-prose" data-prose>
       {{ content | safe }}
     </div>
   </article>
-
-  <aside class="detail-aside">
-    <div class="detail-aside-card" data-toc-card>
-      <p class="aside-title">Sections</p>
-      <nav data-toc class="toc-list"></nav>
-    </div>
-  </aside>
 </section>

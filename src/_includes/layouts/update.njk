@@ -5,7 +5,7 @@ pageClass: page-update-detail
 {% set relatedProject = collections.projects | findBySlug(project) %}
 {% set relatedUpdates = collections.updates | filterByProject(project) | excludeSlug(slug) | limit(3) %}
 
-<section class="detail-hero shell">
+<section class="detail-hero shell detail-hero-simple">
   <div class="detail-hero-copy">
     <h1>{{ title }}</h1>
     <div class="detail-meta">
@@ -20,16 +20,8 @@ pageClass: page-update-detail
       {% endfor %}
     </div>
   </div>
-</section>
 
-<section class="shell detail-layout">
-  <article class="detail-article">
-    <div class="detail-prose" data-prose>
-      {{ content | safe }}
-    </div>
-  </article>
-
-  <aside class="detail-aside">
+  <div class="detail-hero-side">
     <div class="detail-aside-card" data-toc-card>
       <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
@@ -58,5 +50,12 @@ pageClass: page-update-detail
         </div>
       </div>
     {% endif %}
-  </aside>
+</section>
+
+<section class="shell detail-layout detail-layout-single">
+  <article class="detail-article">
+    <div class="detail-prose" data-prose>
+      {{ content | safe }}
+    </div>
+  </article>
 </section>

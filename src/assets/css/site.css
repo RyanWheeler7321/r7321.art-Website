@@ -82,13 +82,13 @@ main {
 .site-backdrop {
   z-index: -1;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(22, 18, 48, 0.96), rgba(9, 6, 13, 0));
+  background: linear-gradient(180deg, rgba(28, 18, 46, 0.96), rgba(9, 6, 13, 0));
 }
 
 .site-backdrop-grid {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(46, 35, 92, 0.7), rgba(24, 18, 52, 0.46));
+  background: linear-gradient(to bottom, rgba(58, 35, 92, 0.7), rgba(31, 18, 50, 0.46));
   clip-path: polygon(0 0, 100% 120px, 100% 100%, 0 calc(100% - 120px));
   animation: slantShift 22s ease-in-out infinite alternate;
 }
@@ -738,6 +738,20 @@ p {
   font-size: 1rem;
 }
 
+.tool-detail-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.tool-detail-button {
+  min-width: 180px;
+  min-height: 48px;
+  white-space: nowrap;
+}
+
 .tool-grid-copy {
   padding: 0;
 }
@@ -784,6 +798,10 @@ p {
   align-items: center;
 }
 
+.detail-hero-simple {
+  grid-template-columns: 1fr 300px;
+}
+
 .detail-hero-copy h1 {
   color: var(--primary);
   font-size: clamp(2rem, 5vw, 3.8rem);
@@ -815,6 +833,10 @@ p {
   grid-template-columns: minmax(0, 1fr) 300px;
   gap: 22px;
   align-items: start;
+}
+
+.detail-layout-single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .detail-article {
@@ -1088,7 +1110,7 @@ p {
     right: 0;
     display: none;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 16px;
     padding: 18px;
     border-radius: 16px;
@@ -1105,7 +1127,8 @@ p {
   .nav-list,
   .social-list,
   .footer-links {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
   }
 
   .nav-list {
@@ -1114,11 +1137,16 @@ p {
   }
 
   .nav-list a {
-    font-size: 1.35rem;
+    font-size: clamp(1rem, 3.2vw, 1.15rem);
   }
 
   .social-list {
     justify-content: center;
+    gap: 10px;
+  }
+
+  .social-list a {
+    font-size: clamp(1rem, 3vw, 1.2rem);
   }
 
   .update-button,

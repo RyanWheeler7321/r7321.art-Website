@@ -31,21 +31,13 @@ pageClass: page-project-detail
     {% endif %}
   </div>
 
-  {% if heroImage or thumbnail %}
-    <div class="detail-hero-media project-media">
-      <img src="{{ heroImage or thumbnail }}" alt="{{ title }}">
-    </div>
-  {% endif %}
-</section>
+  <div class="detail-hero-side">
+    {% if heroImage or thumbnail %}
+      <div class="detail-hero-media project-media">
+        <img src="{{ heroImage or thumbnail }}" alt="{{ title }}">
+      </div>
+    {% endif %}
 
-<section class="shell detail-layout">
-  <article class="detail-article">
-    <div class="detail-prose" data-prose>
-      {{ content | safe }}
-    </div>
-  </article>
-
-  <aside class="detail-aside">
     <div class="detail-aside-card" data-toc-card>
       <p class="aside-title">Sections</p>
       <nav data-toc class="toc-list"></nav>
@@ -64,5 +56,12 @@ pageClass: page-project-detail
         </div>
       </div>
     {% endif %}
-  </aside>
+</section>
+
+<section class="shell detail-layout detail-layout-single">
+  <article class="detail-article">
+    <div class="detail-prose" data-prose>
+      {{ content | safe }}
+    </div>
+  </article>
 </section>

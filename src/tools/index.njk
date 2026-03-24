@@ -24,7 +24,8 @@ description: Tools
     {% for tool in collections.tools %}
       {% set toolTagsDisplay = tool.data.tags | displayTags %}
       <article class="tool-grid-card" data-tool-item data-tags="{% for tag in toolTagsDisplay %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}">
-        <a class="tool-grid-media" href="{{ tool.url }}">
+        <a class="tool-grid-link" href="{{ tool.url }}" aria-label="Open {{ tool.data.title }}"></a>
+        <div class="tool-grid-media" aria-hidden="true">
           {% if tool.data.thumbnail %}
             <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
           {% else %}
@@ -32,9 +33,16 @@ description: Tools
               <i class="{{ tool.data.icon or 'fas fa-circle' }}"></i>
             </span>
           {% endif %}
-        </a>
+        </div>
         <div class="tool-grid-copy">
-          <h2><a href="{{ tool.url }}">{{ tool.data.title }}</a></h2>
+          <div class="tool-grid-head">
+            <h2>{{ tool.data.title }}</h2>
+            {% if tool.data.externalLinks and tool.data.externalLinks[0] %}
+              <a class="button tool-grid-repo-button" href="{{ tool.data.externalLinks[0].url }}" target="_blank" rel="noopener">
+                GitHub Repo
+              </a>
+            {% endif %}
+          </div>
           <p>{{ tool.data.summary }}</p>
           <div class="tag-row">
             {% for tag in toolTagsDisplay %}

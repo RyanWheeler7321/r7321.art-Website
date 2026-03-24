@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
@@ -31,9 +33,35 @@ function getDisplayTags(tags = []) {
   return tags.filter((tag) => !RESERVED_TAGS.has(tag));
 }
 
+function loadImageManifest() {
+  const manifestPath = path.join(__dirname, "src", "_data", "imageManifest.json");
+  if (!fs.existsSync(manifestPath)) {
+    return {};
+  }
+  return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+}
+
+const imageManifest = loadImageManifest();
+
+function renderManagedImage(src, alt = "", classes = "", eager = false) {
+  const meta = imageManifest[src];
+  const loading = eager ? "eager" : "lazy";
+  const classAttr = classes ? ` ${classes}` : "";
+
+  if (!meta) {
+    return `<img src="${src}" alt="${alt}" loading="${loading}">`;
+  }
+
+  return `<span class="progressive-media${classAttr}" style="aspect-ratio:${meta.width}/${meta.height};">
+<img class="progressive-preview" src="${meta.placeholder}" alt="" aria-hidden="true" loading="eager" decoding="async" width="${meta.width}" height="${meta.height}">
+<img class="progressive-full" src="${src}" alt="${alt}" loading="${loading}" decoding="async" width="${meta.width}" height="${meta.height}">
+</span>`;
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+  eleventyConfig.addPassthroughCopy({ "src/generated": "generated" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   const md = markdownIt({
@@ -87,16 +115,20 @@ module.exports = function (eleventyConfig) {
     }).format(new Date(value))
   );
 
+  eleventyConfig.addShortcode("managedImage", (src, alt = "", classes = "", eager = false) =>
+    renderManagedImage(src, alt, classes, eager)
+  );
+
   eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "") =>
     `<figure class="${["media-frame", classes].filter(Boolean).join(" ")}">
-<img src="${src}" alt="${alt}" loading="lazy">
+${renderManagedImage(src, alt, "", false)}
 ${formatCaption(caption)}
 </figure>`
   );
 
   eleventyConfig.addShortcode("gif", (src, alt = "", caption = "") =>
     `<figure class="media-frame media-frame-gif">
-<img src="${src}" alt="${alt}" loading="lazy">
+${renderManagedImage(src, alt, "", false)}
 ${formatCaption(caption)}
 </figure>`
   );
