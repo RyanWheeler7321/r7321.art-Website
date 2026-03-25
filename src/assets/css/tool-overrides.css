@@ -15,10 +15,12 @@
 }
 
 .tool-detail-icon-frame {
-  width: clamp(74px, 7vw, 92px);
-  height: clamp(74px, 7vw, 92px);
+  width: clamp(132px, 11vw, 168px);
+  height: clamp(132px, 11vw, 168px);
   display: grid;
   place-items: center;
+  align-self: start;
+  margin-top: 10px;
   border-radius: 20px;
   border: 1px solid rgba(195, 138, 255, 0.18);
   background: rgba(195, 138, 255, 0.07);
@@ -26,8 +28,8 @@
 }
 
 .tool-detail-icon-frame img {
-  width: 82%;
-  height: 82%;
+  width: 88%;
+  height: 88%;
   object-fit: contain;
 }
 
@@ -52,6 +54,12 @@
 }
 
 @media (max-width: 760px) {
+  .tool-detail-icon-frame {
+    width: 104px;
+    height: 104px;
+    margin-top: 4px;
+  }
+
   .tool-detail-header-copy {
     grid-template-columns: 1fr;
     justify-items: center;
