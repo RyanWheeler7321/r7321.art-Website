@@ -3,7 +3,6 @@ layout: layouts/update.njk
 title: Title Here
 slug: slug-here
 date: 2026-01-01
-summary: One-sentence summary for lists and cards.
 thumbnail: /images/updates/slug-here/thumb.webp
 tags:
   - updates
@@ -21,4 +20,3 @@ Intro paragraph.
 Body paragraph.
 
 {% cta "https://example.com", "Link label", "Optional meta" %}
-
