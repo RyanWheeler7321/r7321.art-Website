@@ -17,11 +17,11 @@
   </defs>
   <rect width="128" height="128" rx="28" fill="url(#bg)"/>
   <rect x="10" y="10" width="108" height="108" rx="22" fill="none" stroke="#393249" stroke-width="2"/>
-  <circle cx="34" cy="94" r="7" fill="url(#accent)"/>
-  <circle cx="94" cy="34" r="7" fill="url(#accent)"/>
-  <circle cx="96" cy="96" r="7" fill="url(#accent)"/>
-  <path d="M55 34h18a5 5 0 0 1 5 5v16h16a5 5 0 0 1 5 5v18a5 5 0 0 1-5 5H78v16a5 5 0 0 1-5 5H55a5 5 0 0 1-5-5V83H34a5 5 0 0 1-5-5V60a5 5 0 0 1 5-5h16V39a5 5 0 0 1 5-5z" fill="url(#metal)"/>
-  <path d="M58 41h12v18h18v12H70v18H58V71H40V59h18z" fill="#15131b"/>
-  <path d="M64 46v8M64 74v8M46 65h8M74 65h8" stroke="#8c86a8" stroke-linecap="round" stroke-width="3" opacity=".75"/>
-  <path d="M34 94l18-15M94 34l-16 18M96 96l-17-15" stroke="#6f6790" stroke-linecap="round" stroke-width="2.5" opacity=".55"/>
+  <circle cx="34" cy="90" r="7" fill="url(#accent)"/>
+  <circle cx="94" cy="30" r="7" fill="url(#accent)"/>
+  <circle cx="96" cy="92" r="7" fill="url(#accent)"/>
+  <path d="M55 30h18a5 5 0 0 1 5 5v16h16a5 5 0 0 1 5 5v18a5 5 0 0 1-5 5H78v16a5 5 0 0 1-5 5H55a5 5 0 0 1-5-5V79H34a5 5 0 0 1-5-5V56a5 5 0 0 1 5-5h16V35a5 5 0 0 1 5-5z" fill="url(#metal)"/>
+  <path d="M58 37h12v18h18v12H70v18H58V67H40V55h18z" fill="#15131b"/>
+  <path d="M64 42v8M64 70v8M46 61h8M74 61h8" stroke="#8c86a8" stroke-linecap="round" stroke-width="3" opacity=".75"/>
+  <path d="M34 90l18-15M94 30l-16 18M96 92l-17-15" stroke="#6f6790" stroke-linecap="round" stroke-width="2.5" opacity=".55"/>
 </svg>

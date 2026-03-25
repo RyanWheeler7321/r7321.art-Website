@@ -1,0 +1,68 @@
+.tool-grid-copy h2 {
+  font-size: clamp(1.45rem, 2vw, 1.68rem);
+}
+
+.tool-grid-card .tag-chip {
+  min-height: 28px;
+  padding: 0 10px;
+  font-size: 0.76rem;
+}
+
+.tool-detail-header-copy {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.tool-detail-icon-frame {
+  width: clamp(74px, 7vw, 92px);
+  height: clamp(74px, 7vw, 92px);
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  border: 1px solid rgba(195, 138, 255, 0.18);
+  background: rgba(195, 138, 255, 0.07);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+}
+
+.tool-detail-icon-frame img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+}
+
+.tool-detail-header-main {
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+
+.tool-detail-tag-row {
+  justify-content: flex-start;
+}
+
+.tool-detail-tag-row .tag-chip {
+  min-height: 29px;
+  padding: 0 11px;
+  font-size: 0.78rem;
+}
+
+.tool-primary-button {
+  width: min(100%, 460px);
+}
+
+@media (max-width: 760px) {
+  .tool-detail-header-copy {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .tool-detail-header-main {
+    text-align: center;
+  }
+
+  .tool-detail-tag-row {
+    justify-content: center;
+  }
+}

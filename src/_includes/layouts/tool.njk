@@ -7,30 +7,38 @@ pageClass: page-tool-detail
 
 <section class="shell tool-detail-header">
   <div class="tool-detail-header-copy">
-    <h1>{{ title }}</h1>
-    {% if summary %}
-      <p class="detail-summary">{{ summary }}</p>
+    {% if thumbnail %}
+      <div class="tool-detail-icon-frame" aria-hidden="true">
+        <img src="{{ thumbnail }}" alt="">
+      </div>
     {% endif %}
-    <div class="tag-row tool-detail-tag-row">
-      {% for tag in tags | displayTags %}
-        <span class="tag-chip">{{ tag }}</span>
-      {% endfor %}
-    </div>
 
-    {% if primaryAction %}
-      <a
-        class="button button-primary tool-primary-button"
-        href="{{ primaryAction.url }}"
-        {% if not primaryAction.download %}target="_blank" rel="noopener"{% endif %}
-      >
-        {% if primaryAction.download %}
-          <i class="fa-solid fa-download" aria-hidden="true"></i>
-        {% else %}
-          <i class="fa-brands fa-github" aria-hidden="true"></i>
-        {% endif %}
-        <span>{{ primaryAction.label }}</span>
-      </a>
-    {% endif %}
+    <div class="tool-detail-header-main">
+      <h1>{{ title }}</h1>
+      {% if summary %}
+        <p class="detail-summary">{{ summary }}</p>
+      {% endif %}
+      <div class="tag-row tool-detail-tag-row">
+        {% for tag in tags | displayTags %}
+          <span class="tag-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+
+      {% if primaryAction %}
+        <a
+          class="button button-primary tool-primary-button"
+          href="{{ primaryAction.url }}"
+          {% if not primaryAction.download %}target="_blank" rel="noopener"{% endif %}
+        >
+          {% if primaryAction.download %}
+            <i class="fa-solid fa-download" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          {% endif %}
+          <span>{{ primaryAction.label }}</span>
+        </a>
+      {% endif %}
+    </div>
   </div>
 </section>
 
