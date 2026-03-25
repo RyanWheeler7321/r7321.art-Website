@@ -5,7 +5,7 @@
   "description": "Static source for r7321.art",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "node scripts/prepare-images.mjs && eleventy"
+    "build": "node scripts/clean-dist.mjs && node scripts/prepare-images.mjs && eleventy"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",

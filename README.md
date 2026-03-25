@@ -20,6 +20,8 @@ Build the site:
 npm run build
 ```
 
+Push the current branch to GitHub through WSL SSH:
+
 ## Structure
 
 - `src/content/updates` contains update posts

@@ -27,6 +27,11 @@ async function ensureDir(target) {
   await fs.mkdir(target, { recursive: true });
 }
 
+async function resetDir(target) {
+  await fs.rm(target, { recursive: true, force: true });
+  await ensureDir(target);
+}
+
 function identifySize(filePath) {
   const ext = path.extname(filePath).toLowerCase();
   const inputArg = ext === ".gif" ? `${filePath}[0]` : filePath;
@@ -69,8 +74,8 @@ function buildPlaceholder(sourcePath, outputPath, relPosix) {
   );
 }
 
-await ensureDir(placeholderRoot);
-await ensureDir(loopRoot);
+await resetDir(placeholderRoot);
+await resetDir(loopRoot);
 const allFiles = (await walk(imagesRoot)).filter((file) => supported.has(path.extname(file).toLowerCase()));
 const manifest = {};
 
