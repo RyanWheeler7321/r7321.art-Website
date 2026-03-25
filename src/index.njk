@@ -8,6 +8,8 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
 {% set recentUpdates = collections.updates %}
 {% set projectItems = collections.projects %}
 {% set tools = collections.tools %}
+{% set pinnedHomeTool = collections.tools | findBySlug("unity-tools") %}
+{% set remainingHomeTools = collections.tools | excludeSlug("unity-tools") %}
 
 <section class="home-layout home-layout-wide">
   <aside class="home-side-rail">
@@ -78,7 +80,22 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
 
       {% if tools.length %}
         <div class="home-stack-list">
-          {% for tool in tools %}
+          {% if pinnedHomeTool %}
+            <a class="tool-card home-list-card" href="{{ pinnedHomeTool.url }}">
+              {% if pinnedHomeTool.data.thumbnail %}
+                <img src="{{ pinnedHomeTool.data.thumbnail }}" alt="{{ pinnedHomeTool.data.title }}">
+              {% else %}
+                <span class="tool-icon-fallback tool-icon-fallback-small" aria-hidden="true">
+                  <i class="{{ pinnedHomeTool.data.icon or 'fas fa-circle' }}"></i>
+                </span>
+              {% endif %}
+              <div>
+                <h3>{{ pinnedHomeTool.data.title }}</h3>
+              </div>
+            </a>
+          {% endif %}
+
+          {% for tool in remainingHomeTools %}
             <a class="tool-card home-list-card" href="{{ tool.url }}">
               {% if tool.data.thumbnail %}
                 <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
