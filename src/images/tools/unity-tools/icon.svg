@@ -1,26 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Unity Tools icon</title>
-  <desc id="desc">Dark rounded square with a Unity-inspired triangle mark and utility nodes.</desc>
+  <desc id="desc">Dark rounded square with a metallic d-pad and cool accent nodes.</desc>
   <defs>
     <linearGradient id="bg" x1="18" y1="14" x2="110" y2="116" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1d1826"/>
       <stop offset="1" stop-color="#0f0d15"/>
     </linearGradient>
-    <linearGradient id="metal" x1="30" y1="26" x2="96" y2="98" gradientUnits="userSpaceOnUse">
+    <linearGradient id="metal" x1="34" y1="30" x2="94" y2="94" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#ffffff"/>
       <stop offset="1" stop-color="#c6ccd8"/>
     </linearGradient>
-    <linearGradient id="accent" x1="26" y1="90" x2="100" y2="38" gradientUnits="userSpaceOnUse">
+    <linearGradient id="accent" x1="26" y1="92" x2="100" y2="36" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#7a4dff"/>
       <stop offset="1" stop-color="#4fd6ff"/>
     </linearGradient>
   </defs>
   <rect width="128" height="128" rx="28" fill="url(#bg)"/>
   <rect x="10" y="10" width="108" height="108" rx="22" fill="none" stroke="#393249" stroke-width="2"/>
-  <circle cx="32" cy="94" r="8" fill="url(#accent)"/>
-  <circle cx="96" cy="94" r="8" fill="url(#accent)"/>
-  <circle cx="64" cy="32" r="8" fill="url(#accent)"/>
-  <path d="M32 94l32-62 32 62H32z" fill="none" stroke="url(#metal)" stroke-linejoin="round" stroke-width="8"/>
-  <path d="M50 65l14-27 14 27-14 24z" fill="none" stroke="url(#metal)" stroke-linejoin="round" stroke-width="6"/>
-  <path d="M32 94h64M64 32v60" stroke="#7e77a0" stroke-linecap="round" stroke-width="2.5" opacity=".55"/>
+  <circle cx="34" cy="94" r="7" fill="url(#accent)"/>
+  <circle cx="94" cy="34" r="7" fill="url(#accent)"/>
+  <circle cx="96" cy="96" r="7" fill="url(#accent)"/>
+  <path d="M55 34h18a5 5 0 0 1 5 5v16h16a5 5 0 0 1 5 5v18a5 5 0 0 1-5 5H78v16a5 5 0 0 1-5 5H55a5 5 0 0 1-5-5V83H34a5 5 0 0 1-5-5V60a5 5 0 0 1 5-5h16V39a5 5 0 0 1 5-5z" fill="url(#metal)"/>
+  <path d="M58 41h12v18h18v12H70v18H58V71H40V59h18z" fill="#15131b"/>
+  <path d="M64 46v8M64 74v8M46 65h8M74 65h8" stroke="#8c86a8" stroke-linecap="round" stroke-width="3" opacity=".75"/>
+  <path d="M34 94l18-15M94 34l-16 18M96 96l-17-15" stroke="#6f6790" stroke-linecap="round" stroke-width="2.5" opacity=".55"/>
 </svg>
