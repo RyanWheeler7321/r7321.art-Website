@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Unity Tools icon</title>
+  <desc id="desc">Dark rounded square with a Unity-inspired triangle mark and utility nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="14" x2="110" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1d1826"/>
+      <stop offset="1" stop-color="#0f0d15"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="30" y1="26" x2="96" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c6ccd8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="26" y1="90" x2="100" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7a4dff"/>
+      <stop offset="1" stop-color="#4fd6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="10" y="10" width="108" height="108" rx="22" fill="none" stroke="#393249" stroke-width="2"/>
+  <circle cx="32" cy="94" r="8" fill="url(#accent)"/>
+  <circle cx="96" cy="94" r="8" fill="url(#accent)"/>
+  <circle cx="64" cy="32" r="8" fill="url(#accent)"/>
+  <path d="M32 94l32-62 32 62H32z" fill="none" stroke="url(#metal)" stroke-linejoin="round" stroke-width="8"/>
+  <path d="M50 65l14-27 14 27-14 24z" fill="none" stroke="url(#metal)" stroke-linejoin="round" stroke-width="6"/>
+  <path d="M32 94h64M64 32v60" stroke="#7e77a0" stroke-linecap="round" stroke-width="2.5" opacity=".55"/>
+</svg>

@@ -4,6 +4,7 @@ title: Krita Random Exporter
 slug: krita-random-exporter
 date: 2024-11-18
 summary: Krita Scripter exporter for generating large batches of layered variations with rarity control and optional animation output.
+thumbnail: /images/tools/krita-random-exporter/icon.svg
 icon: fas fa-image
 tags:
   - tools

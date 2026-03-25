@@ -4,6 +4,7 @@ title: Unity Tools
 slug: unity-tools
 date: 2024-11-19
 summary: Reusable Unity C# scripts for managers, saves, audio, utilities, triggers, animation events, and tracking.
+thumbnail: /images/tools/unity-tools/icon.svg
 icon: fas fa-gear
 tags:
   - tools

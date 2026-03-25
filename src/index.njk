@@ -5,9 +5,9 @@ title: Home
 description: Ryan Wheeler's games, art, projects, updates, and tools.
 ---
 {% set featuredProject = collections.projects | featuredProject %}
-{% set recentUpdates = collections.updates | limit(8) %}
+{% set recentUpdates = collections.updates %}
 {% set projectItems = collections.projects %}
-{% set tools = collections.tools | limit(4) %}
+{% set tools = collections.tools %}
 
 <section class="home-layout home-layout-wide">
   <aside class="home-side-rail">
@@ -59,8 +59,10 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
           <a class="project-button home-project-card" href="{{ project.url }}">
             {% managedLoop project.data.thumbnail, project.data.title, "home-project-managed" %}
             <div class="project-button-copy">
-              <h3>{{ project.data.title }}</h3>
-              <p>{{ project.data.dateLabel }}</p>
+              <div class="home-project-head">
+                <h3>{{ project.data.title }}</h3>
+                <p class="home-project-date">{{ project.data.dateLabel }}</p>
+              </div>
             </div>
           </a>
         {% endfor %}

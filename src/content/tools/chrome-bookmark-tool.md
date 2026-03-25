@@ -3,8 +3,8 @@ layout: layouts/tool.njk
 title: Chrome Bookmark Tool
 slug: chrome-bookmark-tool
 date: 2025-02-19
-summary: Chrome extension for picking a bookmark folder and opening a random bookmark or the whole set from one popup.
-thumbnail: /images/tools/chrome-bookmark-tool/icon128.png
+summary: Chrome extension for picking a bookmark folder and opening one random bookmark or the whole folder from the same popup.
+thumbnail: /images/tools/chrome-bookmark-tool/icon.svg
 icon: fas fa-bookmark
 tags:
   - tools
