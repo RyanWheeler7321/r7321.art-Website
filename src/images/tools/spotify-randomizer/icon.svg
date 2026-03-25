@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Spotify Randomizer icon</title>
+  <desc id="desc">Dark rounded square with a green circle, shuffle arrows, and a small music note.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#20162f"/>
+      <stop offset="1" stop-color="#120d1d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="30" y1="28" x2="98" y2="98" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38f28a"/>
+      <stop offset="1" stop-color="#169c57"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="10" y="10" width="108" height="108" rx="22" fill="none" stroke="#3e3157" stroke-width="2"/>
+  <circle cx="64" cy="64" r="34" fill="url(#accent)"/>
+  <path d="M39 50h18l9 10 12-15h11" fill="none" stroke="#f7fff9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <path d="M81 43l11 2-4 10" fill="none" stroke="#f7fff9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <path d="M39 78h18l10-11" fill="none" stroke="#f7fff9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <path d="M78 68h11" fill="none" stroke="#f7fff9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <path d="M81 85l11-2-4-10" fill="none" stroke="#f7fff9" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+  <path d="M91 30v42.5a8.5 8.5 0 1 1-5-7.67V40.7l-16 3.68v34.14a8.5 8.5 0 1 1-5-7.67V36.6z" fill="#0f1114" opacity=".94"/>
+</svg>
