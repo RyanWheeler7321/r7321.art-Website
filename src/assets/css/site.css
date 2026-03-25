@@ -1061,7 +1061,9 @@ p {
 }
 
 .detail-layout-update {
-  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .detail-layout-with-aside {

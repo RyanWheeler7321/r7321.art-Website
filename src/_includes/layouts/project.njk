@@ -2,7 +2,6 @@
 layout: layouts/base.njk
 pageClass: page-project-detail
 ---
-{% set relatedUpdates = collections.updates | filterByProject(slug) | limit(4) %}
 {% set hasBodyContent = content | trim %}
 {% set primaryLink = externalLinks and externalLinks[0] %}
 
@@ -42,7 +41,7 @@ pageClass: page-project-detail
   </div>
 </section>
 
-{% if hasBodyContent or relatedUpdates.length %}
+{% if hasBodyContent %}
   <section class="shell detail-layout detail-layout-with-aside">
     {% if hasBodyContent %}
       <article class="detail-article">
@@ -59,20 +58,6 @@ pageClass: page-project-detail
         <p class="aside-title">Sections</p>
         <nav data-toc class="toc-list"></nav>
       </div>
-
-      {% if relatedUpdates.length %}
-        <div class="detail-aside-card">
-          <p class="aside-title">Related updates</p>
-          <div class="stack-list">
-            {% for update in relatedUpdates %}
-              <a class="stack-link" href="{{ update.url }}">
-                <strong>{{ update.data.title }}</strong>
-                <span>{{ update.date | teaserDate }}</span>
-              </a>
-            {% endfor %}
-          </div>
-        </div>
-      {% endif %}
     </aside>
   </section>
 {% endif %}
