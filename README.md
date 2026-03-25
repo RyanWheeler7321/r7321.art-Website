@@ -6,22 +6,6 @@ Source code for `r7321.art`, the public site for Ryan Wheeler's projects, update
 
 The site is built as a static 11ty project with markdown-driven content, shared layouts, and a simple 
 
-## Development
-
-Start local development:
-
-```bash
-npm run dev
-```
-
-Build the site:
-
-```bash
-npm run build
-```
-
-Push the current branch to GitHub through WSL SSH:
-
 ## Structure
 
 - `src/content/updates` contains update posts
