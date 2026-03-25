@@ -1061,7 +1061,7 @@ p {
 }
 
 .detail-layout-update {
-  max-width: 1200px;
+  width: 100%;
 }
 
 .detail-layout-with-aside {
@@ -1145,6 +1145,8 @@ p {
 .detail-prose > ul,
 .detail-prose > ol {
   max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .detail-prose h2 {
@@ -1235,6 +1237,9 @@ p {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
   align-items: start;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .content-column {
@@ -1246,6 +1251,8 @@ p {
   border: 0;
   border-radius: 0;
   background: transparent;
+  max-width: 36ch;
+  justify-self: center;
 }
 
 .content-column-media {

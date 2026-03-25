@@ -28,7 +28,14 @@ It's a walking-simulator exploration sandbox with a bunch of narrative ideas and
 
 {% image "/images/updates/sidereal-completed/sidereal-02.webp", "Sidereal Finished 11 - 29 - 24-20241129172525055.webp" %}
 
-The game has a lot of unique assets, including hundreds of unique item images and models, some of which I decided to use AI to speed up development time. Like I said last week, even if it saves time, using AI really sucks the fun and interest of whatever it is you're making. Any interesting stuff still has to be done by hand, so in the future using it to fill small gaps and quick optimizations will be helpful, but pretty much anything contributing value or interest to the game I still have to make myself.
+{% columns %}
+{% column %}
+The game has a lot of unique assets, including hundreds of unique item images and models, some of which I decided to use AI to speed up development time. Like I said last week, even if it saves time, using AI really sucks the fun and interest of whatever it is you're making.
+{% endcolumn %}
+{% column %}
+Any interesting stuff still has to be done by hand, so in the future using it to fill small gaps and quick optimizations will be helpful, but pretty much anything contributing value or interest to the game I still have to make myself.
+{% endcolumn %}
+{% endcolumns %}
 
 {% image "/images/updates/sidereal-completed/sidereal-03.webp", "Sidereal Finished 11 - 29 - 24-20241129172918688.webp" %}
 

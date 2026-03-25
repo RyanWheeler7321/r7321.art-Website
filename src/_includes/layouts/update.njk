@@ -8,9 +8,6 @@ pageClass: page-update-detail
 <section class="detail-hero shell detail-hero-copy-first detail-hero-centered">
   <div class="detail-hero-copy detail-hero-copy-centered">
     <h1>{{ title }}</h1>
-    {% if summary %}
-      <p class="detail-summary">{{ summary }}</p>
-    {% endif %}
     <div class="detail-meta detail-meta-split">
       <div class="tag-row tag-row-compact">
         {% for tag in displayTags %}
