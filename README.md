@@ -4,7 +4,7 @@
 
 Source code for `r7321.art`.
 
-The site is built as a static 11ty project with markdown-driven content, shared layouts, and a simple 
+Static 11ty site with markdown content, shared layouts, and a 
 
 ## Structure
 
