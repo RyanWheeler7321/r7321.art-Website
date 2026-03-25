@@ -2,7 +2,7 @@
 
 # r7321.art
 
-Source code for `r7321.art`, the public site for Ryan Wheeler's projects, updates, and tool pages.
+Source code for `r7321.art`.
 
 The site is built as a static 11ty project with markdown-driven content, shared layouts, and a simple 
 
