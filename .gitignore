@@ -4,3 +4,4 @@ dist/
 AGENTS.md
 src/generated/
 src/_data/imageManifest.json
+local/
