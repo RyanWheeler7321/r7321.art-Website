@@ -27,7 +27,7 @@ description: Tools
         <a class="tool-grid-link" href="{{ tool.url }}" aria-label="Open {{ tool.data.title }}"></a>
         <div class="tool-grid-media" aria-hidden="true">
           {% if tool.data.thumbnail %}
-            <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+            <img src="{{ tool.data.thumbnail | optimizedImage }}" alt="{{ tool.data.title }}">
           {% else %}
             <span class="tool-icon-fallback" aria-hidden="true">
               <i class="{{ tool.data.icon or 'fas fa-circle' }}"></i>

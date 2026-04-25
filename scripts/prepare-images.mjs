@@ -6,6 +6,7 @@ const repoRoot = process.cwd();
 const imagesRoot = path.join(repoRoot, "src", "images");
 const placeholderRoot = path.join(repoRoot, "src", "generated", "placeholders");
 const loopRoot = path.join(repoRoot, "src", "generated", "loops");
+const optimizedRoot = path.join(repoRoot, "src", "generated", "optimized");
 const manifestPath = path.join(repoRoot, "src", "_data", "imageManifest.json");
 const supported = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
 
@@ -74,8 +75,44 @@ function buildPlaceholder(sourcePath, outputPath, relPosix) {
   );
 }
 
+function getOptimizedSettings(relPosix) {
+  if (relPosix === "brand/headerimage.png") {
+    return { width: 1600, quality: 84 };
+  }
+
+  if (relPosix.startsWith("tools/") || relPosix.startsWith("updates/")) {
+    return { width: 1400, quality: 84 };
+  }
+
+  return { width: 1400, quality: 82 };
+}
+
+function shouldBuildOptimized(sourcePath) {
+  const ext = path.extname(sourcePath).toLowerCase();
+  return ext !== ".gif";
+}
+
+function buildOptimizedImage(sourcePath, outputPath, relPosix) {
+  const settings = getOptimizedSettings(relPosix);
+  execFileSync(
+    "magick",
+    [
+      sourcePath,
+      "-auto-orient",
+      "-strip",
+      "-resize",
+      `${settings.width}x`,
+      "-quality",
+      String(settings.quality),
+      outputPath
+    ],
+    { stdio: "ignore" }
+  );
+}
+
 await resetDir(placeholderRoot);
 await resetDir(loopRoot);
+await resetDir(optimizedRoot);
 const allFiles = (await walk(imagesRoot)).filter((file) => supported.has(path.extname(file).toLowerCase()));
 const manifest = {};
 
@@ -136,10 +173,18 @@ for (const file of allFiles) {
   const placeholderAbs = path.join(placeholderRoot, placeholderRel);
   const placeholderPublic = `/generated/placeholders/${placeholderRel.replace(/\\/g, "/")}`;
   const loopInfo = buildLoopVideos(file, relPosix);
+  const optimizedRel = relPosix.replace(/\.[^.]+$/, ".webp");
+  const optimizedAbs = path.join(optimizedRoot, optimizedRel);
+  const optimizedPublic = `/generated/optimized/${optimizedRel.replace(/\\/g, "/")}`;
+  const hasOptimizedImage = shouldBuildOptimized(file);
 
   await ensureDir(path.dirname(placeholderAbs));
   const { width, height } = identifySize(file);
   buildPlaceholder(file, placeholderAbs, relPosix);
+  if (hasOptimizedImage) {
+    await ensureDir(path.dirname(optimizedAbs));
+    buildOptimizedImage(file, optimizedAbs, relPosix);
+  }
   if (loopInfo) {
     await ensureParentFor(loopInfo.previewAbs);
     await ensureParentFor(loopInfo.fullAbs);
@@ -151,6 +196,11 @@ for (const file of allFiles) {
     width,
     height,
     placeholder: placeholderPublic,
+    ...(hasOptimizedImage
+      ? {
+          optimizedImage: optimizedPublic
+        }
+      : {}),
     ...(loopInfo
       ? {
           previewVideo: loopInfo.previewPublic,

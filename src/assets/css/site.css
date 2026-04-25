@@ -995,8 +995,17 @@ p {
 }
 
 .project-card-media img,
-.tool-grid-card img {
+.tool-grid-card img,
+.project-card-media .progressive-media,
+.project-card-media .progressive-loop {
   aspect-ratio: 16 / 9;
+}
+
+.project-card-media .progressive-media,
+.project-card-media .progressive-loop,
+.detail-hero-media .progressive-media,
+.detail-hero-media .progressive-loop {
+  height: 100%;
 }
 
 .detail-hero {
@@ -1504,7 +1513,8 @@ p {
   padding: 0;
 }
 
-.tool-showcase-frame img {
+.tool-showcase-frame img,
+.tool-showcase-frame .progressive-media {
   max-height: min(22rem, 38vh);
 }
 

@@ -45,6 +45,7 @@ const imageManifest = loadImageManifest();
 
 function renderManagedImage(src, alt = "", classes = "", eager = false) {
   const meta = imageManifest[src];
+  const displaySrc = meta?.optimizedImage || src;
   const loading = eager ? "eager" : "auto";
   const fetchpriority = eager ? "high" : "auto";
   const classAttr = classes ? ` ${classes}` : "";
@@ -55,7 +56,7 @@ function renderManagedImage(src, alt = "", classes = "", eager = false) {
 
   return `<span class="progressive-media${classAttr}" style="--ratio-w:${meta.width}; --ratio-h:${meta.height}; aspect-ratio:${meta.width}/${meta.height};">
 <img class="progressive-preview" src="${meta.placeholder}" alt="" aria-hidden="true" loading="eager" decoding="async" width="${meta.width}" height="${meta.height}">
-<img class="progressive-full" src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
+<img class="progressive-full" src="${displaySrc}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
 </span>`;
 }
 
@@ -93,6 +94,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", slugify);
   eleventyConfig.addFilter("limit", (items = [], count = 3) => items.slice(0, count));
   eleventyConfig.addFilter("displayTags", getDisplayTags);
+  eleventyConfig.addFilter("optimizedImage", (src = "") => imageManifest[src]?.optimizedImage || src);
   eleventyConfig.addFilter("findBySlug", (items = [], slug = "") =>
     items.find((item) => item.data.slug === slug)
   );

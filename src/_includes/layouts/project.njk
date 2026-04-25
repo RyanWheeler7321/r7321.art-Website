@@ -35,7 +35,7 @@ pageClass: page-project-detail
   <div class="detail-hero-side">
     {% if thumbnail or heroImage %}
       <div class="detail-hero-media project-media">
-        <img src="{{ thumbnail or heroImage }}" alt="{{ title }}">
+        {% managedLoop thumbnail or heroImage, title, "project-detail-managed" %}
       </div>
     {% endif %}
   </div>

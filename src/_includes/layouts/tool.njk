@@ -9,7 +9,7 @@ pageClass: page-tool-detail
   <div class="tool-detail-header-copy">
     {% if thumbnail %}
       <div class="tool-detail-icon-frame" aria-hidden="true">
-        <img src="{{ thumbnail }}" alt="">
+        <img src="{{ thumbnail | optimizedImage }}" alt="">
       </div>
     {% endif %}
 
@@ -53,7 +53,7 @@ pageClass: page-tool-detail
     <aside class="tool-detail-showcase">
       {% for image in showcaseItems %}
         <figure class="media-frame tool-showcase-frame">
-          <img src="{{ image.src or image }}" alt="{{ image.alt or title }}">
+          {% managedImage image.src or image, image.alt or title, "tool-showcase-managed" %}
         </figure>
       {% endfor %}
     </aside>

@@ -21,7 +21,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-stack-list">
         {% for update in recentUpdates %}
           <a class="update-button home-list-card" href="{{ update.url }}">
-            <img src="{{ update.data.thumbnail }}" alt="{{ update.data.title }}">
+            <img src="{{ update.data.thumbnail | optimizedImage }}" alt="{{ update.data.title }}">
             <div class="update-button-copy">
               <h3>{{ update.data.title }}</h3>
               <p class="list-card-date">{{ update.date | teaserDate }}</p>
@@ -83,7 +83,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
           {% if pinnedHomeTool %}
             <a class="tool-card home-list-card" href="{{ pinnedHomeTool.url }}">
               {% if pinnedHomeTool.data.thumbnail %}
-                <img src="{{ pinnedHomeTool.data.thumbnail }}" alt="{{ pinnedHomeTool.data.title }}">
+                <img src="{{ pinnedHomeTool.data.thumbnail | optimizedImage }}" alt="{{ pinnedHomeTool.data.title }}">
               {% else %}
                 <span class="tool-icon-fallback tool-icon-fallback-small" aria-hidden="true">
                   <i class="{{ pinnedHomeTool.data.icon or 'fas fa-circle' }}"></i>
@@ -98,7 +98,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
           {% for tool in remainingHomeTools %}
             <a class="tool-card home-list-card" href="{{ tool.url }}">
               {% if tool.data.thumbnail %}
-                <img src="{{ tool.data.thumbnail }}" alt="{{ tool.data.title }}">
+                <img src="{{ tool.data.thumbnail | optimizedImage }}" alt="{{ tool.data.title }}">
               {% else %}
                 <span class="tool-icon-fallback tool-icon-fallback-small" aria-hidden="true">
                   <i class="{{ tool.data.icon or 'fas fa-circle' }}"></i>
