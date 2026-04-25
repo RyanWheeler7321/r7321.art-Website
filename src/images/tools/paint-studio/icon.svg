@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">Paint Studio icon</title>
-  <desc id="desc">Dark rounded square with a clean canvas drawing and simple paint brush.</desc>
+  <desc id="desc">Dark rounded square with a simple square canvas, abstract drawing shapes, and a pencil.</desc>
   <defs>
     <linearGradient id="bg" x1="36" y1="28" x2="220" y2="226" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#16243A"/>
@@ -11,23 +11,21 @@
       <stop offset="0.55" stop-color="#80D7FF"/>
       <stop offset="1" stop-color="#2F9BFF"/>
     </linearGradient>
-    <linearGradient id="brush" x1="78" y1="188" x2="172" y2="112" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4BBFFF"/>
-      <stop offset="1" stop-color="#EAFBFF"/>
+    <linearGradient id="pencil" x1="82" y1="186" x2="174" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#47BFFF"/>
+      <stop offset="1" stop-color="#DFF8FF"/>
     </linearGradient>
   </defs>
 
   <rect x="28" y="24" width="200" height="208" rx="40" fill="url(#bg)" stroke="url(#blue)" stroke-width="9"/>
 
-  <rect x="63" y="61" width="130" height="104" rx="19" fill="#132135" stroke="url(#blue)" stroke-width="7"/>
-  <path d="M91 89H154" stroke="#8EDCFF" stroke-width="7" stroke-linecap="round" opacity="0.3"/>
-  <path d="M91 111H134" stroke="#8EDCFF" stroke-width="7" stroke-linecap="round" opacity="0.2"/>
-  <path d="M102 139C113 120 134 118 148 136" stroke="#D9F8FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
-  <circle cx="151" cy="103" r="8" fill="#7ED4FF" opacity="0.9"/>
+  <rect x="68" y="61" width="120" height="120" rx="19" fill="#132135" stroke="url(#blue)" stroke-width="7"/>
+  <circle cx="105" cy="102" r="12" fill="#8EDCFF" opacity="0.5"/>
+  <path d="M135 87C150 96 154 117 143 131C132 145 111 144 100 130" stroke="#D9F8FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+  <path d="M151 145L169 119L180 150Z" fill="#7ED4FF" opacity="0.82"/>
 
-  <path d="M79 196H178" stroke="#86D9FF" stroke-width="12" stroke-linecap="round" opacity="0.82"/>
-  <path d="M82 185L143 139" stroke="#53C8FF" stroke-width="22" stroke-linecap="round"/>
-  <path d="M133 148L162 119" stroke="url(#brush)" stroke-width="15" stroke-linecap="round"/>
-  <path d="M161 119L178 103" stroke="#EAFBFF" stroke-width="13" stroke-linecap="round"/>
-  <path d="M181 101C192 111 195 125 187 137C176 132 170 121 173 111C175 106 178 103 181 101Z" fill="#7ED4FF"/>
+  <path d="M79 181L150 123" stroke="#49BFFF" stroke-width="21" stroke-linecap="round"/>
+  <path d="M94 184L165 126" stroke="url(#pencil)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M166 126L184 111L191 120L172 135Z" fill="#DFF8FF"/>
+  <path d="M185 111L195 103L191 120Z" fill="#7ED4FF"/>
 </svg>
