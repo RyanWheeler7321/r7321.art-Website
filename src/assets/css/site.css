@@ -1350,24 +1350,6 @@ p {
   max-height: min(38rem, 52vh);
 }
 
-.page-update-detail .content-columns-media .progressive-media,
-.page-updates .content-columns-media .progressive-media {
-  overflow: visible;
-  background: transparent;
-  aspect-ratio: auto !important;
-}
-
-
-.page-update-detail .content-columns-media .progressive-full,
-.page-updates .content-columns-media .progressive-full {
-  position: relative;
-  inset: auto;
-  display: block;
-  width: 100%;
-  height: auto;
-  opacity: 1;
-  object-fit: contain;
-}
 
 .embed-shell {
   position: relative;
