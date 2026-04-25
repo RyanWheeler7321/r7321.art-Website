@@ -1357,10 +1357,6 @@ p {
   aspect-ratio: auto !important;
 }
 
-.page-update-detail .content-columns-media .progressive-preview,
-.page-updates .content-columns-media .progressive-preview {
-  display: none;
-}
 
 .page-update-detail .content-columns-media .progressive-full,
 .page-updates .content-columns-media .progressive-full {
