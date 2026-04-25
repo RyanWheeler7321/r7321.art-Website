@@ -1286,6 +1286,20 @@ p {
   max-width: none;
 }
 
+.detail-prose > .content-columns {
+  width: 100%;
+  justify-self: stretch;
+}
+
+.content-columns-media,
+.content-columns-text {
+  grid-template-columns: var(--column-widths, repeat(2, minmax(0, 1fr)));
+}
+
+.content-columns-media + .content-columns-text {
+  margin-top: -2px;
+}
+
 .content-column {
   min-width: 0;
 }
@@ -1779,7 +1793,9 @@ p {
     padding: 24px 20px;
   }
 
-  .content-columns {
+  .content-columns,
+  .content-columns-media,
+  .content-columns-text {
     grid-template-columns: 1fr;
   }
 

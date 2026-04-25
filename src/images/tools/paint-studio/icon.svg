@@ -1,24 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">Paint Studio icon</title>
-  <desc id="desc">Dark rounded square with a clean blue canvas and brush mark.</desc>
+  <desc id="desc">Dark rounded square with a simple blue canvas and paint stroke.</desc>
   <defs>
-    <linearGradient id="paint-bg" x1="38" y1="30" x2="220" y2="226" gradientUnits="userSpaceOnUse">
+    <linearGradient id="bg" x1="36" y1="28" x2="220" y2="226" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#16243A"/>
       <stop offset="1" stop-color="#0B111C"/>
     </linearGradient>
-    <linearGradient id="paint-blue" x1="58" y1="48" x2="198" y2="202" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#C4F3FF"/>
-      <stop offset="0.55" stop-color="#86D9FF"/>
-      <stop offset="1" stop-color="#3CA7FF"/>
+    <linearGradient id="blue" x1="54" y1="48" x2="202" y2="208" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#C9F5FF"/>
+      <stop offset="0.55" stop-color="#80D7FF"/>
+      <stop offset="1" stop-color="#2F9BFF"/>
     </linearGradient>
   </defs>
-  <rect x="28" y="24" width="200" height="208" rx="38" fill="url(#paint-bg)" stroke="url(#paint-blue)" stroke-width="9"/>
-  <rect x="58" y="56" width="140" height="100" rx="20" fill="#132135" stroke="url(#paint-blue)" stroke-width="7"/>
-  <path d="M84 86H170" stroke="#86D9FF" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
-  <path d="M84 112H148" stroke="#86D9FF" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
-  <path d="M70 188C98 181 121 166 143 137" stroke="url(#paint-blue)" stroke-width="18" stroke-linecap="round"/>
-  <path d="M124 164L158 130" stroke="#D9F7FF" stroke-width="10" stroke-linecap="round"/>
-  <path d="M154 134L177 111" stroke="#D9F7FF" stroke-width="8" stroke-linecap="round"/>
-  <path d="M179 92C188 103 189 116 181 127C174 120 169 113 170 104C171 98 174 94 179 92Z" fill="#7ED4FF"/>
-  <path d="M78 202H180" stroke="#86D9FF" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+  <rect x="28" y="24" width="200" height="208" rx="40" fill="url(#bg)" stroke="url(#blue)" stroke-width="9"/>
+  <rect x="58" y="58" width="140" height="98" rx="20" fill="#132135" stroke="url(#blue)" stroke-width="7"/>
+  <path d="M84 88H170" stroke="#8EDCFF" stroke-width="8" stroke-linecap="round" opacity="0.34"/>
+  <path d="M84 113H145" stroke="#8EDCFF" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+  <path d="M75 190C103 184 130 165 158 134" stroke="url(#blue)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M121 168L170 119" stroke="#E0FAFF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M174 94C184 104 187 117 181 128C172 123 167 114 169 104C170 99 172 96 174 94Z" fill="#7ED4FF"/>
+  <path d="M78 202H180" stroke="#86D9FF" stroke-width="12" stroke-linecap="round" opacity="0.82"/>
 </svg>
