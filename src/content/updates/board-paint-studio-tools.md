@@ -21,14 +21,18 @@ It also connects directly to a built-in paint system, so I can do quick concepti
 
 {% columns "media" %}
 {% column "media" %}
-{% gallery %}
 {% image "/images/updates/board-paint-studio-tools/board-paint-studio-tools-03.png", "Paint Studio sketch workspace with color controls and a character concept on canvas." %}
-{% image "/images/updates/board-paint-studio-tools/board-paint-studio-tools-04.png", "Paint Studio workspace showing tiled asset painting and multiple mirrored views." %}
-{% endgallery %}
 {% endcolumn %}
+{% column "media" %}
+{% image "/images/updates/board-paint-studio-tools/board-paint-studio-tools-04.png", "Paint Studio workspace showing tiled asset painting and multiple mirrored views." %}
+{% endcolumn %}
+{% endcolumns %}
+
+{% columns %}
 {% column %}
 Paint Studio is built for rough concept work, thumbnails, storyboards, and simple animations, but it also has some stronger tools than that probably makes it sound. It has a full layer system, tiling, mirroring, quick adjustment processing, a good color selector, and a range of brushes including a stamp brush for repeating shapes and assets fast when blocking in contrast, value, and composition ideas.
-
+{% endcolumn %}
+{% column %}
 In the second image you can also see the tiling setup, which lets me paint across the canvas bounds so tiled assets and repeating concepts read more correctly while I work. It also ties back into Board Studio so I can save individual assets as projects with multiple images, layers, and frames. There is also a Unity export path built into it, although I have not used that part enough yet to know where the bugs still are.
 {% endcolumn %}
 {% endcolumns %}
