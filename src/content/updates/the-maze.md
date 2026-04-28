@@ -21,7 +21,7 @@ I've been putting together a new Unity development environment that I am calling
 Right now, this version is mostly about getting 3D rendering into a strong place. So far I've made custom Unity render pipeline features for planar reflections, screen-space reflections, procedural clouds, cloud shadows, water, volumetric fog, lighting, sun rays, shaders, and a custom post-processing setup. I will probably open source some of the individual graphics features later once they are refined enough for other people to use outside my own setup.
 {% endcolumn %}
 {% column %}
-In this screenshot, the scene is running at over 250 FPS while drawing about 5.95 million triangles, with a GPU frame time around 3.6 ms. There's only 48 draw calls since there is not a full environment here yet, so that number does not mean the whole thing is optimized, but it is already a good sign for the kind of scenes I want to build.
+In this screenshot, the scene is running at about 175 FPS while drawing about 6.34 million triangles, with a GPU frame time around 5.6 ms. There are only 52 draw calls and 23 set pass calls since there is not a full environment here yet, so those numbers do not mean the whole thing is optimized, but it is already a good sign for the kind of scenes I want to build.
 {% endcolumn %}
 {% endcolumns %}
 
