@@ -4,7 +4,7 @@ title: The Maze
 slug: the-maze
 date: 2026-04-25
 summary: I've been putting together a new Unity development environment that I am calling The Maze.
-thumbnail: /images/updates/the-maze/the-maze-01.png
+thumbnail: /images/updates/the-maze/the-maze-reflections-01.png
 tags:
   - updates
   - Game Dev
@@ -14,7 +14,7 @@ permalink: /updates/the-maze/index.html
 ---
 I've been putting together a new Unity development environment that I am calling The Maze. It is basically a playground for keeping my game-dev experiments in one place instead of splitting every idea into a separate project.
 
-{% image "/images/updates/the-maze/the-maze-01.png", "Unity scene running in The Maze, showing reflective water, fog, clouds, lighting, and tall test spires." %}
+{% image "/images/updates/the-maze/the-maze-reflections-01.png", "Unity scene running in The Maze, showing reflective water, fog, clouds, lighting, and tall test spires." %}
 
 {% columns %}
 {% column %}
