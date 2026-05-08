@@ -1,4 +1,4 @@
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -9,6 +9,43 @@ const loopRoot = path.join(repoRoot, "src", "generated", "loops");
 const optimizedRoot = path.join(repoRoot, "src", "generated", "optimized");
 const manifestPath = path.join(repoRoot, "src", "_data", "imageManifest.json");
 const supported = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
+
+function commandExists(command, args = ["--version"]) {
+  const result = spawnSync(command, args, { stdio: "ignore" });
+  return !result.error && result.status === 0;
+}
+
+const hasMagick = commandExists("magick", ["-version"]);
+
+function runPythonImageTool(args, options = {}) {
+  return execFileSync("python", [path.join(repoRoot, "scripts", "image_tool.py"), ...args], options);
+}
+
+function runMagickOrPython(magickArgs, pythonArgs, options = {}) {
+  if (hasMagick) {
+    return execFileSync("magick", magickArgs, options);
+  }
+  return runPythonImageTool(pythonArgs, options);
+}
+
+function ffmpegUsesWindowsPaths() {
+  try {
+    const version = execFileSync("ffmpeg", ["-version"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+    return version.includes("gyan.dev") || version.includes("full_build-www.gyan.dev");
+  } catch {
+    return false;
+  }
+}
+
+const ffmpegNeedsWindowsPaths = ffmpegUsesWindowsPaths();
+
+function toFfmpegPath(filePath) {
+  if (!ffmpegNeedsWindowsPaths || !filePath.startsWith("/mnt/")) {
+    return filePath;
+  }
+  return execFileSync("wslpath", ["-w", filePath], { encoding: "utf8" }).trim();
+}
+
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -36,9 +73,11 @@ async function resetDir(target) {
 function identifySize(filePath) {
   const ext = path.extname(filePath).toLowerCase();
   const inputArg = ext === ".gif" ? `${filePath}[0]` : filePath;
-  const output = execFileSync("magick", ["identify", "-ping", "-format", "%w %h", inputArg], {
-    encoding: "utf8"
-  }).trim();
+  const output = runMagickOrPython(
+    ["identify", "-ping", "-format", "%w %h", inputArg],
+    ["identify", inputArg],
+    { encoding: "utf8" }
+  ).trim();
   const [width, height] = output.split(/\s+/).map(Number);
   return { width, height };
 }
@@ -59,8 +98,7 @@ function buildPlaceholder(sourcePath, outputPath, relPosix) {
   const ext = path.extname(sourcePath).toLowerCase();
   const inputArg = ext === ".gif" ? `${sourcePath}[0]` : sourcePath;
   const settings = getPlaceholderSettings(relPosix);
-  execFileSync(
-    "magick",
+  runMagickOrPython(
     [
       inputArg,
       "-auto-orient",
@@ -71,6 +109,7 @@ function buildPlaceholder(sourcePath, outputPath, relPosix) {
       String(settings.quality),
       outputPath
     ],
+    ["resize", inputArg, outputPath, "--width", String(settings.width), "--quality", String(settings.quality)],
     { stdio: "ignore" }
   );
 }
@@ -94,8 +133,7 @@ function shouldBuildOptimized(sourcePath) {
 
 function buildOptimizedImage(sourcePath, outputPath, relPosix) {
   const settings = getOptimizedSettings(relPosix);
-  execFileSync(
-    "magick",
+  runMagickOrPython(
     [
       sourcePath,
       "-auto-orient",
@@ -106,6 +144,7 @@ function buildOptimizedImage(sourcePath, outputPath, relPosix) {
       String(settings.quality),
       outputPath
     ],
+    ["resize", sourcePath, outputPath, "--width", String(settings.width), "--quality", String(settings.quality)],
     { stdio: "ignore" }
   );
 }
@@ -145,7 +184,7 @@ function buildVideoVariant(sourcePath, outputPath, width, crf) {
     [
       "-y",
       "-i",
-      sourcePath,
+      toFfmpegPath(sourcePath),
       "-movflags",
       "+faststart",
       "-an",
@@ -159,7 +198,7 @@ function buildVideoVariant(sourcePath, outputPath, width, crf) {
       "veryfast",
       "-crf",
       String(crf),
-      outputPath
+      toFfmpegPath(outputPath)
     ],
     { stdio: "ignore" }
   );
