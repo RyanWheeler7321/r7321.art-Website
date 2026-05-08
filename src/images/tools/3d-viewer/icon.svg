@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">3D Viewer icon</title>
+  <desc id="desc">Dark rounded square with a clean 3D inspection viewport, orbit ring, and wireframe model.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1f1728"/>
+      <stop offset="1" stop-color="#0f0d16"/>
+    </linearGradient>
+    <linearGradient id="viewport" x1="25" y1="27" x2="103" y2="101" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a2440"/>
+      <stop offset="1" stop-color="#121019"/>
+    </linearGradient>
+    <linearGradient id="model" x1="38" y1="35" x2="90" y2="92" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFB45C"/>
+      <stop offset="0.48" stop-color="#FF4E91"/>
+      <stop offset="1" stop-color="#8B67FF"/>
+    </linearGradient>
+    <linearGradient id="wire" x1="32" y1="96" x2="96" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF4A7E"/>
+      <stop offset="1" stop-color="#F8D2FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect x="10" y="10" width="108" height="108" rx="22" fill="none" stroke="#3e3157" stroke-width="2"/>
+  <rect x="22" y="25" width="84" height="78" rx="18" fill="url(#viewport)" stroke="#66517D" stroke-width="3"/>
+  <path d="M36 84C46 96 80 99 94 79" fill="none" stroke="#87739D" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M34 80C46 70 77 66 96 76" fill="none" stroke="#FF79A9" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <path d="M64 33L90 48V79L64 94L38 79V48Z" fill="url(#model)" opacity="0.96"/>
+  <path d="M64 33V94M38 48L64 63L90 48M38 79L64 63L90 79" fill="none" stroke="#140F18" stroke-width="5" stroke-linejoin="round" opacity="0.46"/>
+  <path d="M64 33L90 48V79L64 94L38 79V48Z" fill="none" stroke="url(#wire)" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M38 48L64 63L90 48M64 63V94M38 79L64 63L90 79" fill="none" stroke="#FFE7F4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
+  <circle cx="94" cy="35" r="5" fill="#F8D2FF"/>
+  <circle cx="34" cy="95" r="4" fill="#FF5E99"/>
+  <path d="M94 35L83 43M34 95L45 88" stroke="#FF7AA7" stroke-width="2.5" stroke-linecap="round" opacity="0.62"/>
+</svg>

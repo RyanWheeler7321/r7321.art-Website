@@ -4,7 +4,7 @@ title: 3D Viewer
 slug: 3d-viewer
 date: 2026-05-08
 summary: Small desktop viewer for quickly opening 3D models, testing lighting, and checking topology before moving assets through a pipeline.
-thumbnail: /images/tools/3d-viewer/showcase-1.png
+thumbnail: /images/tools/3d-viewer/icon.svg
 tags:
   - tools
   - Desktop App
