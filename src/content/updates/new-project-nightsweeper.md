@@ -15,7 +15,7 @@ I've been doing look-dev on a new project for a few weeks, a new world/storyline
 
 I've been using this process to set up a new project development process that allows me to work faster, more intuitively, and more effectively, using new tools for small efficient boosts, rather than for asset generation, which I only had limited success with on <i>Sidereal</i>.
 
-AI has been very helpful for quick concepting and tool building with its ability to code so fast, but from a human-judgment perspective it is still basically useless. The asset-generation tools still tend to look too generic, so they can really only be used for concepts or starting points, and they always require a useful concept image or idea that I make first by hand to get the details right.
+AI has been very helpful for quick concepting and tool building with its ability to code so fast, but from a human-judgment perspective it is still basically useless. The asset-generation tools still tend to look too generic, so they can really only be used as a starting point, and they always require a concept image or idea that I make first by hand to get the details right.
 
 {% image "/images/updates/new-project-nightsweeper/nightsweeper-corner-2.png", "NIGHTSWEEPER gameplay look-dev image showing the spell-sweeping board and visual style." %}
 
