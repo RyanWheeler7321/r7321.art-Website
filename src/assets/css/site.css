@@ -20,6 +20,7 @@
   --frame-fill: rgba(17, 13, 24, 0.92);
   --frame-line: rgba(224, 208, 255, 0.82);
   --frame-line-soft: rgba(190, 150, 255, 0.62);
+  --outline-scale: 1.5;
   --shell: min(1240px, calc(100vw - 32px));
   --header-fit-scale: 1;
   --mobile-menu-scale: 1;
@@ -210,6 +211,8 @@ main {
 
 .site-header-inner {
   --header-clip: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+  --card-bevel: 18px;
+  --card-outline-width: 1.75px;
   --header-pad-x: clamp(12px, calc(2vw * var(--header-fit-scale) + 12px), 32px);
   --header-gap: clamp(10px, calc(2.3vw * var(--header-fit-scale) + 10px), 46px);
   --nav-gap: clamp(8px, calc(1.15vw * var(--header-fit-scale) + 8px), 22px);
@@ -339,6 +342,8 @@ main {
   display: none;
   width: 46px;
   height: 46px;
+  --card-bevel: 12px;
+  --card-outline-width: 1.75px;
   border: 1px solid rgba(214, 194, 255, 0.24);
   border-radius: 0;
   background: rgba(195, 138, 255, 0.08);
@@ -380,6 +385,8 @@ p {
   padding: 0 16px;
   position: relative;
   isolation: isolate;
+  --card-bevel: 15px;
+  --card-outline-width: 1.75px;
   border-radius: 0;
   border: 1px solid transparent;
   background:
@@ -463,6 +470,9 @@ p {
   padding: 0 14px;
   position: relative;
   isolation: isolate;
+  --card-bevel: 10px;
+  --card-outline-width: 1.75px;
+  --shape-outline-kind: hex;
   border-radius: 0;
   border: 0;
   background: transparent;
@@ -607,7 +617,7 @@ p {
   display: block;
   max-width: 840px;
   margin: 0 auto;
-  border: 1px solid var(--panel-border);
+  border: 0;
   border-radius: 0;
   clip-path: polygon(var(--bevel) 0, calc(100% - var(--bevel)) 0, 100% var(--bevel), 100% calc(100% - var(--bevel)), calc(100% - var(--bevel)) 100%, var(--bevel) 100%, 0 calc(100% - var(--bevel)), 0 var(--bevel));
   overflow: hidden;
@@ -648,6 +658,15 @@ p {
   gap: 20px;
 }
 
+.home-play-link {
+  --card-bevel: 20px;
+  --card-outline-width: 2px;
+  min-height: 84px;
+  padding: 0 34px;
+  font-size: clamp(1.15rem, 1.35vw, 1.45rem);
+  letter-spacing: 0.03em;
+}
+
 .home-section-heading {
   display: flex;
   align-items: center;
@@ -683,6 +702,7 @@ p {
   --card-bevel: var(--bevel);
   --card-fill: linear-gradient(145deg, rgba(31, 23, 45, 0.9), rgba(10, 8, 16, 0.92));
   --card-line: rgba(224, 208, 255, 0.42);
+  --card-outline-width: 1.75px;
   position: relative;
   isolation: isolate;
   background: transparent;
@@ -774,6 +794,7 @@ p {
   --card-bevel: var(--bevel-sm);
   --card-line: rgba(224, 208, 255, 0.42);
   --card-fill: rgba(27, 20, 38, 0.86);
+  --card-outline-width: 1.75px;
   position: relative;
   isolation: isolate;
   background: transparent;
@@ -916,7 +937,7 @@ p {
   max-height: none;
   aspect-ratio: 1 / 1;
   border-radius: 0;
-  clip-path: polygon(8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px), 0 8px);
+  clip-path: none;
   object-fit: cover;
 }
 
@@ -1125,7 +1146,7 @@ p {
 .browse-item img {
   aspect-ratio: 1 / 1;
   border-radius: 0;
-  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+  clip-path: none;
 }
 
 .browse-item-copy strong {
@@ -1217,6 +1238,7 @@ p {
 
 .project-card,
 .tool-grid-card {
+  --card-outline-width: 1.85px;
   overflow: hidden;
 }
 
@@ -1257,6 +1279,8 @@ p {
 }
 
 .tool-icon-fallback {
+  --card-bevel: 14px;
+  --card-outline-width: 1.75px;
   display: grid;
   place-items: center;
   width: 96px;
@@ -1370,6 +1394,7 @@ p {
 
 .project-card-media {
   display: block;
+  overflow: hidden;
 }
 
 .project-card-media,
@@ -1432,13 +1457,15 @@ p {
 
 .detail-title-stage h1 {
   min-width: 0;
-  max-width: 100%;
+  width: fit-content;
+  max-width: calc(100% - (var(--detail-title-side-reserve, 0px) * 2));
   color: #cdb8ff;
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
   -webkit-text-fill-color: currentColor;
-  font-size: clamp(3rem, 7.4vw, 5.4rem);
+  --detail-title-base-size: clamp(3rem, 7.4vw, 5.4rem);
+  font-size: calc(var(--detail-title-fit-scale, 1) * var(--detail-title-base-size));
   font-weight: 500;
   margin-left: auto;
   margin-right: auto;
@@ -1447,12 +1474,13 @@ p {
   letter-spacing: -0.035em;
   overflow-wrap: normal;
   text-wrap: balance;
+  white-space: nowrap;
   filter: drop-shadow(0 0 24px rgba(155, 93, 255, 0.22));
 }
 
 .detail-title-stage h1.is-long-title {
-  max-width: 1220px;
-  font-size: clamp(2.35rem, 4.35vw, 4.05rem);
+  max-width: min(1220px, calc(100% - (var(--detail-title-side-reserve, 0px) * 2)));
+  --detail-title-base-size: clamp(2.35rem, 4.35vw, 4.05rem);
   line-height: 0.98;
 }
 
@@ -1602,6 +1630,84 @@ p {
   z-index: 1;
 }
 
+.r-frame-vector,
+.r-bevel-vector {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.r-frame-vector {
+  z-index: 0;
+}
+
+.r-frame-vector-fill {
+  fill: var(--r-frame-fill, var(--frame-fill));
+  stroke: none;
+}
+
+.r-frame-vector-stroke,
+.r-bevel-vector-stroke {
+  fill: none;
+  stroke: var(--r-frame-line, var(--frame-line));
+  stroke-width: calc(var(--shape-outline-width, 1.25px) * var(--outline-scale, 1));
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.r-frame-vector-stroke {
+  --shape-outline-width: var(--r-frame-outline-width, 1.65px);
+  stroke: rgba(224, 208, 255, 0.78);
+  filter: drop-shadow(0 0 5px rgba(155, 93, 255, 0.26));
+}
+
+.r-bevel-vector-stroke {
+  --shape-outline-width: var(--card-outline-width, 1.75px);
+  stroke: var(--card-line, rgba(224, 208, 255, 0.42));
+}
+
+.has-vector-frame::before {
+  display: none;
+}
+
+.has-vector-frame .r-frame-side,
+.has-vector-frame .r-frame-bottom,
+.has-vector-frame .r-frame-corner,
+.has-vector-frame .r-frame-top-rail {
+  display: none;
+}
+
+.has-vector-frame .r-frame-notch-line {
+  display: none;
+}
+
+.has-bevel-vector::before {
+  background: transparent;
+}
+
+.has-bevel-vector {
+  overflow: hidden;
+}
+
+.has-bevel-vector {
+  border-color: transparent !important;
+}
+
+.has-bevel-vector::before {
+  opacity: 0;
+}
+
+.has-bevel-vector > .r-bevel-vector {
+  z-index: 20;
+}
+
+
 .r-frame-svg {
   position: absolute;
   inset: 0;
@@ -1616,7 +1722,7 @@ p {
 .r-frame-notch-dim {
   fill: none;
   stroke: var(--r-frame-line, var(--frame-line));
-  stroke-width: 1;
+  stroke-width: var(--shape-outline-width, 1.25px);
   vector-effect: non-scaling-stroke;
   filter: drop-shadow(0 0 5px rgba(155, 93, 255, 0.26));
 }
@@ -1758,6 +1864,7 @@ p {
   --r-frame-fill-notch-shoulder: 146px;
   --r-frame-fill-notch-inner: 40px;
   --r-frame-fill: rgba(17, 13, 24, 0.92);
+  --r-frame-outline-width: 1.65px;
   min-height: 360px;
   box-shadow: 0 26px 60px rgba(0, 0, 0, 0.46);
 }
@@ -1930,6 +2037,18 @@ p {
 .media-gallery .progressive-media {
   width: var(--media-figure-width, min(100%, calc(var(--content-media-max-height) * (var(--ratio-w) / var(--ratio-h)))));
   max-height: var(--content-media-max-height);
+}
+
+.page-updates .browse-panel-prose .media-frame .progressive-media,
+.page-updates .browse-panel-prose .media-gallery .progressive-media {
+  clip-path: polygon(var(--bevel-sm) 0, calc(100% - var(--bevel-sm)) 0, 100% var(--bevel-sm), 100% calc(100% - var(--bevel-sm)), calc(100% - var(--bevel-sm)) 100%, var(--bevel-sm) 100%, 0 calc(100% - var(--bevel-sm)), 0 var(--bevel-sm));
+  box-shadow: var(--shadow);
+}
+
+.page-updates .browse-panel-prose .media-frame .progressive-media img,
+.page-updates .browse-panel-prose .media-gallery .progressive-media img {
+  clip-path: none;
+  box-shadow: none;
 }
 
 .media-frame img,
@@ -2147,7 +2266,7 @@ p {
   place-items: center;
   width: min(92vw, 1600px);
   height: min(88vh, 980px);
-  overflow: hidden;
+  overflow: visible;
   cursor: zoom-out;
 }
 
@@ -2159,22 +2278,20 @@ p {
   height: auto;
   object-fit: contain;
   opacity: 0;
-  transform: scale(1);
+  transform: none;
   transform-origin: center center;
   transition:
-    opacity 150ms ease,
-    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform-origin 60ms linear;
+    opacity 150ms ease;
 }
 
 .image-zoom-overlay.is-open .image-zoom-stage img {
   opacity: 1;
-  transform: scale(3);
-  transition-duration: 130ms, 130ms, 60ms;
+  transform: none;
+  transition-duration: 130ms;
 }
 
 .image-zoom-overlay.is-closing .image-zoom-stage img {
-  transition-duration: 220ms, 300ms, 80ms;
+  transition-duration: 220ms;
 }
 
 body.image-zoom-active {
@@ -2183,6 +2300,8 @@ body.image-zoom-active {
 
 
 .embed-shell {
+  --card-bevel: var(--bevel);
+  --card-outline-width: 1.75px;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -2425,6 +2544,8 @@ body.image-zoom-active {
 
   .site-header-inner {
     --header-clip: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+  --card-bevel: 18px;
+  --card-outline-width: 1.75px;
     align-items: start;
     border-radius: 0;
     gap: 14px;
@@ -2568,6 +2689,7 @@ body.image-zoom-active {
     min-width: 0;
     font-size: clamp(2.5rem, 8.7vw, 3.75rem);
     overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   .detail-title-meta {

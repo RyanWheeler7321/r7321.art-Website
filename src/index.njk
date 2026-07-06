@@ -43,8 +43,8 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-feature-top">
         <h1>{{ featuredProject.data.title }}</h1>
         {% if featuredProject.data.externalLinks and featuredProject.data.externalLinks[0] %}
-          <a class="feature-link" href="{{ featuredProject.data.externalLinks[0].url }}" target="_blank" rel="noopener">
-            {{ featuredProject.data.externalLinks[0].label }}
+          <a class="feature-link home-play-link" href="{{ featuredProject.data.externalLinks[0].url }}" target="_blank" rel="noopener">
+            Play Now
           </a>
         {% endif %}
       </div>

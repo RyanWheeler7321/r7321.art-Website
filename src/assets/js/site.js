@@ -378,33 +378,9 @@ function initImageZoom() {
   overlay.innerHTML = `<div class="image-zoom-stage" role="dialog" aria-modal="true"><img alt=""></div>`;
   document.body.appendChild(overlay);
 
-  const stage = overlay.querySelector(".image-zoom-stage");
   const zoomImage = overlay.querySelector("img");
   let isOpen = false;
   let closeTimer = 0;
-
-  function getBaseImageRect() {
-    const stageRect = stage.getBoundingClientRect();
-    const width = zoomImage.offsetWidth || zoomImage.clientWidth;
-    const height = zoomImage.offsetHeight || zoomImage.clientHeight;
-    return {
-      left: stageRect.left + (stageRect.width - width) / 2,
-      top: stageRect.top + (stageRect.height - height) / 2,
-      width,
-      height
-    };
-  }
-
-  function setOrigin(event) {
-    const rect = getBaseImageRect();
-    if (!rect.width || !rect.height) {
-      return;
-    }
-
-    const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-    const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-    zoomImage.style.transformOrigin = `${x.toFixed(2)}% ${y.toFixed(2)}%`;
-  }
 
   function closeZoom() {
     if (!isOpen) {
@@ -427,7 +403,7 @@ function initImageZoom() {
     }, 320);
   }
 
-  function openZoom(wrapper, event) {
+  function openZoom(wrapper) {
     const full = wrapper.querySelector(".progressive-full") || wrapper.querySelector("img");
     if (!full) {
       return;
@@ -444,9 +420,6 @@ function initImageZoom() {
 
     requestAnimationFrame(() => {
       overlay.classList.add("is-open");
-      if (event) {
-        requestAnimationFrame(() => setOrigin(event));
-      }
     });
   }
 
@@ -457,20 +430,12 @@ function initImageZoom() {
       }
 
       event.preventDefault();
-      openZoom(wrapper, event);
+      openZoom(wrapper);
     });
   });
 
-  stage.addEventListener("mousemove", setOrigin);
   overlay.addEventListener("click", (event) => {
-    const rect = getBaseImageRect();
-    const insideBaseImage =
-      event.clientX >= rect.left &&
-      event.clientX <= rect.left + rect.width &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.top + rect.height;
-
-    if (!insideBaseImage) {
+    if (event.target === overlay) {
       closeZoom();
     }
   });
@@ -481,12 +446,245 @@ function initImageZoom() {
   });
 }
 
+
+function parseCssPx(element, propertyName, fallback = 0) {
+  const value = getComputedStyle(element).getPropertyValue(propertyName).trim();
+  if (!value) return fallback;
+  const parsed = Number.parseFloat(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function initDetailTitleFit() {
+  const stages = [...document.querySelectorAll(".detail-title-stage")];
+  if (!stages.length) return;
+
+  let frameId = 0;
+
+  function fitStage(stage) {
+    const title = stage.querySelector(".detail-title-heading, h1");
+    if (!title) return;
+
+    const tags = stage.querySelector(".detail-title-tags");
+    const date = stage.querySelector(".detail-title-date");
+    const styles = getComputedStyle(stage);
+    const isStacked = styles.display === "flex" || getComputedStyle(tags || stage).position === "static";
+
+    stage.style.setProperty("--detail-title-fit-scale", "1");
+    stage.style.setProperty("--detail-title-side-reserve", "0px");
+
+    if (isStacked) return;
+
+    const gap = 28;
+    const tagWidth = tags ? tags.getBoundingClientRect().width : 0;
+    const dateWidth = date ? date.getBoundingClientRect().width : 0;
+    const reserve = Math.ceil(Math.max(tagWidth, dateWidth) + gap);
+    const available = Math.max(260, stage.clientWidth - reserve * 2);
+    stage.style.setProperty("--detail-title-side-reserve", `${reserve}px`);
+
+    const naturalWidth = Math.max(title.scrollWidth, title.getBoundingClientRect().width);
+    const scale = naturalWidth > available ? Math.max(0.58, available / naturalWidth) : 1;
+    stage.style.setProperty("--detail-title-fit-scale", scale.toFixed(3));
+  }
+
+  function update() {
+    cancelAnimationFrame(frameId);
+    frameId = requestAnimationFrame(() => stages.forEach(fitStage));
+  }
+
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(update);
+    stages.forEach((stage) => observer.observe(stage));
+  }
+
+  if (document.fonts && typeof document.fonts.ready?.then === "function") {
+    document.fonts.ready.then(update).catch(() => {});
+  }
+
+  window.addEventListener("resize", update);
+  update();
+}
+
+function bevelPath(width, height, corner, inset = 0) {
+  const w = Math.max(0, width);
+  const h = Math.max(0, height);
+  const i = Math.max(0, Math.min(inset, w / 2, h / 2));
+  const left = i;
+  const top = i;
+  const right = Math.max(left, w - i);
+  const bottom = Math.max(top, h - i);
+  const c = Math.max(0, Math.min(corner, (right - left) / 2, (bottom - top) / 2));
+  return `M ${left + c} ${top} H ${right - c} L ${right} ${top + c} V ${bottom - c} L ${right - c} ${bottom} H ${left + c} L ${left} ${bottom - c} V ${top + c} Z`;
+}
+
+function hexPath(width, height, corner, inset = 0) {
+  const w = Math.max(0, width);
+  const h = Math.max(0, height);
+  const i = Math.max(0, Math.min(inset, w / 2, h / 2));
+  const left = i;
+  const top = i;
+  const right = Math.max(left, w - i);
+  const bottom = Math.max(top, h - i);
+  const c = Math.max(0, Math.min(corner, (right - left) / 2));
+  const cy = top + (bottom - top) / 2;
+  return `M ${left + c} ${top} H ${right - c} L ${right} ${cy} L ${right - c} ${bottom} H ${left + c} L ${left} ${cy} Z`;
+}
+
+function frameFillPath(width, height, metrics) {
+  const w = Math.max(0, width);
+  const h = Math.max(0, height);
+  const c = Math.max(0, Math.min(metrics.corner, w / 2, h / 2));
+  const cx = w / 2;
+  const notchY = Math.min(24, Math.max(12, h * 0.18));
+  const gemInset = 24;
+  const inner = Math.min(metrics.inner, Math.max(12, w * 0.08));
+  const shoulder = Math.min(metrics.shoulder, Math.max(inner + 20, w * 0.22));
+  const top = Math.min(metrics.top, Math.max(shoulder + 12, w * 0.26));
+  const edge = Math.min(metrics.edge, Math.max(top + 20, w / 2 - c));
+  return [
+    `M ${c} 0`,
+    `H ${Math.max(c, cx - edge)}`,
+    `H ${Math.max(c, cx - top)}`,
+    `L ${Math.max(c, cx - shoulder)} ${notchY}`,
+    `H ${Math.max(c, cx - inner)}`,
+    `L ${Math.max(c, cx - gemInset)} 8`,
+    `H ${Math.min(w - c, cx + gemInset)}`,
+    `L ${Math.min(w - c, cx + inner)} ${notchY}`,
+    `H ${Math.min(w - c, cx + shoulder)}`,
+    `L ${Math.min(w - c, cx + top)} 0`,
+    `H ${Math.min(w - c, cx + edge)}`,
+    `H ${w - c}`,
+    `L ${w} ${c}`,
+    `V ${h}`,
+    `H 0`,
+    `V ${c}`,
+    "Z"
+  ].join(" ");
+}
+
+function frameStrokePath(width, height, metrics, inset = 0) {
+  const w = Math.max(0, width);
+  const h = Math.max(0, height);
+  const i = Math.max(0, Math.min(inset, w / 2, h / 2));
+  const left = i;
+  const topY = i;
+  const right = Math.max(left, w - i);
+  const bottom = Math.max(topY, h - i);
+  const c = Math.max(0, Math.min(metrics.corner, (right - left) / 2, (bottom - topY) / 2));
+  const cx = w / 2;
+  const notchY = topY + Math.min(24, Math.max(12, h * 0.18));
+  const gemInset = 24;
+  const inner = Math.min(metrics.inner, Math.max(12, w * 0.08));
+  const shoulder = Math.min(metrics.shoulder, Math.max(inner + 20, w * 0.22));
+  const top = Math.min(metrics.top, Math.max(shoulder + 12, w * 0.26));
+  const edge = Math.min(metrics.edge, Math.max(top + 20, w / 2 - c));
+  return [
+    `M ${left + c} ${topY}`,
+    `H ${Math.max(left + c, cx - edge)}`,
+    `H ${Math.max(left + c, cx - top)}`,
+    `L ${Math.max(left + c, cx - shoulder)} ${notchY}`,
+    `H ${Math.max(left + c, cx - inner)}`,
+    `L ${Math.max(left + c, cx - gemInset)} ${topY + 8}`,
+    `H ${Math.min(right - c, cx + gemInset)}`,
+    `L ${Math.min(right - c, cx + inner)} ${notchY}`,
+    `H ${Math.min(right - c, cx + shoulder)}`,
+    `L ${Math.min(right - c, cx + top)} ${topY}`,
+    `H ${Math.min(right - c, cx + edge)}`,
+    `H ${right - c}`,
+    `L ${right} ${topY + c}`,
+    `V ${bottom - c}`,
+    `L ${right - c} ${bottom}`,
+    `H ${left + c}`,
+    `L ${left} ${bottom - c}`,
+    `V ${topY + c}`,
+    `L ${left + c} ${topY}`
+  ].join(" ");
+}
+
+function makeSvg(className, innerHtml) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("class", className);
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  svg.innerHTML = innerHtml;
+  return svg;
+}
+
+function initVectorFrames() {
+  const frameItems = [...document.querySelectorAll(".r-frame-longform")];
+  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .tool-icon-fallback";
+  const bevelItems = [...document.querySelectorAll(bevelSelectors)];
+  const allItems = [...frameItems, ...bevelItems];
+  if (!allItems.length) return;
+
+  frameItems.forEach((item) => {
+    if (item.querySelector(":scope > .r-frame-vector")) return;
+    const svg = makeSvg("r-frame-vector", '<path class="r-frame-vector-fill"></path><path class="r-frame-vector-stroke"></path>');
+    item.prepend(svg);
+    item.classList.add("has-vector-frame");
+  });
+
+  bevelItems.forEach((item) => {
+    if (item.querySelector(":scope > .r-bevel-vector")) return;
+    const svg = makeSvg("r-bevel-vector", '<path class="r-bevel-vector-stroke"></path>');
+    item.append(svg);
+    item.classList.add("has-bevel-vector");
+  });
+
+  let frameId = 0;
+
+  function updateItem(item) {
+    const rect = item.getBoundingClientRect();
+    if (rect.width < 2 || rect.height < 2) return;
+
+    const frameSvg = item.querySelector(":scope > .r-frame-vector");
+    if (frameSvg) {
+      frameSvg.setAttribute("viewBox", `0 0 ${rect.width} ${rect.height}`);
+      const metrics = {
+        corner: parseCssPx(item, "--r-frame-corner", 24),
+        edge: parseCssPx(item, "--r-frame-fill-notch-edge", 430),
+        top: parseCssPx(item, "--r-frame-fill-notch-top", 170),
+        shoulder: parseCssPx(item, "--r-frame-fill-notch-shoulder", 146),
+        inner: parseCssPx(item, "--r-frame-fill-notch-inner", 40),
+        notchWidth: parseCssPx(item, "--r-frame-notch-width", 430)
+      };
+      const outlineWidth = parseCssPx(item, "--r-frame-outline-width", 1.35);
+      frameSvg.querySelector(".r-frame-vector-fill")?.setAttribute("d", frameFillPath(rect.width, rect.height, metrics));
+      frameSvg.querySelector(".r-frame-vector-stroke")?.setAttribute("d", frameStrokePath(rect.width, rect.height, metrics, outlineWidth / 2));
+    }
+
+    const bevelSvg = item.querySelector(":scope > .r-bevel-vector");
+    if (bevelSvg) {
+      bevelSvg.setAttribute("viewBox", `0 0 ${rect.width} ${rect.height}`);
+      const outlineWidth = parseCssPx(item, "--card-outline-width", 1.3);
+      const corner = parseCssPx(item, "--card-bevel", parseCssPx(item, "--bevel", 18));
+      const kind = getComputedStyle(item).getPropertyValue("--shape-outline-kind").trim();
+      const path = kind === "hex" ? hexPath(rect.width, rect.height, corner, outlineWidth / 2) : bevelPath(rect.width, rect.height, corner, outlineWidth / 2);
+      bevelSvg.querySelector(".r-bevel-vector-stroke")?.setAttribute("d", path);
+    }
+  }
+
+  function update() {
+    cancelAnimationFrame(frameId);
+    frameId = requestAnimationFrame(() => allItems.forEach(updateItem));
+  }
+
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(update);
+    allItems.forEach((item) => observer.observe(item));
+  }
+
+  window.addEventListener("resize", update);
+  update();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initParticles();
   initBrowsePanels();
   initToolFilters();
   initToc();
+  initDetailTitleFit();
+  initVectorFrames();
   initProgressiveMedia();
   initProgressiveLoops();
   initImageZoom();
