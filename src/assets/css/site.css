@@ -2258,6 +2258,7 @@ p {
   opacity: 1;
   pointer-events: auto;
   transition-duration: 130ms;
+  cursor: default;
 }
 
 .image-zoom-stage {
@@ -2267,7 +2268,7 @@ p {
   width: min(92vw, 1600px);
   height: min(88vh, 980px);
   overflow: visible;
-  cursor: zoom-out;
+  cursor: default;
 }
 
 .image-zoom-stage img {
@@ -2280,6 +2281,7 @@ p {
   opacity: 0;
   transform: none;
   transform-origin: center center;
+  cursor: zoom-out;
   transition:
     opacity 150ms ease;
 }

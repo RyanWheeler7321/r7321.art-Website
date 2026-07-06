@@ -435,7 +435,7 @@ function initImageZoom() {
   });
 
   overlay.addEventListener("click", (event) => {
-    if (event.target === overlay) {
+    if (event.target !== zoomImage) {
       closeZoom();
     }
   });
