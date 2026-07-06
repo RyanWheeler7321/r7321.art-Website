@@ -11,7 +11,7 @@ permalink: /updates/new-project-nightsweeper/index.html
 ---
 {% image "/images/updates/new-project-nightsweeper/nightsweeper-corner-1.png", "NIGHTSWEEPER look-dev image showing the sorceress and spell-sweeping concept." %}
 
-I've been doing look-dev on a new project for a few weeks, about a sorceress who "sweeps" spells to make them usable and safe.
+I've been doing look-dev on a new project for a few weeks, a new world/storyline unrelated to my previous stuff, about a sorceress who can "sweep" spells and magical artifacts to make them more powerful and usable.
 
 I've been using this process to set up a new project development process that allows me to work faster, more intuitively, and more effectively, using new tools for small efficient boosts, rather than for asset generation, which I only had limited success with on <i>Sidereal</i>.
 

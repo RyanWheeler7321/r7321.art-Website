@@ -2000,6 +2000,16 @@ p {
   font-size: 1.04rem;
 }
 
+.detail-prose > p,
+.detail-prose > ul > li,
+.detail-prose > ol > li,
+.content-column-text p,
+.content-column-text li {
+  text-align: justify;
+  text-align-last: left;
+  overflow-wrap: break-word;
+}
+
 .detail-prose ul,
 .detail-prose ol {
   padding-left: 20px;
