@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">Paint Studio icon</title>
-  <desc id="desc">Dark rounded square with a simple square canvas, abstract drawing shapes, and a clean pencil.</desc>
+  <desc id="desc">Dark chamfered square with a simple square canvas, abstract drawing shapes, and a clean pencil.</desc>
   <defs>
     <linearGradient id="bg" x1="36" y1="28" x2="220" y2="226" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#16243A"/>
@@ -17,15 +17,15 @@
     </linearGradient>
   </defs>
 
-  <rect x="28" y="24" width="200" height="208" rx="40" fill="url(#bg)" stroke="url(#blue)" stroke-width="9"/>
+  <path d="M68 24H188L228 64V192L188 232H68L28 192V64Z" fill="url(#bg)" stroke="url(#blue)" stroke-width="9"/>
 
-  <rect x="69" y="58" width="118" height="118" rx="20" fill="#132135" stroke="url(#blue)" stroke-width="7"/>
+  <path d="M89 58H167L187 78V156L167 176H89L69 156V78Z" fill="#132135" stroke="url(#blue)" stroke-width="7"/>
   <circle cx="104" cy="99" r="12" fill="#8EDCFF" opacity="0.5"/>
   <path d="M132 86C147 96 151 116 141 131C130 146 109 144 99 130" stroke="#D9F8FF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
   <path d="M151 142L168 117L179 148Z" fill="#7ED4FF" opacity="0.82"/>
 
   <g transform="rotate(-42 129 150)">
-    <rect x="82" y="139" width="95" height="23" rx="11.5" fill="url(#pencilBody)"/>
+    <path d="M93.5 139H165.5L177 150.5L165.5 162H93.5L82 150.5Z" fill="url(#pencilBody)"/>
     <path d="M82 139H96V162H82C76 162 71 157 71 150.5C71 144 76 139 82 139Z" fill="#2FAFEF"/>
     <path d="M177 139L203 150.5L177 162Z" fill="#EAFBFF"/>
     <path d="M195 147L203 150.5L195 154Z" fill="#122033"/>

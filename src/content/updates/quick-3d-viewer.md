@@ -12,7 +12,7 @@ permalink: /updates/quick-3d-viewer/index.html
 ---
 I put together a small 3D viewer because I wanted a faster way to check models without opening Blender, Unity, or a heavier asset tool every time.
 
-The main use is simple: open a `.glb`, `.gltf`, `.fbx`, or zipped model, move around it, look at the texture with point lighting or HDRI lighting against different backgrounds, look at the topology with texture, no material, or wireframe, and decide what to do with it next. It does not replace my main 3D workflows in Blender and Substance Painter. It is a quick inspection window that can work with some of my automated scripts to assist in the development of 3D assets in general.
+The main use is simple: open a `.glb`, `.gltf`, `.fbx`, or zipped model, move around it, look at the texture with point lighting or HDRI lighting against different backgrounds, look at the topology with texture, no material, or wireframe, and decide what to do with it next. It doesn't replace any of my main 3D workflows in Blender or Substance, it's just a quick inspection window that can work with some of my automated scripts for 3D asset work in general.
 
 {% columns "media" %}
 {% column "media" %}

@@ -10,13 +10,13 @@
       <stop offset="1" stop-color="#0A1020"/>
     </linearGradient>
   </defs>
-  <rect x="30" y="26" width="196" height="204" rx="34" fill="url(#workboard-fill)" stroke="url(#workboard-stroke)" stroke-width="10"/>
+  <path d="M64 26H192L226 60V196L192 230H64L30 196V60Z" fill="url(#workboard-fill)" stroke="url(#workboard-stroke)" stroke-width="10"/>
   <path d="M88 86H168" stroke="url(#workboard-stroke)" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
   <path d="M88 128H168" stroke="url(#workboard-stroke)" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
   <path d="M88 170H144" stroke="url(#workboard-stroke)" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
   <path d="M82 86L128 128L174 86" stroke="url(#workboard-stroke)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-  <rect x="56" y="58" width="48" height="40" rx="14" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
-  <rect x="152" y="58" width="48" height="40" rx="14" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
-  <rect x="104" y="114" width="48" height="40" rx="14" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
-  <rect x="68" y="182" width="120" height="14" rx="7" fill="#7ED4FF" opacity="0.92"/>
+  <path d="M70 58H90L104 72V84L90 98H70L56 84V72Z" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
+  <path d="M166 58H186L200 72V84L186 98H166L152 84V72Z" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
+  <path d="M118 114H138L152 128V140L138 154H118L104 140V128Z" fill="#132135" stroke="url(#workboard-stroke)" stroke-width="8"/>
+  <path d="M75 182H181L188 189L181 196H75L68 189Z" fill="#7ED4FF" opacity="0.92"/>
 </svg>

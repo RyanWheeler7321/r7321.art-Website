@@ -29,6 +29,57 @@ function formatCaption(caption = "") {
   return caption ? `<figcaption>${caption}</figcaption>` : "";
 }
 
+function escapeHtml(value = "") {
+  return value
+    .toString()
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function normalizeChoice(value = "", allowed = [], fallback = "") {
+  const normalized = value.toString().trim().toLowerCase().split(/\s+/)[0];
+  return allowed.includes(normalized) ? normalized : fallback;
+}
+
+function hasChoiceFlag(value = "", flag = "") {
+  return value.toString().trim().toLowerCase().split(/\s+/).includes(flag);
+}
+
+function renderMediaCaption(caption = "", credit = "", align = "center", placement = "bottom") {
+  if (!caption && !credit) {
+    return "";
+  }
+
+  const safeAlign = normalizeChoice(align, ["left", "center", "right"], "center");
+  const safePlacement = normalizeChoice(placement, ["top", "bottom"], "bottom");
+  const justifyClass = hasChoiceFlag(align, "justify") ? " media-caption-justify" : "";
+  return `<div class="media-caption-block media-caption-block-${safePlacement} media-caption-${safeAlign}${justifyClass}">
+${credit ? `<div class="media-caption-credit">${escapeHtml(credit)}</div>` : ""}
+${caption ? `<figcaption class="media-caption-main">${caption}</figcaption>` : ""}
+</div>`;
+}
+
+function renderImageFigure(src, alt = "", caption = "", classes = "", credit = "", align = "center", placement = "bottom", topCaption = "", topCredit = "", topAlign = "") {
+  const safePlacement = normalizeChoice(placement, ["top", "bottom", "both"], "bottom");
+  const safeAlign = normalizeChoice(align, ["left", "center", "right"], "center");
+  const safeTopAlign = normalizeChoice(topAlign || align, ["left", "center", "right"], safeAlign);
+  const classList = ["media-frame", classes, `media-frame-caption-${safeAlign}`].filter(Boolean).join(" ");
+  const meta = imageManifest[src];
+  const styleAttr = meta ? ` style="--media-ratio-w:${meta.width}; --media-ratio-h:${meta.height};"` : "";
+  const showTop = safePlacement === "top" || safePlacement === "both" || topCaption || topCredit;
+  const showBottom = safePlacement === "bottom" || safePlacement === "both";
+  const topBlock = showTop ? renderMediaCaption(topCaption || (safePlacement === "top" ? caption : ""), topCredit || (safePlacement === "top" ? credit : ""), topAlign || align, "top") : "";
+  const bottomBlock = showBottom ? renderMediaCaption(caption, credit, align, "bottom") : "";
+
+  return `<figure class="${classList}"${styleAttr}>
+${topBlock}
+${renderManagedImage(src, alt, "", false)}
+${bottomBlock}
+</figure>`;
+}
+
 function getDisplayTags(tags = []) {
   return tags.filter((tag) => !RESERVED_TAGS.has(tag));
 }
@@ -142,18 +193,16 @@ module.exports = function (eleventyConfig) {
     renderManagedLoop(src, alt, classes)
   );
 
-  eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "") =>
-    `<figure class="${["media-frame", classes].filter(Boolean).join(" ")}">
-${renderManagedImage(src, alt, "", false)}
-${formatCaption(caption)}
-</figure>`
+  eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "", credit = "", align = "center", placement = "bottom", topCaption = "", topCredit = "", topAlign = "") =>
+    renderImageFigure(src, alt, caption, classes, credit, align, placement, topCaption, topCredit, topAlign)
   );
 
-  eleventyConfig.addShortcode("gif", (src, alt = "", caption = "") =>
-    `<figure class="media-frame media-frame-gif">
-${renderManagedImage(src, alt, "", false)}
-${formatCaption(caption)}
-</figure>`
+  eleventyConfig.addShortcode("essayImage", (src, alt = "", caption = "", credit = "", align = "center", placement = "bottom", topCaption = "", topCredit = "", topAlign = "", classes = "") =>
+    renderImageFigure(src, alt, caption, classes, credit, align, placement, topCaption, topCredit, topAlign)
+  );
+
+  eleventyConfig.addShortcode("gif", (src, alt = "", caption = "", credit = "", align = "center", placement = "bottom") =>
+    renderImageFigure(src, alt, caption, "media-frame-gif", credit, align, placement)
   );
 
   eleventyConfig.addPairedShortcode("gallery", (content, caption = "") =>

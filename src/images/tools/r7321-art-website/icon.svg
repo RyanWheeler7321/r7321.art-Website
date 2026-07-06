@@ -1,6 +1,6 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">r7321.art Site Source icon</title>
-  <desc id="desc">Dark rounded square with a clean purple code monitor.</desc>
+  <desc id="desc">Dark chamfered square with a clean purple code monitor.</desc>
   <defs>
     <linearGradient id="panel" x1="42" y1="34" x2="214" y2="222" gradientUnits="userSpaceOnUse">
       <stop stop-color="#24173A"/>
@@ -11,9 +11,9 @@
       <stop offset="1" stop-color="#7C53D6"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="64" fill="#130E1B"/>
-  <rect x="24" y="24" width="208" height="208" rx="52" fill="url(#panel)"/>
-  <rect x="50" y="58" width="156" height="110" rx="24" fill="#0B0810" stroke="url(#purple)" stroke-width="7"/>
+  <path d="M56 0H200L256 56V200L200 256H56L0 200V56Z" fill="#130E1B"/>
+  <path d="M76 24H180L232 76V180L180 232H76L24 180V76Z" fill="url(#panel)"/>
+  <path d="M74 58H182L206 82V144L182 168H74L50 144V82Z" fill="#0B0810" stroke="url(#purple)" stroke-width="7"/>
   <circle cx="76" cy="82" r="6" fill="#B78CFF"/>
   <circle cx="96" cy="82" r="6" fill="#7C53D6"/>
   <circle cx="116" cy="82" r="6" fill="#D7C4FF"/>
