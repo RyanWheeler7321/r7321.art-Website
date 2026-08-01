@@ -143,6 +143,45 @@ function initParticles() {
   });
 }
 
+function initHomeRailFit() {
+  const owner = document.querySelector("[data-home-height-owner]");
+  const panels = [...document.querySelectorAll("[data-home-fit-panel]")];
+  if (!owner || !panels.length) return;
+
+  let frameId = 0;
+
+  function fitRails() {
+    cancelAnimationFrame(frameId);
+    frameId = requestAnimationFrame(() => {
+      const maxHeight = Math.floor(owner.getBoundingClientRect().height);
+      if (maxHeight < 1) return;
+
+      panels.forEach((panel) => {
+        const items = [...panel.querySelectorAll("[data-home-fit-item]")];
+        panel.style.setProperty("--home-fit-max-height", `${maxHeight}px`);
+        items.forEach((item) => { item.hidden = false; });
+
+        while (items.length && panel.scrollHeight > maxHeight + 1) {
+          items.pop().hidden = true;
+        }
+      });
+    });
+  }
+
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(fitRails);
+    observer.observe(owner);
+  }
+
+  owner.querySelectorAll("img, video").forEach((media) => {
+    media.addEventListener("load", fitRails, { once: true });
+    media.addEventListener("loadedmetadata", fitRails, { once: true });
+  });
+  document.fonts?.ready?.then(fitRails);
+  window.addEventListener("resize", fitRails);
+  fitRails();
+}
+
 function initBrowsePanels() {
   document.querySelectorAll("[data-browser]").forEach((browser) => {
     const items = [...browser.querySelectorAll("[data-item]")];
@@ -633,7 +672,7 @@ function makeSvg(className, innerHtml) {
 
 function initVectorFrames() {
   const frameItems = [...document.querySelectorAll(".r-frame-longform")];
-  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .tool-icon-fallback, .tool-detail-header-copy-dossier .tool-detail-icon-frame, .tool-detail-body-dossier, .tool-dossier-showcase-frame, .tool-dossier-feature-card";
+  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .support-panel, .tool-icon-fallback, .tool-detail-header-copy-dossier .tool-detail-icon-frame, .tool-detail-body-dossier, .tool-dossier-showcase-frame, .tool-dossier-feature-card";
   const bevelItems = [...document.querySelectorAll(bevelSelectors)];
   const allItems = [...frameItems, ...bevelItems];
   if (!allItems.length) return;
@@ -702,6 +741,7 @@ function initVectorFrames() {
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initParticles();
+  initHomeRailFit();
   initBrowsePanels();
   initToolFilters();
   initToc();

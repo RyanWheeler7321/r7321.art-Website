@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+pageClass: page-project-support
+title: Support My Projects
+description: Support Ryan Wheeler's games and future projects.
+permalink: /support/index.html
+---
+<section class="project-support-page shell">
+  <header class="project-support-heading">
+    <h1>Support My Projects</h1>
+    <p>If you want to support what I make, then thank you! The best ways are to purchase one of my games on <strong>Steam</strong> or join my <strong>Patreon</strong>.</p>
+  </header>
+
+  <div class="project-support-options">
+    <a
+      class="project-card project-support-patreon"
+      href="{{ site.support.patreonUrl }}"
+      target="_blank"
+      rel="noopener"
+      data-project-support-patreon
+    >
+      <span class="project-support-patreon-icon" aria-hidden="true">
+        <i class="fab fa-patreon"></i>
+      </span>
+      <span class="project-support-patreon-copy">
+        <strong>Patreon</strong>
+        <span>Support my current work directly.</span>
+      </span>
+      <span class="project-support-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+
+    <section class="project-support-games" aria-labelledby="support-games-title">
+      <h2 id="support-games-title">Buy and Play My Games</h2>
+      <div class="project-support-game-grid">
+        {% for supportGame in site.support.games %}
+          {% set game = collections.projects | findBySlug(supportGame.slug) %}
+          {% if game %}
+            <a
+              class="project-card project-support-game"
+              href="{{ supportGame.steamUrl }}"
+              target="_blank"
+              rel="noopener"
+              data-project-support-game
+            >
+              <span class="project-card-media">
+                {% managedLoop game.data.thumbnail, game.data.title, "project-support-game-media" %}
+              </span>
+              <span class="project-card-copy">
+                <strong>{{ game.data.title }}</strong>
+                <span>{{ game.data.summary }}</span>
+              </span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</section>

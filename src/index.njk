@@ -12,15 +12,15 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
 {% set remainingHomeTools = collections.tools | excludeSlug("unity-tools") %}
 
 <section class="home-layout home-layout-wide">
-  <aside class="home-side-rail">
-    <div class="home-column-panel home-updates-panel">
+  <aside class="home-side-rail" data-home-fit-rail>
+    <div class="home-column-panel home-updates-panel" data-home-fit-panel>
       <div class="home-section-heading">
         <h2>Updates</h2>
       </div>
 
       <div class="home-stack-list">
         {% for update in recentUpdates %}
-          <a class="update-button home-list-card" href="{{ update.url }}">
+          <a class="update-button home-list-card" href="{{ update.url }}" data-home-fit-item>
             <img src="{{ update.data.thumbnail | optimizedImage }}" alt="{{ update.data.title }}">
             <div class="update-button-copy">
               <h3>{{ update.data.title }}</h3>
@@ -28,11 +28,12 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
             </div>
           </a>
         {% endfor %}
+        <a class="home-list-card home-list-more" href="/updates/" aria-label="View all updates" data-home-fit-more>...</a>
       </div>
     </div>
   </aside>
 
-  <div class="home-main-column">
+  <div class="home-main-column" data-home-height-owner>
     <section class="home-splash">
       <a class="home-splash-link" href="{{ featuredProject.url }}">
         {% managedImage featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-managed", true %}
@@ -72,8 +73,8 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     </section>
   </div>
 
-  <aside class="home-side-rail home-tools-rail">
-    <div class="home-column-panel home-tools-panel">
+  <aside class="home-side-rail home-tools-rail" data-home-fit-rail>
+    <div class="home-column-panel home-tools-panel" data-home-fit-panel>
       <div class="home-section-heading">
         <h2>Tools</h2>
       </div>
@@ -81,7 +82,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       {% if tools.length %}
         <div class="home-stack-list">
           {% if pinnedHomeTool %}
-            <a class="tool-card home-list-card" href="{{ pinnedHomeTool.url }}">
+            <a class="tool-card home-list-card" href="{{ pinnedHomeTool.url }}" data-home-fit-item>
               {% if pinnedHomeTool.data.thumbnail %}
                 <img src="{{ pinnedHomeTool.data.thumbnail | optimizedImage }}" alt="{{ pinnedHomeTool.data.title }}">
               {% else %}
@@ -96,7 +97,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
           {% endif %}
 
           {% for tool in remainingHomeTools %}
-            <a class="tool-card home-list-card" href="{{ tool.url }}">
+            <a class="tool-card home-list-card" href="{{ tool.url }}" data-home-fit-item>
               {% if tool.data.thumbnail %}
                 <img src="{{ tool.data.thumbnail | optimizedImage }}" alt="{{ tool.data.title }}">
               {% else %}
@@ -109,6 +110,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
               </div>
             </a>
           {% endfor %}
+          <a class="home-list-card home-list-more" href="/tools/" aria-label="View all tools" data-home-fit-more>...</a>
         </div>
       {% else %}
         <div class="empty-state-card">

@@ -130,6 +130,7 @@ function renderManagedLoop(src, alt = "", classes = "") {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/api": "api" });
   eleventyConfig.addPassthroughCopy({ "src/images": "images" });
   eleventyConfig.addPassthroughCopy({ "src/generated": "generated" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });

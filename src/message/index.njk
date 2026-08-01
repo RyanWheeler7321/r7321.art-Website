@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+pageClass: page-message
+title: Send Me a Message
+description: Send Ryan feedback or report a bug.
+pageScript: /assets/js/support.js
+permalink: /message/index.html
+---
+<section class="support-page shell">
+  <header class="support-heading">
+    <h1>Send Me a Message</h1>
+    <span class="support-heading-line" aria-hidden="true"></span>
+  </header>
+
+  <form
+    class="support-panel"
+    data-support-form
+    data-support-preview="true"
+    data-support-endpoint="/api/support.php"
+  >
+    <fieldset class="support-category" aria-label="Message type">
+      <label>
+        <input type="radio" name="category" value="feedback" checked>
+        <span>Feedback</span>
+      </label>
+      <label>
+        <input type="radio" name="category" value="bug">
+        <span>Bug</span>
+      </label>
+    </fieldset>
+
+    <div class="support-field-grid">
+      <label class="support-field">
+        <span>Name <small>(Leave blank to stay anonymous)</small></span>
+        <input type="text" name="name" maxlength="100" autocomplete="name">
+      </label>
+
+      <label class="support-field">
+        <span>Email <small>(If you want a reply)</small></span>
+        <input type="email" name="email" maxlength="254" autocomplete="email">
+      </label>
+    </div>
+
+    <label class="support-field support-message-field">
+      <span>Message</span>
+      <textarea name="message" maxlength="12000" required></textarea>
+    </label>
+
+    <div class="support-images">
+      <div class="support-images-head">
+        <label class="button support-upload-button">
+          Add Images
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            multiple
+            data-support-images
+          >
+        </label>
+        <span class="support-images-note">Up to 4 PNG, JPEG, or WebP images</span>
+      </div>
+      <div class="support-image-grid" data-support-image-grid></div>
+    </div>
+
+    <label class="support-honeypot" aria-hidden="true">
+      Website
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+    </label>
+
+    <div class="support-turnstile" data-support-turnstile></div>
+
+    <div class="support-form-footer">
+      <p class="support-status" data-support-status role="status" aria-live="polite"></p>
+      <button class="button support-submit" type="submit" data-support-submit>Send</button>
+    </div>
+  </form>
+
+  <div class="support-success" data-support-success tabindex="-1" hidden>
+    <h2>Thanks for messaging me!</h2>
+  </div>
+</section>
