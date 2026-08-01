@@ -25,14 +25,6 @@ Board Studio is a desktop board app for organizing ideas, references, and projec
 
 It supports nested boards, text and title blocks, image, audio, video, and link blocks, image pasting, board previews, sublists, and a 2D art library.
 
-## Usage
-
-The repo is meant to be a practical baseline. Run it locally, make boards, open image blocks into the built-in painting workflow, and extend it however you want from there.
-
-In my own version, I have it hooked into AHK plus a few other utility tools for 2D art, 3D art, SFX, and music work. If you use this project, you should treat it the same way and add or adjust things to match your own workflow.
-
-## Repo
-
-This tool shares its repo with the built-in painting workflow.
+The repository is mainly a public reference and portfolio example rather than a packaged release. Paint Studio, the built-in drawing and image editing side, lives in the same repo.
 
 {% cta "https://github.com/RyanWheeler7321/Board-Studio", "Open repo", "GitHub" %}

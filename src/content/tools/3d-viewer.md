@@ -26,10 +26,6 @@ permalink: /tools/3d-viewer/index.html
 
 It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB bundles. The main use is quick inspection: move around the model, try different lighting or HDRI setups, switch to clay or wireframe, and decide whether the asset is ready for the next step.
 
-## Workflow
-
-In my own setup, I have it hooked into AutoHotkey and some 3D model development pipelines so generated or downloaded assets can be checked quickly before moving forward.
-
-The public repo is the standalone viewer part. It is meant to be useful on its own, but it also works well as a small piece inside a larger asset workflow.
+I use it as a small part of a larger 3D asset workflow, but the viewer itself is standalone.
 
 {% cta "https://github.com/RyanWheeler7321/3D-Viewer", "Open repo", "GitHub" %}

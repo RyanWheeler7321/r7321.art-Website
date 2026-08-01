@@ -12,23 +12,19 @@ tags:
   - Python
 externalLinks:
   - label: GitHub Repo
-    url: https://github.com/RyanWheeler7321/KritaRandomExporter
+    url: https://github.com/RyanWheeler7321/Krita-Random-Exporter
 permalink: /tools/krita-random-exporter/index.html
 ---
 ## Overview
 
-Krita Random Exporter is a Python script for exporting large amounts of varying images from Krita, with support for rarity weighting and as many random traits as you want to define.
+Krita Random Exporter is a Python script for exporting randomized combinations of visible Krita layers, with weighted traits, rarity groups, unique combinations, JSON metadata, and optional animated GIFs.
 
 ## Setup
 
-Load the `massExporter` script through Krita's built-in Scripter plugin. It works best if you save a local copy, edit the settings you need, and run it from there.
-
-## How it works
-
-Configure the attributes inside the script to match the traits you want to generate. The default example uses color, but the system is built for broader trait combinations.
+Edit the configuration block in `randomMassExporter.py`, then run it through Krita's built-in Scripter plugin with the source document open.
 
 Layer hierarchy in the Krita file needs to mirror the attribute setup in the script, with names formatted as `traitName_variationName`.
 
 ## Animation export
 
-If you want animation output, set up the animation timeline in Krita and point the script at your `ffmpeg` install. If you only want still images, leave animation export disabled.
+For animation output, enable `GENERATE_ANIMATION` and point `FFMPEG_EXECUTABLE` at FFmpeg.

@@ -23,8 +23,8 @@ This is a small Python app for making a fresh Spotify playlist without relying o
 
 ## Setup
 
-You need Python, Spotipy, and your own Spotify developer app. Copy the example config file to `my_config.json`, add your client details and playlist IDs, then run the script or the included batch file.
+You need Python, Spotipy, and your own Spotify developer app. Copy the example config file to `my_config.json`, add your client ID and playlist IDs, then run the script or the included batch file.
 
 ## Notes
 
-The repo now keeps local config and token cache files out of Git, so setup stays cleaner. It can also skip tracks that already exist in your main playlists and start playback immediately if you want it to.
+The app uses Spotify's PKCE login flow, so no client secret is stored. It can skip tracks already in your main playlists and start playback immediately if you want it to.

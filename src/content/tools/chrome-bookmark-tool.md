@@ -17,21 +17,10 @@ permalink: /tools/chrome-bookmark-tool/index.html
 ---
 ## Overview
 
-Chrome Bookmark Tool is a custom Chrome extension for additional bookmark functionality when the default bookmark flow is too slow or too rigid.
+Chrome Bookmark Tool is a small extension for choosing a bookmark folder and opening either one random bookmark or the whole folder.
 
 ## Installation
 
 Clone the repo, turn on Chrome developer mode, choose `Load unpacked`, and point it at the project root.
 
-## Usage
-
-Pin the extension, open its popup, and choose the bookmark folder you want to work from.
-
-From there you can:
-
-- open one random bookmark from the selected folder
-- open every bookmark in the selected folder at once
-
-## Future
-
-The repo is set up as a lightweight utility first. Planned expansion ideas include color themes, an official Chrome Web Store release, random bookmark sets, shuffling, and better bookmark organization tools if they prove useful.
+Pin the extension, open its popup, choose a folder, then use **Open Random Bookmark** or **Open All Bookmarks**.

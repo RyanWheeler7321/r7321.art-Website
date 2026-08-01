@@ -27,4 +27,4 @@ It is not on the Chrome Web Store right now. Turn on Developer mode in Chrome, c
 
 ## Notes
 
-Everything stays local in Chrome storage. You can control the save interval, manually save a position, blacklist videos entirely, and turn the extension on or off without digging through settings.
+Saved positions and blacklist data stay local. Settings use Chrome's extension storage. You can control the save interval, manually save a position, blacklist videos entirely, and turn the extension on or off without digging through settings.
