@@ -1,32 +1,34 @@
-![r7321.art homepage preview](README-assets/homepage-preview.png)
-
 # r7321.art
 
-Source code for `r7321.art`.
+This is the source for [r7321.art](https://r7321.art), my portfolio and public progress site for games, tools, and whatever else I am making.
 
-Static 11ty site with markdown content and shared layouts.
+It is an Eleventy static site with Markdown-driven content and shared layouts. A small media pipeline turns the original images and GIFs into responsive WebP images and poster-first MP4 loops, while the message page uses a separate Turnstile-protected PHP service.
 
-## Structure
+This repository is mainly a public code reference and portfolio example. The private hosting configuration, credentials, and runtime data are not included.
 
-- `src/content/updates` contains update posts
-- `src/content/projects` contains project pages
-- `src/content/tools` contains tool pages
-- `src/images` contains site images and post media
-- `src/_includes` contains layouts
-- `src/assets` contains CSS and JavaScript
+![r7321.art homepage](src/images/tools/r7321-art-website/showcase.webp)
 
-## Site Features
+## What's here
 
-- standalone update pages
-- standalone project pages
-- update filtering by tags and project
-- public tools section with individual detail pages
-- generated image placeholders for smoother media loading
+- Updates, projects, and tools are separate Markdown content collections.
+- Shared layouts keep their index and detail pages consistent.
+- The media build creates content-hashed responsive images, inline previews, and lightweight video loops.
+- The message form handles feedback and bug reports through a small protected PHP service.
 
-## Scaffolds
+## Run locally
 
-Starter files for new content live in:
+```bash
+npm install
+npm run dev
+```
 
-- `scaffolds/update.md`
-- `scaffolds/project.md`
-- `scaffolds/tool.md`
+`npm run build` creates the production site in `dist/`. Starter files for new posts live in `scaffolds/`.
+
+## Layout
+
+- `src/content` - updates, projects, and tool pages
+- `src/images` - original site images and post media
+- `src/_includes` - shared layouts
+- `src/assets` - CSS and browser JavaScript
+- `server/support` - the message service source and example configuration
+- `scripts` - build, media, browser-test, and deployment helpers

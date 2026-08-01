@@ -2,14 +2,16 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const playwrightModule = process.env.PLAYWRIGHT_MODULE
-  || "/home/ryan/.npm/_npx/520e866687cefe78/node_modules/playwright";
-const browserPath = process.env.PLAYWRIGHT_BROWSER
-  || "/home/ryan/.cache/ms-playwright/chromium-1224/chrome-linux64/chrome";
+const playwrightLibraries = process.env.PLAYWRIGHT_LIBRARY_PATH;
+if (playwrightLibraries && !process.env.LD_LIBRARY_PATH?.split(":").includes(playwrightLibraries)) {
+  process.env.LD_LIBRARY_PATH = `${playwrightLibraries}:${process.env.LD_LIBRARY_PATH || ""}`;
+}
 const baseUrl = process.env.SUPPORT_TEST_BASE_URL || "http://127.0.0.1:8767";
 const artifactRoot = process.env.SUPPORT_TEST_ARTIFACTS
   || path.join(root, "local", "support-browser-check");
-const { chromium } = require(playwrightModule);
+const { chromium } = require("playwright");
+const launchOptions = { headless: true };
+if (process.env.PLAYWRIGHT_BROWSER) launchOptions.executablePath = process.env.PLAYWRIGHT_BROWSER;
 const supportHtmlPath = process.env.SUPPORT_TEST_HTML
   || path.join(root, "dist", "message", "index.html");
 const supportHtml = fs.readFileSync(supportHtmlPath, "utf8");
@@ -76,11 +78,11 @@ async function installLiveRoutes(page, postHandler) {
   await page.route(`${baseUrl}/api/support.php`, postHandler);
 }
 
-async function previewAndDraftTest(browser, results) {
+async function draftPersistenceTest(browser, results) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await context.newPage();
+  await installLiveRoutes(page, (route) => route.abort());
   await page.goto(`${baseUrl}/message/`, { waitUntil: "networkidle" });
-  assert(await page.locator("[data-support-form]").getAttribute("data-support-preview") === "true", "Preview mode changed unexpectedly");
   await page.getByText("Bug", { exact: true }).click();
   await page.locator('[name="name"]').fill("Draft Person");
   await page.locator('[name="email"]').fill("draft@example.com");
@@ -95,10 +97,7 @@ async function previewAndDraftTest(browser, results) {
   assert(await page.locator('[name="email"]').inputValue() === "draft@example.com", "Email did not survive refresh");
   assert(await page.locator('[name="message"]').inputValue() === "This draft must survive a refresh.", "Message did not survive refresh");
   assert(await page.locator(".support-image-item").count() === 1, "Image did not survive refresh");
-  await page.getByRole("button", { name: "Send" }).click();
-  await page.getByText("This preview is ready for review").waitFor();
-  assert(await page.locator('[name="message"]').inputValue() !== "", "Preview submission cleared the draft");
-  results.push("preview stays inert and refresh restores text, category, and image");
+  results.push("refresh restores draft text, category, and image without submitting");
   await context.close();
 }
 
@@ -352,8 +351,8 @@ async function layoutTests(browser, results) {
       gamesHeading: document.querySelector("#support-games-title")?.textContent.trim(),
       progressiveLoops: document.querySelectorAll(".project-support-game .progressive-loop").length,
       rawGifImages: [...document.querySelectorAll(".project-support-game img")].filter((image) => image.currentSrc.endsWith(".gif") || image.src.endsWith(".gif")).length,
-      previewVideos: [...document.querySelectorAll(".project-support-game .loop-preview source")].map((source) => source.getAttribute("src")),
-      fullVideos: [...document.querySelectorAll(".project-support-game .loop-full source")].map((source) => source.getAttribute("src")),
+      posters: [...document.querySelectorAll(".project-support-game .managed-media-poster")].map((image) => image.getAttribute("src")),
+      videoSources: [...document.querySelectorAll(".project-support-game .managed-media-video")].map((video) => video.getAttribute("src")),
       patreonRect: (() => {
         const rect = document.querySelector("[data-project-support-patreon]")?.getBoundingClientRect();
         return rect && { width: rect.width, height: rect.height };
@@ -369,8 +368,9 @@ async function layoutTests(browser, results) {
     assert(projectSupport.gamesHeading === "Buy and Play My Games", `${viewport.label} games heading was wrong`);
     assert(projectSupport.patreonRect && Math.abs(projectSupport.patreonRect.width - projectSupport.patreonRect.height) <= 2, `${viewport.label} Patreon card was not square`);
     assert(projectSupport.progressiveLoops === 2 && projectSupport.rawGifImages === 0, `${viewport.label} paid game media fell back to raw GIFs`);
-    assert(projectSupport.previewVideos.length === 2 && projectSupport.previewVideos.every((src) => src.endsWith("-preview.mp4")), `${viewport.label} low-quality loop previews were missing`);
-    assert(projectSupport.fullVideos.length === 2 && projectSupport.fullVideos.every((src) => src.endsWith("-full.mp4")), `${viewport.label} full loop videos were missing`);
+    assert(projectSupport.posters.length === 2 && projectSupport.posters.every((src) => src.endsWith(".webp")), `${viewport.label} loop posters were missing`);
+    assert(projectSupport.videoSources.length === 2 && projectSupport.videoSources.every((src) => src.endsWith(".mp4")), `${viewport.label} selected loop videos were missing`);
+    assert(new Set(projectSupport.videoSources).size === 2, `${viewport.label} loops did not select exactly one video each`);
     if (viewport.width > 900) {
       assert(projectSupport.optionsColumns.split(" ").length === 2, `${viewport.label} Patreon and Steam were not side by side`);
     }
@@ -425,7 +425,14 @@ async function layoutTests(browser, results) {
 
     await page.locator('input[value="bug"] + .support-category-option').click();
     await page.evaluate(() => document.activeElement?.blur());
-    await page.waitForTimeout(200);
+    await page.waitForFunction(() => {
+      const feedback = document.querySelector('input[value="feedback"] + .support-category-option');
+      const bug = document.querySelector('input[value="bug"] + .support-category-option');
+      return getComputedStyle(feedback).filter === "none"
+        && getComputedStyle(bug).filter !== "none"
+        && Number(getComputedStyle(feedback.querySelector(".r-bevel-vector-accent")).opacity) <= 0.01
+        && Number(getComputedStyle(bug.querySelector(".r-bevel-vector-accent")).opacity) >= 0.99;
+    });
     const switchedState = await page.evaluate(() => {
       const feedbackInput = document.querySelector('input[value="feedback"]');
       const bugInput = document.querySelector('input[value="bug"]');
@@ -442,7 +449,10 @@ async function layoutTests(browser, results) {
     });
     assert(!switchedState.feedbackChecked && switchedState.bugChecked, `${viewport.label} message type toggle did not switch choices`);
     assert(switchedState.feedbackAccent <= 0.01 && switchedState.bugAccent >= 0.99, `${viewport.label} extra selected outline did not follow the chosen type`);
-    assert(switchedState.feedbackFilter === "none" && switchedState.bugFilter !== "none", `${viewport.label} selected glow did not follow the chosen type`);
+    assert(
+      switchedState.feedbackFilter === "none" && switchedState.bugFilter !== "none",
+      `${viewport.label} selected glow did not follow the chosen type: ${JSON.stringify(switchedState)}`
+    );
     if (viewport.label === "wide" || viewport.label === "mobile") {
       await page.screenshot({ path: path.join(artifactRoot, `message-${viewport.label}.png`), fullPage: true });
     }
@@ -471,10 +481,10 @@ async function layoutTests(browser, results) {
     "iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAFUlEQVR4nGP8z0AYYBxVSFUBAAAbQQEXGgZqWQAAAABJRU5ErkJggg==",
     "base64"
   ));
-  const browser = await chromium.launch({ executablePath: browserPath, headless: true });
+  const browser = await chromium.launch(launchOptions);
   const results = [];
   try {
-    await previewAndDraftTest(browser, results);
+    await draftPersistenceTest(browser, results);
     await liveSuccessTest(browser, results);
     await failureTests(browser, results);
     await storageFailureTest(browser, results);

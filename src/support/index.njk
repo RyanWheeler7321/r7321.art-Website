@@ -43,7 +43,7 @@ permalink: /support/index.html
               data-project-support-game
             >
               <span class="project-card-media">
-                {% managedLoop game.data.thumbnail, game.data.title, "project-support-game-media" %}
+                {% media game.data.thumbnail, game.data.title, "project-support-game-media", "auto", "(max-width: 900px) 100vw, 420px" %}
               </span>
               <span class="project-card-copy">
                 <strong>{{ game.data.title }}</strong>

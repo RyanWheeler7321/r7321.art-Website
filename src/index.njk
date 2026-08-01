@@ -21,7 +21,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-stack-list">
         {% for update in recentUpdates %}
           <a class="update-button home-list-card" href="{{ update.url }}" data-home-fit-item>
-            <img src="{{ update.data.thumbnail | optimizedImage }}" alt="{{ update.data.title }}">
+            {% media update.data.thumbnail, update.data.title, "home-list-thumbnail", "auto", "76px" %}
             <div class="update-button-copy">
               <h3>{{ update.data.title }}</h3>
               <p class="list-card-date">{{ update.date | teaserDate }}</p>
@@ -36,7 +36,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
   <div class="home-main-column" data-home-height-owner>
     <section class="home-splash">
       <a class="home-splash-link" href="{{ featuredProject.url }}">
-        {% managedImage featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-managed", true %}
+        {% media featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-managed", "high", "(max-width: 1080px) 100vw, 1200px" %}
       </a>
     </section>
 
@@ -45,7 +45,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
         <h1>{{ featuredProject.data.title }}</h1>
         {% if featuredProject.data.externalLinks and featuredProject.data.externalLinks[0] %}
           <a class="feature-link home-play-link" href="{{ featuredProject.data.externalLinks[0].url }}" target="_blank" rel="noopener">
-            Play Now
+            PLAY NOW
           </a>
         {% endif %}
       </div>
@@ -60,7 +60,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-project-grid">
         {% for project in projectItems %}
           <a class="project-button home-project-card" href="{{ project.url }}">
-            {% managedLoop project.data.thumbnail, project.data.title, "home-project-managed" %}
+            {% media project.data.thumbnail, project.data.title, "home-project-managed", "auto", "(max-width: 1080px) 33vw, 420px" %}
             <div class="project-button-copy">
               <div class="home-project-head">
                 <h3>{{ project.data.title }}</h3>

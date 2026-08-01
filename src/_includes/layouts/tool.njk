@@ -84,7 +84,7 @@ pageClass: page-tool-detail
         <div class="tool-dossier-showcase-grid tool-dossier-showcase-count-{{ showcaseItems.length }}">
           {% for image in showcaseItems %}
             <figure class="tool-dossier-showcase-frame">
-              {% managedImage image.src or image, image.alt or title, "tool-dossier-showcase-managed" %}
+            {% media image.src or image, image.alt or title, "tool-dossier-showcase-managed", "auto", "(max-width: 1080px) 100vw, 520px" %}
             </figure>
           {% endfor %}
         </div>
@@ -124,7 +124,7 @@ pageClass: page-tool-detail
       <aside class="tool-detail-showcase">
         {% for image in showcaseItems %}
           <figure class="media-frame tool-showcase-frame">
-            {% managedImage image.src or image, image.alt or title, "tool-showcase-managed" %}
+            {% media image.src or image, image.alt or title, "tool-showcase-managed", "auto", "(max-width: 1080px) 100vw, 520px" %}
           </figure>
         {% endfor %}
       </aside>

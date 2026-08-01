@@ -1,7 +1,11 @@
 node_modules/
 dist/
 .cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
 AGENTS.md
 src/generated/
-src/_data/imageManifest.json
 local/
+src/ai/
+src/images/essays/

@@ -334,95 +334,212 @@ function initToc() {
   });
 }
 
-function initProgressiveMedia() {
-  document.querySelectorAll(".progressive-media").forEach((wrapper) => {
-    const full = wrapper.querySelector(".progressive-full");
-    if (!full) {
-      return;
-    }
+function initManagedMedia() {
+  const wrappers = [...document.querySelectorAll("[data-r7-media]")];
+  const publicEntries = [];
+  const loopRecords = [];
+  const pendingLoops = [];
+  const maxConcurrentLoads = 2;
+  let activeLoads = 0;
 
-    let loaded = false;
-    const markLoaded = () => {
-      if (loaded || !full.naturalWidth) {
-        return;
-      }
-      loaded = true;
-      wrapper.classList.add("is-loaded");
+  window.__r7media = { entries: publicEntries };
+
+  function makeRecord(wrapper) {
+    const publicEntry = {
+      key: wrapper.dataset.mediaKey || "",
+      kind: wrapper.dataset.mediaKind || "unknown",
+      state: wrapper.dataset.mediaState || "base",
+      selectedWidth: 0
     };
+    publicEntries.push(publicEntry);
+    return { wrapper, publicEntry, near: false, queued: false, sourceAssigned: false, loadFinished: false };
+  }
 
-    if (full.complete && full.naturalWidth) {
-      markLoaded();
+  function setState(record, state) {
+    record.publicEntry.state = state;
+    record.wrapper.dataset.mediaState = state;
+  }
+
+  function settleLoad(record) {
+    if (record.loadFinished) return;
+    record.loadFinished = true;
+    activeLoads = Math.max(0, activeLoads - 1);
+    startPendingLoops();
+  }
+
+  function revealVideo(record) {
+    if (record.publicEntry.state === "playing") return;
+    record.wrapper.classList.add("is-playing");
+    setState(record, "playing");
+    settleLoad(record);
+  }
+
+  function confirmFirstFrame(record) {
+    const video = record.video;
+    let confirmed = false;
+    const confirm = () => {
+      if (confirmed) return;
+      confirmed = true;
+      revealVideo(record);
+    };
+    if (typeof video.requestVideoFrameCallback === "function") {
+      video.requestVideoFrameCallback(confirm);
+      window.setTimeout(confirm, 1200);
+    } else {
+      requestAnimationFrame(() => requestAnimationFrame(confirm));
+    }
+  }
+
+  function playLoop(record) {
+    const result = record.video.play();
+    if (result && typeof result.catch === "function") {
+      result.catch(() => {
+        record.wrapper.classList.remove("is-playing");
+        setState(record, "held");
+        settleLoad(record);
+      });
+    }
+  }
+
+  function chooseVariant(record) {
+    const variants = JSON.parse(record.wrapper.dataset.mediaVariants || "[]")
+      .sort((left, right) => left.width - right.width);
+    if (!variants.length) return null;
+    const renderedWidth = Math.max(1, record.wrapper.getBoundingClientRect().width);
+    const wantedWidth = renderedWidth * Math.min(window.devicePixelRatio || 1, 2);
+    return variants.find((variant) => variant.width >= wantedWidth) || variants[variants.length - 1];
+  }
+
+  function startLoop(record) {
+    record.queued = false;
+    if (record.sourceAssigned || !record.near || document.hidden) {
+      activeLoads = Math.max(0, activeLoads - 1);
+      startPendingLoops();
       return;
     }
 
-    if (typeof full.decode === "function") {
-      full.decode().then(markLoaded).catch(() => {});
+    let selected;
+    try {
+      selected = chooseVariant(record);
+    } catch (error) {
+      selected = null;
+    }
+    if (!selected) {
+      setState(record, "degraded");
+      activeLoads = Math.max(0, activeLoads - 1);
+      startPendingLoops();
+      return;
     }
 
-    full.addEventListener("load", markLoaded, { once: true });
+    record.sourceAssigned = true;
+    record.publicEntry.selectedWidth = selected.width;
+    record.video.preload = "auto";
+    record.video.src = selected.url;
+    setState(record, "loading");
 
-    let tries = 0;
-    const interval = window.setInterval(() => {
-      tries += 1;
-      if (full.complete && full.naturalWidth) {
-        markLoaded();
-        window.clearInterval(interval);
+    record.video.addEventListener("playing", () => confirmFirstFrame(record), { once: true });
+    record.video.addEventListener("error", () => {
+      record.wrapper.classList.remove("is-playing");
+      setState(record, "degraded");
+      settleLoad(record);
+    }, { once: true });
+    record.video.load();
+    playLoop(record);
+    window.setTimeout(() => {
+      if (!record.loadFinished && record.publicEntry.state === "loading") {
+        setState(record, "degraded");
+        settleLoad(record);
+      }
+    }, 15000);
+  }
+
+  function startPendingLoops() {
+    while (activeLoads < maxConcurrentLoads && pendingLoops.length) {
+      const record = pendingLoops.shift();
+      if (!record || record.sourceAssigned || !record.near) continue;
+      activeLoads += 1;
+      startLoop(record);
+    }
+  }
+
+  function queueLoop(record) {
+    if (record.queued || record.sourceAssigned) return;
+    record.queued = true;
+    setState(record, "queued");
+    pendingLoops.push(record);
+    startPendingLoops();
+  }
+
+  wrappers.forEach((wrapper) => {
+    const record = makeRecord(wrapper);
+    if (record.publicEntry.kind === "still") {
+      const image = wrapper.querySelector(".managed-media-image");
+      if (!image) {
+        setState(record, "degraded");
         return;
       }
+      const ready = () => {
+        if (image.naturalWidth) setState(record, "ready");
+      };
+      if (image.complete && image.naturalWidth) ready();
+      else if (typeof image.decode === "function") image.decode().then(ready).catch(() => {});
+      image.addEventListener("load", ready, { once: true });
+      image.addEventListener("error", () => setState(record, "degraded"), { once: true });
+      return;
+    }
 
-      if (tries > 40) {
-        window.clearInterval(interval);
-      }
-    }, 250);
+    record.video = wrapper.querySelector(".managed-media-video");
+    if (!record.video) {
+      setState(record, "degraded");
+      return;
+    }
+    loopRecords.push(record);
   });
-}
 
-function initProgressiveLoops() {
-  document.querySelectorAll(".progressive-loop").forEach((wrapper) => {
-    const preview = wrapper.querySelector(".loop-preview");
-    const full = wrapper.querySelector(".loop-full");
-
-    if (!preview || !full) {
-      return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = Boolean(navigator.connection?.saveData);
+  const eligibleLoops = loopRecords.filter((record) => {
+    if (reducedMotion || saveData) {
+      setState(record, "held");
+      return false;
     }
+    return true;
+  });
 
-    let activated = false;
+  const observer = typeof IntersectionObserver === "function"
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const record = eligibleLoops.find((item) => item.wrapper === entry.target);
+          if (!record) return;
+          record.near = entry.isIntersecting;
+          if (entry.isIntersecting) {
+            if (!record.sourceAssigned) queueLoop(record);
+            else if (record.video.paused && !document.hidden) playLoop(record);
+          } else if (!record.video.paused) {
+            record.video.pause();
+            if (record.publicEntry.state === "playing") setState(record, "ready");
+          }
+        });
+      }, { rootMargin: "100% 0px" })
+    : null;
 
-    const activate = () => {
-      if (activated || !full.readyState) {
-        return;
-      }
-
-      activated = true;
-
-      try {
-        if (Number.isFinite(full.duration) && full.duration > 0 && Number.isFinite(preview.currentTime)) {
-          full.currentTime = preview.currentTime % full.duration;
-        }
-      } catch (error) {
-      }
-
-      const playResult = full.play();
-      if (playResult && typeof playResult.catch === "function") {
-        playResult.catch(() => {});
-      }
-
-      wrapper.classList.add("is-loaded");
-      preview.pause();
-    };
-
-    const previewPlay = preview.play();
-    if (previewPlay && typeof previewPlay.catch === "function") {
-      previewPlay.catch(() => {});
+  eligibleLoops.forEach((record) => {
+    if (observer) observer.observe(record.wrapper);
+    else {
+      record.near = true;
+      queueLoop(record);
     }
+  });
 
-    if (full.readyState >= 2) {
-      activate();
-      return;
-    }
-
-    full.addEventListener("loadeddata", activate, { once: true });
-    full.addEventListener("canplay", activate, { once: true });
+  document.addEventListener("visibilitychange", () => {
+    eligibleLoops.forEach((record) => {
+      if (document.hidden) {
+        record.video.pause();
+        if (record.publicEntry.state === "playing") setState(record, "ready");
+      } else if (record.near && record.sourceAssigned) {
+        playLoop(record);
+      }
+    });
   });
 }
 
@@ -753,7 +870,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initToc();
   initDetailTitleFit();
   initVectorFrames();
-  initProgressiveMedia();
-  initProgressiveLoops();
+  initManagedMedia();
   initImageZoom();
 });

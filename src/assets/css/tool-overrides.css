@@ -346,6 +346,7 @@
   max-height: 520px;
   margin-inline: auto;
   background: rgba(5, 3, 8, 0.82);
+  --media-background-fit: contain;
 }
 
 .tool-dossier-showcase-frame .progressive-media img {

@@ -47,7 +47,7 @@ description: Updates
           data-tags="{% for tag in updateTagValues %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}"
           data-project="{{ update.data.project | slugify }}"
         >
-          <img src="{{ update.data.thumbnail | optimizedImage }}" alt="{{ update.data.title }}">
+          {% media update.data.thumbnail, update.data.title, "browse-item-media", "auto", "92px" %}
           <div class="browse-item-copy">
             <strong>{{ update.data.title }}</strong>
             <span class="browse-item-date">{{ update.date | teaserDate }}</span>

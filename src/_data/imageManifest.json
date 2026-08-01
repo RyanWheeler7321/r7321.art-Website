@@ -1,0 +1,1276 @@
+{
+  "schemaVersion": 2,
+  "recipeVersion": "2026-08-01-media-v4",
+  "entries": {
+    "/images/brand/headerimage.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "bb7bedec41f00421475ba83138368183f7f141894d29c071c7011163ca0168bf",
+      "sourceBytes": 2845901,
+      "width": 1920,
+      "height": 1080,
+      "alpha": true,
+      "dominantColor": "#3b3b3b",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACwAwCdASoYAA4APvVurk+qpqQiMAgBUB6JaQAATrc4+yrutisVeAD+6dao/47dLwg5oVLR7o78kOLmFmXQFjMiPdvD0rUCm81lGpyowTNwUa7goiEhN9o2pgRRAAAA",
+      "images": [
+        {
+          "url": "/generated/media/brand/headerimage.image-w720.b907d54e043c.webp",
+          "mime": "image/webp",
+          "bytes": 21478,
+          "hash": "b907d54e043cb52a511c9333a4cf20e201f8719dab48cb2e3fb33f884b0f38a0",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/brand/headerimage.image-w1400.319aa72a7b1d.webp",
+          "mime": "image/webp",
+          "bytes": 54696,
+          "hash": "319aa72a7b1d021c3ad228465d23f0b6365050e170d12553216fd44796f82bdd",
+          "width": 1400,
+          "height": 788
+        }
+      ]
+    },
+    "/images/projects/sidereal/cover.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "ce7230fe877a9a8504a385897d0609346792efa8890accc195ea7bf13ee9ecbc",
+      "sourceBytes": 24327194,
+      "width": 599,
+      "height": 328,
+      "alpha": false,
+      "dominantColor": "#9a9b97",
+      "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQBACdASoYAA0APvVkq04qpaQiMAgBUB6JaQDKAB9DrNeq9LNcnvYAAAD+yNKadGqdNxG7omnDcnpMumUfA12z6WUUl2eBJuW+s3UOjviHIud+Mb6qig7yrhoBJvBo36Yp7WEqBgf7qr+XkiusKKXd+2u3PPffJMfjjrQAAAA=",
+      "frameCount": 167,
+      "durationMs": 11330,
+      "fps": 24,
+      "poster": {
+        "url": "/generated/media/projects/sidereal/cover.poster.dfafa28a4d94.webp",
+        "mime": "image/webp",
+        "bytes": 7028,
+        "hash": "dfafa28a4d9422c7407d44cea9ab1dcbd31c4102ed167549c7070abf1a7babc4",
+        "width": 420,
+        "height": 230
+      },
+      "videos": [
+        {
+          "url": "/generated/media/projects/sidereal/cover.loop-w360.0e6670fef645.mp4",
+          "mime": "video/mp4",
+          "bytes": 323193,
+          "hash": "0e6670fef645ab9910f71fe681b5cdfd5f22df67efee121cfebc3304025382f8",
+          "width": 360,
+          "height": 198,
+          "durationMs": 11333
+        },
+        {
+          "url": "/generated/media/projects/sidereal/cover.loop-w599.4c8885ed035b.mp4",
+          "mime": "video/mp4",
+          "bytes": 855754,
+          "hash": "4c8885ed035b045c89981ab885aff1ede62bc95c5f0b0199f1797b78f1adb62f",
+          "width": 598,
+          "height": 328,
+          "durationMs": 11333
+        }
+      ]
+    },
+    "/images/projects/sunrise-7/cover.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "d1c65c702698158bed50d384af3bd6fd922d236ebbe332645387fd8f83854709",
+      "sourceBytes": 19955533,
+      "width": 480,
+      "height": 270,
+      "alpha": false,
+      "dominantColor": "#384982",
+      "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBACdASoYAA4APvVkqk4qpaOiMAgBUB6JbACdMoMrinVLsAT8vgJvn/plCEV0AP7w360XFDdSL10rLxTBIF3x6rpb0XRtpbz8mi5YWeyHq8vefJU3pCGU+CCr4uwOLytVkinYjbcRGS3ygckmkyn6GV7qeT3PyTbYTcUbDZrdEGqoG8qSC+FUxttuQo/n1A302seH7d+G7UGYM4s65j/kAAA=",
+      "frameCount": 217,
+      "durationMs": 9040,
+      "fps": 24,
+      "poster": {
+        "url": "/generated/media/projects/sunrise-7/cover.poster.8d05f2d882b2.webp",
+        "mime": "image/webp",
+        "bytes": 8570,
+        "hash": "8d05f2d882b2f1b72306aed1548f2ddd231add1e4e2b1748b2f203d304d08ebb",
+        "width": 420,
+        "height": 236
+      },
+      "videos": [
+        {
+          "url": "/generated/media/projects/sunrise-7/cover.loop-w360.665b2adb62d3.mp4",
+          "mime": "video/mp4",
+          "bytes": 737954,
+          "hash": "665b2adb62d38b8e9d076651ddb778dc306a843010da511dbf3e0119a8556770",
+          "width": 360,
+          "height": 202,
+          "durationMs": 9042
+        },
+        {
+          "url": "/generated/media/projects/sunrise-7/cover.loop-w480.b8e3355c13bc.mp4",
+          "mime": "video/mp4",
+          "bytes": 1115798,
+          "hash": "b8e3355c13bc1435ac0587602fba180cefb7fe98a783bc64980ef730d989da65",
+          "width": 480,
+          "height": 270,
+          "durationMs": 9042
+        }
+      ]
+    },
+    "/images/projects/tears-fall-low/cover.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "1634bebf10090b02473e42a713dc97f632eff8f1c4617696fe01c5c9566bd60e",
+      "sourceBytes": 8048614,
+      "width": 426,
+      "height": 240,
+      "alpha": false,
+      "dominantColor": "#273247",
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoYAA4APvVkqk4qpaOiMAgBUB6JQBOgA8H6M6eYVf9SoAAA/u9h74OGFDxprLY7xZgS532xd4k7ZpiBStdhDQbXfBZx2+L3h22e/FD3B+jIOiTP7LmAnjN/6/XH0yFWhhdU3jN+uSJ91l9OtNf4ryMgRs2lgWQ/75JwAA==",
+      "frameCount": 213,
+      "durationMs": 14190,
+      "fps": 24,
+      "poster": {
+        "url": "/generated/media/projects/tears-fall-low/cover.poster.c395782014e4.webp",
+        "mime": "image/webp",
+        "bytes": 11110,
+        "hash": "c395782014e4ad39a8e93f57497fc341812c6cd9d55167fea25ee4f9badd9ad9",
+        "width": 420,
+        "height": 237
+      },
+      "videos": [
+        {
+          "url": "/generated/media/projects/tears-fall-low/cover.loop-w360.d647df9f0b8d.mp4",
+          "mime": "video/mp4",
+          "bytes": 297556,
+          "hash": "d647df9f0b8db8b5b8f2883405fe38cd2c47aa59fb29702d62d191c18414e785",
+          "width": 360,
+          "height": 202,
+          "durationMs": 14208
+        },
+        {
+          "url": "/generated/media/projects/tears-fall-low/cover.loop-w426.34b7023134f4.mp4",
+          "mime": "video/mp4",
+          "bytes": 1032630,
+          "hash": "34b7023134f43d8a96fe7a260c38ed118d75d8f9ee375957d8bc2b56c65c0599",
+          "width": 426,
+          "height": 240,
+          "durationMs": 14208
+        }
+      ]
+    },
+    "/images/tools/3d-viewer/showcase-1.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "c667f97562ad8ddeaf49e62f6b3c19d7b47e859fc812c3cec6da65cee0295dfe",
+      "sourceBytes": 578114,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#3d291f",
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQBACdASoYABUAPvVkrVCqpKQisBgIAVAeiWUAyywQ8K216+rKD85krGHIAP7pPpH7t3ckhpKg7Tx/wi36fdrByjFPoTAEvIKBrEKUb4QsbdGNihImbb15QmSAAA==",
+      "images": [
+        {
+          "url": "/generated/media/tools/3d-viewer/showcase-1.image-w720.eea3e72de307.webp",
+          "mime": "image/webp",
+          "bytes": 15554,
+          "hash": "eea3e72de3076f98d01c7f0f5b002f62a78f9cbe6fb236f164b70493bc3d17f9",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/tools/3d-viewer/showcase-1.image-w1400.bd3de653e403.webp",
+          "mime": "image/webp",
+          "bytes": 35324,
+          "hash": "bd3de653e4036a72a46d4a56e755e9c332ebd3754cc1c35fba556df0bb172327",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/tools/3d-viewer/showcase-2.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "0e746375a66ee8753ccb2159f0f22d767df13a063f36d82e6eb0197eb8c31d08",
+      "sourceBytes": 2284268,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#b39e85",
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoYABUAPvVurlGqpiQiqAqpUB6JQBajYwA1QE73hY94Y5ksfgEGoSCNXxTAAOIHmUB+83tLRdCdHOiRg61MLHefAAAH07lvTp0lcymOJI3NfT67cbGCKe/zU1HbF3ft6qKBVlQBXUZM7sToVXWoM3ZmHF5MzcdoV5EdDjD/J4BrgRR/Paqy57FKL2tHMl5AIAA=",
+      "images": [
+        {
+          "url": "/generated/media/tools/3d-viewer/showcase-2.image-w720.7766d70d92ef.webp",
+          "mime": "image/webp",
+          "bytes": 41500,
+          "hash": "7766d70d92efcf912143662fb4f1eaba6ae5cc0e6fb67fb2bd3e264dce59f321",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/tools/3d-viewer/showcase-2.image-w1400.85c13f6705a2.webp",
+          "mime": "image/webp",
+          "bytes": 101626,
+          "hash": "85c13f6705a2de1c3abdca69e467e5091f386e0a06d205b4a62517fbd1274dca",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/tools/board-studio/showcase-1.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "773f177b9ed0a51b17e728a6a7401e332b1b2b7e59e29d6124d008b0c4505795",
+      "sourceBytes": 876276,
+      "width": 2228,
+      "height": 1401,
+      "alpha": false,
+      "dominantColor": "#2b2b2b",
+      "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoYAA8APvVEuFcqoqakGAFQHolnAAEer6Ykii6kb0uoiYAA/vhbfqXuEoi0PucqsazNjerLp4SwMviHZsYyv/SiK0h7ifAe1usSpY+ZVqH5IFUmdHkmwwHv4AA=",
+      "images": [
+        {
+          "url": "/generated/media/tools/board-studio/showcase-1.image-w720.fb279578d3a9.webp",
+          "mime": "image/webp",
+          "bytes": 26692,
+          "hash": "fb279578d3a999c4e6e46bb13b1a7a8bc62e6e075cadc3ebb58743dc1b773eab",
+          "width": 720,
+          "height": 453
+        },
+        {
+          "url": "/generated/media/tools/board-studio/showcase-1.image-w1400.a4d53b412713.webp",
+          "mime": "image/webp",
+          "bytes": 67972,
+          "hash": "a4d53b412713633248bbc6733cc7036dc43b9c7f268ed97827e459a08a108deb",
+          "width": 1400,
+          "height": 880
+        }
+      ]
+    },
+    "/images/tools/board-studio/showcase-2.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "6f3ffc91fdad6ed7aec33e2b3e1f467b0dc11651649d1e133865ba82bcca2010",
+      "sourceBytes": 632298,
+      "width": 2414,
+      "height": 1578,
+      "alpha": false,
+      "dominantColor": "#262627",
+      "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABwAwCdASoYABAAPvVkqk4qpaOiMAgBUB6JaQAAXlQwNZJFVgAA/tIB2+1TOzdaIV3h+h5bDWoE9123bLGE7kcU6uV5TJrzlAmt3/o8QF9wwiu/4VsIg63Vsa6j5h7nTwAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/tools/board-studio/showcase-2.image-w720.d7b21efd8c95.webp",
+          "mime": "image/webp",
+          "bytes": 21034,
+          "hash": "d7b21efd8c955ea4ebceacf9e976295e36b49974d77117068a4f423b20d502cc",
+          "width": 720,
+          "height": 471
+        },
+        {
+          "url": "/generated/media/tools/board-studio/showcase-2.image-w1400.1cf221ae29c1.webp",
+          "mime": "image/webp",
+          "bytes": 47658,
+          "hash": "1cf221ae29c18e865a508357f8208f91bcd1ad82bda9b3616ab092a1668f0695",
+          "width": 1400,
+          "height": 915
+        }
+      ]
+    },
+    "/images/tools/chrome-bookmark-tool/icon128.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "5ab4913866a3651532b2dcdb43a3a80aad4dd4bb2ff0e9242c5656850bab8fa9",
+      "sourceBytes": 5318,
+      "width": 128,
+      "height": 128,
+      "alpha": true,
+      "dominantColor": "#2b193a",
+      "lqip": "data:image/webp;base64,UklGRmQCAABXRUJQVlA4WAoAAAAQAAAAFwAAFwAAQUxQSDwBAAABkGvb1rE965zn+W07tpPOtlXpDmy7TWUbnW0bnV3ZdnKCF7cQERNAoFPCVYio4En0gMsHDROa73h4b1aOCNSeno0LEGXmd7OpKQgprQdfu9MA959jgdnlpiBIQsMVP+15MxSUsWZb0vEEd39mD0tFVep9sa3gCNQEWr63zTjHWruXLUp4AiPsR1Moem2j8EQUTbpl86Gfva0QjYJnrl3yzP59lphOutirSsyxfWgMmtvrKsyz/Uic1vaqClN/n5YYSkN7X8wge1smGklI+TkXil/bTHyMpGHgWH/laAM0gqNhAqDU25LbLVVFAtTTeziJgDK4CAc4771Ap3dzOiQLIJolaYVe+L/6om/2toMogZJ//uHV5ROmzDz0zuxyQ4RgRwcLfTQvFUe40GTy3qPHjqwakA9KVCXcCf8DVlA4IAIBAAAwBgCdASoYABgAPvVsq1AqpiOiqA1RUB6JbACdMoR7WL6sJABtneeZ0wDeOv88RU4GS66SGSb4qnkAAPnzpQVQPWsxPrAsQ0Lqr3RNk/1MrX8LQYdPvVfCVRHqHa+WI8KGH9Sh7rB+VM7cP7f4YfYIg39EWXQLdym6tPm98Qy8ISYUSPy9K0BNcle3e9x1afWeCoVk0OPIPYZ2Ua4bqTnLb+ZdqSkWx750KEvd7W5NYK6CekWKAzjmfCEfyvUuajobN8fKhzCSXAjdLlVuYMf95J9Uyvs8nyOQYHd8suZXwOOuSPAquuUBz4f6oT/szPzYL1N8oOdy61ewhtg5f+yUAAA=",
+      "images": [
+        {
+          "url": "/generated/media/tools/chrome-bookmark-tool/icon128.image-w128.6955aaf9b1eb.webp",
+          "mime": "image/webp",
+          "bytes": 3360,
+          "hash": "6955aaf9b1eb2a63eed15bd615691deb008dc55c598010edcf24c565a25a7af9",
+          "width": 128,
+          "height": 128
+        }
+      ]
+    },
+    "/images/tools/paint-studio/showcase-1.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "b8cd08a7183574127abd61ac0d3800739b569d4f9f374796bcffbe801858f188",
+      "sourceBytes": 3464316,
+      "width": 2691,
+      "height": 1794,
+      "alpha": false,
+      "dominantColor": "#4a4947",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYABAAPvVkq04qpaOiMAgBUB6JZwAAUqoXerBmvC0Bheuv4AD+6/9QSynElEQi/TMVQ+kQVqCQp5dZJkcrNG0LF6QjbyAvtfNZxhADa8uuSmuMOUpniemjFm2zGKzA/bgh81NxR39UeZn8nHsAoAAA",
+      "images": [
+        {
+          "url": "/generated/media/tools/paint-studio/showcase-1.image-w720.caab52f141c1.webp",
+          "mime": "image/webp",
+          "bytes": 21832,
+          "hash": "caab52f141c1f75d0effa411922c26626a856f81bb7e59e7d429d2639c831076",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "url": "/generated/media/tools/paint-studio/showcase-1.image-w1400.5fd46e02c4b7.webp",
+          "mime": "image/webp",
+          "bytes": 56106,
+          "hash": "5fd46e02c4b78bc5d169140fd4b64cc9d339a3d8e3d9e1353fcf1ed0fffa2746",
+          "width": 1400,
+          "height": 933
+        }
+      ]
+    },
+    "/images/tools/paint-studio/showcase-2.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "5b4ff622dc8950c9811881d64467c51008989356ce9aae97e0e8ad1dbac52f50",
+      "sourceBytes": 6448393,
+      "width": 3840,
+      "height": 2160,
+      "alpha": false,
+      "dominantColor": "#1d1f24",
+      "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoYAA4APvVkqk4qpaOiMAgBUB6JaWNPiglQAiWwAP7vfBfhaBh9oPAh1/WXlRbqPALKcIhNpJ6P3qvH3W5zUSgA",
+      "images": [
+        {
+          "url": "/generated/media/tools/paint-studio/showcase-2.image-w720.e3efd4d5e7d7.webp",
+          "mime": "image/webp",
+          "bytes": 21408,
+          "hash": "e3efd4d5e7d7fa12bc443bce68eb203360ee08afdee9698a90353c6a5166c4cb",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/tools/paint-studio/showcase-2.image-w1400.a6c780f80d53.webp",
+          "mime": "image/webp",
+          "bytes": 57128,
+          "hash": "a6c780f80d53ae6868362d33d107d510f03b284c21aa2a647ba736fadcbcf9da",
+          "width": 1400,
+          "height": 788
+        }
+      ]
+    },
+    "/images/tools/r7321-art-website/showcase.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "e47311bd2658ef0497340a565ce5cd803e64a95d550b559ab6c485e1759da70a",
+      "sourceBytes": 127310,
+      "width": 1900,
+      "height": 1044,
+      "alpha": false,
+      "dominantColor": "#2d2835",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBACdASoYAA0APvVkq04qpaQiMAgBUB6JYwC/OCG9ZDICdkGUOCgAAAD+6NUKEXrYiklyd3UH45ocH82EaR77jEM5/ykvCYUIfYm8qNFbn3b9Wu06Ocevrn1+rEAA",
+      "images": [
+        {
+          "url": "/generated/media/tools/r7321-art-website/showcase.image-w720.95d3725807f4.webp",
+          "mime": "image/webp",
+          "bytes": 30670,
+          "hash": "95d3725807f42e6a227fde045f420020917bc53947bcaa42075d896222b0db29",
+          "width": 720,
+          "height": 396
+        },
+        {
+          "url": "/generated/media/tools/r7321-art-website/showcase.image-w1400.0127402a74a8.webp",
+          "mime": "image/webp",
+          "bytes": 74340,
+          "hash": "0127402a74a8ed2d7a92f4010bf5879062597c5de29d90cf62bb7ad5448e20c6",
+          "width": 1400,
+          "height": 769
+        }
+      ]
+    },
+    "/images/tools/spotify-randomizer/showcase.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "14ac4f6ad1d5c1c76e58c50e7d5a6fc4b9bb1f04477868901ec5baf862930542",
+      "sourceBytes": 36730,
+      "width": 722,
+      "height": 939,
+      "alpha": false,
+      "dominantColor": "#202322",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoYAB8APvVirVCqpSQisBgIAVAeiWcAAC52AqibP3Ugz9rlDgAA/kE6iTfxWrxFXTpofFwI04lLtGJ9SBYK9SmPvyUkUoGvpV4WqjtbZGqif1D7YBqvRAAA",
+      "images": [
+        {
+          "url": "/generated/media/tools/spotify-randomizer/showcase.image-w720.57282d92b774.webp",
+          "mime": "image/webp",
+          "bytes": 23860,
+          "hash": "57282d92b774a80d0504608e24e53be016faab6eaaeac97135cfdf611f850019",
+          "width": 720,
+          "height": 936
+        },
+        {
+          "url": "/generated/media/tools/spotify-randomizer/showcase.image-w722.3023eb727b48.webp",
+          "mime": "image/webp",
+          "bytes": 24254,
+          "hash": "3023eb727b48e4744b7f4d365d4737c84a558d8150c0f6e92db554fe68592bb5",
+          "width": 722,
+          "height": 939
+        }
+      ]
+    },
+    "/images/tools/youtube-position-saver/showcase.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "bb8749e51fc010560a6fa96372489c49522e4fa6f3e0fbeb7cfc8e974d574382",
+      "sourceBytes": 22042,
+      "width": 496,
+      "height": 667,
+      "alpha": false,
+      "dominantColor": "#342222",
+      "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABwBACdASoYACAAPtlao04oJSMiN+gBABsJYgDDN37lCy8LIHSXPXPgtdD/IAD+9DLYflG4P5W6/y4IIwAgCIRifPF+Q6c7I/cS0lGVmNLRBGAAUOL+ZsjLRvh4hUJryiLSEszneU7MWuW7gegaJyjaT29N0/fRMvTga5Yrfw18c7MK90EchDpdQHFt2oljtAAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/tools/youtube-position-saver/showcase.image-w496.1b8af15579d5.webp",
+          "mime": "image/webp",
+          "bytes": 15584,
+          "hash": "1b8af15579d5fbe92171f6540598910dad5432edca9c658a4aec19808c8c5258",
+          "width": 496,
+          "height": 667
+        }
+      ]
+    },
+    "/images/updates/3d-viewer/3d-viewer-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "c667f97562ad8ddeaf49e62f6b3c19d7b47e859fc812c3cec6da65cee0295dfe",
+      "sourceBytes": 578114,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#3d291f",
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQBACdASoYABUAPvVkrVCqpKQisBgIAVAeiWUAyywQ8K216+rKD85krGHIAP7pPpH7t3ckhpKg7Tx/wi36fdrByjFPoTAEvIKBrEKUb4QsbdGNihImbb15QmSAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-01.image-w720.eea3e72de307.webp",
+          "mime": "image/webp",
+          "bytes": 15554,
+          "hash": "eea3e72de3076f98d01c7f0f5b002f62a78f9cbe6fb236f164b70493bc3d17f9",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-01.image-w1400.bd3de653e403.webp",
+          "mime": "image/webp",
+          "bytes": 35324,
+          "hash": "bd3de653e4036a72a46d4a56e755e9c332ebd3754cc1c35fba556df0bb172327",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/updates/3d-viewer/3d-viewer-02.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "881daf1f3e3a3f67c4312ed971ad06766b53b5a6f20920cf10f7c0c200244d9b",
+      "sourceBytes": 683831,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#3d2850",
+      "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoYABUAPvVkrE4qpaSiMBgMAVAeiWUAygAW8/EWHI8fVFoAAP7ueFZ1jLaWUR4ASWTb6iYeiWyd6FftxmT34/HYtzXhUkX4j9JYpNn7kOWcb8YvuhAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-02.image-w720.a9300551cd6d.webp",
+          "mime": "image/webp",
+          "bytes": 18556,
+          "hash": "a9300551cd6d43db6c17a5c1b0adec8e7a5df74de3f0c14c77f9619d466ffe4c",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-02.image-w1400.cdafa70cf138.webp",
+          "mime": "image/webp",
+          "bytes": 42784,
+          "hash": "cdafa70cf138e0ee8d7c6af76c89786440b2d98e734d958a275678adb4564ef0",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/updates/3d-viewer/3d-viewer-03.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "3af896fc68faa3ba1625b70fadb66435e5df43655a3c271a449a138f4e6f8acb",
+      "sourceBytes": 1597861,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#787a79",
+      "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAQBACdASoYABUAPvVkrVCqpSQjsBgIAVAeiWcAzUgRAJuzc05QMdWY6AD+vdnqjxhVGEzyn45rem3mEaKPpHLwSg81BwqUf88g8HgmJToe0cvWWaxMRSj57Iwh4Y3xw3/8qEsA1QZWSA+FlVGvJ1gA",
+      "images": [
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-03.image-w720.67541c0f9c18.webp",
+          "mime": "image/webp",
+          "bytes": 28546,
+          "hash": "67541c0f9c18aec284d8e26d2e104ebafa3af53cf28481730ea365235ca73573",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-03.image-w1400.6eb4ce76eabd.webp",
+          "mime": "image/webp",
+          "bytes": 61436,
+          "hash": "6eb4ce76eabdd624f6c9d334408a08e6b3d68b6566b086ee46fbbd0fcd36594d",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/updates/3d-viewer/3d-viewer-04.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "0e746375a66ee8753ccb2159f0f22d767df13a063f36d82e6eb0197eb8c31d08",
+      "sourceBytes": 2284268,
+      "width": 1800,
+      "height": 1541,
+      "alpha": false,
+      "dominantColor": "#b39e85",
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoYABUAPvVurlGqpiQiqAqpUB6JQBajYwA1QE73hY94Y5ksfgEGoSCNXxTAAOIHmUB+83tLRdCdHOiRg61MLHefAAAH07lvTp0lcymOJI3NfT67cbGCKe/zU1HbF3ft6qKBVlQBXUZM7sToVXWoM3ZmHF5MzcdoV5EdDjD/J4BrgRR/Paqy57FKL2tHMl5AIAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-04.image-w720.7766d70d92ef.webp",
+          "mime": "image/webp",
+          "bytes": 41500,
+          "hash": "7766d70d92efcf912143662fb4f1eaba6ae5cc0e6fb67fb2bd3e264dce59f321",
+          "width": 720,
+          "height": 616
+        },
+        {
+          "url": "/generated/media/updates/3d-viewer/3d-viewer-04.image-w1400.85c13f6705a2.webp",
+          "mime": "image/webp",
+          "bytes": 101626,
+          "hash": "85c13f6705a2de1c3abdca69e467e5091f386e0a06d205b4a62517fbd1274dca",
+          "width": 1400,
+          "height": 1199
+        }
+      ]
+    },
+    "/images/updates/board-paint-studio-tools/board-paint-studio-tools-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "773f177b9ed0a51b17e728a6a7401e332b1b2b7e59e29d6124d008b0c4505795",
+      "sourceBytes": 876276,
+      "width": 2228,
+      "height": 1401,
+      "alpha": false,
+      "dominantColor": "#2b2b2b",
+      "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoYAA8APvVEuFcqoqakGAFQHolnAAEer6Ykii6kb0uoiYAA/vhbfqXuEoi0PucqsazNjerLp4SwMviHZsYyv/SiK0h7ifAe1usSpY+ZVqH5IFUmdHkmwwHv4AA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-01.image-w720.fb279578d3a9.webp",
+          "mime": "image/webp",
+          "bytes": 26692,
+          "hash": "fb279578d3a999c4e6e46bb13b1a7a8bc62e6e075cadc3ebb58743dc1b773eab",
+          "width": 720,
+          "height": 453
+        },
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-01.image-w1400.a4d53b412713.webp",
+          "mime": "image/webp",
+          "bytes": 67972,
+          "hash": "a4d53b412713633248bbc6733cc7036dc43b9c7f268ed97827e459a08a108deb",
+          "width": 1400,
+          "height": 880
+        }
+      ]
+    },
+    "/images/updates/board-paint-studio-tools/board-paint-studio-tools-02.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "6f3ffc91fdad6ed7aec33e2b3e1f467b0dc11651649d1e133865ba82bcca2010",
+      "sourceBytes": 632298,
+      "width": 2414,
+      "height": 1578,
+      "alpha": false,
+      "dominantColor": "#262627",
+      "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABwAwCdASoYABAAPvVkqk4qpaOiMAgBUB6JaQAAXlQwNZJFVgAA/tIB2+1TOzdaIV3h+h5bDWoE9123bLGE7kcU6uV5TJrzlAmt3/o8QF9wwiu/4VsIg63Vsa6j5h7nTwAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-02.image-w720.d7b21efd8c95.webp",
+          "mime": "image/webp",
+          "bytes": 21034,
+          "hash": "d7b21efd8c955ea4ebceacf9e976295e36b49974d77117068a4f423b20d502cc",
+          "width": 720,
+          "height": 471
+        },
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-02.image-w1400.1cf221ae29c1.webp",
+          "mime": "image/webp",
+          "bytes": 47658,
+          "hash": "1cf221ae29c18e865a508357f8208f91bcd1ad82bda9b3616ab092a1668f0695",
+          "width": 1400,
+          "height": 915
+        }
+      ]
+    },
+    "/images/updates/board-paint-studio-tools/board-paint-studio-tools-03.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "b8cd08a7183574127abd61ac0d3800739b569d4f9f374796bcffbe801858f188",
+      "sourceBytes": 3464316,
+      "width": 2691,
+      "height": 1794,
+      "alpha": false,
+      "dominantColor": "#4a4947",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYABAAPvVkq04qpaOiMAgBUB6JZwAAUqoXerBmvC0Bheuv4AD+6/9QSynElEQi/TMVQ+kQVqCQp5dZJkcrNG0LF6QjbyAvtfNZxhADa8uuSmuMOUpniemjFm2zGKzA/bgh81NxR39UeZn8nHsAoAAA",
+      "images": [
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-03.image-w720.caab52f141c1.webp",
+          "mime": "image/webp",
+          "bytes": 21832,
+          "hash": "caab52f141c1f75d0effa411922c26626a856f81bb7e59e7d429d2639c831076",
+          "width": 720,
+          "height": 480
+        },
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-03.image-w1400.5fd46e02c4b7.webp",
+          "mime": "image/webp",
+          "bytes": 56106,
+          "hash": "5fd46e02c4b78bc5d169140fd4b64cc9d339a3d8e3d9e1353fcf1ed0fffa2746",
+          "width": 1400,
+          "height": 933
+        }
+      ]
+    },
+    "/images/updates/board-paint-studio-tools/board-paint-studio-tools-04.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "5b4ff622dc8950c9811881d64467c51008989356ce9aae97e0e8ad1dbac52f50",
+      "sourceBytes": 6448393,
+      "width": 3840,
+      "height": 2160,
+      "alpha": false,
+      "dominantColor": "#1d1f24",
+      "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoYAA4APvVkqk4qpaOiMAgBUB6JaWNPiglQAiWwAP7vfBfhaBh9oPAh1/WXlRbqPALKcIhNpJ6P3qvH3W5zUSgA",
+      "images": [
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-04.image-w720.e3efd4d5e7d7.webp",
+          "mime": "image/webp",
+          "bytes": 21408,
+          "hash": "e3efd4d5e7d7fa12bc443bce68eb203360ee08afdee9698a90353c6a5166c4cb",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/updates/board-paint-studio-tools/board-paint-studio-tools-04.image-w1400.a6c780f80d53.webp",
+          "mime": "image/webp",
+          "bytes": 57128,
+          "hash": "a6c780f80d53ae6868362d33d107d510f03b284c21aa2a647ba736fadcbcf9da",
+          "width": 1400,
+          "height": 788
+        }
+      ]
+    },
+    "/images/updates/new-game-projects/bithunters-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "ab3c8c6d0a5050f957d846aa033eb253e68c93b6fbb9dc60e681a78faad5f11f",
+      "sourceBytes": 108988,
+      "width": 2633,
+      "height": 1415,
+      "alpha": false,
+      "dominantColor": "#3d5dab",
+      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADQAwCdASoYAA0APvVkqk4qpaOiMAgBUB6JbACdMoACRYBKqnevLyAA/mZn3a/paobtZO/1DweLlOuFT2T+2rM4NskXcPH7ZUcTOrO/t6Ea7EpQ5PfX04J6K37A1gLPfBBachO9rAC5sxssw0RwU/J7mXHPdL8LvtR65yp9uU4HAKGone4iUbPLZYiz2RFdQAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-game-projects/bithunters-01.image-w720.a3228787ba7b.webp",
+          "mime": "image/webp",
+          "bytes": 30294,
+          "hash": "a3228787ba7beab4089c51f570f877feae5bfcf6a40d79ecc34c1415b3e10bd0",
+          "width": 720,
+          "height": 387
+        },
+        {
+          "url": "/generated/media/updates/new-game-projects/bithunters-01.image-w1400.eaceb9c3e0fc.webp",
+          "mime": "image/webp",
+          "bytes": 64420,
+          "hash": "eaceb9c3e0fc30dd742599258c13aa9057f49843e282df864bc2ecaf94c970fe",
+          "width": 1400,
+          "height": 752
+        }
+      ]
+    },
+    "/images/updates/new-game-projects/castle-mournfall-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "40de0c3db8d876149b62ea2056b9b10e3f5dcc5a96e58d4f8556fff60b6b169c",
+      "sourceBytes": 53530,
+      "width": 2302,
+      "height": 1281,
+      "alpha": false,
+      "dominantColor": "#011553",
+      "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAwCdASoYAA0APvVkq04qpaQiMAgBUB6JaACdMoAEZw3OtAD+8CUinj3TtEVda6+hjZ7CHf6PnRNaWKJMyqWrUEj0MpPGgAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-game-projects/castle-mournfall-01.image-w720.11590a33e4c1.webp",
+          "mime": "image/webp",
+          "bytes": 14014,
+          "hash": "11590a33e4c16938596fa63b244c3353fc08611ef7802ea73ceb9b55e9374bed",
+          "width": 720,
+          "height": 401
+        },
+        {
+          "url": "/generated/media/updates/new-game-projects/castle-mournfall-01.image-w1400.8a67d11d4630.webp",
+          "mime": "image/webp",
+          "bytes": 33334,
+          "hash": "8a67d11d46309a17a58b336e11008078e8e2ab900507a40ba8cca9f503859d42",
+          "width": 1400,
+          "height": 779
+        }
+      ]
+    },
+    "/images/updates/new-game-projects/three-potions-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "0b045953961858cc705441649e401dcdaddeea04b99939478fa9d831b5a87bc1",
+      "sourceBytes": 112790,
+      "width": 1920,
+      "height": 1080,
+      "alpha": false,
+      "dominantColor": "#517e63",
+      "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAABwBACdASoYAA4APvVkqk4qpaOiMAgBUB6JYgCdMoMYADhi28bkcTkyz8GcgAD7AjGrdCTIl3qIJ4vFZoNRF//L+czNRCApkYFYBmOFAeMvpQZiukROlrSYADJH/X7AoJwbtsQnA+F+7CEBJKYdM3uFFTlnvy3cO2fgssV0snyoKm0o1Zh4S66J53IhAcOlhjYxQFOCT/gAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-game-projects/three-potions-01.image-w720.047bfe3e925a.webp",
+          "mime": "image/webp",
+          "bytes": 43846,
+          "hash": "047bfe3e925a674b6ab333b7a1c7b5c85d2adfb6a61050add08c74734a0212b4",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/updates/new-game-projects/three-potions-01.image-w1400.118965f8f2ff.webp",
+          "mime": "image/webp",
+          "bytes": 99440,
+          "hash": "118965f8f2ff457e5fa6011e220dcef765e39a154e7511d8f7546740e81d8e9a",
+          "width": 1400,
+          "height": 788
+        }
+      ]
+    },
+    "/images/updates/new-project-nightsweeper/nightsweeper-corner-1.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "0fb147e5bb1b1e960a783c33f99e3a180ee14baa0d9b6bf0b3e8c41d9257c6b3",
+      "sourceBytes": 1982376,
+      "width": 2200,
+      "height": 1233,
+      "alpha": false,
+      "dominantColor": "#744f61",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwAwCdASoYAA0APvVkqk4qpaOiMAgBUB6JZAAATrJXlOKv7HPnFgD433SaBNRM2oWfU8MapOSEPh3PTtwSPROWBZ6Rdfwlr9tAGNpuUreYAHA/3ejsXeIbU8TdbvNtNsr2pcY4eUbyAGtPTMjWKg9DKYwWZAAA",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-1.image-w720.7256cdffb618.webp",
+          "mime": "image/webp",
+          "bytes": 25318,
+          "hash": "7256cdffb618fe10decdda268d80b228e1bf3d926621d355892c747c2d76b78c",
+          "width": 720,
+          "height": 404
+        },
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-1.image-w1400.56c538289574.webp",
+          "mime": "image/webp",
+          "bytes": 63682,
+          "hash": "56c538289574fec33c388f3cf29ce1859101805d46ae80861ec2a170b7833521",
+          "width": 1400,
+          "height": 785
+        }
+      ]
+    },
+    "/images/updates/new-project-nightsweeper/nightsweeper-corner-2.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "a665ba744baae4cceb2a560882d8e6e5317175d4c7357b5cdd8b2ff26ddaa2ef",
+      "sourceBytes": 2670435,
+      "width": 2200,
+      "height": 1240,
+      "alpha": true,
+      "dominantColor": "#0a0a12",
+      "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAwCdASoYAA4APvVoq04qpiQiMAgBUB6JZQAAW+k7NF0R2ptwKEAA/vKtsPsC0dOMX4X64yj6IDpbn/Ww5/gA",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-2.image-w720.7c9fea642ca6.webp",
+          "mime": "image/webp",
+          "bytes": 25000,
+          "hash": "7c9fea642ca6d71e9d9a390af676ebb33c2adda0348d6e2e33b98e0a83efe136",
+          "width": 720,
+          "height": 406
+        },
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-2.image-w1400.f04cf399778e.webp",
+          "mime": "image/webp",
+          "bytes": 66456,
+          "hash": "f04cf399778e8a33f07b1a3f3897d45194697538c4e44a5d3b9cd04dc162171a",
+          "width": 1400,
+          "height": 789
+        }
+      ]
+    },
+    "/images/updates/new-project-nightsweeper/nightsweeper-corner-3.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "cae4c38d358c0267f2c0bbbbe3d3ae097b9548871c37f6fdac66a81505ed57d4",
+      "sourceBytes": 3037881,
+      "width": 2200,
+      "height": 1083,
+      "alpha": false,
+      "dominantColor": "#684c48",
+      "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoYAAwAPvVkq04qpaQiMAgBUB6JQBOmUABp9A5pVQw77TAEAADhXPPBJEAhygR1q+GOjJ7gdpQL8LHnZyyBg/wfzBAvnKCxHu1slzZlxS40pSBE64lS5dCziALoW2PVttSuT2Bd1ZIlaUS5ZghH558jNX02uUxBFq1u54oAAAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-3.image-w720.be651e62eef4.webp",
+          "mime": "image/webp",
+          "bytes": 43240,
+          "hash": "be651e62eef4c4274f7aa73fdbd71df6ffc0ba35e45098073637052bb536660a",
+          "width": 720,
+          "height": 354
+        },
+        {
+          "url": "/generated/media/updates/new-project-nightsweeper/nightsweeper-corner-3.image-w1400.1346db899f9d.webp",
+          "mime": "image/webp",
+          "bytes": 123984,
+          "hash": "1346db899f9d1ec7f9ae7c742d6104aa648b9a2320a43d40be1666395b6eeca8",
+          "width": 1400,
+          "height": 689
+        }
+      ]
+    },
+    "/images/updates/sidereal-completed/sidereal-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "3cbceba554fed872e6d141ec643190e87c769d812b0a03ad811167444943327c",
+      "sourceBytes": 16004,
+      "width": 1090,
+      "height": 619,
+      "alpha": false,
+      "dominantColor": "#7705c3",
+      "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADQAwCdASoYAA4APvVkqk4qpaQiMAgBUB6JagCdMoRwAD6cYEHYDdIA/ux9v4aIQ/hv+r+azTu0p004R/VemE/p7Efizx5bIM0JSUos8RInErlM4nI+T8Dy0TGOCcAnHgAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-01.image-w720.a8c2d9e23ba6.webp",
+          "mime": "image/webp",
+          "bytes": 11892,
+          "hash": "a8c2d9e23ba67c1e2f019f4057ab85b4ba1ba9d67b3dd28a0a621c3204ac1ce9",
+          "width": 720,
+          "height": 409
+        },
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-01.image-w1090.8586d5ae7c96.webp",
+          "mime": "image/webp",
+          "bytes": 18204,
+          "hash": "8586d5ae7c963970f903a77209cf94f07378a443ac5b5d715cd632c957dde283",
+          "width": 1090,
+          "height": 619
+        }
+      ]
+    },
+    "/images/updates/sidereal-completed/sidereal-02.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "b74e0835022ee48d0cae903aeb11e5be0d3b24b9c01a06a943de20d0b08785eb",
+      "sourceBytes": 6480,
+      "width": 1097,
+      "height": 622,
+      "alpha": false,
+      "dominantColor": "#0a201a",
+      "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAwCdASoYAA4APvVoq06qpiQiMAgBUB6JQAALU/j3Nt1E9uHvStAA/vKp0x1Ze+btRjev8ybiyLRbWwAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-02.image-w720.aa4d128ae1b1.webp",
+          "mime": "image/webp",
+          "bytes": 4558,
+          "hash": "aa4d128ae1b1f0b0acdcad1b06fefdde1d38651c85ea7a155e02d7f5483798c6",
+          "width": 720,
+          "height": 408
+        },
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-02.image-w1097.6be9196ba519.webp",
+          "mime": "image/webp",
+          "bytes": 6996,
+          "hash": "6be9196ba5195ada0b6559578a185b88ef068be87b7391e3b42337f3437aaf17",
+          "width": 1097,
+          "height": 622
+        }
+      ]
+    },
+    "/images/updates/sidereal-completed/sidereal-03.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "3e080057e2834ab646f52474869a02b237c4e07a2936e24679c58354880016e2",
+      "sourceBytes": 16222,
+      "width": 1444,
+      "height": 775,
+      "alpha": false,
+      "dominantColor": "#090d0c",
+      "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAwCdASoYAA0APvVmqk4qpaOiMAgBUB6JZwAAW+vpcYfwXZhXlwQA/vKiG7xZ0rFZ3d2PXw7y55/RyRaXmgAA",
+      "images": [
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-03.image-w720.2dbe1639669c.webp",
+          "mime": "image/webp",
+          "bytes": 7854,
+          "hash": "2dbe1639669ccfe083da25ed59e3ebc015297c1bd6e62663bd463685bf705192",
+          "width": 720,
+          "height": 386
+        },
+        {
+          "url": "/generated/media/updates/sidereal-completed/sidereal-03.image-w1400.641556316fb0.webp",
+          "mime": "image/webp",
+          "bytes": 18798,
+          "hash": "641556316fb0a2bb1164ad8db78bb2960a4cf9b189cbf7ec4416f9588fe5f113",
+          "width": 1400,
+          "height": 751
+        }
+      ]
+    },
+    "/images/updates/sidereal-completed/veyn-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "da6ff428fc2027d3a33a24c66d6eb4b02d1403bda4960eded61d96eaf4f95498",
+      "sourceBytes": 52770,
+      "width": 1920,
+      "height": 2080,
+      "alpha": false,
+      "dominantColor": "#0e0d0e",
+      "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoYABoAPvVwrVGqpiQiqAqpUB6JaQAALnUuxTJTXMh/ZGrwIAD+8qJRaPqb7uoWfxgCSwKEPx6CNLXHB4f2tyBRXdcUY8oAAAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/sidereal-completed/veyn-01.image-w720.5df2ec7e89e6.webp",
+          "mime": "image/webp",
+          "bytes": 16292,
+          "hash": "5df2ec7e89e6192c8987f8d17e67e13304ae5f708d99918dc8687d7a90df71db",
+          "width": 720,
+          "height": 780
+        },
+        {
+          "url": "/generated/media/updates/sidereal-completed/veyn-01.image-w1400.524aae259e6c.webp",
+          "mime": "image/webp",
+          "bytes": 39334,
+          "hash": "524aae259e6c9e794f669ee06a587a77789276db9b41cc5fd7ef1c71c1bacb2b",
+          "width": 1400,
+          "height": 1517
+        }
+      ]
+    },
+    "/images/updates/sidereal-completed/veyn-02.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "b399770f29fae1191ab80afe5f2f527f18f9ff4be240f12d3fd5174d2b823244",
+      "sourceBytes": 79734,
+      "width": 1920,
+      "height": 2080,
+      "alpha": false,
+      "dominantColor": "#1f191e",
+      "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAQBQCdASoYABoAPu1iqE4ppaOiN/VYATAdiWUAznQQuGiiGVbqSqxcekSfmwjiG1hAAP7ypChp5XkykUEDWT6ZmJF+Jx6kS/1Aljcj0TTGEENVb54vaC/d3myLNbU6B51mgKxk5S/0OjFXgGAFkCOK9PRjZMdLsvI4gh+iweN3Wv1S5wNVXZgj/GcAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/sidereal-completed/veyn-02.image-w720.b8f77068795f.webp",
+          "mime": "image/webp",
+          "bytes": 20616,
+          "hash": "b8f77068795f278c7af470510307a7986d87d00784dfedb95ed36d63a39ec78c",
+          "width": 720,
+          "height": 780
+        },
+        {
+          "url": "/generated/media/updates/sidereal-completed/veyn-02.image-w1400.9a24920456b1.webp",
+          "mime": "image/webp",
+          "bytes": 57508,
+          "hash": "9a24920456b132ec8e537d94108cce0a2c918ae236777dd0ff2eef249637cc80",
+          "width": 1400,
+          "height": 1517
+        }
+      ]
+    },
+    "/images/updates/the-maze/the-maze-reflections-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "9885bae6424efd5e6e7bbdb5c5586889cf2e252381535f4d0caaf19c9102a745",
+      "sourceBytes": 1876145,
+      "width": 2200,
+      "height": 1258,
+      "alpha": false,
+      "dominantColor": "#979ca6",
+      "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAwCdASoYAA4APvVmrE6qpaQiMAgBUB6JYwC2yCHhbf51VbXCajYwAPfZ/GiT8VZQiLHAGZWZdO8GSjyB+Af1SguibbcCrrkedYKgrObMzTs6sXEolBgA",
+      "images": [
+        {
+          "url": "/generated/media/updates/the-maze/the-maze-reflections-01.image-w720.6156677af9b2.webp",
+          "mime": "image/webp",
+          "bytes": 10772,
+          "hash": "6156677af9b20e5eec80d5aec50609d263baabc362ede3c0998c1566f9941635",
+          "width": 720,
+          "height": 412
+        },
+        {
+          "url": "/generated/media/updates/the-maze/the-maze-reflections-01.image-w1400.719b24c8b594.webp",
+          "mime": "image/webp",
+          "bytes": 29516,
+          "hash": "719b24c8b594eb9f4e24c368974d36ac7fb3e96dcbc89bbf937891a112729a79",
+          "width": 1400,
+          "height": 801
+        }
+      ]
+    },
+    "/images/updates/website-launch/sidereal-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "17381a68db76cf020cf0111a0aaf6a51182f41ddf60ef3adbf8621b40905e507",
+      "sourceBytes": 31258,
+      "width": 1954,
+      "height": 1098,
+      "alpha": false,
+      "dominantColor": "#040405",
+      "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAwCdASoYAA0APvVkqk4qpaQiMAgBUB6JaQAAetGDZgAA/vDY1qITc5Jpwpe7smYSEEAA",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-01.image-w720.81a445864619.webp",
+          "mime": "image/webp",
+          "bytes": 9472,
+          "hash": "81a44586461970912a1a01388864ca6e25c5121f1ce1b1363eb91091b7f6381f",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-01.image-w1400.eb6430837d59.webp",
+          "mime": "image/webp",
+          "bytes": 23760,
+          "hash": "eb6430837d599165677552894cb9df0219471608e826d9a397d5048e8125051c",
+          "width": 1400,
+          "height": 787
+        }
+      ]
+    },
+    "/images/updates/website-launch/sidereal-02.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "1b8c0509882392b7131351eec5e5c4a7d57c6356486b9d0ba0fde3f42c1ee8f1",
+      "sourceBytes": 124838,
+      "width": 1960,
+      "height": 1104,
+      "alpha": false,
+      "dominantColor": "#8baab3",
+      "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoYAA4APvVkqk4qpaOiMAgBUB6JYwCw7B6K1whhL3DehjgAAPQBvHAduSfehs0wzNTXA3xDx2lhmlZ++Gx4LC0Hg9fqXh7V+dKsnchdoyg+Ll4FJTGF82Mer6WTZzBAMH29vD9WmwKpOp52QFojpXYCI3gAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-02.image-w720.4e422efac75d.webp",
+          "mime": "image/webp",
+          "bytes": 41584,
+          "hash": "4e422efac75dd6e84616ad67182f000eb173c7bfe2c3cf979c5291752376ae5b",
+          "width": 720,
+          "height": 406
+        },
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-02.image-w1400.90a45343fae2.webp",
+          "mime": "image/webp",
+          "bytes": 98444,
+          "hash": "90a45343fae21b6768d701a856aa5789ed19f107f4fe395c730862bd96235686",
+          "width": 1400,
+          "height": 789
+        }
+      ]
+    },
+    "/images/updates/website-launch/sidereal-03.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "0b7be7c89afe0304ab4262232e7387da3859374474845ee9fd0e701eca669036",
+      "sourceBytes": 76564,
+      "width": 1953,
+      "height": 1103,
+      "alpha": false,
+      "dominantColor": "#b722ba",
+      "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoYAA4APvVmqk4qpaQiMAgBUB6JaACdMoR3ADfK4vsw0aAA/uIQsVDLSW2UtMt4uGD77e9ScIq7aYw2EFMy+hdUSCC0uI5fIkXhL46gAAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-03.image-w720.6309a8e96ba5.webp",
+          "mime": "image/webp",
+          "bytes": 18662,
+          "hash": "6309a8e96ba59710865eb8abae1e036cd28e7b9d84b3dfcd5054afb1fbc4d387",
+          "width": 720,
+          "height": 407
+        },
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-03.image-w1400.686e785ccf4b.webp",
+          "mime": "image/webp",
+          "bytes": 50362,
+          "hash": "686e785ccf4b97eb8ce3dbf61ac4121b941309434ae9a06b8f959f97b2628324",
+          "width": 1400,
+          "height": 791
+        }
+      ]
+    },
+    "/images/updates/website-launch/sidereal-04.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "b00468faa77980f5a2739775c598a1043440bedfda035c487ff5cf27b1b0cf68",
+      "sourceBytes": 103306,
+      "width": 1944,
+      "height": 1095,
+      "alpha": false,
+      "dominantColor": "#5f8eb1",
+      "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAAAQBACdASoYAA4APvVkqk4qpaOiMAgBUB6JbACdMoACM3RdeMW9WMkU0AD+wkzrqWHhJE/dt00MDZQDrGiQwTVVquy5OwdWQJsjmK3ppnwd+upoQVgDv4caz6FNUOp2cZMNJ/qtq8+74C2TWv3HdUJlKg9XqJnVh8LLfSszPGJgArggZI/eURoJgoOTdq78NBQuMrLcDY4NECuA050N1id47gAAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-04.image-w720.5e6e31f002af.webp",
+          "mime": "image/webp",
+          "bytes": 36092,
+          "hash": "5e6e31f002afa0a9000f5010a92173da2b204f621ac59d3f925a54c3e109c014",
+          "width": 720,
+          "height": 406
+        },
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-04.image-w1400.d27675223121.webp",
+          "mime": "image/webp",
+          "bytes": 82050,
+          "hash": "d2767522312106a66f1af1391f07ee309a9535178ec447f80df3ee1acea17bc1",
+          "width": 1400,
+          "height": 789
+        }
+      ]
+    },
+    "/images/updates/website-launch/sidereal-05.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "a460e7c8a78709f6b5d56e8f5e1ed31cc38fa22586f953b021c82649d6899ef0",
+      "sourceBytes": 46378,
+      "width": 1956,
+      "height": 1098,
+      "alpha": false,
+      "dominantColor": "#171128",
+      "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwAwCdASoYAA0APvVmqk4qpaOiMAgBUB6JQAAJT6W8Nnn04AAA/vK0irjOqXrsOkuBmitjWjTcCrrLDccH+p2ljW0YUwC0dAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-05.image-w720.ebb212964d29.webp",
+          "mime": "image/webp",
+          "bytes": 12982,
+          "hash": "ebb212964d290b9c26e477d0f6609e2a47ede23c8b404487d588c59f2683b9d6",
+          "width": 720,
+          "height": 404
+        },
+        {
+          "url": "/generated/media/updates/website-launch/sidereal-05.image-w1400.32a2211c89ac.webp",
+          "mime": "image/webp",
+          "bytes": 32306,
+          "hash": "32a2211c89ac42baf3ab8baec39997d0e62be17dbf94fc4f575083d7aafbbfaf",
+          "width": 1400,
+          "height": 786
+        }
+      ]
+    },
+    "/images/updates/website-launch/strego-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "a4bbd6ebcc4808f8452f9d83457c2920c4f292365af75d6cc54834a11278e471",
+      "sourceBytes": 48474,
+      "width": 1920,
+      "height": 1920,
+      "alpha": false,
+      "dominantColor": "#474352",
+      "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQBACdASoYABgAPvVsqlAqpiOiqA1RUB6JZwDLaBEdnifNxVHwN8P4DhMDbLVSAAD+y3pJwfocbMG1vqvIXnwuNc/e3rM/XQoPQ/9wUZXa1PR4n/5nxK+nuXpWalDgzuWhg6G6HEE2wn8djIiQAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/strego-01.image-w720.bfce15d6195f.webp",
+          "mime": "image/webp",
+          "bytes": 18530,
+          "hash": "bfce15d6195fa4da51f941df0f9c65cd64f296139960c7fcb4a4c518ba323d7b",
+          "width": 720,
+          "height": 720
+        },
+        {
+          "url": "/generated/media/updates/website-launch/strego-01.image-w1400.1990e032c032.webp",
+          "mime": "image/webp",
+          "bytes": 40918,
+          "hash": "1990e032c0326ee5c276c0e2b35668f5b751a144a192182eeeac72af47206646",
+          "width": 1400,
+          "height": 1400
+        }
+      ]
+    },
+    "/images/updates/website-launch/strego-02.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "a40a78f122a6895c5b956c5dbcab9c72800e5ed1f722c9fe41aa2a2ade605ea4",
+      "sourceBytes": 52370,
+      "width": 1513,
+      "height": 1148,
+      "alpha": false,
+      "dominantColor": "#292929",
+      "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAgCdASoYABIAPvVwsFMqpiQoKAgBUB6JaQAAPaUIAAD+7rBFDrS4shC/FdcCc0gAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/strego-02.image-w720.0444cc42304b.webp",
+          "mime": "image/webp",
+          "bytes": 18172,
+          "hash": "0444cc42304b6a8cd4208863822aaaa47dda7d8a15dfef55fc570e7519e9470d",
+          "width": 720,
+          "height": 546
+        },
+        {
+          "url": "/generated/media/updates/website-launch/strego-02.image-w1400.ed151f63c58a.webp",
+          "mime": "image/webp",
+          "bytes": 56548,
+          "hash": "ed151f63c58ac0ebb536fcc26736c2a2fd5eedea21fb211d88cac718e0c86d91",
+          "width": 1400,
+          "height": 1062
+        }
+      ]
+    },
+    "/images/updates/website-launch/website-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "b09a9c6782f4c0bb2d786fa80669b23c1bd94b5b9626ee80d95c95e6217d7a5b",
+      "sourceBytes": 60782,
+      "width": 1715,
+      "height": 1425,
+      "alpha": false,
+      "dominantColor": "#242228",
+      "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwBACdASoYABQAPuliqE4pJaQiMAwBIB0JaQDQVB4YwzGiH+bw54AzGZK+QAD+7qGZ3gIl41IA77bWke7Q+BbmCa7dR3pv8RahAlMM+qJiaEXP2WBeD/NaNPzsnQAAAAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-launch/website-01.image-w720.5c65e165395d.webp",
+          "mime": "image/webp",
+          "bytes": 24050,
+          "hash": "5c65e165395d0f27125aeee8a696582b483dcf4850105bb2d3f381463051fb9f",
+          "width": 720,
+          "height": 598
+        },
+        {
+          "url": "/generated/media/updates/website-launch/website-01.image-w1400.2fb8ff2f0741.webp",
+          "mime": "image/webp",
+          "bytes": 56882,
+          "hash": "2fb8ff2f07415557a7296315f09c67703434f2f12e4974e91206108ef8517d6e",
+          "width": 1400,
+          "height": 1163
+        }
+      ]
+    },
+    "/images/updates/website-update/website-update-01.webp": {
+      "type": "still",
+      "sourceFormat": "webp",
+      "sourceHash": "518b61826d5578c04bf70e40275fc18f98ee779443298b4969655eb7b1118e06",
+      "sourceBytes": 323050,
+      "width": 3057,
+      "height": 2015,
+      "alpha": false,
+      "dominantColor": "#282435",
+      "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQBACdASoYABAAPvVkq04qpaQiMAgBUB6JQBfJBEPY+dwDVhWskPlzAAD+6OkY5QoT+quBdIMKsFEc3iCcstUDz9sAXlrs4y8b6uKg73/BfSZviZg6w1j8gmXJlYtyzK2YwsM00geVrwAA",
+      "images": [
+        {
+          "url": "/generated/media/updates/website-update/website-update-01.image-w720.f0609e6ed19b.webp",
+          "mime": "image/webp",
+          "bytes": 27508,
+          "hash": "f0609e6ed19b4c9272fb9c4e1d87570d5f3699eab81220f07dbf4a2893e29a2a",
+          "width": 720,
+          "height": 475
+        },
+        {
+          "url": "/generated/media/updates/website-update/website-update-01.image-w1400.ccf50d1116db.webp",
+          "mime": "image/webp",
+          "bytes": 69022,
+          "hash": "ccf50d1116dbad93de461b06dff204857886e6de886c53e751b0e612102ba889",
+          "width": 1400,
+          "height": 923
+        }
+      ]
+    }
+  }
+}

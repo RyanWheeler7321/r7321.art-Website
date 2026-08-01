@@ -12,7 +12,7 @@ description: Projects
   {% for project in collections.projects %}
     <article class="project-card">
       <a class="project-card-media" href="{{ project.url }}">
-        {% managedLoop project.data.thumbnail, project.data.title, "project-card-managed" %}
+        {% media project.data.thumbnail, project.data.title, "project-card-managed", "auto", "(max-width: 1080px) 100vw, 50vw" %}
       </a>
       <div class="project-card-copy">
         <div class="project-card-head">

@@ -66,7 +66,7 @@ function renderImageFigure(src, alt = "", caption = "", classes = "", credit = "
   const safeAlign = normalizeChoice(align, ["left", "center", "right"], "center");
   const safeTopAlign = normalizeChoice(topAlign || align, ["left", "center", "right"], safeAlign);
   const classList = ["media-frame", classes, `media-frame-caption-${safeAlign}`].filter(Boolean).join(" ");
-  const meta = imageManifest[src];
+  const meta = getMediaMeta(src);
   const styleAttr = meta ? ` style="--media-ratio-w:${meta.width}; --media-ratio-h:${meta.height};"` : "";
   const showTop = safePlacement === "top" || safePlacement === "both" || topCaption || topCredit;
   const showBottom = safePlacement === "bottom" || safePlacement === "both";
@@ -87,52 +87,92 @@ function getDisplayTags(tags = []) {
 function loadImageManifest() {
   const manifestPath = path.join(__dirname, "src", "_data", "imageManifest.json");
   if (!fs.existsSync(manifestPath)) {
-    return {};
+    throw new Error("Media manifest is missing. Run npm run media:prepare before Eleventy.");
   }
-  return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  if (manifest.schemaVersion !== 2 || !manifest.recipeVersion || !manifest.entries) {
+    throw new Error("Media manifest is stale. Run npm run media:prepare before Eleventy.");
+  }
+  return manifest;
 }
 
 const imageManifest = loadImageManifest();
+const managedRasterPattern = /^\/images\/.*\.(?:png|jpe?g|webp|gif)$/i;
 
-function renderManagedImage(src, alt = "", classes = "", eager = false) {
-  const meta = imageManifest[src];
-  const displaySrc = meta?.optimizedImage || src;
-  const loading = eager ? "eager" : "auto";
-  const fetchpriority = eager ? "high" : "auto";
-  const classAttr = classes ? ` ${classes}` : "";
+function getMediaMeta(src = "") {
+  const meta = imageManifest.entries[src];
+  if (!meta && managedRasterPattern.test(src)) {
+    if (process.env.MEDIA_STRICT === "0") return null;
+    throw new Error(`Managed media is missing or stale for ${src}. Run npm run media:prepare.`);
+  }
+  return meta || null;
+}
+
+function bestImageUrl(src = "") {
+  const meta = getMediaMeta(src);
+  if (!meta) return src;
+  if (meta.type === "loop") return meta.poster.url;
+  return meta.images[meta.images.length - 1].url;
+}
+
+function normalizePriority(priority) {
+  return priority === true || priority === "high" ? "high" : "auto";
+}
+
+function renderManagedMedia(src, alt = "", classes = "", priority = "auto", sizes = "100vw", motion = "auto") {
+  const meta = getMediaMeta(src);
+  const safePriority = normalizePriority(priority);
+  const loading = safePriority === "high" ? "eager" : "lazy";
+  const fetchpriority = safePriority === "high" ? "high" : "auto";
+  const classAttr = classes ? ` ${escapeHtml(classes)}` : "";
+  const safeAlt = escapeHtml(alt);
 
   if (!meta) {
-    return `<img src="${src}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}">`;
+    if (managedRasterPattern.test(src)) {
+      return `<span class="managed-media-error" role="img" aria-label="Missing media: ${escapeHtml(src)}"></span>`;
+    }
+    return `<img src="${escapeHtml(src)}" alt="${safeAlt}" loading="${loading}" fetchpriority="${fetchpriority}">`;
   }
 
-  return `<span class="progressive-media${classAttr}" style="--ratio-w:${meta.width}; --ratio-h:${meta.height}; aspect-ratio:${meta.width}/${meta.height};">
-<img class="progressive-preview" src="${meta.placeholder}" alt="" aria-hidden="true" loading="eager" decoding="async" width="${meta.width}" height="${meta.height}">
-<img class="progressive-full" src="${displaySrc}" alt="${alt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
+  const style = `--ratio-w:${meta.width}; --ratio-h:${meta.height}; --media-base:${meta.dominantColor}; --media-lqip:url('${meta.lqip}'); background-color:${meta.dominantColor}; background-image:url('${meta.lqip}'); aspect-ratio:${meta.width}/${meta.height};`;
+  const common = `data-r7-media data-media-key="${escapeHtml(src)}" data-media-kind="${meta.type}" data-media-priority="${safePriority}" data-media-state="base"`;
+
+  if (meta.type === "still" || motion === "still") {
+    const candidates = meta.type === "still" ? meta.images : [meta.poster];
+    const full = candidates[candidates.length - 1];
+    const srcset = candidates.map((variant) => `${variant.url} ${variant.width}w`).join(", ");
+    return `<span class="progressive-media managed-media${classAttr}" ${common} style="${style}">
+<img class="progressive-full managed-media-image" src="${full.url}"${srcset ? ` srcset="${srcset}" sizes="${escapeHtml(sizes)}"` : ""} alt="${safeAlt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
+</span>`;
+  }
+
+  const variants = escapeHtml(JSON.stringify(meta.videos.map((variant) => ({
+    url: variant.url,
+    width: variant.width,
+    height: variant.height,
+    bytes: variant.bytes,
+    mime: variant.mime
+  }))));
+  return `<span class="progressive-loop managed-media${classAttr}" ${common} data-media-variants="${variants}" style="${style}">
+<img class="managed-media-poster" src="${meta.poster.url}" alt="${safeAlt}" loading="${loading}" fetchpriority="${fetchpriority}" decoding="async" width="${meta.width}" height="${meta.height}">
+<video class="managed-media-video" muted loop playsinline preload="none" poster="${meta.poster.url}" aria-hidden="true" tabindex="-1" width="${meta.width}" height="${meta.height}"></video>
 </span>`;
 }
 
-function renderManagedLoop(src, alt = "", classes = "") {
-  const meta = imageManifest[src];
-  if (!meta || !meta.previewVideo || !meta.fullVideo) {
-    return renderManagedImage(src, alt, classes, true);
-  }
+function renderManagedImage(src, alt = "", classes = "", eager = false) {
+  return renderManagedMedia(src, alt, classes, eager ? "high" : "auto");
+}
 
-  const classAttr = classes ? ` ${classes}` : "";
-  return `<span class="progressive-loop${classAttr}" style="aspect-ratio:${meta.width}/${meta.height};">
-<video class="loop-preview" autoplay muted loop playsinline preload="auto" aria-hidden="true" width="${meta.width}" height="${meta.height}">
-<source src="${meta.previewVideo}" type="video/mp4">
-</video>
-<video class="loop-full" muted loop playsinline preload="auto" width="${meta.width}" height="${meta.height}">
-<source src="${meta.fullVideo}" type="video/mp4">
-</video>
-</span>`;
+function renderManagedLoop(src, alt = "", classes = "") {
+  return renderManagedMedia(src, alt, classes);
 }
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/api": "api" });
-  eleventyConfig.addPassthroughCopy({ "src/images": "images" });
-  eleventyConfig.addPassthroughCopy({ "src/generated": "generated" });
+  eleventyConfig.addPassthroughCopy("src/images/**/*.svg");
+  eleventyConfig.addPassthroughCopy({ "src/generated/media": "generated/media" });
+  eleventyConfig.addPassthroughCopy({ "src/_server/generated.htaccess": "generated/.htaccess" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   const md = markdownIt({
@@ -146,7 +186,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", slugify);
   eleventyConfig.addFilter("limit", (items = [], count = 3) => items.slice(0, count));
   eleventyConfig.addFilter("displayTags", getDisplayTags);
-  eleventyConfig.addFilter("optimizedImage", (src = "") => imageManifest[src]?.optimizedImage || src);
+  eleventyConfig.addFilter("optimizedImage", bestImageUrl);
   eleventyConfig.addFilter("findBySlug", (items = [], slug = "") =>
     items.find((item) => item.data.slug === slug)
   );
@@ -192,6 +232,9 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addShortcode("managedLoop", (src, alt = "", classes = "") =>
     renderManagedLoop(src, alt, classes)
+  );
+  eleventyConfig.addShortcode("media", (src, alt = "", classes = "", priority = "auto", sizes = "100vw", motion = "auto") =>
+    renderManagedMedia(src, alt, classes, priority, sizes, motion)
   );
 
   eleventyConfig.addShortcode("image", (src, alt = "", caption = "", classes = "", credit = "", align = "center", placement = "bottom", topCaption = "", topCredit = "", topAlign = "") =>

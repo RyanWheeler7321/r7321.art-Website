@@ -35,7 +35,7 @@ pageClass: page-project-detail
   <div class="detail-hero-side">
     {% if thumbnail or heroImage %}
       <div class="detail-hero-media project-media">
-        {% managedLoop thumbnail or heroImage, title, "project-detail-managed" %}
+        {% media thumbnail or heroImage, title, "project-detail-managed", "high", "(max-width: 1080px) 100vw, 560px" %}
       </div>
     {% endif %}
   </div>

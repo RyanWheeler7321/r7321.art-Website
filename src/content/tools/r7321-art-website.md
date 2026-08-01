@@ -11,8 +11,8 @@ tags:
   - Website
   - 11ty
 showcaseImages:
-  - src: /images/updates/website-launch/website-01.webp
-    alt: r7321.art website screenshot
+  - src: /images/tools/r7321-art-website/showcase.webp
+    alt: r7321.art homepage with project, update, and tool sections
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/r7321.art-Website
@@ -37,11 +37,11 @@ dossier:
       summary: Presents reusable tools with practical descriptions and source links.
       symbol: wrench
     - title: Managed Images
-      summary: Generates optimized public media while preserving source assets.
+      summary: Builds responsive images and poster-first video loops from the original media.
       symbol: image
-    - title: Static Builds
-      summary: Produces a simple deployable site without a runtime application stack.
-      symbol: build
+    - title: Message Form
+      summary: Routes feedback and bug reports through a small protected PHP service.
+      symbol: lock
     - title: Responsive Layout
       summary: Keeps the same visual system usable across desktop and smaller screens.
       symbol: responsive

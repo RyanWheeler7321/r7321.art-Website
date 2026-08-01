@@ -4,12 +4,23 @@
   "private": true,
   "description": "Static source for r7321.art",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "node scripts/clean-dist.mjs && node scripts/prepare-images.mjs && eleventy"
+    "media:prepare": "node scripts/prepare-images.mjs",
+    "media:verify": "node scripts/prepare-images.mjs --verify-only",
+    "media:stage": "node scripts/stage-media-release.mjs",
+    "media:audit": "node scripts/audit-media.mjs",
+    "dev": "npm run media:prepare && eleventy --serve",
+    "build:render": "eleventy && node scripts/materialize-media.mjs && npm run media:audit",
+    "build": "node scripts/clean-dist.mjs && npm run media:prepare && npm run build:render",
+    "build:release": "node scripts/clean-dist.mjs && npm run media:verify && npm run build:render",
+    "test:media": "node scripts/media_browser_tests.js",
+    "test:support": "node scripts/support_browser_tests.js"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2"
   }
 }
