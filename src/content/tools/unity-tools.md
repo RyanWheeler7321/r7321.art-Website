@@ -13,6 +13,35 @@ tags:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Unity-Tools
+dossier:
+  facts:
+    - label: Platform
+      value: Unity
+    - label: Language
+      value: C#
+    - label: Type
+      value: Script Collection
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Animation Events
+      summary: EventPasser forwards animation events into inspector-assigned UnityEvents.
+      symbol: bolt
+    - title: Trigger Events
+      summary: Trigger exposes enter, exit, and stay callbacks through one reusable setup.
+      symbol: trigger
+    - title: Target Tracking
+      summary: Tracker follows a target transform with practical control over the result.
+      symbol: target
+    - title: Motion Smoothing
+      summary: Adds lookahead, damping, rotation follow, and optional Y locking.
+      symbol: wave
+    - title: Common Helpers
+      summary: Util collects reusable object, coroutine, math, and random helpers.
+      symbol: toolbox
+    - title: Scene Helpers
+      summary: Keeps small scene-loading and object lookup utilities close at hand.
+      symbol: scene
 permalink: /tools/unity-tools/index.html
 ---
 ## Overview

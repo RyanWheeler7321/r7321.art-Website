@@ -13,6 +13,29 @@ tags:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Chrome-Bookmark-Tool
+dossier:
+  facts:
+    - label: Platform
+      value: Chrome
+    - label: Stack
+      value: Extension
+    - label: Type
+      value: Browser Tool
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Folder Picker
+      summary: Chooses the bookmark folder that should drive the next action.
+      symbol: folder
+    - title: Random Bookmark
+      summary: Opens one random entry from the selected folder.
+      symbol: shuffle
+    - title: Open Entire Folder
+      summary: Launches every bookmark in the chosen folder when the full set is useful.
+      symbol: tabs
+    - title: Compact Popup
+      summary: Keeps folder selection and both actions in one small extension surface.
+      symbol: click
 permalink: /tools/chrome-bookmark-tool/index.html
 ---
 ## Overview

@@ -224,16 +224,38 @@ function initToolFilters() {
   const buttons = [...wrapper.querySelectorAll("[data-tool-filter-value]")];
   const items = [...grid.querySelectorAll("[data-tool-item]")];
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const value = button.dataset.toolFilterValue;
-      buttons.forEach((entry) => entry.classList.toggle("is-active", entry === button));
-      items.forEach((item) => {
-        const tags = (item.dataset.tags || "").split("|").filter(Boolean);
-        item.hidden = !(value === "all" || tags.includes(value));
-      });
+  function applyFilter(value, updateUrl = false) {
+    const activeButton = buttons.find((button) => button.dataset.toolFilterValue === value) || buttons[0];
+    const activeValue = activeButton?.dataset.toolFilterValue || "all";
+
+    buttons.forEach((button) => {
+      const isActive = button === activeButton;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
+
+    items.forEach((item) => {
+      const tags = (item.dataset.tags || "").split("|").filter(Boolean);
+      item.hidden = !(activeValue === "all" || tags.includes(activeValue));
+    });
+
+    if (updateUrl) {
+      const url = new URL(window.location.href);
+      if (activeValue === "all") {
+        url.searchParams.delete("tag");
+      } else {
+        url.searchParams.set("tag", activeValue);
+      }
+      history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    }
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => applyFilter(button.dataset.toolFilterValue, true));
   });
+
+  const requestedTag = new URLSearchParams(window.location.search).get("tag") || "all";
+  applyFilter(requestedTag);
 }
 
 function initToc() {
@@ -611,7 +633,7 @@ function makeSvg(className, innerHtml) {
 
 function initVectorFrames() {
   const frameItems = [...document.querySelectorAll(".r-frame-longform")];
-  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .tool-icon-fallback";
+  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .tool-icon-fallback, .tool-detail-header-copy-dossier .tool-detail-icon-frame, .tool-detail-body-dossier, .tool-dossier-showcase-frame, .tool-dossier-feature-card";
   const bevelItems = [...document.querySelectorAll(bevelSelectors)];
   const allItems = [...frameItems, ...bevelItems];
   if (!allItems.length) return;

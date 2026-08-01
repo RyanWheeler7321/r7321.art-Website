@@ -4,9 +4,12 @@ pageClass: page-tool-detail
 ---
 {% set primaryAction = download or primaryAction or (externalLinks and externalLinks[0]) %}
 {% set showcaseItems = showcaseImages or [] %}
+{% set toolTagsDisplay = tags | displayTags %}
 
-<section class="shell tool-detail-header">
-  <div class="tool-detail-header-copy">
+<div class="tool-detail-backdrop" aria-hidden="true"></div>
+
+<section class="shell tool-detail-header{% if dossier %} tool-detail-header-dossier{% endif %}">
+  <div class="tool-detail-header-copy{% if dossier %} tool-detail-header-copy-dossier{% endif %}">
     {% if thumbnail %}
       <div class="tool-detail-icon-frame" aria-hidden="true">
         <img src="{{ thumbnail | optimizedImage }}" alt="">
@@ -18,11 +21,13 @@ pageClass: page-tool-detail
       {% if summary %}
         <p class="detail-summary">{{ summary }}</p>
       {% endif %}
-      <div class="tag-row tool-detail-tag-row">
-        {% for tag in tags | displayTags %}
-          <span class="tag-chip">{{ tag }}</span>
-        {% endfor %}
-      </div>
+      {% if not dossier %}
+        <div class="tag-row tool-detail-tag-row">
+          {% for tag in toolTagsDisplay %}
+            <a class="tag-chip tool-filter-link" href="/tools/?tag={{ tag | slugify }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
 
       {% if primaryAction %}
         <a
@@ -39,23 +44,90 @@ pageClass: page-tool-detail
         </a>
       {% endif %}
     </div>
+
+    {% if dossier %}
+      <nav class="tag-row tool-detail-tag-row tool-detail-tag-stack" aria-label="Filter tools by tag">
+        {% for tag in toolTagsDisplay %}
+          <a class="tag-chip tool-filter-link" href="/tools/?tag={{ tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
   </div>
 </section>
 
-<section class="shell tool-detail-body {% if showcaseItems.length %}tool-detail-body-showcase{% else %}tool-detail-body-plain{% endif %}">
-  <article class="detail-article tool-detail-article">
-    <div class="detail-prose">
-      {{ content | safe }}
-    </div>
-  </article>
+{% if dossier %}
+  <section class="shell tool-detail-body tool-detail-body-dossier">
+    <div class="tool-dossier-top">
+      <article class="detail-article tool-detail-article tool-dossier-overview">
+        <div class="detail-prose">
+          {{ content | safe }}
+        </div>
+      </article>
 
-  {% if showcaseItems.length %}
-    <aside class="tool-detail-showcase">
-      {% for image in showcaseItems %}
-        <figure class="media-frame tool-showcase-frame">
-          {% managedImage image.src or image, image.alt or title, "tool-showcase-managed" %}
-        </figure>
-      {% endfor %}
-    </aside>
-  {% endif %}
-</section>
+      {% if dossier.facts.length %}
+        <aside class="tool-dossier-facts" aria-label="Tool details">
+          <dl>
+            {% for fact in dossier.facts %}
+              <div class="tool-dossier-fact">
+                <dt>{{ fact.label }}</dt>
+                <dd>{{ fact.value }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        </aside>
+      {% endif %}
+    </div>
+
+    {% if showcaseItems.length %}
+      <section class="tool-dossier-showcase" aria-labelledby="tool-dossier-showcase-title">
+        <h2 id="tool-dossier-showcase-title">In Use</h2>
+        <div class="tool-dossier-showcase-grid tool-dossier-showcase-count-{{ showcaseItems.length }}">
+          {% for image in showcaseItems %}
+            <figure class="tool-dossier-showcase-frame">
+              {% managedImage image.src or image, image.alt or title, "tool-dossier-showcase-managed" %}
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if dossier.features.length %}
+      <section class="tool-dossier-features" aria-labelledby="tool-dossier-features-title">
+        <h2 id="tool-dossier-features-title">Included Features</h2>
+        <div class="tool-dossier-feature-grid">
+          {% for feature in dossier.features %}
+            <article class="tool-dossier-feature-card">
+              {% if feature.symbol %}
+                <svg class="tool-dossier-feature-symbol" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <use href="/images/tools/feature-icons.svg#{{ feature.symbol }}"></use>
+                </svg>
+              {% else %}
+                <img src="{{ feature.icon }}" alt="" aria-hidden="true">
+              {% endif %}
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.summary }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </section>
+{% else %}
+  <section class="shell tool-detail-body {% if showcaseItems.length %}tool-detail-body-showcase{% else %}tool-detail-body-plain{% endif %}">
+    <article class="detail-article tool-detail-article">
+      <div class="detail-prose">
+        {{ content | safe }}
+      </div>
+    </article>
+
+    {% if showcaseItems.length %}
+      <aside class="tool-detail-showcase">
+        {% for image in showcaseItems %}
+          <figure class="media-frame tool-showcase-frame">
+            {% managedImage image.src or image, image.alt or title, "tool-showcase-managed" %}
+          </figure>
+        {% endfor %}
+      </aside>
+    {% endif %}
+  </section>
+{% endif %}

@@ -17,6 +17,35 @@ showcaseImages:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Board-Studio
+dossier:
+  facts:
+    - label: Platform
+      value: Windows
+    - label: Stack
+      value: Electron
+    - label: Type
+      value: Art Workspace
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Brushes
+      summary: Covers quick drawing, paint, cleanup, and rough concept passes.
+      symbol: brush
+    - title: Layers
+      summary: Separates artwork into editable pieces without slowing down the pass.
+      symbol: layers
+    - title: Selections
+      summary: Isolates regions for focused edits and controlled changes.
+      symbol: selection
+    - title: Transforms
+      summary: Moves, scales, and reshapes selected artwork directly on the canvas.
+      symbol: move
+    - title: Timeline Tools
+      summary: Supports simple storyboard and animation-oriented image sequences.
+      symbol: timeline
+    - title: Unity Sheet Export
+      summary: Prepares image sheets for the next step in a Unity workflow.
+      symbol: grid
 permalink: /tools/paint-studio/index.html
 ---
 ## Overview
@@ -32,5 +61,3 @@ Use it through the main app by opening images or 2D art projects. It is built fo
 ## Repo
 
 This tool lives in the same repo as Board Studio.
-
-{% cta "https://github.com/RyanWheeler7321/Board-Studio", "Open repo", "GitHub" %}

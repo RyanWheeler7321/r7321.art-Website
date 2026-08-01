@@ -15,6 +15,35 @@ showcaseImages:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/SpotifyRandomizer
+dossier:
+  facts:
+    - label: Platform
+      value: Desktop
+    - label: Language
+      value: Python
+    - label: API
+      value: Spotify
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Playlist Sources
+      summary: Starts from playlists you already use instead of a generic catalog seed.
+      symbol: playlist
+    - title: Artist Expansion
+      summary: Pulls from artists connected to those playlists to widen the pool.
+      symbol: users
+    - title: Random Modes
+      summary: Builds fresh playlists through several different randomization methods.
+      symbol: shuffle
+    - title: Duplicate Filtering
+      summary: Can skip tracks that already live in your main playlists.
+      symbol: filter
+    - title: PKCE Login
+      summary: Authenticates without storing a Spotify client secret.
+      symbol: lock
+    - title: Playback Start
+      summary: Can begin playing the new playlist immediately after generation.
+      symbol: play
 permalink: /tools/spotify-randomizer/index.html
 ---
 ## Overview

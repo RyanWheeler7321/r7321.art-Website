@@ -14,6 +14,35 @@
   gap: 18px;
 }
 
+.page-tool-detail main {
+  isolation: isolate;
+  min-height: calc(100vh - 120px);
+}
+
+.tool-detail-backdrop {
+  position: absolute;
+  inset: 24px 0 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 74% 18%, rgba(155, 93, 255, 0.17), transparent 30%),
+    radial-gradient(circle at 18% 62%, rgba(239, 65, 114, 0.07), transparent 24%),
+    linear-gradient(180deg, rgba(9, 6, 13, 0) 0%, rgba(9, 6, 13, 0.58) 72%, rgba(5, 3, 8, 0.9) 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 90px, #000 100%);
+}
+
+.tool-detail-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 22% -8% -10%;
+  background:
+    linear-gradient(rgba(195, 138, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(195, 138, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(620px) rotateX(62deg) scale(1.25);
+  transform-origin: 50% 0;
+}
+
 .tool-detail-icon-frame {
   width: clamp(132px, 11vw, 168px);
   height: clamp(132px, 11vw, 168px);
@@ -49,8 +78,359 @@
   font-size: 0.78rem;
 }
 
+.tool-filter-link {
+  cursor: pointer;
+  transition: color 150ms ease, transform 150ms ease;
+}
+
+.tool-filter-link:hover,
+.tool-filter-link:focus-visible {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.tool-filter-link:focus-visible {
+  outline: 2px solid rgba(214, 194, 255, 0.9);
+  outline-offset: 3px;
+}
+
 .tool-primary-button {
   width: min(100%, 460px);
+}
+
+.tool-detail-header-dossier {
+  max-width: 1120px;
+  margin-bottom: 0;
+}
+
+.tool-detail-header-copy-dossier {
+  grid-template-columns: auto minmax(0, 1fr) 152px;
+  align-items: center;
+  gap: 24px;
+}
+
+.tool-detail-header-copy-dossier .tool-detail-icon-frame {
+  position: relative;
+  isolation: isolate;
+  --card-bevel: 28px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(224, 208, 255, 0.42);
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+}
+
+.tool-detail-header-copy-dossier .tool-detail-header-main {
+  gap: 10px;
+}
+
+.tool-detail-header-copy-dossier .detail-summary {
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+.tool-detail-header-copy-dossier .tool-primary-button {
+  width: min(100%, 520px);
+  min-height: 52px;
+  margin-top: 4px;
+}
+
+.tool-detail-tag-stack {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tool-detail-tag-stack .tag-chip {
+  width: 100%;
+  min-height: 31px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.tool-detail-body {
+  position: relative;
+  isolation: isolate;
+  gap: clamp(24px, 3vw, 38px);
+  margin-top: 46px;
+  padding: clamp(6px, 1vw, 12px);
+  border: 1px solid rgba(224, 208, 255, 0.28);
+  clip-path: polygon(22px 0, calc(100% - 22px) 0, 100% 22px, 100% calc(100% - 22px), calc(100% - 22px) 100%, 22px 100%, 0 calc(100% - 22px), 0 22px);
+  background:
+    linear-gradient(135deg, rgba(31, 23, 43, 0.94), rgba(14, 10, 20, 0.97) 58%, rgba(20, 12, 31, 0.96));
+  box-shadow: 0 26px 64px rgba(0, 0, 0, 0.42), 0 0 44px rgba(155, 93, 255, 0.06);
+}
+
+.tool-detail-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(155, 93, 255, 0.34), transparent 24%) top left / 46% 2px no-repeat,
+    linear-gradient(180deg, rgba(239, 65, 114, 0.22), transparent 38%) top left / 2px 56% no-repeat;
+}
+
+.tool-detail-body-plain {
+  width: min(920px, calc(100vw - 32px));
+}
+
+.tool-detail-article {
+  min-width: 0;
+  padding: clamp(30px, 4vw, 54px);
+}
+
+.tool-detail-article .detail-prose {
+  gap: 20px;
+}
+
+.tool-detail-article .detail-prose > p,
+.tool-detail-article .detail-prose > ul > li,
+.tool-detail-article .detail-prose > ol > li {
+  text-align: left;
+}
+
+.tool-detail-article .detail-prose h2:first-child {
+  margin-top: 0;
+  font-size: clamp(2rem, 3.3vw, 2.8rem);
+}
+
+.tool-detail-body-dossier {
+  --card-bevel: 22px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(224, 208, 255, 0.48);
+  display: block;
+  width: min(1160px, calc(100vw - 32px));
+  margin-top: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+  background:
+    linear-gradient(90deg, rgba(155, 93, 255, 0.34), transparent 24%) top left / 46% 2px no-repeat,
+    linear-gradient(180deg, rgba(239, 65, 114, 0.22), transparent 38%) top left / 2px 56% no-repeat,
+    linear-gradient(135deg, rgba(31, 23, 43, 0.94), rgba(14, 10, 20, 0.97) 58%, rgba(20, 12, 31, 0.96));
+}
+
+.tool-dossier-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, 0.72fr);
+}
+
+.tool-dossier-overview {
+  padding: 32px 38px 30px;
+}
+
+.tool-dossier-overview .detail-prose {
+  gap: 14px;
+}
+
+.tool-dossier-overview .detail-prose > h2,
+.tool-dossier-overview .detail-prose > p {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tool-dossier-overview .detail-prose h2:first-child {
+  font-size: clamp(1.85rem, 2.7vw, 2.35rem);
+}
+
+.tool-dossier-overview .detail-prose p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.tool-dossier-facts {
+  display: grid;
+  align-items: center;
+  padding: 26px 32px;
+  border-left: 1px solid rgba(224, 208, 255, 0.2);
+  background: rgba(8, 6, 13, 0.22);
+}
+
+.tool-dossier-facts dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.tool-dossier-fact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  min-height: 42px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(224, 208, 255, 0.12);
+}
+
+.tool-dossier-fact:first-child {
+  padding-top: 0;
+}
+
+.tool-dossier-fact:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.tool-dossier-fact dt {
+  color: #b873ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tool-dossier-fact dd {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  text-align: right;
+}
+
+.tool-dossier-features {
+  padding: 22px 28px 28px;
+  border-top: 1px solid rgba(224, 208, 255, 0.22);
+}
+
+.tool-dossier-showcase {
+  padding: 22px 28px 28px;
+  border-top: 1px solid rgba(224, 208, 255, 0.22);
+}
+
+.tool-dossier-showcase > h2,
+.tool-dossier-features > h2 {
+  margin: 0 0 14px;
+  color: var(--primary);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tool-dossier-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tool-dossier-showcase-count-1 {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
+.tool-dossier-showcase-frame {
+  position: relative;
+  isolation: isolate;
+  --card-bevel: 14px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(195, 138, 255, 0.46);
+  min-width: 0;
+  margin: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+  background: rgba(7, 5, 11, 0.74);
+}
+
+.tool-dossier-showcase-frame .progressive-media {
+  width: min(100%, calc(520px * var(--ratio-w) / var(--ratio-h)));
+  max-height: 520px;
+  margin-inline: auto;
+  background: rgba(5, 3, 8, 0.82);
+}
+
+.tool-dossier-showcase-frame .progressive-media img {
+  object-fit: contain;
+}
+
+.tool-dossier-features > h2 {
+  margin-bottom: 14px;
+}
+
+.tool-dossier-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.tool-dossier-feature-card {
+  position: relative;
+  isolation: isolate;
+  --card-bevel: 10px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(195, 138, 255, 0.46);
+  min-width: 0;
+  padding: 16px 14px 15px;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+  background: linear-gradient(rgba(18, 13, 27, 0.92), rgba(13, 9, 20, 0.94));
+}
+
+.tool-dossier-feature-card img,
+.tool-dossier-feature-symbol {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 10px;
+}
+
+.tool-dossier-feature-symbol {
+  display: block;
+  overflow: visible;
+}
+
+.tool-dossier-feature-card h3 {
+  margin: 0 0 7px;
+  color: #b873ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.tool-dossier-feature-card p {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.tool-detail-showcase {
+  align-content: start;
+  padding: clamp(18px, 2.6vw, 32px) clamp(18px, 2.6vw, 32px) clamp(18px, 2.6vw, 32px) 0;
+}
+
+.tool-showcase-frame {
+  overflow: hidden;
+  border: 1px solid rgba(224, 208, 255, 0.24);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+  background: rgba(7, 5, 11, 0.72);
+}
+
+@media (max-width: 1080px) {
+  .tool-detail-header-copy-dossier {
+    grid-template-columns: 132px minmax(0, 1fr) 140px;
+    gap: 18px;
+  }
+
+  .tool-detail-header-copy-dossier .tool-detail-icon-frame {
+    --card-bevel: 22px;
+    width: 132px;
+    height: 132px;
+  }
+
+  .tool-dossier-feature-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -66,11 +446,77 @@
     gap: 14px;
   }
 
+  .tool-detail-header-copy-dossier {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-detail-header-copy-dossier .tool-detail-icon-frame {
+    --card-bevel: 18px;
+  }
+
   .tool-detail-header-main {
     text-align: center;
   }
 
   .tool-detail-tag-row {
     justify-content: center;
+  }
+
+  .tool-detail-tag-stack {
+    width: min(100%, 190px);
+    justify-self: center;
+  }
+
+  .tool-detail-body {
+    margin-top: 30px;
+    padding: 4px;
+  }
+
+  .tool-detail-body-dossier {
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  .tool-dossier-top {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-dossier-overview {
+    padding: 28px 24px 26px;
+  }
+
+  .tool-dossier-facts {
+    padding: 22px 24px;
+    border-top: 1px solid rgba(224, 208, 255, 0.2);
+    border-left: 0;
+  }
+
+  .tool-dossier-features {
+    padding: 22px 20px 24px;
+  }
+
+  .tool-dossier-showcase {
+    padding: 22px 20px 24px;
+  }
+
+  .tool-dossier-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-dossier-showcase-frame .progressive-media {
+    width: min(100%, calc(420px * var(--ratio-w) / var(--ratio-h)));
+    max-height: 420px;
+  }
+
+  .tool-dossier-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tool-detail-article {
+    padding: 28px 20px 32px;
+  }
+
+  .tool-detail-showcase {
+    padding: 0 16px 20px;
   }
 }

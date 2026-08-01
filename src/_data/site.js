@@ -4,7 +4,7 @@ module.exports = {
   description: "Ryan Wheeler",
   url: "https://r7321.art",
   author: "Ryan Wheeler",
-  assetVersion: "2026-07-06-05",
+  assetVersion: "2026-08-01-06",
   navigation: [
     { label: "Updates", href: "/updates/" },
     { label: "Projects", href: "/projects/" },

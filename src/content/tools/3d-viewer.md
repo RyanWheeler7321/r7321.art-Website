@@ -18,6 +18,35 @@ showcaseImages:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/3D-Viewer
+dossier:
+  facts:
+    - label: Platform
+      value: Windows
+    - label: Language
+      value: Python
+    - label: Type
+      value: Desktop App
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Format Support
+      summary: Opens GLB, glTF, FBX, and zipped model bundles.
+      symbol: cube
+    - title: Model Navigation
+      summary: Quickly orbit, pan, zoom, and inspect the asset from any angle.
+      symbol: orbit
+    - title: Lighting Checks
+      summary: Tests models under different lights and HDRI environments.
+      symbol: sun
+    - title: Clay View
+      summary: Removes material noise so the form and silhouette are easier to judge.
+      symbol: material
+    - title: Wireframe View
+      summary: Exposes topology and edge flow without opening a larger DCC.
+      symbol: wireframe
+    - title: Quick Framing
+      summary: Keeps inspection fast with simple camera and presentation controls.
+      symbol: camera
 permalink: /tools/3d-viewer/index.html
 ---
 ## Overview
@@ -27,5 +56,3 @@ permalink: /tools/3d-viewer/index.html
 It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB bundles. The main use is quick inspection: move around the model, try different lighting or HDRI setups, switch to clay or wireframe, and decide whether the asset is ready for the next step.
 
 I use it as a small part of a larger 3D asset workflow, but the viewer itself is standalone.
-
-{% cta "https://github.com/RyanWheeler7321/3D-Viewer", "Open repo", "GitHub" %}

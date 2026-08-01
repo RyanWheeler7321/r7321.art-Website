@@ -13,6 +13,35 @@ tags:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Krita-Random-Exporter
+dossier:
+  facts:
+    - label: Platform
+      value: Krita
+    - label: Language
+      value: Python
+    - label: Type
+      value: Scripter Tool
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Layer Combinations
+      summary: Builds exports from structured groups of visible Krita layers.
+      symbol: layers
+    - title: Weighted Traits
+      summary: Gives individual variations deliberate selection weights.
+      symbol: weights
+    - title: Rarity Groups
+      summary: Controls how often broader trait groups appear across a batch.
+      symbol: diamond
+    - title: Unique Results
+      summary: Avoids duplicate combinations while generating a large set.
+      symbol: sparkles
+    - title: JSON Metadata
+      summary: Writes structured metadata beside the exported images.
+      symbol: braces
+    - title: Animation Export
+      summary: Can assemble optional animated GIF output through FFmpeg.
+      symbol: film
 permalink: /tools/krita-random-exporter/index.html
 ---
 ## Overview

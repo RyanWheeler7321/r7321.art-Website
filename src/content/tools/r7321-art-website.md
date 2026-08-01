@@ -16,6 +16,35 @@ showcaseImages:
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/r7321.art-Website
+dossier:
+  facts:
+    - label: Platform
+      value: Web
+    - label: Stack
+      value: 11ty
+    - label: Content
+      value: Markdown
+    - label: Repository
+      value: GitHub
+  features:
+    - title: Updates
+      summary: Publishes concise progress posts and longer project notes.
+      symbol: news
+    - title: Project Pages
+      summary: Gives released and active games their own focused public pages.
+      symbol: gamepad
+    - title: Tool Pages
+      summary: Presents reusable tools with practical descriptions and source links.
+      symbol: wrench
+    - title: Managed Images
+      summary: Generates optimized public media while preserving source assets.
+      symbol: image
+    - title: Static Builds
+      summary: Produces a simple deployable site without a runtime application stack.
+      symbol: build
+    - title: Responsive Layout
+      summary: Keeps the same visual system usable across desktop and smaller screens.
+      symbol: responsive
 permalink: /tools/r7321-art-website/index.html
 ---
 ## Overview
