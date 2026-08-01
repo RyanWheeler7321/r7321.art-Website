@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">MAZE Tools icon</title>
+  <desc id="desc">Dark chamfered square with a thin red-pink diamond.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#211521"/>
+      <stop offset="1" stop-color="#100d15"/>
+    </linearGradient>
+    <linearGradient id="diamond" x1="38" y1="38" x2="91" y2="91" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff2f68"/>
+      <stop offset="0.55" stop-color="#f0226f"/>
+      <stop offset="1" stop-color="#ff668f"/>
+    </linearGradient>
+  </defs>
+  <path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
+  <path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#3e3157" stroke-width="2"/>
+  <path d="M64 34L94 64L64 94L34 64Z" fill="#160f18" stroke="url(#diamond)" stroke-width="5" stroke-linejoin="round"/>
+</svg>

@@ -4,7 +4,7 @@ title: MAZE Tools
 slug: maze-tools
 date: 2026-08-01
 summary: Selected reusable Unity systems and editor tools from my MAZE game-development workspace.
-thumbnail: /images/tools/maze-tools/rIcon.png
+thumbnail: /images/tools/maze-tools/icon.svg
 tags:
   - tools
   - Unity Tools
