@@ -194,6 +194,8 @@ function initSupportForm() {
   const imageGrid = form.querySelector("[data-support-image-grid]");
   const status = form.querySelector("[data-support-status]");
   const submit = form.querySelector("[data-support-submit]");
+  const submitLabel = form.querySelector("[data-support-submit-label]");
+  const submitSpinner = form.querySelector("[data-support-submit-spinner]");
   const turnstileContainer = form.querySelector("[data-support-turnstile]");
   const success = document.querySelector("[data-support-success]");
   const selectedImages = [];
@@ -208,7 +210,7 @@ function initSupportForm() {
   let imageSaveChain = Promise.resolve();
   let draft = readDraft();
 
-  if (!imageInput || !imageGrid || !status || !submit || !turnstileContainer || !success) return;
+  if (!imageInput || !imageGrid || !status || !submit || !submitLabel || !submitSpinner || !turnstileContainer || !success) return;
 
   if (!draft) {
     draft = {
@@ -224,6 +226,12 @@ function initSupportForm() {
   function setStatus(message, tone = "") {
     status.textContent = message;
     status.dataset.tone = tone;
+  }
+
+  function setSubmitState(label, busy) {
+    submitLabel.textContent = label;
+    submitSpinner.hidden = !busy;
+    submit.setAttribute("aria-busy", String(busy));
   }
 
   function readDraft() {
@@ -530,12 +538,12 @@ function initSupportForm() {
     }
 
     submit.disabled = true;
-    submit.textContent = "Checking";
+    setSubmitState("Checking", true);
 
     try {
       await ensureLiveSession();
       const turnstileToken = await getFreshTurnstileToken();
-      submit.textContent = "Sending";
+      setSubmitState("Sending", true);
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -558,7 +566,7 @@ function initSupportForm() {
       if (turnstileWidgetId !== null && globalThis.turnstile) globalThis.turnstile.reset(turnstileWidgetId);
       if (!form.hidden) {
         submit.disabled = false;
-        submit.textContent = "Send";
+        setSubmitState("Send", false);
       }
     }
   });

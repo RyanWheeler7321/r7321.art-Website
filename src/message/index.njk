@@ -71,7 +71,14 @@ permalink: /message/index.html
 
     <div class="support-form-footer">
       <p class="support-status" data-support-status role="status" aria-live="polite"></p>
-      <button class="button support-submit" type="submit" data-support-submit>Send</button>
+      <button class="button support-submit" type="submit" data-support-submit aria-busy="false">
+        <svg data-support-submit-spinner hidden width="27" height="18" viewBox="0 0 27 18" aria-hidden="true">
+          <circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="27 11">
+            <animateTransform attributeName="transform" type="rotate" from="0 9 9" to="360 9 9" dur="0.75s" repeatCount="indefinite"></animateTransform>
+          </circle>
+        </svg>
+        <span data-support-submit-label>Send</span>
+      </button>
     </div>
   </form>
 
