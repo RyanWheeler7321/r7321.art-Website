@@ -72,9 +72,12 @@ permalink: /message/index.html
     <div class="support-form-footer">
       <p class="support-status" data-support-status role="status" aria-live="polite"></p>
       <button class="button support-submit" type="submit" data-support-submit aria-busy="false">
-        <svg data-support-submit-spinner hidden width="27" height="18" viewBox="0 0 27 18" aria-hidden="true">
-          <circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="27 11">
-            <animateTransform attributeName="transform" type="rotate" from="0 9 9" to="360 9 9" dur="0.75s" repeatCount="indefinite"></animateTransform>
+        <svg data-support-submit-spinner hidden style="display: none;" width="32" height="22" viewBox="0 0 32 22" aria-hidden="true">
+          <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-dasharray="31 20">
+            <animateTransform attributeName="transform" type="rotate" from="0 11 11" to="360 11 11" dur="0.8s" repeatCount="indefinite"></animateTransform>
+          </circle>
+          <circle cx="11" cy="11" r="4.25" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="12 15" opacity="0.72">
+            <animateTransform attributeName="transform" type="rotate" from="360 11 11" to="0 11 11" dur="0.55s" repeatCount="indefinite"></animateTransform>
           </circle>
         </svg>
         <span data-support-submit-label>Send</span>

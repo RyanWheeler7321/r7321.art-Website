@@ -231,8 +231,11 @@ function initSupportForm() {
   function setSubmitState(label, busy) {
     submitLabel.textContent = label;
     submitSpinner.hidden = !busy;
+    submitSpinner.style.display = busy ? "block" : "none";
     submit.setAttribute("aria-busy", String(busy));
   }
+
+  setSubmitState("Send", false);
 
   function readDraft() {
     try {
