@@ -175,9 +175,30 @@ function r7321_run_host_tests(string $base): array
         test_assert($result['ok'] && !$result['duplicate'], 'basic anonymous feedback sends');
         test_assert($basic['mailer']->accepted === 1, 'basic mail accepted once');
         test_assert($basic['mailer']->submissions[0]['recipient'] === 'ryan@r7321.art', 'feedback routes to Ryan');
+        $basicMessageId = $basic['mailer']->submissions[0]['messageId'];
+        test_assert(preg_match('/^R7-[A-F0-9]{12}$/', $basicMessageId) === 1, 'delivered mail gets a private message ID');
         $duplicate = $basic['service']->submit($post, [], ['REMOTE_ADDR' => '203.0.113.10'], $browser);
         test_assert($duplicate['duplicate'] && $basic['mailer']->accepted === 1, 'idempotent replay does not resend');
-        $tests[] = 'anonymous routing and idempotency';
+        $blocked = $basic['store']->blockMessage($basicMessageId, 'host test', time());
+        test_assert(in_array('browser', $blocked['scopes'], true), 'message ID block includes browser fingerprint');
+        test_assert(in_array('ip', $blocked['scopes'], true) && $blocked['ip_expires_at'] > time(), 'message ID block gives IP a finite expiry');
+        $shadowed = $basic['service']->submit(
+            test_post($basic['signer'], $browser, 'shadow-browser-key-001'),
+            [],
+            ['REMOTE_ADDR' => '192.0.2.200'],
+            $browser
+        );
+        test_assert($shadowed['ok'] && !$shadowed['duplicate'], 'shadowblocked sender sees ordinary success');
+        test_assert($basic['mailer']->accepted === 1, 'shadowblocked sender does not reach mail');
+        test_assert($basic['store']->unblockMessage($basicMessageId) >= 2, 'message ID unblock removes its fingerprints');
+        $unblocked = $basic['service']->submit(
+            test_post($basic['signer'], $browser, 'unblocked-browser-key-01'),
+            [],
+            ['REMOTE_ADDR' => '192.0.2.200'],
+            $browser
+        );
+        test_assert($unblocked['ok'] && $basic['mailer']->accepted === 2, 'unblocked sender reaches mail again');
+        $tests[] = 'anonymous routing, idempotency, message IDs, and browser shadowblock lifecycle';
 
         $bug = make_test_service($root, 'bug');
         $bugBrowser = str_repeat('b', 64);
@@ -188,15 +209,30 @@ function r7321_run_host_tests(string $base): array
             'message' => 'Private unique body 9380',
         ]);
         $bugFiles = [test_file($images['png']), test_file($images['jpeg']), test_file($images['webp'])];
-        $bug['service']->submit($bugPost, $bugFiles, ['REMOTE_ADDR' => '198.51.100.88'], $bugBrowser);
+        $bug['service']->submit($bugPost, $bugFiles, [
+            'REMOTE_ADDR' => '198.51.100.88',
+            'HTTP_USER_AGENT' => 'Private Browser Signature 771',
+        ], $bugBrowser);
         test_assert($bug['mailer']->submissions[0]['recipient'] === 'bugs@r7321.art', 'bug routes to bug mailbox');
         test_assert($bug['mailer']->submissions[0]['email'] === 'preview@example.com', 'reply email retained for mail only');
         foreach ($bug['mailer']->lastPaths as $path) test_assert(!file_exists($path), 'sanitized attachment deleted after send');
         $stored = file_get_contents($bug['root'] . '/support.sqlite') . file_get_contents($bug['root'] . '/support.log');
-        foreach (['preview@example.com', '198.51.100.88', 'Private unique body 9380'] as $privateValue) {
+        foreach (['preview@example.com', '198.51.100.88', 'Private Browser Signature 771', 'Private unique body 9380'] as $privateValue) {
             test_assert(!str_contains($stored, $privateValue), 'private value absent from DB and log');
         }
-        $tests[] = 'bug routing, three formats, cleanup, private state';
+        $bugMessageId = $bug['mailer']->submissions[0]['messageId'];
+        $bug['store']->blockMessage($bugMessageId, 'email match test', time());
+        $differentBrowser = str_repeat('c', 64);
+        $emailShadowed = $bug['service']->submit(
+            test_post($bug['signer'], $differentBrowser, 'shadow-email-key-0001', [
+                'email' => 'preview@example.com',
+            ]),
+            [],
+            ['REMOTE_ADDR' => '203.0.113.199', 'HTTP_USER_AGENT' => 'Different Browser'],
+            $differentBrowser
+        );
+        test_assert($emailShadowed['ok'] && $bug['mailer']->accepted === 1, 'email fingerprint shadowblocks across a different browser and IP');
+        $tests[] = 'bug routing, three formats, cleanup, private fingerprints, and email shadowblock';
 
         $invalid = make_test_service($root, 'invalid');
         $invalidCases = [
@@ -256,9 +292,36 @@ function r7321_run_host_tests(string $base): array
             $failureBrowser
         ));
         foreach ($failure['mailer']->lastPaths as $path) test_assert(!file_exists($path), 'sanitized attachment deleted after mail failure');
-        $retried = $failure['service']->submit($failurePost, [test_file($images['png'])], ['REMOTE_ADDR' => '203.0.113.50'], $failureBrowser);
+        $retryBrowser = str_repeat('a', 64);
+        $retryPost = test_post($failure['signer'], $retryBrowser, 'mail-retry-key-000001', [
+            'email' => 'retry-sender@example.com',
+        ]);
+        $retried = $failure['service']->submit(
+            $retryPost,
+            [test_file($images['png'])],
+            ['REMOTE_ADDR' => '203.0.113.51', 'HTTP_USER_AGENT' => 'Retry Browser'],
+            $retryBrowser
+        );
         test_assert($retried['ok'] && $failure['mailer']->accepted === 1, 'same idempotency key can retry a known failure');
-        $tests[] = 'mail failure cleanup and retry';
+        $retryMessageId = $failure['mailer']->submissions[0]['messageId'];
+        $failure['store']->blockMessage($retryMessageId, 'retry fingerprint test', time());
+        $retryEmailShadowed = $failure['service']->submit(
+            test_post($failure['signer'], str_repeat('b', 64), 'retry-shadow-key-00001', [
+                'email' => 'retry-sender@example.com',
+            ]),
+            [],
+            ['REMOTE_ADDR' => '203.0.113.52'],
+            str_repeat('b', 64)
+        );
+        test_assert($retryEmailShadowed['ok'] && $failure['mailer']->accepted === 1, 'retry message ID blocks the successful retry email');
+        $oldFailedSender = $failure['service']->submit(
+            test_post($failure['signer'], $failureBrowser, 'old-failed-sender-0001'),
+            [],
+            ['REMOTE_ADDR' => '203.0.113.53'],
+            $failureBrowser
+        );
+        test_assert($oldFailedSender['ok'] && $failure['mailer']->accepted === 2, 'retry message ID does not retain the failed attempt browser');
+        $tests[] = 'mail failure cleanup, changed-sender retry, and message ID remap';
 
         $unicode = make_test_service($root, 'unicode');
         $unicodeBrowser = str_repeat('c', 64);

@@ -51,6 +51,7 @@ function r7321_support_bootstrap(string $privateRoot): array
         'config' => $config,
         'logger' => $logger,
         'signer' => $signer,
+        'store' => $store,
         'service' => $service,
     ];
 }

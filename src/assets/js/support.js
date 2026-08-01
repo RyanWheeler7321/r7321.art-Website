@@ -172,13 +172,12 @@ function loadTurnstileScript() {
         reject(new Error("Spam protection did not load. Please try again."));
         return;
       }
-      globalThis.turnstile.ready(() => resolve(globalThis.turnstile));
+      resolve(globalThis.turnstile);
     }, { once: true });
     script.addEventListener("error", () => reject(new Error("Spam protection did not load. Please try again.")), { once: true });
     if (!existing) {
       script.src = TURNSTILE_SCRIPT_URL;
       script.async = true;
-      script.defer = true;
       document.head.append(script);
     }
   });

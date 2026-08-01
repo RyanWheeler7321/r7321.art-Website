@@ -29,6 +29,7 @@ final class SupportService
         $reserved = false;
         $mailAccepted = false;
         $keyHash = '';
+        $messageId = '';
         $batch = null;
         $submission = [];
 
@@ -62,11 +63,29 @@ final class SupportService
             }
             $reserved = true;
 
+            $blocked = $this->store->matchShadowBlock($subjects, time());
+            if ($blocked !== null) {
+                $this->store->markSent($keyHash, time());
+                $this->logger->write('shadowblocked', [
+                    'request' => $requestId,
+                    'category' => $submission['category'],
+                    'matched_scope' => $blocked['scope'],
+                    'elapsed_ms' => $this->elapsedMilliseconds($started),
+                ]);
+                return ['ok' => true, 'duplicate' => false];
+            }
+
+            $messageId = 'R7-' . strtoupper(substr($keyHash, 0, 12));
+            $submission['messageId'] = $messageId;
+            $agentHash = $this->store->hash('agent', (string)($server['HTTP_USER_AGENT'] ?? 'unknown'));
+            $this->store->rememberSubmission($messageId, $submission['category'], $subjects, $agentHash, time());
+
             $batch = $this->images->sanitize($files);
             $this->mailer->send($submission, $batch);
             $mailAccepted = true;
             try {
                 $this->store->markSent($keyHash, time());
+                $this->store->markSubmissionSent($messageId, time());
             } catch (\Throwable $stateError) {
                 $this->logger->write('accepted_state_failed', [
                     'request' => $requestId,
@@ -77,6 +96,7 @@ final class SupportService
 
             $this->logger->write('sent', [
                 'request' => $requestId,
+                'message_id' => $messageId,
                 'category' => $submission['category'],
                 'anonymous' => $submission['email'] === '',
                 'images' => count($batch->attachments),
@@ -89,6 +109,7 @@ final class SupportService
             if ($reserved && !$mailAccepted && $keyHash !== '') {
                 try {
                     $this->store->markFailed($keyHash, time());
+                    if ($messageId !== '') $this->store->markSubmissionFailed($messageId, time());
                 } catch (\Throwable $ignored) {
                     // The original failure remains the useful result.
                 }

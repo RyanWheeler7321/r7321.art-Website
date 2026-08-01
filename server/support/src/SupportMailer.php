@@ -62,6 +62,7 @@ final class SupportMailer implements SupportMailerInterface
         $type = $submission['category'] === 'bug' ? 'Bug' : 'Feedback';
         return implode("\r\n", [
             $type . ' submitted through r7321.art',
+            'Message ID: ' . $submission['messageId'],
             '',
             'Name: ' . $name,
             'Email: ' . $email,

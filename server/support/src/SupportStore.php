@@ -5,6 +5,9 @@ namespace R7321\Support;
 
 final class SupportStore
 {
+    private const SUBMISSION_RETENTION_SECONDS = 90 * 86400;
+    private const IP_BLOCK_SECONDS = 30 * 86400;
+
     private \PDO $db;
 
     public function __construct(string $databasePath, private readonly string $hashSecret)
@@ -114,6 +117,130 @@ final class SupportStore
         $statement->execute([':key' => $keyHash, ':now' => $now]);
     }
 
+    /** @param list<array{scope:string, hash:string}> $subjects */
+    public function rememberSubmission(string $messageId, string $category, array $subjects, string $agentHash, int $now): void
+    {
+        $fingerprints = ['browser' => '', 'ip' => '', 'email' => ''];
+        foreach ($subjects as $subject) {
+            if (array_key_exists($subject['scope'], $fingerprints)) {
+                $fingerprints[$subject['scope']] = $subject['hash'];
+            }
+        }
+        $statement = $this->db->prepare(
+            'INSERT INTO submissions('
+            . 'message_id, category, browser_hash, ip_hash, email_hash, agent_hash, state, created_at, updated_at'
+            . ") VALUES(:message, :category, :browser, :ip, :email, :agent, 'processing', :now, :now) "
+            . 'ON CONFLICT(message_id) DO UPDATE SET '
+            . 'category = excluded.category, browser_hash = excluded.browser_hash, ip_hash = excluded.ip_hash, '
+            . 'email_hash = excluded.email_hash, agent_hash = excluded.agent_hash, '
+            . "state = 'processing', updated_at = excluded.updated_at"
+        );
+        $statement->execute([
+            ':message' => $messageId,
+            ':category' => $category,
+            ':browser' => $fingerprints['browser'],
+            ':ip' => $fingerprints['ip'],
+            ':email' => $fingerprints['email'],
+            ':agent' => $agentHash,
+            ':now' => $now,
+        ]);
+    }
+
+    public function markSubmissionSent(string $messageId, int $now): void
+    {
+        $statement = $this->db->prepare("UPDATE submissions SET state = 'sent', updated_at = :now WHERE message_id = :message");
+        $statement->execute([':message' => $messageId, ':now' => $now]);
+    }
+
+    public function markSubmissionFailed(string $messageId, int $now): void
+    {
+        $statement = $this->db->prepare(
+            "UPDATE submissions SET state = 'failed', updated_at = :now WHERE message_id = :message AND state = 'processing'"
+        );
+        $statement->execute([':message' => $messageId, ':now' => $now]);
+    }
+
+    /**
+     * @param list<array{scope:string, hash:string}> $subjects
+     * @return array{scope:string,source_message_id:string}|null
+     */
+    public function matchShadowBlock(array $subjects, int $now): ?array
+    {
+        $this->purgeExpiredBlocks($now);
+        $find = $this->db->prepare(
+            'SELECT scope, source_message_id FROM blocked_subjects '
+            . 'WHERE scope = :scope AND subject_hash = :hash AND (expires_at IS NULL OR expires_at > :now) LIMIT 1'
+        );
+        foreach ($subjects as $subject) {
+            $find->execute([':scope' => $subject['scope'], ':hash' => $subject['hash'], ':now' => $now]);
+            $match = $find->fetch();
+            if ($match === false) continue;
+            $hit = $this->db->prepare(
+                'UPDATE blocked_subjects SET hit_count = hit_count + 1, last_hit_at = :now '
+                . 'WHERE scope = :scope AND subject_hash = :hash'
+            );
+            $hit->execute([':now' => $now, ':scope' => $subject['scope'], ':hash' => $subject['hash']]);
+            return ['scope' => (string)$match['scope'], 'source_message_id' => (string)$match['source_message_id']];
+        }
+        return null;
+    }
+
+    /** @return array{message_id:string,scopes:list<string>,ip_expires_at:int|null} */
+    public function blockMessage(string $messageId, string $reason, int $now): array
+    {
+        $messageId = strtoupper(trim($messageId));
+        if (!preg_match('/^R7-[A-F0-9]{12}$/', $messageId)) {
+            throw new \InvalidArgumentException('Invalid message ID.');
+        }
+        $statement = $this->db->prepare(
+            "SELECT browser_hash, ip_hash, email_hash FROM submissions WHERE message_id = :message AND state = 'sent'"
+        );
+        $statement->execute([':message' => $messageId]);
+        $submission = $statement->fetch();
+        if ($submission === false) throw new \RuntimeException('Sent message ID was not found.');
+
+        $reason = trim($reason);
+        if (strlen($reason) > 200) $reason = substr($reason, 0, 200);
+        $scopes = [];
+        $ipExpiresAt = null;
+        foreach (['browser', 'email', 'ip'] as $scope) {
+            $hash = (string)($submission[$scope . '_hash'] ?? '');
+            if ($hash === '') continue;
+            $expiresAt = $scope === 'ip' ? $now + self::IP_BLOCK_SECONDS : null;
+            $insert = $this->db->prepare(
+                'INSERT INTO blocked_subjects('
+                . 'scope, subject_hash, source_message_id, reason, created_at, expires_at, hit_count, last_hit_at'
+                . ') VALUES(:scope, :hash, :source, :reason, :created, :expires, 0, NULL) '
+                . 'ON CONFLICT(scope, subject_hash) DO UPDATE SET '
+                . 'source_message_id = excluded.source_message_id, reason = excluded.reason, '
+                . 'created_at = excluded.created_at, expires_at = excluded.expires_at'
+            );
+            $insert->execute([
+                ':scope' => $scope,
+                ':hash' => $hash,
+                ':source' => $messageId,
+                ':reason' => $reason,
+                ':created' => $now,
+                ':expires' => $expiresAt,
+            ]);
+            $scopes[] = $scope;
+            if ($scope === 'ip') $ipExpiresAt = $expiresAt;
+        }
+        if ($scopes === []) throw new \RuntimeException('Message has no blockable sender fingerprints.');
+        return ['message_id' => $messageId, 'scopes' => $scopes, 'ip_expires_at' => $ipExpiresAt];
+    }
+
+    public function unblockMessage(string $messageId): int
+    {
+        $messageId = strtoupper(trim($messageId));
+        if (!preg_match('/^R7-[A-F0-9]{12}$/', $messageId)) {
+            throw new \InvalidArgumentException('Invalid message ID.');
+        }
+        $statement = $this->db->prepare('DELETE FROM blocked_subjects WHERE source_message_id = :message');
+        $statement->execute([':message' => $messageId]);
+        return $statement->rowCount();
+    }
+
     /** @return array<string, mixed>|null */
     private function getIdempotencyForUpdate(string $keyHash): ?array
     {
@@ -163,6 +290,15 @@ final class SupportStore
         $rate->execute([':cutoff' => $now - 86400]);
         $idempotency = $this->db->prepare('DELETE FROM idempotency WHERE updated_at < :cutoff');
         $idempotency->execute([':cutoff' => $now - 604800]);
+        $submissions = $this->db->prepare('DELETE FROM submissions WHERE updated_at < :cutoff');
+        $submissions->execute([':cutoff' => $now - self::SUBMISSION_RETENTION_SECONDS]);
+        $this->purgeExpiredBlocks($now);
+    }
+
+    private function purgeExpiredBlocks(int $now): void
+    {
+        $statement = $this->db->prepare('DELETE FROM blocked_subjects WHERE expires_at IS NOT NULL AND expires_at <= :now');
+        $statement->execute([':now' => $now]);
     }
 
     private function createSchema(): void
@@ -179,6 +315,24 @@ final class SupportStore
         $this->db->exec(
             'CREATE TABLE IF NOT EXISTS idempotency ('
             . 'key_hash TEXT PRIMARY KEY, state TEXT NOT NULL, created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL)'
+        );
+        $this->db->exec(
+            'CREATE TABLE IF NOT EXISTS submissions ('
+            . 'message_id TEXT PRIMARY KEY, category TEXT NOT NULL, browser_hash TEXT NOT NULL, ip_hash TEXT NOT NULL, '
+            . 'email_hash TEXT NOT NULL, agent_hash TEXT NOT NULL, state TEXT NOT NULL, '
+            . 'created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL)'
+        );
+        $this->db->exec(
+            'CREATE INDEX IF NOT EXISTS submissions_updated ON submissions(updated_at)'
+        );
+        $this->db->exec(
+            'CREATE TABLE IF NOT EXISTS blocked_subjects ('
+            . 'scope TEXT NOT NULL, subject_hash TEXT NOT NULL, source_message_id TEXT NOT NULL, reason TEXT NOT NULL, '
+            . 'created_at INTEGER NOT NULL, expires_at INTEGER NULL, hit_count INTEGER NOT NULL DEFAULT 0, last_hit_at INTEGER NULL, '
+            . 'PRIMARY KEY(scope, subject_hash))'
+        );
+        $this->db->exec(
+            'CREATE INDEX IF NOT EXISTS blocked_subjects_source ON blocked_subjects(source_message_id)'
         );
     }
 }
