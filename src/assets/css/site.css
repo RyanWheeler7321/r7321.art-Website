@@ -1251,6 +1251,10 @@ p {
   padding: 14px;
 }
 
+.tool-grid-card[hidden] {
+  display: none;
+}
+
 .tool-grid-link {
   position: absolute;
   inset: 0;
