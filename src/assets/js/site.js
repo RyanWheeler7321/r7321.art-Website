@@ -672,7 +672,7 @@ function makeSvg(className, innerHtml) {
 
 function initVectorFrames() {
   const frameItems = [...document.querySelectorAll(".r-frame-longform")];
-  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .support-panel, .tool-icon-fallback, .tool-detail-header-copy-dossier .tool-detail-icon-frame, .tool-detail-body-dossier, .tool-dossier-showcase-frame, .tool-dossier-feature-card";
+  const bevelSelectors = ".site-header-inner, .nav-toggle, .button, .feature-link, .panel-link, .tag-chip, .chip-button, .update-button, .project-button, .project-card, .tool-grid-card, .home-list-card, .browse-item, .inline-card-link, .callout, .tool-card, .browse-sidebar, .browse-panel, .detail-aside-card, .empty-state-card, .home-column-panel, .support-panel, .support-category-option, .tool-icon-fallback, .tool-detail-header-copy-dossier .tool-detail-icon-frame, .tool-detail-body-dossier, .tool-dossier-showcase-frame, .tool-dossier-feature-card";
   const bevelItems = [...document.querySelectorAll(bevelSelectors)];
   const allItems = [...frameItems, ...bevelItems];
   if (!allItems.length) return;
@@ -686,7 +686,7 @@ function initVectorFrames() {
 
   bevelItems.forEach((item) => {
     if (item.querySelector(":scope > .r-bevel-vector")) return;
-    const svg = makeSvg("r-bevel-vector", '<path class="r-bevel-vector-stroke"></path>');
+    const svg = makeSvg("r-bevel-vector", '<path class="r-bevel-vector-stroke"></path><path class="r-bevel-vector-accent"></path>');
     item.append(svg);
     item.classList.add("has-bevel-vector");
   });
@@ -721,6 +721,12 @@ function initVectorFrames() {
       const kind = getComputedStyle(item).getPropertyValue("--shape-outline-kind").trim();
       const path = kind === "hex" ? hexPath(rect.width, rect.height, corner, outlineWidth / 2) : bevelPath(rect.width, rect.height, corner, outlineWidth / 2);
       bevelSvg.querySelector(".r-bevel-vector-stroke")?.setAttribute("d", path);
+      const accentInset = parseCssPx(item, "--card-accent-inset", 5);
+      const accentCorner = Math.max(0, corner - accentInset);
+      const accentPath = kind === "hex"
+        ? hexPath(rect.width, rect.height, accentCorner, accentInset)
+        : bevelPath(rect.width, rect.height, accentCorner, accentInset);
+      bevelSvg.querySelector(".r-bevel-vector-accent")?.setAttribute("d", accentPath);
     }
   }
 

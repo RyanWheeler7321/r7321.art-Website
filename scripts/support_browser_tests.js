@@ -381,8 +381,70 @@ async function layoutTests(browser, results) {
     await page.goto(`${baseUrl}/message/`, { waitUntil: "networkidle" });
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert(overflow <= 1, `${viewport.label} message page overflowed horizontally`);
-    if (viewport.label === "mobile") {
-      await page.screenshot({ path: path.join(artifactRoot, "message-mobile.png"), fullPage: true });
+    const toggleState = await page.evaluate(() => {
+      const group = document.querySelector(".support-category");
+      const panel = document.querySelector(".support-panel");
+      const feedbackInput = document.querySelector('input[value="feedback"]');
+      const bugInput = document.querySelector('input[value="bug"]');
+      const feedback = feedbackInput.nextElementSibling;
+      const bug = bugInput.nextElementSibling;
+      const groupRect = group.getBoundingClientRect();
+      const panelRect = panel.getBoundingClientRect();
+      const feedbackRect = feedback.getBoundingClientRect();
+      const bugRect = bug.getBoundingClientRect();
+      const visual = (item) => {
+        const style = getComputedStyle(item);
+        const accent = item.querySelector(".r-bevel-vector-accent");
+        return {
+          background: style.backgroundImage,
+          color: style.color,
+          filter: style.filter,
+          clip: style.clipPath,
+          line: style.getPropertyValue("--card-line").trim(),
+          accentOpacity: Number(getComputedStyle(accent).opacity),
+          outerPath: item.querySelector(".r-bevel-vector-stroke")?.getAttribute("d") || "",
+          accentPath: accent?.getAttribute("d") || ""
+        };
+      };
+      return {
+        groupCenterDelta: Math.abs((groupRect.left + groupRect.right) / 2 - (panelRect.left + panelRect.right) / 2),
+        gap: bugRect.left - feedbackRect.right,
+        feedbackChecked: feedbackInput.checked,
+        feedback: visual(feedback),
+        bug: visual(bug)
+      };
+    });
+    assert(toggleState.groupCenterDelta <= 2, `${viewport.label} message type toggle was not centered`);
+    assert(toggleState.gap >= 12, `${viewport.label} message type choices were not visibly separated`);
+    assert(toggleState.feedbackChecked, `${viewport.label} Feedback was not the initial selection`);
+    assert(toggleState.feedback.filter !== "none" && toggleState.bug.filter === "none", `${viewport.label} selected choice did not own the glow`);
+    assert(toggleState.feedback.background !== toggleState.bug.background && toggleState.feedback.color !== toggleState.bug.color, `${viewport.label} active and inactive choices were not visually distinct`);
+    assert(toggleState.feedback.accentOpacity >= 0.99 && toggleState.bug.accentOpacity <= 0.01, `${viewport.label} selected choice did not own the extra outline`);
+    assert(toggleState.feedback.clip.startsWith("polygon(") && toggleState.bug.clip.startsWith("polygon("), `${viewport.label} message type choices were not chamfered`);
+    assert(toggleState.feedback.outerPath && toggleState.feedback.accentPath && toggleState.bug.outerPath, `${viewport.label} message type vector outlines were missing`);
+
+    await page.locator('input[value="bug"] + .support-category-option').click();
+    await page.evaluate(() => document.activeElement?.blur());
+    await page.waitForTimeout(200);
+    const switchedState = await page.evaluate(() => {
+      const feedbackInput = document.querySelector('input[value="feedback"]');
+      const bugInput = document.querySelector('input[value="bug"]');
+      const feedback = feedbackInput.nextElementSibling;
+      const bug = bugInput.nextElementSibling;
+      return {
+        feedbackChecked: feedbackInput.checked,
+        bugChecked: bugInput.checked,
+        feedbackAccent: Number(getComputedStyle(feedback.querySelector(".r-bevel-vector-accent")).opacity),
+        bugAccent: Number(getComputedStyle(bug.querySelector(".r-bevel-vector-accent")).opacity),
+        feedbackFilter: getComputedStyle(feedback).filter,
+        bugFilter: getComputedStyle(bug).filter
+      };
+    });
+    assert(!switchedState.feedbackChecked && switchedState.bugChecked, `${viewport.label} message type toggle did not switch choices`);
+    assert(switchedState.feedbackAccent <= 0.01 && switchedState.bugAccent >= 0.99, `${viewport.label} extra selected outline did not follow the chosen type`);
+    assert(switchedState.feedbackFilter === "none" && switchedState.bugFilter !== "none", `${viewport.label} selected glow did not follow the chosen type`);
+    if (viewport.label === "wide" || viewport.label === "mobile") {
+      await page.screenshot({ path: path.join(artifactRoot, `message-${viewport.label}.png`), fullPage: true });
     }
     const successCenter = await page.evaluate(() => {
       document.querySelector(".support-heading").hidden = true;
@@ -399,7 +461,7 @@ async function layoutTests(browser, results) {
     }
     await context.close();
   }
-  results.push("page-top actions scroll away independently while fitted update/tool rails stop at the project-column height across responsive sizes");
+  results.push("responsive layouts pass and the centered chamfered message-type toggle visibly transfers glow and its extra outline");
 }
 
 (async () => {
