@@ -29,7 +29,7 @@ dossier:
       summary: Choose any bookmark folder, including nested ones.
       symbol: folder
     - title: Random Bookmark
-      summary: Opens one random entry from the selected folder.
+      summary: Opens one random bookmark from the selected folder.
       symbol: shuffle
     - title: Open Entire Folder
       summary: Opens every bookmark in the chosen folder.
