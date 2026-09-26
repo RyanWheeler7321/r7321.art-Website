@@ -26,16 +26,16 @@ dossier:
       value: GitHub
   features:
     - title: Folder Picker
-      summary: Chooses the bookmark folder that should drive the next action.
+      summary: Choose any bookmark folder, including nested ones.
       symbol: folder
     - title: Random Bookmark
       summary: Opens one random entry from the selected folder.
       symbol: shuffle
     - title: Open Entire Folder
-      summary: Launches every bookmark in the chosen folder when the full set is useful.
+      summary: Opens every bookmark in the chosen folder.
       symbol: tabs
     - title: Compact Popup
-      summary: Keeps folder selection and both actions in one small extension surface.
+      summary: Pick the folder and open bookmarks from one popup.
       symbol: click
 permalink: /tools/chrome-bookmark-tool/index.html
 ---

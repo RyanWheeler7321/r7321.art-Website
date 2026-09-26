@@ -30,22 +30,22 @@ dossier:
       value: GitHub
   features:
     - title: Nested Boards
-      summary: Organizes projects and ideas through connected board spaces.
+      summary: Boards nest inside each other, so each project gets its own space.
       symbol: board
     - title: Mixed Media
       summary: Places text, images, audio, video, and links on the same canvas.
       symbol: media
     - title: Fast Import
-      summary: Adds copied images and other working material without a long setup path.
+      summary: Paste or drop images, audio, video and links straight onto the board.
       symbol: clipboard
     - title: Board Previews
-      summary: Makes larger project structures readable without opening every board.
+      summary: Each board shows a preview of what's inside it.
       symbol: preview
     - title: Sublists
-      summary: Keeps practical task and reference lists beside the visual work.
+      summary: Task and reference lists in a side panel next to the board.
       symbol: checklist
     - title: 2D Art Library
-      summary: Keeps reusable visual material available inside the workspace.
+      summary: A 2D Art tab with your Paint Studio projects.
       symbol: palette
 permalink: /tools/board-studio/index.html
 ---

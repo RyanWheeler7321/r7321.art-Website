@@ -4,7 +4,7 @@ title: Paint Studio
 slug: paint-studio
 detailAccentRgb: "67, 191, 255"
 date: 2026-04-04
-summary: Built-in painting and image editing workflow for quick edits, thumbnails, rough concept passes, and simple animation work.
+summary: Built-in painting app for quick edits, thumbnails, rough concepts and simple animation.
 thumbnail: /images/tools/paint-studio/icon.svg
 tags:
   - tools
@@ -30,22 +30,22 @@ dossier:
       value: GitHub
   features:
     - title: Brushes
-      summary: Covers quick drawing, paint, cleanup, and rough concept passes.
+      summary: Pressure brushes for sketching, painting and cleanup.
       symbol: brush
     - title: Layers
-      summary: Separates artwork into editable pieces without slowing down the pass.
+      summary: Layers with opacity, visibility, isolate and duplicate.
       symbol: layers
     - title: Selections
-      summary: Isolates regions for focused edits and controlled changes.
+      summary: Lasso and rectangle selections you can add to or subtract from.
       symbol: selection
     - title: Transforms
-      summary: Moves, scales, and reshapes selected artwork directly on the canvas.
+      summary: Move, scale and rotate the selection on the canvas.
       symbol: move
     - title: Timeline Tools
-      summary: Supports simple storyboard and animation-oriented image sequences.
+      summary: Animation timeline with frame holds and FPS.
       symbol: timeline
     - title: Unity Sheet Export
-      summary: Prepares image sheets for the next step in a Unity workflow.
+      summary: Exports animation frames as a sprite sheet into a Unity project folder.
       symbol: grid
 permalink: /tools/paint-studio/index.html
 ---
@@ -57,7 +57,7 @@ It includes brushes, layers, selections, transforms, timeline tools, project han
 
 ## Usage
 
-Use it through the main app by opening images or 2D art projects. It is built for fast iteration more than polish-heavy final art production.
+Use it through the main app by opening images or 2D art projects. It's set up for fast iteration more than polished final art.
 
 ## Repo
 

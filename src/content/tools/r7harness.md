@@ -4,8 +4,8 @@ title: r7Harness
 slug: r7harness
 detailAccentRgb: "255, 76, 139"
 date: 2026-08-24
-summary: A simplified version of my OMP-based agent workspace, built for faster, cleaner work with Codex, Claude, and other agents that work with OMP.
-description: A simplified version of my OMP-based agent workspace, built for faster, cleaner work with Codex, Claude, and other agents that work with OMP.
+summary: A simplified version of my OMP-based agent workspace, for Codex, Claude and other agents that work with OMP.
+description: A simplified version of my OMP-based agent workspace, for Codex, Claude and other agents that work with OMP.
 thumbnail: /images/tools/r7harness/icon.svg
 icon: fas fa-terminal
 tags:
@@ -28,13 +28,13 @@ dossier:
       value: Codex, Claude, and others
   features:
     - title: Compact Interface
-      summary: Keeps session titles, turn timing, status, and the composer readable without unnecessary terminal clutter.
+      summary: Session titles, turn timing, usage and status, with a composer that stays put.
       symbol: responsive
     - title: Isolated Profiles
-      summary: Separates each agent's identity, configuration, authentication, sessions, and runtime state.
+      summary: Each agent gets its own identity, config, login and sessions.
       symbol: users
     - title: Durable Instructions
-      summary: Supports global and project-level behavior with explicit ownership for reusable memory and skills.
+      summary: Global and project instructions, plus reusable skills.
       symbol: braces
     - title: Themes and Fonts
       summary: Idle and working themes that follow what the agent is doing, plus a list of good terminal fonts.
@@ -43,13 +43,13 @@ dossier:
       summary: Readiness checks, clear limits on what tools can change, and file ownership so subagents don't overlap.
       symbol: lock
     - title: Pinned and Reversible
-      summary: Keeps the modified OMP build versioned, checkable, and easy to roll back without replacing stock OMP.
+      summary: A pinned OMP build that installs next to stock OMP and rolls back cleanly.
       symbol: restore
 permalink: /tools/r7harness/index.html
 ---
 ## Overview
 
-r7Harness is a simplified version of my own OMP-based agent workspace. I use the original setup for fast, direct technical work. This version keeps the useful parts, like the compact terminal UI, separate agent profiles, instructions that stick, themes, guarded tool use and a pinned install you can roll back, without any of my personal setup.
+r7Harness is a simplified version of my own OMP-based agent workspace. I use the original setup for fast, direct technical work. This version keeps the useful parts, like the compact terminal UI, separate agent profiles, global and project instructions, themes, guarded tool use and a pinned install you can roll back, without any of my personal setup.
 
 I built it around Codex, but it isn't limited to Codex. You can use Claude or any other agent that works with OMP. Right now it runs on WSL with Windows Terminal, since that's what I use.
 

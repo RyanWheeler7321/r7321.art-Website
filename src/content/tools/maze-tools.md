@@ -4,7 +4,7 @@ title: MAZE Tools
 slug: maze-tools
 detailAccentRgb: "255, 47, 104"
 date: 2026-08-01
-summary: Selected reusable Unity systems and editor tools from my MAZE game-development workspace.
+summary: Rendering, vector graphics, transition and LOD systems for Unity URP, from my MAZE project.
 thumbnail: /images/tools/maze-tools/icon.svg
 tags:
   - tools
@@ -26,27 +26,25 @@ dossier:
       value: GitHub
   features:
     - title: Rendering Systems
-      summary: Shared rendering components and effects used across MAZE projects.
+      summary: Ambient occlusion, fog, clouds, bloom and depth of field for URP.
       icon: /images/tools/maze-tools/features/rendering.svg
     - title: Vector Graphics
-      summary: Runtime vector shapes, paths, fills, and supporting tools.
+      summary: Runtime vector shapes and styles for UI and world meshes.
       icon: /images/tools/maze-tools/features/vector.svg
     - title: Transitions
-      summary: Reusable screen, scene, and presentation transitions.
+      summary: Square and vector screen transitions with profiles and patterns.
       icon: /images/tools/maze-tools/features/transitions.svg
     - title: LOD Tools
-      summary: Helpers for reducing detail and managing visibility at distance.
+      summary: Generates mesh LOD levels, with editor baking and runtime controllers.
       icon: /images/tools/maze-tools/features/lod.svg
     - title: Editor Utilities
-      summary: Inspector and editor tools for repeated production tasks.
+      summary: A texture adjustment window, an SVG importer and a profiler for the custom render passes.
       icon: /images/tools/maze-tools/features/editor.svg
-    - title: Common Utilities
-      summary: Runtime helpers and shared code that can stand on its own.
+    - title: Screen Filters
+      summary: Pixel, blur, dither, halftone, palette and edge filters, plus exposure and grading.
       icon: /images/tools/maze-tools/features/utilities.svg
 permalink: /tools/maze-tools/index.html
 ---
 ## Overview
 
-MAZE Tools has some of the reusable Unity systems I build and use across my games in MAZE.
-
-The repo includes rendering systems, vector graphics, transitions, LOD tools, and other runtime or editor code that can stand on its own.
+MAZE is the Unity project I build my games in. MAZE Tools is some of the rendering, vector graphics, transition and LOD code from it, split out into its own repo.

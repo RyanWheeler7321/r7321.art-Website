@@ -28,22 +28,22 @@ dossier:
       value: GitHub
   features:
     - title: Position Saving
-      summary: Records the exact point reached in each YouTube video.
+      summary: Saves your exact spot in each YouTube video.
       symbol: clock
     - title: Automatic Restore
       summary: Returns the video to the saved position when you come back later.
       symbol: restore
     - title: Save Interval
-      summary: Lets you control how frequently the current position is recorded.
+      summary: Auto-saves on an interval from 1 to 30 seconds.
       symbol: sliders
     - title: Video Blacklist
-      summary: Excludes videos that should never receive saved progress.
+      summary: Blacklist videos you don't want it to save.
       symbol: ban
     - title: Manual Save
-      summary: Stores the current position immediately when you ask it to.
+      summary: Save the current position with one button.
       symbol: save
     - title: Quick Toggle
-      summary: Turns the extension on or off without digging through settings.
+      summary: Power button to turn it on or off.
       symbol: toggle
 permalink: /tools/youtube-position-saver/index.html
 ---
@@ -51,7 +51,7 @@ permalink: /tools/youtube-position-saver/index.html
 
 This Chrome extension saves your position in YouTube videos and restores it when you come back later. YouTube already kind of does this through watch history, but it misses often enough that I wanted a version that actually behaves the way I want.
 
-Saved positions and blacklist data stay local. Settings use Chrome's extension storage. You can control the save interval, manually save a position, blacklist videos entirely, and turn the extension on or off without digging through settings.
+Saved positions and blacklist data stay local. Settings use Chrome's extension storage. You can control the save interval, manually save a position, blacklist videos entirely, and turn the extension on or off with the power button.
 
 ## Installation
 

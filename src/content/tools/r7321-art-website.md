@@ -41,10 +41,10 @@ dossier:
       summary: Builds responsive images and poster-first video loops from the original media.
       symbol: image
     - title: Message Form
-      summary: Routes feedback and bug reports through a small protected PHP service.
+      summary: Sends feedback and bug reports through a small PHP service.
       symbol: lock
     - title: Responsive Layout
-      summary: Keeps the same visual system usable across desktop and smaller screens.
+      summary: The same layout works on desktop and phone screens.
       symbol: responsive
 permalink: /tools/r7321-art-website/index.html
 ---

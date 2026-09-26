@@ -4,7 +4,7 @@ title: Unity Tools
 slug: unity-tools
 detailAccentRgb: "79, 214, 255"
 date: 2024-11-19
-summary: Small reference collection of standalone Unity C# utilities, triggers, animation events, and tracking helpers.
+summary: Small collection of Unity C# scripts for triggers, animation events, tracking and common helpers.
 thumbnail: /images/tools/unity-tools/icon.svg
 icon: fas fa-gear
 tags:
@@ -29,25 +29,25 @@ dossier:
       summary: EventPasser forwards animation events into inspector-assigned UnityEvents.
       symbol: bolt
     - title: Trigger Events
-      summary: Trigger exposes enter, exit, and stay callbacks through one reusable setup.
+      summary: Trigger fires enter, exit and stay events from a trigger collider.
       symbol: trigger
     - title: Target Tracking
-      summary: Tracker follows a target transform with practical control over the result.
+      summary: Tracker follows the target transform with optional controls.
       symbol: target
     - title: Motion Smoothing
       summary: Adds lookahead, damping, rotation follow, and optional Y locking.
       symbol: wave
     - title: Common Helpers
-      summary: Util collects reusable object, coroutine, math, and random helpers.
+      summary: Util has object, coroutine, math and random helpers.
       symbol: toolbox
     - title: Scene Helpers
-      summary: Keeps small scene-loading and object lookup utilities close at hand.
+      summary: Scene loading and object lookup helpers.
       symbol: scene
 permalink: /tools/unity-tools/index.html
 ---
 ## Overview
 
-Unity Tools is a small collection of standalone Unity C# scripts I keep around as reference. They are meant to be read or copied individually rather than installed as a package. My larger current Unity systems are in [MAZE Tools](/tools/maze-tools/).
+Unity Tools is a small collection of Unity C# scripts I keep around as reference. They are meant to be read or copied individually rather than installed as a package. My larger current Unity systems are in [MAZE Tools](/tools/maze-tools/).
 
 ## Included scripts
 

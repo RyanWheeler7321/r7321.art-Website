@@ -28,22 +28,22 @@ dossier:
       value: GitHub
   features:
     - title: Playlist Sources
-      summary: Starts from playlists you already use instead of a generic catalog seed.
+      summary: Uses your own playlists as the starting point.
       symbol: playlist
     - title: Artist Expansion
-      summary: Pulls from artists connected to those playlists to widen the pool.
+      summary: Picks songs from the artists in those playlists.
       symbol: users
     - title: Random Modes
-      summary: Builds fresh playlists through several different randomization methods.
+      summary: Songs come from the same album, top tracks or the full discography.
       symbol: shuffle
     - title: Duplicate Filtering
-      summary: Can skip tracks that already live in your main playlists.
+      summary: Can skip tracks already in your main playlists.
       symbol: filter
     - title: PKCE Login
       summary: Authenticates without storing a Spotify client secret.
       symbol: lock
     - title: Playback Start
-      summary: Can begin playing the new playlist immediately after generation.
+      summary: Can start playing the new playlist right away.
       symbol: play
 permalink: /tools/spotify-randomizer/index.html
 ---
