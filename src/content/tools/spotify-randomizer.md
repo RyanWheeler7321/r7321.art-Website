@@ -39,9 +39,6 @@ dossier:
     - title: Duplicate Filtering
       summary: Can skip tracks already in your main playlists.
       symbol: filter
-    - title: PKCE Login
-      summary: Authenticates without storing a Spotify client secret.
-      symbol: lock
     - title: Playback Start
       summary: Can start playing the new playlist right away.
       symbol: play
@@ -51,8 +48,8 @@ permalink: /tools/spotify-randomizer/index.html
 
 This is a small Python app for making a fresh Spotify playlist without relying on the same recommendation loop every time. It pulls from the artists connected to playlists you already use, then builds a new playlist from a few different randomization methods.
 
-The app uses Spotify's PKCE login flow, so no client secret is stored. It can skip tracks already in your main playlists and start playback right away.
+It can skip tracks already in your main playlists and start playback right away.
 
 ## Setup
 
-You need Python, Spotipy, and your own Spotify developer app. Copy the example config file to `my_config.json`, add your client ID and playlist IDs, then run the script or the included batch file.
+You need Python, Spotipy, and your own Spotify developer app. Copy the example config file to `my_config.json`, add your client ID, client secret and playlist IDs, then run the script or the included batch file.

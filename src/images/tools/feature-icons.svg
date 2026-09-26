@@ -41,6 +41,9 @@
   <symbol id="shuffle" viewBox="0 0 24 24" fill="none" stroke="#CFAEFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
     <path d="M3 6h2.5c5 0 6 12 11 12H21M17 14l4 4-4 4M3 18h2.5c2.2 0 3.5-2.2 4.7-4.7M14 6h7M17 2l4 4-4 4"/><circle cx="12" cy="12" r="1.2" fill="#EF5C88" stroke="#EF5C88"/>
   </symbol>
+  <symbol id="terminal" viewBox="0 0 24 24" fill="none" stroke="#CFAEFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 5h18v14H3V5Z" fill="#9B5DFF" fill-opacity=".08"/><path d="m7 10 3 2.5L7 15"/><path d="M12.5 15h4.5" stroke="#EF5C88"/>
+  </symbol>
   <symbol id="tabs" viewBox="0 0 24 24" fill="none" stroke="#CFAEFF" stroke-width="1.7" stroke-linejoin="round">
     <path d="M4 5h12v12H4V5Z" fill="#9B5DFF" fill-opacity=".08"/><path d="M8 3h12v12M4 8h12"/><path d="m10 11 3 3-3 3" stroke="#EF5C88"/>
   </symbol>

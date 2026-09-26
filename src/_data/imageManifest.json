@@ -218,58 +218,29 @@
     "/images/tools/board-studio/showcase-1.png": {
       "type": "still",
       "sourceFormat": "png",
-      "sourceHash": "23fdbe9c8b1d66114394b116998c71b65afbb0aa1020bea61d283f787ccb6b7b",
-      "sourceBytes": 864910,
-      "width": 2228,
-      "height": 1401,
+      "sourceHash": "cd86caac5a7a159269a650b8fa5487e158a4b4f11791f24d25337bd5285896c5",
+      "sourceBytes": 1359615,
+      "width": 2880,
+      "height": 1800,
       "alpha": false,
-      "dominantColor": "#2b2b2b",
-      "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoYAA8APvVEuFcqoqakGAFQHolnAAEer6Ykii6kb0uoiYAA/vhbfqXuEoi0PucqsazNjerLp4SwMviHZsYyv/SiK0h7ifAe1usSpY+ZVqH5IFUmdHkmwwHv4AA=",
+      "dominantColor": "#262526",
+      "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoYAA8APvVsrk4qpqSiMAgBUB6JaQABHuuMM+RL85WaAAD+/asaG5UAymeN9vgn/l3NP2dZqpt53Dy/3uSW2AbS5KdlrGwGri+t1wIwv+z+QhvMEG3z48LcUtwAAA==",
       "images": [
         {
-          "url": "/generated/media/tools/board-studio/showcase-1.image-w720.fb279578d3a9.webp",
+          "url": "/generated/media/tools/board-studio/showcase-1.image-w720.f5175db43945.webp",
           "mime": "image/webp",
-          "bytes": 26692,
-          "hash": "fb279578d3a999c4e6e46bb13b1a7a8bc62e6e075cadc3ebb58743dc1b773eab",
+          "bytes": 27544,
+          "hash": "f5175db43945125db1c07d8323288fe250737308304e595e5a63090feea86b05",
           "width": 720,
-          "height": 453
+          "height": 450
         },
         {
-          "url": "/generated/media/tools/board-studio/showcase-1.image-w1400.a4d53b412713.webp",
+          "url": "/generated/media/tools/board-studio/showcase-1.image-w1400.72b06e42681e.webp",
           "mime": "image/webp",
-          "bytes": 67972,
-          "hash": "a4d53b412713633248bbc6733cc7036dc43b9c7f268ed97827e459a08a108deb",
+          "bytes": 73048,
+          "hash": "72b06e42681e2cee31a6102dea5c26a7f75f4a1aa6cfff00f60b5b070fd95b1c",
           "width": 1400,
-          "height": 880
-        }
-      ]
-    },
-    "/images/tools/board-studio/showcase-2.png": {
-      "type": "still",
-      "sourceFormat": "png",
-      "sourceHash": "5701e7765ed1c38d15f425088488a08641edb4eae8b2ca3ae72900f89c5b2f58",
-      "sourceBytes": 615549,
-      "width": 2414,
-      "height": 1578,
-      "alpha": false,
-      "dominantColor": "#262627",
-      "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABwAwCdASoYABAAPvVkqk4qpaOiMAgBUB6JaQAAXlQwNZJFVgAA/tIB2+1TOzdaIV3h+h5bDWoE9123bLGE7kcU6uV5TJrzlAmt3/o8QF9wwiu/4VsIg63Vsa6j5h7nTwAAAA==",
-      "images": [
-        {
-          "url": "/generated/media/tools/board-studio/showcase-2.image-w720.d7b21efd8c95.webp",
-          "mime": "image/webp",
-          "bytes": 21034,
-          "hash": "d7b21efd8c955ea4ebceacf9e976295e36b49974d77117068a4f423b20d502cc",
-          "width": 720,
-          "height": 471
-        },
-        {
-          "url": "/generated/media/tools/board-studio/showcase-2.image-w1400.1cf221ae29c1.webp",
-          "mime": "image/webp",
-          "bytes": 47658,
-          "hash": "1cf221ae29c18e865a508357f8208f91bcd1ad82bda9b3616ab092a1668f0695",
-          "width": 1400,
-          "height": 915
+          "height": 875
         }
       ]
     },
@@ -297,58 +268,29 @@
     "/images/tools/paint-studio/showcase-1.png": {
       "type": "still",
       "sourceFormat": "png",
-      "sourceHash": "c285d89ec02c24a7cc40786ef15f2719f5f44ab479ce463fd27ec4a5f480aa22",
-      "sourceBytes": 3349993,
-      "width": 2691,
-      "height": 1794,
+      "sourceHash": "0ea11ff50405d450d72e197962412c617ed65cb31d54ce814443cc75d7726f21",
+      "sourceBytes": 844344,
+      "width": 1600,
+      "height": 1000,
       "alpha": false,
-      "dominantColor": "#4a4947",
-      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYABAAPvVkq04qpaOiMAgBUB6JZwAAUqoXerBmvC0Bheuv4AD+6/9QSynElEQi/TMVQ+kQVqCQp5dZJkcrNG0LF6QjbyAvtfNZxhADa8uuSmuMOUpniemjFm2zGKzA/bgh81NxR39UeZn8nHsAoAAA",
+      "dominantColor": "#575356",
+      "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoYAA8APvVmqk4qpaOiMAgBUB6JZQDCgB6IcjE/hyhZeOKe6AD+0WZaF6QgNGHPXCUbVNZJSDcknlcBIEULS+6+AZ5LHqPONhLabU+XlpA71cTxQ1PIH4p///Fy/PnO6C6MEwCS76WHJTphFK14NL4902ulrOri7ZQZ3qQ//NHikpiSAAA=",
       "images": [
         {
-          "url": "/generated/media/tools/paint-studio/showcase-1.image-w720.caab52f141c1.webp",
+          "url": "/generated/media/tools/paint-studio/showcase-1.image-w720.16b9141505f8.webp",
           "mime": "image/webp",
-          "bytes": 21832,
-          "hash": "caab52f141c1f75d0effa411922c26626a856f81bb7e59e7d429d2639c831076",
+          "bytes": 24814,
+          "hash": "16b9141505f8236d10369b3be05d40e7b88c260d5642c473b7b74f1b64bd2f5c",
           "width": 720,
-          "height": 480
+          "height": 450
         },
         {
-          "url": "/generated/media/tools/paint-studio/showcase-1.image-w1400.5fd46e02c4b7.webp",
+          "url": "/generated/media/tools/paint-studio/showcase-1.image-w1400.b81dfa0a79f9.webp",
           "mime": "image/webp",
-          "bytes": 56106,
-          "hash": "5fd46e02c4b78bc5d169140fd4b64cc9d339a3d8e3d9e1353fcf1ed0fffa2746",
+          "bytes": 61116,
+          "hash": "b81dfa0a79f9b7959f3c821401d13e1bd96f6029faa5e6948ff283441e76e3e4",
           "width": 1400,
-          "height": 933
-        }
-      ]
-    },
-    "/images/tools/paint-studio/showcase-2.png": {
-      "type": "still",
-      "sourceFormat": "png",
-      "sourceHash": "82796bda42ceb5240a3bfbce97c33210d97e6ade970318fa77962b7bb299bd54",
-      "sourceBytes": 6055861,
-      "width": 3840,
-      "height": 2160,
-      "alpha": false,
-      "dominantColor": "#1d1f24",
-      "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAwCdASoYAA4APvVkqk4qpaOiMAgBUB6JaWNPiglQAiWwAP7vfBfhaBh9oPAh1/WXlRbqPALKcIhNpJ6P3qvH3W5zUSgA",
-      "images": [
-        {
-          "url": "/generated/media/tools/paint-studio/showcase-2.image-w720.e3efd4d5e7d7.webp",
-          "mime": "image/webp",
-          "bytes": 21408,
-          "hash": "e3efd4d5e7d7fa12bc443bce68eb203360ee08afdee9698a90353c6a5166c4cb",
-          "width": 720,
-          "height": 405
-        },
-        {
-          "url": "/generated/media/tools/paint-studio/showcase-2.image-w1400.a6c780f80d53.webp",
-          "mime": "image/webp",
-          "bytes": 57128,
-          "hash": "a6c780f80d53ae6868362d33d107d510f03b284c21aa2a647ba736fadcbcf9da",
-          "width": 1400,
-          "height": 788
+          "height": 875
         }
       ]
     },

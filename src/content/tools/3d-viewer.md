@@ -54,4 +54,4 @@ permalink: /tools/3d-viewer/index.html
 
 3D Viewer is a small desktop app for checking models without opening Blender, Unity, or another heavier tool every time.
 
-It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB bundles. You can move around the model, try different lighting or HDRI setups, and switch to clay or wireframe to check it.
+It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB bundles. You can move around the model, try different lighting or HDRI setups, and switch to clay or wireframe to check it. Animated models play in place, and a small sidecar file can group model variants so you can swap between them.

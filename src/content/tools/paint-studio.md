@@ -4,7 +4,7 @@ title: Paint Studio
 slug: paint-studio
 detailAccentRgb: "67, 191, 255"
 date: 2026-04-04
-summary: Built-in painting app for quick edits, thumbnails, rough concepts and simple animation.
+summary: Custom painting app I use for quick edits, thumbnails and rough concept work.
 thumbnail: /images/tools/paint-studio/icon.svg
 tags:
   - tools
@@ -12,53 +12,47 @@ tags:
   - Art Tool
 showcaseImages:
   - src: /images/tools/paint-studio/showcase-1.png
-    alt: Paint Studio sketch workspace with color controls
-  - src: /images/tools/paint-studio/showcase-2.png
-    alt: Paint Studio layer-based painting workspace
+    alt: Paint Studio painting workspace
 externalLinks:
   - label: GitHub Repo
-    url: https://github.com/RyanWheeler7321/Board-Studio
+    url: https://github.com/RyanWheeler7321/Paint-Studio
 dossier:
   facts:
     - label: Platform
       value: Windows
     - label: Stack
-      value: Electron
+      value: Python, PySide6
     - label: Type
-      value: Art Workspace
+      value: Desktop App
     - label: Repository
       value: GitHub
   features:
     - title: Brushes
-      summary: Pressure brushes for sketching, painting and cleanup.
+      summary: Air, Ink, Paint, Shape, Blur, Stamp and Fill, and each brush keeps its own settings.
       symbol: brush
     - title: Layers
-      summary: Layers with opacity, visibility, isolate and duplicate.
+      summary: Layers and groups with blend modes, opacity, alpha lock and clipping masks.
       symbol: layers
     - title: Selections
-      summary: Lasso and rectangle selections you can add to or subtract from.
+      summary: Freehand selections you can add to, subtract from or intersect.
       symbol: selection
     - title: Transforms
-      summary: Move, scale and rotate the selection on the canvas.
+      summary: Move, scale, rotate, skew and perspective on the selection or selected layers.
       symbol: move
-    - title: Timeline Tools
-      summary: Animation timeline with frame holds and FPS.
-      symbol: timeline
-    - title: Unity Sheet Export
-      summary: Exports animation frames as a sprite sheet into a Unity project folder.
-      symbol: grid
+    - title: Smart Shape
+      summary: Hold still after drawing a rough shape and it straightens the sides and smooths the curves.
+      symbol: sparkles
+    - title: Local Bridge
+      summary: Scripts and AI agents can read the canvas and paint strokes into it over a local socket.
+      symbol: braces
 permalink: /tools/paint-studio/index.html
 ---
 ## Overview
 
-Paint Studio is the painting side of Board Studio. It is set up for quick image edits, thumbnail work, rough concepting, and simple storyboard or animation passes.
+Paint Studio is a custom painting app I use for quick edits, thumbnails and rough concept work. It's built with PySide6 and NumPy, and the canvas gets most of the window with the brush and layer panels kept small on the side.
 
-It includes brushes, layers, selections, transforms, timeline tools, project handling, and Unity sheet export helpers.
+It has tile-based undo, crash recovery, and editable `.paintstudio` documents with PNG export. Closing the window saves the painting as a project, and `Open Recent` brings projects back with their full undo history.
 
-## Usage
+## Setup
 
-Use it through the main app by opening images or 2D art projects. It's set up for fast iteration more than polished final art.
-
-## Repo
-
-This tool lives in the same repo as Board Studio.
+It's made for Windows and needs Python 3.12 or newer. Install PySide6 and NumPy, then run `launch.pyw`.

@@ -4,7 +4,7 @@ title: Unity Tools
 slug: unity-tools
 detailAccentRgb: "79, 214, 255"
 date: 2024-11-19
-summary: Small collection of Unity C# scripts for triggers, animation events, tracking and common helpers.
+summary: Small collection of Unity C# scripts for a game manager, saving, sound, options, triggers, tracking and common helpers.
 thumbnail: /images/tools/unity-tools/icon.svg
 icon: fas fa-gear
 tags:
@@ -25,24 +25,24 @@ dossier:
     - label: Repository
       value: GitHub
   features:
+    - title: Game Manager
+      summary: MAIN is a central singleton with a screen fade, level loading and debug tools.
+      symbol: gamepad
+    - title: Saving
+      summary: SaveManager saves any serializable data to a file, custom classes included.
+      symbol: save
+    - title: Sound
+      summary: Pooled SFX with sound banks, and music with an intro section that leads into a loop.
+      symbol: wave
+    - title: Options Menu
+      summary: OptionsMenu saves volume, resolution and quality settings through PlayerPrefs.
+      symbol: sliders
     - title: Animation Events
-      summary: EventPasser forwards animation events into inspector-assigned UnityEvents.
+      summary: AnimatorEventPasser fires animation events on any object set in the inspector.
       symbol: bolt
-    - title: Trigger Events
-      summary: Trigger fires enter, exit and stay events from a trigger collider.
-      symbol: trigger
     - title: Target Tracking
       summary: Tracker follows the target transform with optional controls.
       symbol: target
-    - title: Motion Smoothing
-      summary: Adds lookahead, damping, rotation follow, and optional Y locking.
-      symbol: wave
-    - title: Common Helpers
-      summary: Util has object, coroutine, math and random helpers.
-      symbol: toolbox
-    - title: Scene Helpers
-      summary: Scene loading and object lookup helpers.
-      symbol: scene
 permalink: /tools/unity-tools/index.html
 ---
 ## Overview
@@ -51,7 +51,11 @@ Unity Tools is a small collection of Unity C# scripts I keep around as reference
 
 ## Included scripts
 
-- `EventPasser` forwards animation events to inspector-assigned UnityEvents.
-- `Trigger` exposes enter, exit, and stay events through a reusable trigger-collider setup.
-- `Tracker` follows a target transform with options for lookahead, damping, rotation follow, automatic player tracking, and Y locking.
-- `Util` collects object, coroutine, math, random, and scene-loading helpers.
+- `MAIN` is a central singleton for the main game manager, with a screen fade, level loading and debug tools.
+- `SaveManager` saves game data and custom data to a file. Anything serializable can be stored.
+- `Sound` handles pooled SFX with sound banks, pitch and volume variation, 3D and UI sounds, and music with fades and intro-to-loop tracks.
+- `OptionsMenu` saves volume, resolution and quality settings through PlayerPrefs. It's built on my own menu UI and a few other scripts, so it needs hooking up to your own.
+- `AnimatorEventPasser` fires animation events on any object set in the inspector, not just the one with the animator.
+- `Trigger` fires enter, exit and stay events from a trigger collider, filtered by tag.
+- `Tracker` follows a target transform with options for lookahead, damping, rotation follow, automatic player tracking and Y locking.
+- `Util` has object, coroutine, math, random and scene-loading helpers.
