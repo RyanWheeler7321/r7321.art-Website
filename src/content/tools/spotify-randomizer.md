@@ -34,7 +34,7 @@ dossier:
       summary: Picks songs from the artists in those playlists.
       symbol: users
     - title: Random Modes
-      summary: Songs come from the same album, top tracks or the full discography.
+      summary: Each song is picked at random from your playlists, the same album, or the artist's top tracks or full discography.
       symbol: shuffle
     - title: Duplicate Filtering
       summary: Can skip tracks already in your main playlists.
@@ -46,9 +46,7 @@ permalink: /tools/spotify-randomizer/index.html
 ---
 ## Overview
 
-This is a small Python app for making a fresh Spotify playlist without relying on the same recommendation loop every time. It pulls from the artists connected to playlists you already use, then builds a new playlist from a few different randomization methods.
-
-It can skip tracks already in your main playlists and start playback right away.
+This is a small Python app for making a fresh Spotify playlist without relying on the same recommendation loop every time. It pulls from the artists connected to playlists you already use and builds a new playlist from them.
 
 ## Setup
 

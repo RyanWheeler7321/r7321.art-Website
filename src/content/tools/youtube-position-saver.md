@@ -51,8 +51,6 @@ permalink: /tools/youtube-position-saver/index.html
 
 This Chrome extension saves your position in YouTube videos and restores it when you come back later. YouTube already kind of does this through watch history, but it misses often enough that I wanted a version that actually behaves the way I want.
 
-Saved positions and blacklist data stay local. Settings use Chrome's extension storage. You can control the save interval, manually save a position, blacklist videos entirely, and turn the extension on or off with the power button.
-
 ## Installation
 
 It is not on the Chrome Web Store right now. Turn on Developer mode in Chrome, choose `Load unpacked`, and point it at the repo folder.

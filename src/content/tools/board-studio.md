@@ -49,7 +49,7 @@ permalink: /tools/board-studio/index.html
 ---
 ## Overview
 
-Board Studio is a desktop board app I built for collecting references, organizing projects, and keeping text, images, links, audio, video and 3D models together. Boards nest inside each other, so each project gets its own space.
+Board Studio is a desktop board app I built for collecting references, organizing projects, and keeping text, images, links, audio, video and 3D models together.
 
 There's a terminal panel on the left and a small local CLI, so scripts or AI agents can put images on a board, read what's there and move things around.
 

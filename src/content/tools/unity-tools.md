@@ -47,7 +47,7 @@ permalink: /tools/unity-tools/index.html
 ---
 ## Overview
 
-Unity Tools is a small collection of Unity C# scripts I keep around as reference. They are meant to be read or copied individually rather than installed as a package. My larger current Unity systems are in [MAZE Tools](/tools/maze-tools/).
+Unity Tools is a small collection of Unity C# scripts I keep around as reference. My newer rendering and LOD systems are in [MAZE Tools](/tools/maze-tools/).
 
 ## Included scripts
 

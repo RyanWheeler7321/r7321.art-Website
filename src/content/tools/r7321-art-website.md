@@ -4,7 +4,7 @@ title: r7321.art Site Source
 slug: r7321-art-website
 detailAccentRgb: "183, 140, 255"
 date: 2026-03-24
-summary: Source code for the r7321.art portfolio and update site, built as a static 11ty project with markdown-driven content.
+summary: Source code for the r7321.art portfolio and update site.
 thumbnail: /images/tools/r7321-art-website/icon.svg
 icon: fas fa-code
 tags:
@@ -43,20 +43,8 @@ dossier:
     - title: Message Form
       summary: Sends feedback and bug reports through a small PHP service.
       symbol: lock
-    - title: Responsive Layout
-      summary: The same layout works on desktop and phone screens.
-      symbol: responsive
 permalink: /tools/r7321-art-website/index.html
 ---
 ## Overview
 
-This repo has the source for `r7321.art`, my site for projects, updates and tool pages. It is built with 11ty and the content is all Markdown, so new updates, projects and tools can be added without touching the overall structure.
-
-## Structure
-
-- `src/content/updates` stores update posts.
-- `src/content/projects` stores project pages.
-- `src/content/tools` stores tool pages.
-- `src/images` stores site images and post media.
-- `src/_includes` stores shared layouts.
-- `src/assets` stores the site's CSS and JavaScript.
+This repo has the source for `r7321.art`, my site for projects, updates and tool pages.

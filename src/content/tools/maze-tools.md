@@ -47,4 +47,4 @@ permalink: /tools/maze-tools/index.html
 ---
 ## Overview
 
-MAZE is the Unity project I build my games in. MAZE Tools is some of the rendering, vector graphics, transition and LOD code from it, split out into its own repo.
+MAZE is the Unity playground project I build and test my game ideas in, and these are some of the systems from it. They need Unity 6.3 or newer with URP 17.

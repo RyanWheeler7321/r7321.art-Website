@@ -49,9 +49,9 @@ permalink: /tools/paint-studio/index.html
 ---
 ## Overview
 
-Paint Studio is a custom painting app I use for quick edits, thumbnails and rough concept work. It's built with PySide6 and NumPy, and the canvas gets most of the window with the brush and layer panels kept small on the side.
+Paint Studio is a custom painting app I use for quick edits, thumbnails and rough concept work. The canvas gets most of the window, with the brush and layer panels kept small on the side.
 
-It has tile-based undo, crash recovery, and editable `.paintstudio` documents with PNG export. Closing the window saves the painting as a project, and `Open Recent` brings projects back with their full undo history.
+It has crash recovery and editable `.paintstudio` documents with PNG export. Closing the window saves the painting as a project, and `Open Recent` brings projects back with their full undo history.
 
 ## Setup
 
