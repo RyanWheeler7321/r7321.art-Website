@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Unity Tools icon">
+<defs>
+  <linearGradient id="metal" x1="30" y1="30" x2="98" y2="98" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FAF9FE"/><stop offset="1" stop-color="#A7A1BC"/>
+  </linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#6FC8FF"/><stop offset="1" stop-color="#8B67FF"/>
+  </linearGradient>
+  <linearGradient id="bg" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#1c1729"/><stop offset="1" stop-color="#0e0c16"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8FA8FF" stop-opacity="0.55"/>
+    <stop offset="0.45" stop-color="#8FA8FF" stop-opacity="0.08"/>
+    <stop offset="1" stop-color="#8FA8FF" stop-opacity="0.22"/>
+  </linearGradient>
+</defs>
+<path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
+<path d="M24.8 1.5H103.2L126.5 24.8V103.2L103.2 126.5H24.8L1.5 103.2V24.8Z" fill="none" stroke="url(#rim)" stroke-width="2"/>
+<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#393249" stroke-width="2"/>
+<path d="M34 94L48 82M94 34L80 48M94 94L80 82" stroke="#6f6790" stroke-linecap="round" stroke-width="3" opacity="0.6"/>
+<circle cx="34" cy="94" r="7" fill="url(#accent)"/>
+<circle cx="94" cy="34" r="7" fill="url(#accent)"/>
+<circle cx="94" cy="94" r="7" fill="url(#accent)"/>
+<path d="M56 30H72A5 5 0 0 1 77 35V51H93A5 5 0 0 1 98 56V72A5 5 0 0 1 93 77H77V93A5 5 0 0 1 72 98H56A5 5 0 0 1 51 93V77H35A5 5 0 0 1 30 72V56A5 5 0 0 1 35 51H51V35A5 5 0 0 1 56 30Z" fill="#0B0A10" transform="translate(0 3)" opacity="0.6"/>
+<path d="M56 30H72A5 5 0 0 1 77 35V51H93A5 5 0 0 1 98 56V72A5 5 0 0 1 93 77H77V93A5 5 0 0 1 72 98H56A5 5 0 0 1 51 93V77H35A5 5 0 0 1 30 72V56A5 5 0 0 1 35 51H51V35A5 5 0 0 1 56 30Z" fill="url(#metal)"/>
+<path d="M58 37H70V58H91V70H70V91H58V70H37V58H58Z" fill="#15131b"/>
+<path d="M64 41L68 47H60Z M64 87L60 81H68Z M41 64L47 60V68Z M87 64L81 68V60Z" fill="#8c86a8"/>
+<circle cx="64" cy="64" r="4" fill="#2A2638"/>
+</svg>

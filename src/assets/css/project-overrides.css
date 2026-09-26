@@ -1,0 +1,333 @@
+.page-project-detail main {
+  isolation: isolate;
+  min-height: calc(100vh - 120px);
+}
+
+.project-detail-backdrop {
+  position: absolute;
+  inset: 24px 0 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 22%, rgba(155, 93, 255, 0.15), transparent 31%),
+    radial-gradient(circle at 16% 68%, rgba(var(--detail-accent-rgb), 0.12), transparent 25%),
+    linear-gradient(180deg, rgba(9, 6, 13, 0) 0%, rgba(9, 6, 13, 0.56) 70%, rgba(5, 3, 8, 0.9) 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 90px, #000 100%);
+}
+
+.project-detail-header {
+  width: min(1160px, calc(100vw - 32px));
+  margin-top: 18px;
+}
+
+.project-detail-header-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+}
+
+.project-detail-header-main {
+  min-width: 0;
+}
+
+.project-detail-header h1 {
+  margin: 0 0 10px;
+  color: var(--primary);
+  font-size: clamp(2.75rem, 5.6vw, 4.75rem);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.project-detail-header .detail-summary {
+  max-width: 760px;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.58;
+}
+
+.project-detail-tags {
+  justify-content: flex-end;
+  padding-bottom: 5px;
+}
+
+.project-detail-shell {
+  position: relative;
+  isolation: isolate;
+  --card-bevel: 24px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(224, 208, 255, 0.5);
+  display: block;
+  width: min(1180px, calc(100vw - 32px));
+  margin-top: 22px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+  background:
+    linear-gradient(90deg, rgba(155, 93, 255, 0.36), transparent 28%) top left / 48% 2px no-repeat,
+    linear-gradient(180deg, rgba(239, 65, 114, 0.2), transparent 42%) top left / 2px 58% no-repeat,
+    linear-gradient(135deg, rgba(31, 23, 43, 0.95), rgba(14, 10, 20, 0.98) 58%, rgba(20, 12, 31, 0.96));
+  box-shadow: 0 28px 68px rgba(0, 0, 0, 0.44), 0 0 46px rgba(155, 93, 255, 0.06);
+}
+
+.project-detail-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(300px, 0.75fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-detail-media-frame {
+  position: relative;
+  isolation: isolate;
+  --card-bevel: 16px;
+  --card-outline-width: 1.75px;
+  --card-line: rgba(195, 138, 255, 0.5);
+  min-width: 0;
+  margin: 0;
+  padding: 9px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(var(--card-bevel) 0, calc(100% - var(--card-bevel)) 0, 100% var(--card-bevel), 100% calc(100% - var(--card-bevel)), calc(100% - var(--card-bevel)) 100%, var(--card-bevel) 100%, 0 calc(100% - var(--card-bevel)), 0 var(--card-bevel));
+  background: rgba(6, 4, 10, 0.82);
+}
+
+.project-detail-media-frame .progressive-media,
+.project-detail-media-frame .progressive-loop {
+  width: 100%;
+  min-height: 0;
+  background-color: rgba(5, 3, 8, 0.9);
+  --media-background-fit: contain;
+}
+
+.project-detail-media-frame .managed-media img,
+.project-detail-media-frame .managed-media video {
+  object-fit: contain;
+}
+
+.project-detail-rail {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 24px 22px 22px;
+  border-left: 1px solid rgba(224, 208, 255, 0.16);
+  background: rgba(8, 6, 13, 0.2);
+}
+
+.project-detail-facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.project-detail-fact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  min-height: 48px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(224, 208, 255, 0.13);
+}
+
+.project-detail-fact:first-child {
+  padding-top: 0;
+}
+
+.project-detail-fact:last-child {
+  border-bottom: 0;
+}
+
+.project-detail-fact dt {
+  color: #b873ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-detail-fact dd {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.project-steam-button {
+  --card-bevel: 16px;
+  --card-outline-width: 2px;
+  --card-line: rgba(218, 195, 255, 0.82);
+  width: 100%;
+  min-height: 124px;
+  gap: 14px;
+  padding: 0 24px;
+  color: #fff;
+  font-size: clamp(1.28rem, 1.55vw, 1.48rem);
+  font-weight: 800;
+  letter-spacing: 0.025em;
+}
+
+.project-steam-button i {
+  font-size: 2rem;
+}
+
+.project-detail-overview {
+  padding: 28px 34px;
+  border-top: 1px solid rgba(224, 208, 255, 0.2);
+}
+
+.project-detail-overview .detail-prose > * {
+  max-width: 820px;
+}
+
+.project-detail-features {
+  padding: 24px 28px 26px;
+  border-top: 1px solid rgba(224, 208, 255, 0.22);
+}
+
+.project-detail-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+.project-detail-feature-card {
+  min-width: 0;
+  min-height: 72px;
+  padding: 3px 24px;
+  border-right: 1px solid rgba(224, 208, 255, 0.16);
+}
+
+.project-detail-feature-card:first-child {
+  padding-left: 0;
+}
+
+.project-detail-feature-card:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.project-detail-feature-card h3 {
+  margin: 0 0 7px;
+  color: #b873ff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.project-detail-feature-card p {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 920px) {
+  .project-detail-header-copy {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-detail-tags {
+    justify-content: flex-start;
+    padding-bottom: 0;
+  }
+
+  .project-detail-top {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-rail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
+    align-items: end;
+    border-top: 1px solid rgba(224, 208, 255, 0.16);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .project-detail-header {
+    margin-top: 4px;
+  }
+
+  .project-detail-header-copy {
+    text-align: center;
+  }
+
+  .project-detail-header h1 {
+    font-size: clamp(2.55rem, 13vw, 4rem);
+  }
+
+  .project-detail-header .detail-summary {
+    margin-inline: auto;
+  }
+
+  .project-detail-tags {
+    justify-content: center;
+  }
+
+  .project-detail-shell {
+    --card-bevel: 18px;
+    margin-top: 18px;
+  }
+
+  .project-detail-top {
+    gap: 0;
+    padding: 12px;
+  }
+
+  .project-detail-media-frame {
+    --card-bevel: 12px;
+    padding: 7px;
+  }
+
+  .project-detail-rail {
+    display: flex;
+    padding: 22px 12px 12px;
+  }
+
+  .project-detail-facts {
+    padding-inline: 4px;
+  }
+
+  .project-steam-button {
+    min-height: 88px;
+  }
+
+  .project-detail-overview {
+    padding: 26px 22px;
+  }
+
+  .project-detail-features {
+    padding: 18px 24px 20px;
+  }
+
+  .project-detail-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-feature-card {
+    min-height: 0;
+    padding: 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(224, 208, 255, 0.14);
+  }
+
+  .project-detail-feature-card:first-child {
+    padding-top: 0;
+  }
+
+  .project-detail-feature-card:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+}

@@ -1,0 +1,62 @@
+---
+layout: layouts/base.njk
+pageClass: page-tools
+title: Tools
+description: Tools
+---
+{% set toolTags = collections.tools | collectTerms("tags") %}
+
+<section class="shell page-title-block">
+  <h1>Tools</h1>
+</section>
+
+{% if collections.tools.length %}
+  <section class="shell tools-filter-row" data-tool-filter>
+    <div class="chip-list">
+      <button class="chip-button is-active" type="button" data-tool-filter-value="all">All</button>
+      {% for tag in toolTags %}
+        <button class="chip-button" type="button" data-tool-filter-value="{{ tag | slugify }}">{{ tag }}</button>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="shell tool-grid" data-tool-grid>
+    {% for tool in collections.tools %}
+      {% set toolTagsDisplay = tool.data.tags | displayTags %}
+      <article class="tool-grid-card" data-tool-item data-tags="{% for tag in toolTagsDisplay %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}">
+        <a class="tool-grid-link" href="{{ tool.url }}" aria-label="Open {{ tool.data.title }}"></a>
+        <div class="tool-grid-media" aria-hidden="true">
+          {% if tool.data.thumbnail %}
+            <img src="{{ tool.data.thumbnail | optimizedImage }}" alt="{{ tool.data.title }}">
+          {% else %}
+            <span class="tool-icon-fallback" aria-hidden="true">
+              <i class="{{ tool.data.icon or 'fas fa-circle' }}"></i>
+            </span>
+          {% endif %}
+        </div>
+        <div class="tool-grid-copy">
+          <div class="tool-grid-head">
+            <h2>{{ tool.data.title }}</h2>
+            {% if tool.data.externalLinks and tool.data.externalLinks[0] %}
+              <a class="button tool-grid-repo-button" href="{{ tool.data.externalLinks[0].url }}" target="_blank" rel="noopener">
+                GitHub Repo
+              </a>
+            {% endif %}
+          </div>
+          <p>{{ tool.data.summary }}</p>
+          <div class="tag-row">
+            {% for tag in toolTagsDisplay %}
+              <span class="tag-chip">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% else %}
+  <section class="shell empty-state-panel">
+    <div class="empty-state-card empty-state-card-wide">
+      <h2>No public tools yet.</h2>
+    </div>
+  </section>
+{% endif %}

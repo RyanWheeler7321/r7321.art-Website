@@ -1,0 +1,22 @@
+---
+permalink: projects.html
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=/projects/">
+  <script>
+    const redirects = {
+      s7: "/projects/sunrise-7/",
+      tfl: "/projects/tears-fall-low/",
+      sidereal: "/projects/sidereal/"
+    };
+    const key = window.location.hash.replace("#", "");
+    window.location.replace(redirects[key] || "/projects/");
+  </script>
+  <title>Redirecting...</title>
+</head>
+<body></body>
+</html>

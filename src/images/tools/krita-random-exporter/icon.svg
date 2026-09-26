@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Krita Random Exporter icon">
+<defs>
+  <linearGradient id="paint" x1="30" y1="40" x2="90" y2="62" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FFB45C"/><stop offset="0.5" stop-color="#FF4E91"/><stop offset="1" stop-color="#8B67FF"/>
+  </linearGradient>
+  <linearGradient id="bg" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#22172c"/><stop offset="1" stop-color="#100d17"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#FF7AA7" stop-opacity="0.55"/>
+    <stop offset="0.45" stop-color="#FF7AA7" stop-opacity="0.08"/>
+    <stop offset="1" stop-color="#FF7AA7" stop-opacity="0.22"/>
+  </linearGradient>
+</defs>
+<path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
+<path d="M24.8 1.5H103.2L126.5 24.8V103.2L103.2 126.5H24.8L1.5 103.2V24.8Z" fill="none" stroke="url(#rim)" stroke-width="2"/>
+<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#3e3157" stroke-width="2"/>
+<path d="M58 66L90 80L58 94L26 80Z" fill="#1A1424" stroke="#4A3A63" stroke-width="3" stroke-linejoin="round"/>
+<path d="M58 55L90 69L58 83L26 69Z" fill="#221A30" stroke="#6A5390" stroke-width="3" stroke-linejoin="round"/>
+<path d="M58 36L92 51L58 66L24 51Z" fill="#2B2140" stroke="#8C74B4" stroke-width="3" stroke-linejoin="round"/>
+<path d="M36 55C46 42 62 40 80 46C70 47 60 52 52 60C47 56 42 55 36 55Z" fill="url(#paint)"/>
+<path d="M44 50C54 44 64 43 74 46" fill="none" stroke="#FFE6D1" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+<circle cx="104" cy="46" r="4.5" fill="#FFB45C"/>
+<circle cx="104" cy="60" r="4.5" fill="#FF4E91"/>
+<circle cx="104" cy="74" r="4.5" fill="#8B67FF"/>
+</svg>

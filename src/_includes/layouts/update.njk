@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+pageClass: page-update-detail
+---
+{% set hasBodyContent = content | trim %}
+{% set displayTags = tags | displayTags %}
+
+<section class="detail-hero shell detail-hero-copy-first detail-hero-centered detail-hero-update">
+  <div class="detail-title-stage">
+    <div class="detail-title-meta detail-title-tags">
+      <div class="tag-row tag-row-compact">
+        {% for tag in displayTags %}
+          <span class="tag-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <h1 class="detail-title-heading{% if title and (title | length) > 42 %} is-long-title{% endif %}">{{ title }}</h1>
+    <span class="detail-title-meta detail-title-date">{{ date | readableDate }}</span>
+  </div>
+</section>
+
+{% if hasBodyContent %}
+  <section class="shell detail-layout detail-layout-single detail-layout-update">
+    <article class="detail-article r-frame r-frame-longform">
+      {% include "components/longform-frame.njk" %}
+      <div class="detail-prose r-frame-slot" data-prose>
+        {{ content | safe }}
+      </div>
+    </article>
+  </section>
+{% endif %}

@@ -1,0 +1,88 @@
+---
+layout: layouts/base.njk
+pageClass: page-project-detail
+---
+{% set hasBodyContent = content | trim %}
+{% set primaryLink = externalLinks and externalLinks[0] %}
+{% set projectTagsDisplay = tags | displayTags %}
+{% set featureItems = gameplayFeatures or [] %}
+
+<div class="project-detail-backdrop" aria-hidden="true"></div>
+
+<section class="shell project-detail-header">
+  <div class="project-detail-header-copy">
+    <div class="project-detail-header-main">
+      <h1>{{ title }}</h1>
+      {% if summary %}
+        <p class="detail-summary">{{ summary }}</p>
+      {% endif %}
+    </div>
+
+    {% if projectTagsDisplay.length %}
+      <div class="tag-row tag-row-compact project-detail-tags" aria-label="Genres">
+        {% for tag in projectTagsDisplay %}
+          <span class="tag-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="shell project-detail-shell">
+  <div class="project-detail-top">
+    {% if thumbnail or heroImage %}
+      <figure class="project-detail-media-frame">
+        {% media thumbnail or heroImage, title, "project-detail-managed", "high", "(max-width: 820px) 100vw, 820px" %}
+      </figure>
+    {% endif %}
+
+    <aside class="project-detail-rail" aria-label="Project details">
+      <dl class="project-detail-facts">
+        {% if status %}
+          <div class="project-detail-fact">
+            <dt>Status</dt>
+            <dd>{{ status }}</dd>
+          </div>
+        {% endif %}
+        <div class="project-detail-fact">
+          <dt>Released</dt>
+          <dd>{{ dateLabel or (date | readableDate) }}</dd>
+        </div>
+        {% if platforms %}
+          <div class="project-detail-fact">
+            <dt>Platform</dt>
+            <dd>{{ platforms | join(" / ") }}</dd>
+          </div>
+        {% endif %}
+      </dl>
+
+      {% if primaryLink %}
+        <a class="button button-primary project-steam-button" href="{{ primaryLink.url }}" target="_blank" rel="noopener">
+          <i class="fa-brands fa-steam" aria-hidden="true"></i>
+          <span>{{ primaryLink.label }}</span>
+        </a>
+      {% endif %}
+    </aside>
+  </div>
+
+  {% if hasBodyContent %}
+    <article class="project-detail-overview">
+      <div class="detail-prose" data-prose>
+        {{ content | safe }}
+      </div>
+    </article>
+  {% endif %}
+
+  {% if featureItems.length %}
+    <section class="project-detail-features" aria-label="Game features">
+      <div class="project-detail-feature-grid">
+        {% for feature in featureItems %}
+          <article class="project-detail-feature-card">
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.summary }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</section>

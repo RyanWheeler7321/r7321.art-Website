@@ -1,0 +1,84 @@
+---
+layout: layouts/base.njk
+pageClass: page-updates
+title: Updates
+description: Updates
+---
+{% set updateTags = collections.updates | collectTerms("tags") %}
+{% set updateProjects = collections.updates | collectTerms("projectLabel") %}
+{% set activeUpdate = collections.updates[0] %}
+
+<section class="shell page-title-block">
+  <h1>Updates</h1>
+</section>
+
+<section class="shell browse-layout" data-browser data-default-panel="{{ activeUpdate.data.slug }}">
+  <aside class="browse-sidebar">
+    <div class="filter-select-row">
+      <div class="filter-select-wrap">
+        <label class="filter-title" for="update-tag-filter">Tags</label>
+        <select id="update-tag-filter" class="filter-select" data-filter-group="tag">
+          <option value="all">All</option>
+          {% for tag in updateTags %}
+            <option value="{{ tag | slugify }}">{{ tag }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="filter-select-wrap">
+        <label class="filter-title" for="update-project-filter">Projects</label>
+        <select id="update-project-filter" class="filter-select" data-filter-group="project">
+          <option value="all">All</option>
+          {% for projectName in updateProjects %}
+            <option value="{{ projectName | slugify }}">{{ projectName }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="browse-list">
+      {% for update in collections.updates %}
+        {% set updateTagValues = update.data.tags | displayTags %}
+        <a
+          class="browse-item {% if loop.first %}is-active{% endif %}"
+          href="#{{ update.data.slug }}"
+          data-item
+          data-slug="{{ update.data.slug }}"
+          data-tags="{% for tag in updateTagValues %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}"
+          data-project="{{ update.data.project | slugify }}"
+        >
+          {% media update.data.thumbnail, update.data.title, "browse-item-media", "auto", "92px" %}
+          <div class="browse-item-copy">
+            <strong>{{ update.data.title }}</strong>
+            <span class="browse-item-date">{{ update.date | teaserDate }}</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </aside>
+
+  <div class="browse-preview">
+    {% for update in collections.updates %}
+      <article
+        class="browse-panel {% if loop.first %}is-active{% endif %}"
+        id="{{ update.data.slug }}"
+        data-panel
+        data-slug="{{ update.data.slug }}"
+      >
+        <div class="browse-panel-head">
+          <h2>{{ update.data.title }}</h2>
+          <a class="panel-link" href="{{ update.url }}">Open Page</a>
+        </div>
+        <div class="meta-row">
+          <span>{{ update.date | readableDate }}</span>
+          {% for tag in update.data.tags | displayTags %}
+            <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <div class="browse-panel-prose detail-prose">
+          {{ update.templateContent | safe }}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
