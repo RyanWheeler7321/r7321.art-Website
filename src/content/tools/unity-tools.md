@@ -41,7 +41,7 @@ dossier:
       summary: AnimatorEventPasser fires animation events on any object set in the inspector.
       symbol: bolt
     - title: Target Tracking
-      summary: Tracker follows the target transform with optional controls.
+      summary: Tracker follows a target, with optional controls such as lookahead, damping and rotation.
       symbol: target
 permalink: /tools/unity-tools/index.html
 ---

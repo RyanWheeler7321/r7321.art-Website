@@ -37,8 +37,8 @@ dossier:
     - title: Tool Pages
       summary: Tools I use, with descriptions and source links.
       symbol: wrench
-    - title: Managed Images
-      summary: Builds responsive images and poster-first video loops from the original media.
+    - title: Image Pipeline
+      summary: Makes WebP images in a few sizes and short MP4 loops from the original images and GIFs, so pages load faster.
       symbol: image
     - title: Message Form
       summary: Sends feedback and bug reports through a small PHP service.

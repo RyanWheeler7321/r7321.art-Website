@@ -4,7 +4,7 @@ title: Spotify Randomizer
 slug: spotify-randomizer
 detailAccentRgb: "89, 247, 162"
 date: 2026-03-24
-summary: Python tool for generating a new Spotify playlist from the artists connected to playlists you already use.
+summary: Python app that builds a new Spotify playlist from the artists in your own playlists.
 thumbnail: /images/tools/spotify-randomizer/icon.svg
 tags:
   - tools
@@ -46,7 +46,7 @@ permalink: /tools/spotify-randomizer/index.html
 ---
 ## Overview
 
-This is a small Python app for making a fresh Spotify playlist without relying on the same recommendation loop every time. It pulls from the artists connected to playlists you already use and builds a new playlist from them.
+I made this Python app to build a new Spotify playlist that finds new music and plays some songs I already like. It picks from the artists in playlists you already have.
 
 ## Setup
 

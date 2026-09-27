@@ -34,9 +34,6 @@ dossier:
     - title: Open Entire Folder
       summary: Opens every bookmark in the chosen folder.
       symbol: tabs
-    - title: Compact Popup
-      summary: Pick the folder and open bookmarks from one popup.
-      symbol: click
 permalink: /tools/chrome-bookmark-tool/index.html
 ---
 ## Overview

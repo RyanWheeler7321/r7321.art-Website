@@ -40,7 +40,7 @@ dossier:
       summary: Move, scale, rotate, skew and perspective on the selection or selected layers.
       symbol: move
     - title: Smart Shape
-      summary: Hold still after drawing a rough shape and it straightens the sides and smooths the curves.
+      summary: Draw a rough shape and hold still, and it turns into a clean shape you can resize and rotate.
       symbol: sparkles
     - title: Local Bridge
       summary: Scripts and AI agents can read the canvas and paint strokes into it over a local socket.
@@ -51,8 +51,8 @@ permalink: /tools/paint-studio/index.html
 
 Paint Studio is a custom painting app I use for quick edits, thumbnails and rough concept work. The canvas gets most of the window, with the brush and layer panels kept small on the side.
 
-It has crash recovery and editable `.paintstudio` documents with PNG export. Closing the window saves the painting as a project, and `Open Recent` brings projects back with their full undo history.
+It has crash recovery, its own `.paintstudio` files and PNG export. Closing the window saves the painting as a project, and `Open Recent` brings projects back with their full undo history.
 
 ## Setup
 
-It's made for Windows and needs Python 3.12 or newer. Install PySide6 and NumPy, then run `launch.pyw`.
+It's made for Windows, and I run it on Python 3.12. Install PySide6 and NumPy, then run `launch.pyw`.

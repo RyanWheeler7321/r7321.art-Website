@@ -29,22 +29,22 @@ dossier:
       summary: Ambient occlusion, fog, clouds, bloom and depth of field for URP.
       icon: /images/tools/maze-tools/features/rendering.svg
     - title: Vector Graphics
-      summary: Runtime vector shapes and styles for UI and world meshes.
+      summary: Vector shapes drawn at runtime, for UI and meshes in the world.
       icon: /images/tools/maze-tools/features/vector.svg
     - title: Transitions
-      summary: Square and vector screen transitions with profiles and patterns.
+      summary: Square and vector screen transitions, drawn fullscreen, on a mesh or as a UI overlay.
       icon: /images/tools/maze-tools/features/transitions.svg
     - title: LOD Tools
-      summary: Generates mesh LOD levels, with editor baking and runtime controllers.
+      summary: Generates mesh LOD levels in the editor and switches them at runtime.
       icon: /images/tools/maze-tools/features/lod.svg
     - title: Editor Utilities
-      summary: A texture adjustment window, an SVG importer and a profiler for the custom render passes.
+      summary: A texture adjustment window, an SVG importer and a profiler for finding performance problems.
       icon: /images/tools/maze-tools/features/editor.svg
     - title: Screen Filters
-      summary: Pixel, blur, dither, halftone, palette and edge filters, plus exposure and grading.
+      summary: Pixel, blur, dither, halftone, palette and edge filters, plus tonemapping and exposure.
       icon: /images/tools/maze-tools/features/utilities.svg
 permalink: /tools/maze-tools/index.html
 ---
 ## Overview
 
-MAZE is the Unity playground project I build and test my game ideas in, and these are some of the systems from it. They need Unity 6.3 or newer with URP 17.
+MAZE is the Unity playground project I build and test my game ideas in, and these are some of the systems from it. I'm on Unity 6.6 with URP, but it should work on other versions or be pretty easy to port.

@@ -31,13 +31,13 @@ dossier:
       value: GitHub
   features:
     - title: Format Support
-      summary: Opens GLB, glTF, FBX, and zipped model bundles.
+      summary: Opens GLB, glTF and FBX files, and zipped models.
       symbol: cube
     - title: Model Navigation
       summary: Orbit, pan and zoom with the mouse.
       symbol: orbit
     - title: Lighting Checks
-      summary: Tests models under different lights and HDRI environments.
+      summary: Try the model under different lights and HDRIs.
       symbol: sun
     - title: Clay View
       summary: Plain clay material for checking the form and silhouette.
@@ -54,4 +54,4 @@ permalink: /tools/3d-viewer/index.html
 
 3D Viewer is a small desktop app for checking models without opening Blender, Unity, or another heavier tool every time.
 
-It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB bundles. You can move around the model, try different lighting or HDRI setups, and switch to clay or wireframe to check it. Animated models play in place, and a small sidecar file can group model variants so you can swap between them.
+It opens `.glb`, `.gltf`, `.fbx`, and `.zip` files, including zipped glTF or GLB models. You can move around the model, try different lighting or HDRI setups, and switch to clay or wireframe to check it. Animated models can play in place, and you can group model variants with a small JSON file and swap between them.

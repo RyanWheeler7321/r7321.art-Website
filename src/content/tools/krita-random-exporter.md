@@ -26,10 +26,10 @@ dossier:
       value: GitHub
   features:
     - title: Layer Combinations
-      summary: Builds each export by toggling named trait layers, including layers in groups.
+      summary: Turns named trait layers on and off for each image, including layers inside groups.
       symbol: layers
     - title: Weighted Traits
-      summary: Regular variations each have their own weight.
+      summary: Each normal variation has a weight that sets how often it shows up.
       symbol: weights
     - title: Rarity Groups
       summary: Set how many images each rarity gets, with rare variations more likely at higher rarities.

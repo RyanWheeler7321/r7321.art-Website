@@ -4,7 +4,7 @@ title: Board Studio
 slug: board-studio
 detailAccentRgb: "46, 139, 255"
 date: 2026-04-04
-summary: Desktop board workspace for collecting references and organizing projects with text, images, links, audio, video and 3D models.
+summary: Desktop board app for collecting references and organizing projects with text, images, links, audio, video and 3D models.
 thumbnail: /images/tools/board-studio/icon.svg
 tags:
   - tools
@@ -23,15 +23,15 @@ dossier:
     - label: Stack
       value: Electron
     - label: Type
-      value: Desktop Workspace
+      value: Desktop App
     - label: Repository
       value: GitHub
   features:
     - title: Nested Boards
-      summary: Boards nest inside each other, so each project gets its own space.
+      summary: Boards are created and stored inside other boards, recursively.
       symbol: board
     - title: Mixed Media
-      summary: Text, images, links, audio, video and animated 3D models on the same board, with arrows between blocks.
+      summary: Text, images, links, audio, video and animated 3D models on the same board, with arrows connecting them.
       symbol: media
     - title: Fast Import
       summary: Paste or drop images, audio, video and links straight onto the board.
