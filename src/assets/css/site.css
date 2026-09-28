@@ -3544,7 +3544,7 @@ body.image-zoom-active {
 
   .site-header {
     position: absolute;
-    top: 8px;
+    top: 12px;
   }
 
   .site-nav {
@@ -3556,12 +3556,12 @@ body.image-zoom-active {
   }
 
   .site-header-inner {
-    width: calc(100% - 16px);
+    width: calc(100% - 24px);
     max-width: none;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 8px 8px 8px 16px;
+    padding: 8px 8px 8px 10px;
     clip-path: none;
   }
 
@@ -3605,10 +3605,15 @@ body.image-zoom-active {
     order: 1;
   }
 
+  body:not(.page-home) .social-list li {
+    flex: 0 1 30px;
+    min-width: 0;
+  }
+
   body:not(.page-home) .social-list a {
     display: grid;
     place-items: center;
-    width: 30px;
+    width: 100%;
     height: 44px;
     font-size: 1.22rem;
   }
@@ -3643,7 +3648,17 @@ body.image-zoom-active {
     font-size: 1.05rem;
   }
 
-  /* Homepage menu */
+  /* Homepage header */
+  .page-home .site-header-inner {
+    justify-content: flex-end;
+  }
+
+  .page-home .brand-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .page-home .nav-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -3660,7 +3675,7 @@ body.image-zoom-active {
   .home-layout-wide {
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 18px;
     width: calc(100% - 24px);
     margin: 0 auto;
   }
@@ -3668,7 +3683,16 @@ body.image-zoom-active {
   .home-main-column {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
+  }
+
+  .home-splash {
+    margin-bottom: -8px;
+  }
+
+  .home-feature,
+  .home-projects {
+    margin-bottom: 0;
   }
 
   .home-feature,
@@ -3703,7 +3727,7 @@ body.image-zoom-active {
     order: 3;
     justify-content: center;
     width: 100%;
-    min-height: 52px;
+    min-height: 48px;
   }
 
   .home-header-actions {
@@ -3727,7 +3751,7 @@ body.image-zoom-active {
   .home-header-action {
     --card-outline-width: 2.2px;
     justify-content: center;
-    min-height: 48px;
+    min-height: 44px;
     padding-inline: 8px;
     font-size: 0.8rem;
     letter-spacing: 0.02em;
@@ -3748,8 +3772,24 @@ body.image-zoom-active {
     gap: 8px;
   }
 
+  .home-project-card .media-loop.home-project-image {
+    aspect-ratio: 16 / 10 !important;
+    --media-background-fit: cover;
+  }
+
+  .home-project-card .media-loop video,
+  .home-project-card .media-loop img {
+    object-fit: cover;
+  }
+
   .home-project-card .project-button-copy {
-    padding: 8px 8px 10px;
+    padding: 7px 6px 8px;
+  }
+
+  .home-project-head {
+    align-items: center;
+    gap: 2px;
+    text-align: center;
   }
 
   .home-project-card h3 {

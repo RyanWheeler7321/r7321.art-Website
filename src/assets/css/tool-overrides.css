@@ -544,20 +544,41 @@
     height: 52px;
   }
 
+  .tool-grid-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title title"
+      "summary summary"
+      "tags button";
+    align-items: center;
+    gap: 8px 10px;
+  }
+
   .tool-grid-head {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
+    display: contents;
   }
 
   .tool-grid-head h2 {
+    grid-area: title;
     font-size: 1.12rem;
   }
 
+  .tool-grid-repo-button {
+    grid-area: button;
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+  }
+
   .tool-grid-copy p {
+    grid-area: summary;
     font-size: 0.9rem;
     line-height: 1.5;
+  }
+
+  .tool-grid-copy .tag-row {
+    grid-area: tags;
   }
 
   /* Tool page */

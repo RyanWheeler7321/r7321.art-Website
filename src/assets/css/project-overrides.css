@@ -338,4 +338,16 @@
   .project-detail-shell {
     width: calc(100% - 24px);
   }
+
+  .project-detail-header-copy {
+    text-align: left;
+  }
+
+  .project-detail-header .detail-summary {
+    margin-inline: 0;
+  }
+
+  .project-detail-tags {
+    justify-content: flex-start;
+  }
 }
