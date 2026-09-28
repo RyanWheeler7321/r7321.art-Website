@@ -9,8 +9,7 @@ thumbnail: /images/tools/unity-tools/icon.svg
 icon: fas fa-gear
 tags:
   - tools
-  - Unity Tools
-  - C#
+  - Unity
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Unity-Tools

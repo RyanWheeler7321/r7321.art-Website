@@ -9,8 +9,7 @@ thumbnail: /images/tools/r7321-art-website/icon.svg
 icon: fas fa-code
 tags:
   - tools
-  - Website
-  - 11ty
+  - Dev
 showcaseImages:
   - src: /images/tools/r7321-art-website/showcase.webp
     alt: r7321.art homepage with project, update, and tool sections

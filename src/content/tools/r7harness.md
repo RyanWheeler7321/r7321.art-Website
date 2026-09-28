@@ -10,8 +10,7 @@ thumbnail: /images/tools/r7harness/icon.svg
 icon: fas fa-terminal
 tags:
   - tools
-  - Developer Tool
-  - Codex
+  - Dev
 showcaseImages:
   - src: /images/tools/r7harness/showcase.png
     alt: r7Harness terminal workspace

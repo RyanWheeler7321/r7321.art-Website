@@ -8,8 +8,7 @@ summary: Python app that builds a new Spotify playlist from the artists in your 
 thumbnail: /images/tools/spotify-randomizer/icon.svg
 tags:
   - tools
-  - Python
-  - Music Tool
+  - Music
 showcaseImages:
   - src: /images/tools/spotify-randomizer/showcase.webp
     alt: Spotify Randomizer application window

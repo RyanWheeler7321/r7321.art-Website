@@ -8,8 +8,7 @@ summary: Desktop board app for collecting references and organizing projects wit
 thumbnail: /images/tools/board-studio/icon.svg
 tags:
   - tools
-  - Desktop App
-  - Electron
+  - Art
 showcaseImages:
   - src: /images/tools/board-studio/showcase-1.png
     alt: Board Studio with the terminal open and a project board

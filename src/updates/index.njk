@@ -41,7 +41,7 @@ description: Updates
         {% set updateTagValues = update.data.tags | displayTags %}
         <a
           class="browse-item {% if loop.first %}is-active{% endif %}"
-          href="#{{ update.data.slug }}"
+          href="{{ update.url }}"
           data-item
           data-slug="{{ update.data.slug }}"
           data-tags="{% for tag in updateTagValues %}{{ tag | slugify }}{% if not loop.last %}|{% endif %}{% endfor %}"

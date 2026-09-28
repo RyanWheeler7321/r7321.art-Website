@@ -509,3 +509,142 @@
     padding: 0 16px 20px;
   }
 }
+
+/* Phones */
+@media (max-width: 640px) {
+  /* Tools */
+  .tools-filter-row .chip-list {
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tools-filter-row .chip-button {
+    flex: 0 0 auto;
+    padding-inline: 10px;
+    font-size: 0.8rem;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-grid-card {
+    grid-template-columns: 52px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .tool-grid-media,
+  .tool-grid-media img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .tool-grid-head {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .tool-grid-head h2 {
+    font-size: 1.12rem;
+  }
+
+  .tool-grid-copy p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Tool page */
+  .tool-detail-body-plain,
+  .tool-detail-body-dossier {
+    width: calc(100% - 24px);
+  }
+
+  .tool-detail-header-copy,
+  .tool-detail-header-copy-dossier {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-areas:
+      "icon title"
+      "summary summary"
+      "tags tags"
+      "button button";
+    align-items: center;
+    gap: 12px 14px;
+    text-align: left;
+  }
+
+  .tool-detail-header-main {
+    display: contents;
+  }
+
+  .tool-detail-icon-frame {
+    grid-area: icon;
+    width: 64px;
+    height: 64px;
+  }
+
+  .tool-detail-header-copy-dossier .tool-detail-icon-frame {
+    --card-bevel: 14px;
+    width: 64px;
+    height: 64px;
+    padding: 8px;
+  }
+
+  .tool-detail-icon-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .page-tool-detail .tool-detail-header-copy .tool-detail-header-main h1 {
+    grid-area: title;
+    justify-self: start;
+    margin: 0;
+    font-size: 2rem;
+    text-align: left;
+  }
+
+  .page-tool-detail .tool-detail-header-main .detail-summary {
+    grid-area: summary;
+    margin: 0;
+    text-align: left;
+  }
+
+  .page-tool-detail .tool-detail-tag-row,
+  .page-tool-detail .tool-detail-tag-stack {
+    grid-area: tags;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    justify-self: start;
+    gap: 6px;
+    width: auto;
+    margin: 0;
+  }
+
+  .tool-detail-tag-stack .tag-chip {
+    width: auto;
+  }
+
+  .tool-primary-button {
+    grid-area: button;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .tool-dossier-top {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-dossier-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -8,9 +8,7 @@ summary: Small desktop viewer for quickly opening 3D models, testing lighting, a
 thumbnail: /images/tools/3d-viewer/icon.svg
 tags:
   - tools
-  - Desktop App
-  - 3D Tool
-  - Python
+  - Art
 showcaseImages:
   - src: /images/tools/3d-viewer/showcase-1.png
     alt: 3D Viewer showing a character model against a simple brown background

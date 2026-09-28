@@ -1,4 +1,6 @@
 const NAV_OPEN_CLASS = "nav-open";
+const phoneQuery = window.matchMedia("(max-width: 640px)");
+const HOME_PHONE_ITEM_LIMIT = 5;
 
 function initNavigation() {
   const header = document.querySelector("[data-site-header]");
@@ -26,14 +28,7 @@ function initNavigation() {
       try {
         inner.style.setProperty("--header-fit-scale", "1");
 
-        if (mobileQuery.matches) {
-          const trayWidth = Math.max(280, header.clientWidth - 28);
-          const mobileScale = Math.max(1, Math.min(1.34, trayWidth / 300));
-          inner.style.setProperty("--mobile-menu-scale", mobileScale.toFixed(3));
-          return;
-        }
-
-        inner.style.setProperty("--mobile-menu-scale", "1");
+        if (mobileQuery.matches) return;
 
         const paddingLeft = getNumericStyle(inner, "paddingLeft");
         const paddingRight = getNumericStyle(inner, "paddingRight");
@@ -48,7 +43,6 @@ function initNavigation() {
         inner.style.setProperty("--header-fit-scale", Math.max(0.52, fitScale).toFixed(3));
       } catch (error) {
         inner.style.setProperty("--header-fit-scale", "1");
-        inner.style.setProperty("--mobile-menu-scale", "1");
       }
     });
   }
@@ -166,6 +160,16 @@ function initHomeRailFit() {
   function fitRails() {
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(() => {
+      if (phoneQuery.matches) {
+        panels.forEach((panel) => {
+          panel.style.removeProperty("--home-fit-max-height");
+          panel.querySelectorAll("[data-home-fit-item]").forEach((item, index) => {
+            item.hidden = index >= HOME_PHONE_ITEM_LIMIT;
+          });
+        });
+        return;
+      }
+
       const maxHeight = Math.floor(centerColumn.getBoundingClientRect().height);
       if (maxHeight < 1) return;
 
@@ -239,6 +243,8 @@ function initBrowsePanels() {
 
     items.forEach((item) => {
       item.addEventListener("click", (event) => {
+        // Phones go straight to the post
+        if (phoneQuery.matches) return;
         event.preventDefault();
         const slug = item.dataset.slug;
         history.replaceState(null, "", `#${slug}`);
@@ -677,8 +683,12 @@ function initVectorFrames() {
         notchWidth: parseCssPx(item, "--r-frame-notch-width", 430)
       };
       const outlineWidth = parseCssPx(item, "--r-frame-outline-width", 1.35);
-      frameSvg.querySelector(".r-frame-vector-fill")?.setAttribute("d", frameFillPath(rect.width, rect.height, metrics));
-      frameSvg.querySelector(".r-frame-vector-stroke")?.setAttribute("d", frameStrokePath(rect.width, rect.height, metrics, outlineWidth / 2));
+      // No notch on phones, just the bevel
+      const plain = metrics.notchWidth <= 0;
+      const fill = plain ? bevelPath(rect.width, rect.height, metrics.corner) : frameFillPath(rect.width, rect.height, metrics);
+      const stroke = plain ? bevelPath(rect.width, rect.height, metrics.corner, outlineWidth / 2) : frameStrokePath(rect.width, rect.height, metrics, outlineWidth / 2);
+      frameSvg.querySelector(".r-frame-vector-fill")?.setAttribute("d", fill);
+      frameSvg.querySelector(".r-frame-vector-stroke")?.setAttribute("d", stroke);
     }
 
     const bevelSvg = item.querySelector(":scope > .r-bevel-vector");

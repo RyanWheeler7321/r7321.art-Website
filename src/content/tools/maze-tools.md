@@ -8,9 +8,7 @@ summary: Rendering, vector graphics, transition and LOD systems for Unity URP, f
 thumbnail: /images/tools/maze-tools/icon.svg
 tags:
   - tools
-  - Unity Tools
-  - C#
-  - Technical Art
+  - Unity
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/MAZE-Tools

@@ -8,8 +8,7 @@ summary: Custom painting app I use for quick edits, thumbnails and rough concept
 thumbnail: /images/tools/paint-studio/icon.svg
 tags:
   - tools
-  - Desktop App
-  - Art Tool
+  - Art
 showcaseImages:
   - src: /images/tools/paint-studio/showcase-1.png
     alt: Paint Studio painting workspace

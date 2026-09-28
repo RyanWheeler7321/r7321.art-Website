@@ -331,3 +331,11 @@
     border-bottom: 0;
   }
 }
+
+/* Phones */
+@media (max-width: 640px) {
+  .project-detail-header,
+  .project-detail-shell {
+    width: calc(100% - 24px);
+  }
+}

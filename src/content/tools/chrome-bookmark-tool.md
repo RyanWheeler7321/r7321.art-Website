@@ -9,8 +9,7 @@ thumbnail: /images/tools/chrome-bookmark-tool/icon.svg
 icon: fas fa-bookmark
 tags:
   - tools
-  - Browser Tool
-  - Chrome Extension
+  - Browser
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Chrome-Bookmark-Tool

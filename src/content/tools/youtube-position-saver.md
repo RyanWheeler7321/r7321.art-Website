@@ -8,8 +8,7 @@ summary: Chrome extension that saves and restores your exact spot in YouTube vid
 thumbnail: /images/tools/youtube-position-saver/icon.svg
 tags:
   - tools
-  - Browser Tool
-  - Chrome Extension
+  - Browser
 showcaseImages:
   - src: /images/tools/youtube-position-saver/showcase.webp
     alt: YouTube Position Saver extension popup

@@ -36,22 +36,6 @@
     <div class="site-glow site-glow-b"></div>
   </div>
 
-  {% if pageClass == "page-home" %}
-    <div class="home-header-actions" data-home-header-actions>
-      <div class="home-header-action-slot home-header-action-slot-message">
-        <a class="home-header-action home-message-action button" href="/message/" data-home-message-action>
-          Send Me a <span class="home-action-keyword home-action-keyword-message">MESSAGE</span>
-        </a>
-        <span class="home-header-action-note" data-home-message-note>Feedback / Bug Report</span>
-      </div>
-      <div class="home-header-action-slot home-header-action-slot-support">
-        <a class="home-header-action home-project-support-action button" href="/support/" data-home-project-support-action>
-          <span class="home-action-keyword home-action-keyword-support">SUPPORT</span> My Projects
-        </a>
-      </div>
-    </div>
-  {% endif %}
-
   <header class="site-header" data-site-header>
     <div class="site-header-inner" data-site-header-inner>
       <a class="brand-link" href="/" data-site-brand>
@@ -71,6 +55,7 @@
 
       <nav class="site-nav" id="site-nav" data-site-nav>
         <ul class="nav-list">
+          <li class="nav-home-item"><a href="/">Home</a></li>
           {% for item in site.navigation %}
             {% set isActive = page.url.startsWith(item.href) %}
             <li>

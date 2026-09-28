@@ -9,8 +9,7 @@ thumbnail: /images/tools/krita-random-exporter/icon.svg
 icon: fas fa-image
 tags:
   - tools
-  - Krita Script
-  - Python
+  - Art
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/Krita-Random-Exporter
