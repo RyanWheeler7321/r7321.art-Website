@@ -1,23 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Chrome Bookmark Tool icon">
 <defs>
   <linearGradient id="ribbon" x1="52" y1="44" x2="76" y2="100" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#C9A6FF"/><stop offset="1" stop-color="#6D32DE"/>
+    <stop offset="0" stop-color="#B48CF7"/><stop offset="1" stop-color="#824CE5"/>
   </linearGradient>
   <linearGradient id="win" x1="24" y1="30" x2="104" y2="92" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#231A33"/><stop offset="1" stop-color="#140F1E"/>
+    <stop offset="0" stop-color="#20172E"/><stop offset="1" stop-color="#181122"/>
   </linearGradient>
   <linearGradient id="bg" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#20162f"/><stop offset="1" stop-color="#110c1b"/>
+    <stop offset="0" stop-color="#1C142A"/><stop offset="1" stop-color="#140E20"/>
   </linearGradient>
   <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#B78CFF" stop-opacity="0.55"/>
-    <stop offset="0.45" stop-color="#B78CFF" stop-opacity="0.08"/>
-    <stop offset="1" stop-color="#B78CFF" stop-opacity="0.22"/>
+    <stop offset="0" stop-color="#B78CFF" stop-opacity="0.42"/>
+    <stop offset="0.45" stop-color="#B78CFF" stop-opacity="0.2"/>
+    <stop offset="1" stop-color="#B78CFF" stop-opacity="0.3"/>
   </linearGradient>
+  <linearGradient id="frame" x1="10" y1="6" x2="118" y2="122" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#B78CFF" stop-opacity="0.9"/><stop offset="0.5" stop-color="#B78CFF" stop-opacity="0.62"/><stop offset="1" stop-color="#B78CFF" stop-opacity="0.75"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="64" cy="64" r="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#B78CFF" stop-opacity="0.16"/><stop offset="1" stop-color="#B78CFF" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 <path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
 <path d="M24.8 1.5H103.2L126.5 24.8V103.2L103.2 126.5H24.8L1.5 103.2V24.8Z" fill="none" stroke="url(#rim)" stroke-width="2"/>
-<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#3e3157" stroke-width="2"/>
+<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="url(#frame)" stroke-width="3.0" stroke-linejoin="round"/>
+<circle cx="64" cy="64" r="44" fill="url(#glow)"/>
 <path d="M38 30H90L102 42V78L90 90H38L26 78V42Z" fill="url(#win)" stroke="#6A5390" stroke-width="3" stroke-linejoin="round"/>
 <path d="M26 45H102" stroke="#6A5390" stroke-width="3"/>
 <circle cx="38" cy="37.5" r="3" fill="#C9A6FF"/>

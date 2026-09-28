@@ -292,6 +292,35 @@
         }
       ]
     },
+    "/images/tools/r7-eq/showcase.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "b9079dcd58122d05495166da7848394f2c9e8212707fec63c1c91b249df776f6",
+      "sourceBytes": 141029,
+      "width": 1840,
+      "height": 1025,
+      "alpha": false,
+      "dominantColor": "#171317",
+      "lqip": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAgCdASoYAA0APvVmqk4qpaOmMAgBUB6JaQDKAC5JAAD+8B6T4zduXTgAAA==",
+      "images": [
+        {
+          "url": "/generated/media/tools/r7-eq/showcase.image-w720.fbe3bf38a9e5.webp",
+          "mime": "image/webp",
+          "bytes": 17112,
+          "hash": "fbe3bf38a9e5672535d5f3038321514e1b136aad2270d867cd5cdaf48984be0f",
+          "width": 720,
+          "height": 401
+        },
+        {
+          "url": "/generated/media/tools/r7-eq/showcase.image-w1400.6e6f4fe85e57.webp",
+          "mime": "image/webp",
+          "bytes": 43708,
+          "hash": "6e6f4fe85e5739583ba8cabc464a5e8f5b76a96467e00776a134608ff4e1403e",
+          "width": 1400,
+          "height": 780
+        }
+      ]
+    },
     "/images/tools/r7321-art-website/showcase.webp": {
       "type": "still",
       "sourceFormat": "webp",
@@ -1122,6 +1151,35 @@
           "hash": "1346db899f9d1ec7f9ae7c742d6104aa648b9a2320a43d40be1666395b6eeca8",
           "width": 1400,
           "height": 689
+        }
+      ]
+    },
+    "/images/updates/r7-eq/r7-eq-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "b9079dcd58122d05495166da7848394f2c9e8212707fec63c1c91b249df776f6",
+      "sourceBytes": 141029,
+      "width": 1840,
+      "height": 1025,
+      "alpha": false,
+      "dominantColor": "#171317",
+      "lqip": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAADwAgCdASoYAA0APvVmqk4qpaOmMAgBUB6JaQDKAC5JAAD+8B6T4zduXTgAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/r7-eq/r7-eq-01.image-w720.fbe3bf38a9e5.webp",
+          "mime": "image/webp",
+          "bytes": 17112,
+          "hash": "fbe3bf38a9e5672535d5f3038321514e1b136aad2270d867cd5cdaf48984be0f",
+          "width": 720,
+          "height": 401
+        },
+        {
+          "url": "/generated/media/updates/r7-eq/r7-eq-01.image-w1400.6e6f4fe85e57.webp",
+          "mime": "image/webp",
+          "bytes": 43708,
+          "hash": "6e6f4fe85e5739583ba8cabc464a5e8f5b76a96467e00776a134608ff4e1403e",
+          "width": 1400,
+          "height": 780
         }
       ]
     },

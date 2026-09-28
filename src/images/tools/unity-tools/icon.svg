@@ -1,23 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Unity Tools icon">
 <defs>
   <linearGradient id="metal" x1="30" y1="30" x2="98" y2="98" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#FAF9FE"/><stop offset="1" stop-color="#A7A1BC"/>
+    <stop offset="0" stop-color="#E7E5EF"/><stop offset="1" stop-color="#B9B5CB"/>
   </linearGradient>
   <linearGradient id="accent" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#6FC8FF"/><stop offset="1" stop-color="#8B67FF"/>
+    <stop offset="0" stop-color="#75B2FF"/><stop offset="1" stop-color="#857DFF"/>
   </linearGradient>
   <linearGradient id="bg" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#1c1729"/><stop offset="1" stop-color="#0e0c16"/>
+    <stop offset="0" stop-color="#191525"/><stop offset="1" stop-color="#110F1A"/>
   </linearGradient>
   <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#8FA8FF" stop-opacity="0.55"/>
-    <stop offset="0.45" stop-color="#8FA8FF" stop-opacity="0.08"/>
-    <stop offset="1" stop-color="#8FA8FF" stop-opacity="0.22"/>
+    <stop offset="0" stop-color="#8FA8FF" stop-opacity="0.42"/>
+    <stop offset="0.45" stop-color="#8FA8FF" stop-opacity="0.2"/>
+    <stop offset="1" stop-color="#8FA8FF" stop-opacity="0.3"/>
   </linearGradient>
+  <linearGradient id="frame" x1="10" y1="6" x2="118" y2="122" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8FA8FF" stop-opacity="0.9"/><stop offset="0.5" stop-color="#8FA8FF" stop-opacity="0.62"/><stop offset="1" stop-color="#8FA8FF" stop-opacity="0.75"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="64" cy="64" r="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#8FA8FF" stop-opacity="0.16"/><stop offset="1" stop-color="#8FA8FF" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 <path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
 <path d="M24.8 1.5H103.2L126.5 24.8V103.2L103.2 126.5H24.8L1.5 103.2V24.8Z" fill="none" stroke="url(#rim)" stroke-width="2"/>
-<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#393249" stroke-width="2"/>
+<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="url(#frame)" stroke-width="3.0" stroke-linejoin="round"/>
+<circle cx="64" cy="64" r="44" fill="url(#glow)"/>
 <path d="M34 94L48 82M94 34L80 48M94 94L80 82" stroke="#6f6790" stroke-linecap="round" stroke-width="3" opacity="0.6"/>
 <circle cx="34" cy="94" r="7" fill="url(#accent)"/>
 <circle cx="94" cy="34" r="7" fill="url(#accent)"/>

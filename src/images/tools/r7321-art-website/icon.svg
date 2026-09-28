@@ -1,20 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="r7321.art site source icon">
 <defs>
   <linearGradient id="code" x1="40" y1="44" x2="88" y2="76" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#D9C4FF"/><stop offset="1" stop-color="#9A6BFF"/>
+    <stop offset="0" stop-color="#CBB0FF"/><stop offset="1" stop-color="#A87FFF"/>
   </linearGradient>
   <linearGradient id="bg" x1="16" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#1e1630"/><stop offset="1" stop-color="#100c1b"/>
+    <stop offset="0" stop-color="#1B142C"/><stop offset="1" stop-color="#130E20"/>
   </linearGradient>
   <linearGradient id="rim" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-    <stop offset="0" stop-color="#A77BFF" stop-opacity="0.55"/>
-    <stop offset="0.45" stop-color="#A77BFF" stop-opacity="0.08"/>
-    <stop offset="1" stop-color="#A77BFF" stop-opacity="0.22"/>
+    <stop offset="0" stop-color="#A77BFF" stop-opacity="0.42"/>
+    <stop offset="0.45" stop-color="#A77BFF" stop-opacity="0.2"/>
+    <stop offset="1" stop-color="#A77BFF" stop-opacity="0.3"/>
   </linearGradient>
+  <linearGradient id="frame" x1="10" y1="6" x2="118" y2="122" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#A77BFF" stop-opacity="0.9"/><stop offset="0.5" stop-color="#A77BFF" stop-opacity="0.62"/><stop offset="1" stop-color="#A77BFF" stop-opacity="0.75"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="64" cy="64" r="44" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#A77BFF" stop-opacity="0.16"/><stop offset="1" stop-color="#A77BFF" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 <path d="M24 0H104L128 24V104L104 128H24L0 104V24Z" fill="url(#bg)"/>
 <path d="M24.8 1.5H103.2L126.5 24.8V103.2L103.2 126.5H24.8L1.5 103.2V24.8Z" fill="none" stroke="url(#rim)" stroke-width="2"/>
-<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="#3e3157" stroke-width="2"/>
+<path d="M32 10H96L118 32V96L96 118H32L10 96V32Z" fill="none" stroke="url(#frame)" stroke-width="3.0" stroke-linejoin="round"/>
+<circle cx="64" cy="64" r="44" fill="url(#glow)"/>
 <path d="M36 28H92L104 40V76L92 88H36L24 76V40Z" fill="#17111F" stroke="#7D5FC0" stroke-width="3.5" stroke-linejoin="round"/>
 <circle cx="35" cy="37" r="2.6" fill="#B79BFF"/>
 <circle cx="44" cy="37" r="2.6" fill="#7E61B8"/>
