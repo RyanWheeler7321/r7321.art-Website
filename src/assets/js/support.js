@@ -1,6 +1,6 @@
 const SUPPORT_IMAGE_LIMIT = 4;
 const SUPPORT_IMAGE_BYTES = 8 * 1024 * 1024;
-const SUPPORT_TOTAL_BYTES = 20 * 1024 * 1024;
+const SUPPORT_TOTAL_BYTES = 16 * 1024 * 1024;
 const SUPPORT_MAX_PIXELS = 25_000_000;
 const SUPPORT_DRAFT_KEY = "r7-support-draft-v1";
 const SUPPORT_DRAFT_IMAGE_DB = "r7-support-draft-images-v1";
@@ -355,7 +355,7 @@ function initSupportForm() {
 
       const totalBytes = selectedImages.reduce((total, entry) => total + entry.file.size, 0) + file.size;
       if (totalBytes > SUPPORT_TOTAL_BYTES) {
-        setStatus("The selected images are larger than 20 MB combined.", "error");
+        setStatus("The selected images are larger than 16 MB combined.", "error");
         break;
       }
 

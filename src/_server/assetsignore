@@ -1,0 +1,4 @@
+# Kept in dist for the old host, never served here.
+*.php
+.htaccess
+**/.htaccess

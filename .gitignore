@@ -6,3 +6,5 @@ __pycache__/
 *.py[cod]
 src/generated/
 local/
+.wrangler/
+.dev.vars*

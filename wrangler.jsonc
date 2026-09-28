@@ -1,0 +1,30 @@
+{
+  "name": "r7321-art",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "r7321.art", "custom_domain": true },
+    { "pattern": "www.r7321.art", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "r7321-support", "database_id": "2d780456-9a36-4f0d-8f0c-a82146a5ce16" }
+  ],
+  "send_email": [{ "name": "MAIL" }],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://r7321.art",
+    "MAIL_FROM": "forms@r7321.art",
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAED2mLew2UMzawmC",
+    "TURNSTILE_HOSTNAME": "r7321.art",
+    "TURNSTILE_ACTION": "support_message"
+  },
+  "observability": { "enabled": true }
+  // Secrets: APP_SECRET, TURNSTILE_SECRET, NOTIFY_TO
+}
