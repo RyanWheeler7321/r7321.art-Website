@@ -43,10 +43,10 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
     </div>
   </aside>
 
-  <div class="home-main-column" data-home-height-owner>
+  <div class="home-main-column" data-home-center>
     <section class="home-splash">
       <a class="home-splash-link" href="{{ featuredProject.url }}">
-        {% media featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-managed", "high", "(max-width: 1080px) 100vw, 1200px" %}
+        {% media featuredProject.data.heroImage or featuredProject.data.thumbnail, featuredProject.data.title, "home-splash-image", "high", "(max-width: 1080px) 100vw, 1200px" %}
       </a>
     </section>
 
@@ -70,7 +70,7 @@ description: Ryan Wheeler's games, art, projects, updates, and tools.
       <div class="home-project-grid">
         {% for project in projectItems %}
           <a class="project-button home-project-card" href="{{ project.url }}">
-            {% media project.data.thumbnail, project.data.title, "home-project-managed", "auto", "(max-width: 1080px) 33vw, 420px" %}
+            {% media project.data.thumbnail, project.data.title, "home-project-image", "auto", "(max-width: 1080px) 33vw, 420px" %}
             <div class="project-button-copy">
               <div class="home-project-head">
                 <h3>{{ project.data.title }}</h3>

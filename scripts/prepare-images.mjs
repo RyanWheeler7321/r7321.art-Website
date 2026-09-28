@@ -8,11 +8,8 @@ const imagesRoot = path.join(repoRoot, "src", "images");
 const generatedRoot = path.join(repoRoot, "src", "generated", "media");
 const manifestPath = path.join(repoRoot, "src", "_data", "imageManifest.json");
 const localRoot = path.join(repoRoot, "local");
-const lockPath = path.join(localRoot, "media-build.lock");
 const verifyOnly = process.argv.includes("--verify-only");
 const supported = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
-const schemaVersion = 2;
-const recipeVersion = "2026-08-01-media-v4";
 
 function commandExists(command, args = ["--version"]) {
   const result = spawnSync(command, args, { stdio: "ignore" });
@@ -137,46 +134,11 @@ async function verifyEntry(entry, key, sourcePath = "") {
 
 async function loadManifest(required = false) {
   if (!(await pathExists(manifestPath))) {
-    if (required) throw new Error("Media manifest is missing; run npm run media:prepare from the website repo.");
+    if (required) throw new Error("No image manifest. Run npm run media:prepare.");
     return null;
   }
   const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
-  if (manifest.schemaVersion !== schemaVersion || manifest.recipeVersion !== recipeVersion || !manifest.entries) {
-    if (required) throw new Error("Media manifest schema/recipe is stale; run npm run media:prepare.");
-    return null;
-  }
   return manifest;
-}
-
-async function acquireLock() {
-  await fs.mkdir(localRoot, { recursive: true });
-  try {
-    const handle = await fs.open(lockPath, "wx");
-    await handle.writeFile(`${process.pid}\n`);
-    await handle.close();
-  } catch (error) {
-    if (error.code !== "EEXIST") throw error;
-    const existingPid = Number.parseInt((await fs.readFile(lockPath, "utf8").catch(() => "0")).trim(), 10);
-    let active = false;
-    if (existingPid > 0) {
-      try {
-        process.kill(existingPid, 0);
-        active = true;
-      } catch {
-        active = false;
-      }
-    }
-    if (active) throw new Error(`Media preparation is already running as PID ${existingPid}.`);
-    await fs.rm(lockPath, { force: true });
-    return acquireLock();
-  }
-}
-
-async function writeManifest(manifest) {
-  await fs.mkdir(path.dirname(manifestPath), { recursive: true });
-  const temporary = `${manifestPath}.tmp-${process.pid}`;
-  await fs.writeFile(temporary, `${JSON.stringify(manifest, null, 2)}\n`);
-  await fs.rename(temporary, manifestPath);
 }
 
 function imageQuality(relPosix) {
@@ -323,22 +285,18 @@ async function prepareManifest() {
       const key = `/images/${relPosix}`;
       const sourceHash = await sha256File(file);
       const prior = previous?.entries?.[key];
-      if (prior?.sourceHash === sourceHash) {
-        try {
-          await verifyEntry(prior, key, file);
-          entries[key] = prior;
-          reused += 1;
-          continue;
-        } catch {
-        }
+      const priorIsGood = prior?.sourceHash === sourceHash && await verifyEntry(prior, key, file).then(() => true, () => false);
+      if (priorIsGood) {
+        entries[key] = prior;
+        reused += 1;
+        continue;
       }
       const inspection = await inspectImage(file);
       entries[key] = await buildEntry(file, relPosix, sourceHash, inspection, tempRoot);
       generated += 1;
     }
 
-    const manifest = { schemaVersion, recipeVersion, entries };
-    await writeManifest(manifest);
+    await fs.writeFile(manifestPath, `${JSON.stringify({ entries }, null, 2)}\n`);
     for (const [key, entry] of Object.entries(entries)) await verifyEntry(entry, key);
     process.stdout.write(`Prepared ${files.length} media entries (${generated} generated, ${reused} reused).\n`);
   } finally {
@@ -346,10 +304,5 @@ async function prepareManifest() {
   }
 }
 
-await acquireLock();
-try {
-  if (verifyOnly) await verifyManifest();
-  else await prepareManifest();
-} finally {
-  await fs.rm(lockPath, { force: true });
-}
+if (verifyOnly) await verifyManifest();
+else await prepareManifest();

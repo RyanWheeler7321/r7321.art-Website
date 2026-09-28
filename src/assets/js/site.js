@@ -157,16 +157,16 @@ function initParticles() {
 }
 
 function initHomeRailFit() {
-  const owner = document.querySelector("[data-home-height-owner]");
+  const centerColumn = document.querySelector("[data-home-center]");
   const panels = [...document.querySelectorAll("[data-home-fit-panel]")];
-  if (!owner || !panels.length) return;
+  if (!centerColumn || !panels.length) return;
 
   let frameId = 0;
 
   function fitRails() {
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(() => {
-      const maxHeight = Math.floor(owner.getBoundingClientRect().height);
+      const maxHeight = Math.floor(centerColumn.getBoundingClientRect().height);
       if (maxHeight < 1) return;
 
       panels.forEach((panel) => {
@@ -183,10 +183,10 @@ function initHomeRailFit() {
 
   if (typeof ResizeObserver === "function") {
     const observer = new ResizeObserver(fitRails);
-    observer.observe(owner);
+    observer.observe(centerColumn);
   }
 
-  owner.querySelectorAll("img, video").forEach((media) => {
+  centerColumn.querySelectorAll("img, video").forEach((media) => {
     media.addEventListener("load", fitRails, { once: true });
     media.addEventListener("loadedmetadata", fitRails, { once: true });
   });
@@ -347,217 +347,55 @@ function initToc() {
   });
 }
 
-function initManagedMedia() {
-  const wrappers = [...document.querySelectorAll("[data-r7-media]")];
-  const publicEntries = [];
-  const loopRecords = [];
-  const pendingLoops = [];
-  const maxConcurrentLoads = 2;
-  let activeLoads = 0;
-
-  window.__r7media = { entries: publicEntries };
-
-  function makeRecord(wrapper) {
-    const publicEntry = {
-      key: wrapper.dataset.mediaKey || "",
-      kind: wrapper.dataset.mediaKind || "unknown",
-      state: wrapper.dataset.mediaState || "base",
-      selectedWidth: 0
-    };
-    publicEntries.push(publicEntry);
-    return { wrapper, publicEntry, near: false, queued: false, sourceAssigned: false, loadFinished: false };
-  }
-
-  function setState(record, state) {
-    record.publicEntry.state = state;
-    record.wrapper.dataset.mediaState = state;
-  }
-
-  function settleLoad(record) {
-    if (record.loadFinished) return;
-    record.loadFinished = true;
-    activeLoads = Math.max(0, activeLoads - 1);
-    startPendingLoops();
-  }
-
-  function revealVideo(record) {
-    if (record.publicEntry.state === "playing") return;
-    record.wrapper.classList.add("is-playing");
-    setState(record, "playing");
-    settleLoad(record);
-  }
-
-  function confirmFirstFrame(record) {
-    const video = record.video;
-    let confirmed = false;
-    const confirm = () => {
-      if (confirmed) return;
-      confirmed = true;
-      revealVideo(record);
-    };
-    if (typeof video.requestVideoFrameCallback === "function") {
-      video.requestVideoFrameCallback(confirm);
-      window.setTimeout(confirm, 1200);
-    } else {
-      requestAnimationFrame(() => requestAnimationFrame(confirm));
-    }
-  }
-
-  function playLoop(record) {
-    const result = record.video.play();
-    if (result && typeof result.catch === "function") {
-      result.catch(() => {
-        record.wrapper.classList.remove("is-playing");
-        setState(record, "held");
-        settleLoad(record);
-      });
-    }
-  }
-
-  function chooseVariant(record) {
-    const variants = JSON.parse(record.wrapper.dataset.mediaVariants || "[]")
-      .sort((left, right) => left.width - right.width);
-    if (!variants.length) return null;
-    const renderedWidth = Math.max(1, record.wrapper.getBoundingClientRect().width);
-    const wantedWidth = renderedWidth * Math.min(window.devicePixelRatio || 1, 2);
-    return variants.find((variant) => variant.width >= wantedWidth) || variants[variants.length - 1];
-  }
-
-  function startLoop(record) {
-    record.queued = false;
-    if (record.sourceAssigned || !record.near || document.hidden) {
-      activeLoads = Math.max(0, activeLoads - 1);
-      startPendingLoops();
-      return;
-    }
-
-    let selected;
-    try {
-      selected = chooseVariant(record);
-    } catch (error) {
-      selected = null;
-    }
-    if (!selected) {
-      setState(record, "degraded");
-      activeLoads = Math.max(0, activeLoads - 1);
-      startPendingLoops();
-      return;
-    }
-
-    record.sourceAssigned = true;
-    record.publicEntry.selectedWidth = selected.width;
-    record.video.preload = "auto";
-    record.video.src = selected.url;
-    setState(record, "loading");
-
-    record.video.addEventListener("playing", () => confirmFirstFrame(record), { once: true });
-    record.video.addEventListener("error", () => {
-      record.wrapper.classList.remove("is-playing");
-      setState(record, "degraded");
-      settleLoad(record);
-    }, { once: true });
-    record.video.load();
-    playLoop(record);
-    window.setTimeout(() => {
-      if (!record.loadFinished && record.publicEntry.state === "loading") {
-        setState(record, "degraded");
-        settleLoad(record);
-      }
-    }, 15000);
-  }
-
-  function startPendingLoops() {
-    while (activeLoads < maxConcurrentLoads && pendingLoops.length) {
-      const record = pendingLoops.shift();
-      if (!record || record.sourceAssigned || !record.near) continue;
-      activeLoads += 1;
-      startLoop(record);
-    }
-  }
-
-  function queueLoop(record) {
-    if (record.queued || record.sourceAssigned) return;
-    record.queued = true;
-    setState(record, "queued");
-    pendingLoops.push(record);
-    startPendingLoops();
-  }
-
-  wrappers.forEach((wrapper) => {
-    const record = makeRecord(wrapper);
-    if (record.publicEntry.kind === "still") {
-      const image = wrapper.querySelector(".managed-media-image");
-      if (!image) {
-        setState(record, "degraded");
-        return;
-      }
-      const ready = () => {
-        if (image.naturalWidth) setState(record, "ready");
-      };
-      if (image.complete && image.naturalWidth) ready();
-      else if (typeof image.decode === "function") image.decode().then(ready).catch(() => {});
-      image.addEventListener("load", ready, { once: true });
-      image.addEventListener("error", () => setState(record, "degraded"), { once: true });
-      return;
-    }
-
-    record.video = wrapper.querySelector(".managed-media-video");
-    if (!record.video) {
-      setState(record, "degraded");
-      return;
-    }
-    loopRecords.push(record);
-  });
-
+function initMedia() {
+  const loops = [...document.querySelectorAll(".media-loop")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const saveData = Boolean(navigator.connection?.saveData);
-  const eligibleLoops = loopRecords.filter((record) => {
-    if (reducedMotion || saveData) {
-      setState(record, "held");
-      return false;
+  if (!loops.length || reducedMotion || navigator.connection?.saveData) return;
+
+  const visibleLoops = new Set();
+
+  function pickVideo(loop) {
+    const videos = JSON.parse(loop.dataset.videos || "[]").sort((a, b) => a.width - b.width);
+    const wantedWidth = loop.getBoundingClientRect().width * Math.min(window.devicePixelRatio || 1, 2);
+    return videos.find((video) => video.width >= wantedWidth) || videos[videos.length - 1];
+  }
+
+  function playLoop(loop) {
+    const video = loop.querySelector(".media-video");
+    if (!video.src) {
+      const picked = pickVideo(loop);
+      if (!picked) return;
+      video.src = picked.url;
+      video.addEventListener("playing", () => loop.classList.add("is-playing"), { once: true });
     }
-    return true;
-  });
+    video.play().catch(() => {});
+  }
 
-  const observer = typeof IntersectionObserver === "function"
-    ? new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const record = eligibleLoops.find((item) => item.wrapper === entry.target);
-          if (!record) return;
-          record.near = entry.isIntersecting;
-          if (entry.isIntersecting) {
-            if (!record.sourceAssigned) queueLoop(record);
-            else if (record.video.paused && !document.hidden) playLoop(record);
-          } else if (!record.video.paused) {
-            record.video.pause();
-            if (record.publicEntry.state === "playing") setState(record, "ready");
-          }
-        });
-      }, { rootMargin: "100% 0px" })
-    : null;
+  function pauseLoop(loop) {
+    loop.querySelector(".media-video").pause();
+  }
 
-  eligibleLoops.forEach((record) => {
-    if (observer) observer.observe(record.wrapper);
-    else {
-      record.near = true;
-      queueLoop(record);
-    }
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    eligibleLoops.forEach((record) => {
-      if (document.hidden) {
-        record.video.pause();
-        if (record.publicEntry.state === "playing") setState(record, "ready");
-      } else if (record.near && record.sourceAssigned) {
-        playLoop(record);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        visibleLoops.add(entry.target);
+        if (!document.hidden) playLoop(entry.target);
+      } else {
+        visibleLoops.delete(entry.target);
+        pauseLoop(entry.target);
       }
     });
+  }, { rootMargin: "100% 0px" });
+
+  loops.forEach((loop) => observer.observe(loop));
+
+  document.addEventListener("visibilitychange", () => {
+    visibleLoops.forEach((loop) => (document.hidden ? pauseLoop(loop) : playLoop(loop)));
   });
 }
 
 function initImageZoom() {
-  const mediaItems = [...document.querySelectorAll(".detail-prose .media-frame .progressive-media, .detail-prose .media-gallery .progressive-media")];
+  const mediaItems = [...document.querySelectorAll(".detail-prose .media-frame .media-still, .detail-prose .media-gallery .media-still")];
 
   if (!mediaItems.length) {
     return;
@@ -595,7 +433,7 @@ function initImageZoom() {
   }
 
   function openZoom(wrapper) {
-    const full = wrapper.querySelector(".progressive-full") || wrapper.querySelector("img");
+    const full = wrapper.querySelector(".media-image") || wrapper.querySelector("img");
     if (!full) {
       return;
     }
@@ -883,6 +721,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initToc();
   initDetailTitleFit();
   initVectorFrames();
-  initManagedMedia();
+  initMedia();
   initImageZoom();
 });

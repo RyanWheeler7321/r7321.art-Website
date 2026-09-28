@@ -96,16 +96,16 @@
   background: rgba(6, 4, 10, 0.82);
 }
 
-.project-detail-media-frame .progressive-media,
-.project-detail-media-frame .progressive-loop {
+.project-detail-media-frame .media-still,
+.project-detail-media-frame .media-loop {
   width: 100%;
   min-height: 0;
   background-color: rgba(5, 3, 8, 0.9);
   --media-background-fit: contain;
 }
 
-.project-detail-media-frame .managed-media img,
-.project-detail-media-frame .managed-media video {
+.project-detail-media-frame .media img,
+.project-detail-media-frame .media video {
   object-fit: contain;
 }
 

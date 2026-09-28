@@ -17,7 +17,7 @@ externalLinks:
     url: https://example.com
 permalink: /projects/project-slug/index.html
 ---
-{% gif "/images/projects/project-slug/cover.gif", "Project GIF" %}
+{% image "/images/projects/project-slug/cover.gif", "Project GIF" %}
 
 ## Snapshot
 

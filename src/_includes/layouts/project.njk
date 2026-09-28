@@ -32,7 +32,7 @@ pageClass: page-project-detail
   <div class="project-detail-top">
     {% if thumbnail or heroImage %}
       <figure class="project-detail-media-frame">
-        {% media thumbnail or heroImage, title, "project-detail-managed", "high", "(max-width: 820px) 100vw, 820px" %}
+        {% media thumbnail or heroImage, title, "project-detail-image", "high", "(max-width: 820px) 100vw, 820px" %}
       </figure>
     {% endif %}
 

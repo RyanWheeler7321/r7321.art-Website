@@ -329,7 +329,7 @@
   background: rgba(7, 5, 11, 0.74);
 }
 
-.tool-dossier-showcase-frame .progressive-media {
+.tool-dossier-showcase-frame .media-still {
   width: min(100%, calc(520px * var(--ratio-w) / var(--ratio-h)));
   max-height: 520px;
   margin-inline: auto;
@@ -337,7 +337,7 @@
   --media-background-fit: contain;
 }
 
-.tool-dossier-showcase-frame .progressive-media img {
+.tool-dossier-showcase-frame .media-still img {
   object-fit: contain;
 }
 
@@ -492,7 +492,7 @@
     grid-template-columns: 1fr;
   }
 
-  .tool-dossier-showcase-frame .progressive-media {
+  .tool-dossier-showcase-frame .media-still {
     width: min(100%, calc(420px * var(--ratio-w) / var(--ratio-h)));
     max-height: 420px;
   }

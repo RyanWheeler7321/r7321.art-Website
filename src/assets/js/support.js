@@ -2,10 +2,7 @@ const SUPPORT_IMAGE_LIMIT = 4;
 const SUPPORT_IMAGE_BYTES = 8 * 1024 * 1024;
 const SUPPORT_TOTAL_BYTES = 16 * 1024 * 1024;
 const SUPPORT_MAX_PIXELS = 25_000_000;
-const SUPPORT_DRAFT_KEY = "r7-support-draft-v1";
-const SUPPORT_DRAFT_IMAGE_DB = "r7-support-draft-images-v1";
-const SUPPORT_DRAFT_IMAGE_STORE = "drafts";
-const SUPPORT_DRAFT_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+const SUPPORT_DRAFT_KEY = "support-draft";
 const TURNSTILE_SCRIPT_URL = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
 
 let turnstileScriptPromise = null;
@@ -51,113 +48,6 @@ function readImageSize(file) {
     };
     image.src = url;
   });
-}
-
-function openDraftImageDb() {
-  if (!("indexedDB" in globalThis)) return Promise.resolve(null);
-
-  return new Promise((resolve) => {
-    let settled = false;
-    const finish = (db = null) => {
-      if (settled) {
-        db?.close();
-        return;
-      }
-      settled = true;
-      clearTimeout(timeout);
-      resolve(db);
-    };
-    const timeout = setTimeout(() => finish(), 750);
-    let request;
-    try {
-      request = indexedDB.open(SUPPORT_DRAFT_IMAGE_DB, 1);
-    } catch (error) {
-      finish();
-      return;
-    }
-    request.onupgradeneeded = () => {
-      if (!request.result.objectStoreNames.contains(SUPPORT_DRAFT_IMAGE_STORE)) {
-        request.result.createObjectStore(SUPPORT_DRAFT_IMAGE_STORE, { keyPath: "key" });
-      }
-    };
-    request.onsuccess = () => finish(request.result);
-    request.onerror = () => finish();
-    request.onblocked = () => finish();
-  });
-}
-
-async function readDraftImages(key) {
-  const db = await openDraftImageDb().catch(() => null);
-  if (!db || !key) return [];
-
-  return new Promise((resolve) => {
-    const transaction = db.transaction(SUPPORT_DRAFT_IMAGE_STORE, "readonly");
-    const request = transaction.objectStore(SUPPORT_DRAFT_IMAGE_STORE).get(key);
-    request.onsuccess = () => {
-      const record = request.result;
-      if (!record || Date.now() - record.savedAt > SUPPORT_DRAFT_MAX_AGE_MS) {
-        resolve([]);
-        return;
-      }
-      resolve(Array.isArray(record.images) ? record.images : []);
-    };
-    request.onerror = () => resolve([]);
-    transaction.oncomplete = () => db.close();
-    transaction.onerror = () => db.close();
-  });
-}
-
-async function writeDraftImages(key, files) {
-  const db = await openDraftImageDb().catch(() => null);
-  if (!db || !key) return;
-
-  await new Promise((resolve) => {
-    const transaction = db.transaction(SUPPORT_DRAFT_IMAGE_STORE, "readwrite");
-    const store = transaction.objectStore(SUPPORT_DRAFT_IMAGE_STORE);
-    if (!files.length) {
-      store.delete(key);
-    } else {
-      store.put({
-        key,
-        savedAt: Date.now(),
-        images: files.map((file) => ({
-          blob: file.slice(0, file.size, file.type),
-          name: file.name,
-          type: file.type,
-          lastModified: file.lastModified
-        }))
-      });
-    }
-    transaction.oncomplete = resolve;
-    transaction.onerror = resolve;
-    transaction.onabort = resolve;
-  });
-  db.close();
-}
-
-async function deleteDraftImages(key) {
-  if (!key) return;
-  await writeDraftImages(key, []);
-}
-
-async function cleanOldDraftImages() {
-  const db = await openDraftImageDb().catch(() => null);
-  if (!db) return;
-
-  await new Promise((resolve) => {
-    const transaction = db.transaction(SUPPORT_DRAFT_IMAGE_STORE, "readwrite");
-    const request = transaction.objectStore(SUPPORT_DRAFT_IMAGE_STORE).openCursor();
-    request.onsuccess = () => {
-      const cursor = request.result;
-      if (!cursor) return;
-      if (Date.now() - Number(cursor.value?.savedAt || 0) > SUPPORT_DRAFT_MAX_AGE_MS) cursor.delete();
-      cursor.continue();
-    };
-    transaction.oncomplete = resolve;
-    transaction.onerror = resolve;
-    transaction.onabort = resolve;
-  });
-  db.close();
 }
 
 function loadTurnstileScript() {
@@ -206,22 +96,10 @@ function initSupportForm() {
   let turnstileWidgetId = null;
   let turnstileAttempt = null;
   let liveSessionPromise = null;
-  let imageUpdateChain = Promise.resolve();
-  let imageSaveChain = Promise.resolve();
+  let imagesReady = Promise.resolve();
   let draft = readDraft();
 
   if (!imageInput || !imageGrid || !status || !submit || !submitLabel || !submitSpinner || !turnstileContainer || !success) return;
-
-  if (!draft) {
-    draft = {
-      imageKey: makeRandomId(),
-      idempotencyKey: makeRandomId(),
-      category: "feedback",
-      name: "",
-      email: "",
-      message: ""
-    };
-  }
 
   function setStatus(message, tone = "") {
     status.textContent = message;
@@ -237,66 +115,38 @@ function initSupportForm() {
 
   setSubmitState("Send", false);
 
+  // Typed text survives a reload in the same tab. Images don't.
   function readDraft() {
+    let saved = {};
     try {
-      const value = JSON.parse(sessionStorage.getItem(SUPPORT_DRAFT_KEY) || "null");
-      if (!value || typeof value !== "object") return null;
-      return {
-        imageKey: typeof value.imageKey === "string" && value.imageKey ? value.imageKey : makeRandomId(),
-        idempotencyKey: typeof value.idempotencyKey === "string" && value.idempotencyKey ? value.idempotencyKey : makeRandomId(),
-        category: value.category === "bug" ? "bug" : "feedback",
-        name: typeof value.name === "string" ? value.name.slice(0, 100) : "",
-        email: typeof value.email === "string" ? value.email.slice(0, 254) : "",
-        message: typeof value.message === "string" ? value.message.slice(0, 12000) : ""
-      };
-    } catch (error) {
-      return null;
-    }
-  }
-
-  function captureDraft() {
+      saved = JSON.parse(sessionStorage.getItem(SUPPORT_DRAFT_KEY)) || {};
+    } catch {}
     return {
-      imageKey: draft.imageKey,
-      idempotencyKey: draft.idempotencyKey,
-      category: form.elements.category?.value === "bug" ? "bug" : "feedback",
-      name: String(form.elements.name?.value || "").slice(0, 100),
-      email: String(form.elements.email?.value || "").slice(0, 254),
-      message: String(form.elements.message?.value || "").slice(0, 12000)
+      idempotencyKey: saved.idempotencyKey || makeRandomId(),
+      category: saved.category === "bug" ? "bug" : "feedback",
+      name: saved.name || "",
+      email: saved.email || "",
+      message: saved.message || ""
     };
   }
 
-  function saveTextDraft() {
-    draft = captureDraft();
-    const hasContent = draft.name || draft.email || draft.message || draft.category === "bug" || selectedImages.length;
+  function saveDraft() {
+    draft = {
+      idempotencyKey: draft.idempotencyKey,
+      category: form.elements.category.value,
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      message: form.elements.message.value
+    };
     try {
-      if (hasContent) sessionStorage.setItem(SUPPORT_DRAFT_KEY, JSON.stringify(draft));
-      else sessionStorage.removeItem(SUPPORT_DRAFT_KEY);
-    } catch (error) {
-      // Draft recovery is best-effort and must never block the form.
-    }
-  }
-
-  function saveImageDraft() {
-    saveTextDraft();
-    const files = selectedImages.map((entry) => entry.file);
-    imageSaveChain = imageSaveChain
-      .catch(() => {})
-      .then(() => writeDraftImages(draft.imageKey, files))
-      .catch(() => {});
-    return imageSaveChain;
+      sessionStorage.setItem(SUPPORT_DRAFT_KEY, JSON.stringify(draft));
+    } catch {}
   }
 
   function clearDraft() {
     try {
       sessionStorage.removeItem(SUPPORT_DRAFT_KEY);
-    } catch (error) {
-      // Keep success behavior intact if browser storage is unavailable.
-    }
-    const imageKey = draft.imageKey;
-    imageSaveChain = imageSaveChain
-      .catch(() => {})
-      .then(() => deleteDraftImages(imageKey))
-      .catch(() => {});
+    } catch {}
   }
 
   function renderImages() {
@@ -319,7 +169,6 @@ function initSupportForm() {
         URL.revokeObjectURL(entry.previewUrl);
         selectedImages.splice(index, 1);
         renderImages();
-        saveImageDraft();
         setStatus("");
       });
 
@@ -328,7 +177,7 @@ function initSupportForm() {
     });
   }
 
-  async function addImages(files, { save = true } = {}) {
+  async function addImages(files) {
     setStatus("");
 
     for (const file of files) {
@@ -377,24 +226,14 @@ function initSupportForm() {
     }
 
     renderImages();
-    if (save) saveImageDraft();
   }
 
-  async function restoreDraft() {
+  function restoreDraft() {
     const category = form.querySelector(`input[name="category"][value="${draft.category}"]`);
     if (category) category.checked = true;
     form.elements.name.value = draft.name;
     form.elements.email.value = draft.email;
     form.elements.message.value = draft.message;
-
-    const storedImages = await readDraftImages(draft.imageKey);
-    const files = storedImages
-      .filter((entry) => entry?.blob instanceof Blob)
-      .map((entry) => new File([entry.blob], entry.name || "image", {
-        type: entry.type || entry.blob.type,
-        lastModified: Number(entry.lastModified || Date.now())
-      }));
-    await addImages(files, { save: false });
   }
 
   async function ensureLiveSession() {
@@ -514,26 +353,24 @@ function initSupportForm() {
   imageInput.addEventListener("change", () => {
     const files = [...imageInput.files];
     imageInput.value = "";
-    imageUpdateChain = imageUpdateChain
-      .catch(() => {})
-      .then(() => addImages(files));
+    imagesReady = imagesReady.then(() => addImages(files));
   });
 
   form.addEventListener("input", (event) => {
-    if (["name", "email", "message"].includes(event.target?.name)) saveTextDraft();
+    if (["name", "email", "message"].includes(event.target?.name)) saveDraft();
   });
   form.addEventListener("change", (event) => {
-    if (event.target?.name === "category") saveTextDraft();
+    if (event.target?.name === "category") saveDraft();
   });
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus("");
 
-    await imageUpdateChain.catch(() => {});
+    await imagesReady;
 
     if (!form.reportValidity()) return;
-    saveTextDraft();
+    saveDraft();
 
     if (isPreview) {
       setStatus("This preview is ready for review. Sending will be connected before publication.", "info");
@@ -574,8 +411,7 @@ function initSupportForm() {
     }
   });
 
-  cleanOldDraftImages();
-  imageUpdateChain = imageUpdateChain.then(() => restoreDraft());
+  restoreDraft();
   if (!isPreview) ensureLiveSession().catch(() => {});
 }
 
