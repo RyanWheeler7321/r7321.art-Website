@@ -200,7 +200,7 @@ function initSupportForm() {
   const success = document.querySelector("[data-support-success]");
   const selectedImages = [];
   const isPreview = form.dataset.supportPreview === "true";
-  const endpoint = form.dataset.supportEndpoint || "/api/support.php";
+  const endpoint = form.dataset.supportEndpoint || "/api/support";
   let formToken = "";
   let turnstileSiteKey = "";
   let turnstileWidgetId = null;

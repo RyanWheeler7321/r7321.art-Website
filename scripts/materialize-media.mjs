@@ -36,7 +36,6 @@ for (const file of (await walk(distRoot)).filter((item) => item.endsWith(".html"
 
 let removed = 0;
 for (const file of await walk(mediaRoot)) {
-  if (path.basename(file) === ".htaccess") continue;
   const publicPath = `/${path.relative(distRoot, file).replace(/\\/g, "/")}`;
   if (!referenced.has(publicPath)) {
     await fs.rm(file, { force: true });

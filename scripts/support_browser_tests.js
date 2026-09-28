@@ -50,7 +50,7 @@ async function installLiveRoutes(page, postHandler) {
     contentType: "text/html; charset=utf-8",
     body: supportHtml.replace('data-support-preview="true"', 'data-support-preview="false"')
   }));
-  await page.route(`${baseUrl}/api/support.php?action=init`, (route) => route.fulfill({
+  await page.route(`${baseUrl}/api/support?action=init`, (route) => route.fulfill({
     status: 200,
     contentType: "application/json",
     body: JSON.stringify({ ok: true, formToken: "signed-form-token", turnstileSiteKey: "test-site-key" })
@@ -75,7 +75,7 @@ async function installLiveRoutes(page, postHandler) {
       })();
     `
   }));
-  await page.route(`${baseUrl}/api/support.php`, postHandler);
+  await page.route(`${baseUrl}/api/support`, postHandler);
 }
 
 async function draftPersistenceTest(browser, results) {

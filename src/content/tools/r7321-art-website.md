@@ -41,7 +41,7 @@ dossier:
       summary: Makes WebP images in a few sizes and short MP4 loops from the original images and GIFs, so pages load faster.
       symbol: image
     - title: Message Form
-      summary: Sends feedback and bug reports through a small PHP service.
+      summary: Sends feedback and bug reports through a small Cloudflare Worker.
       symbol: lock
 permalink: /tools/r7321-art-website/index.html
 ---

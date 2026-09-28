@@ -169,12 +169,9 @@ function renderManagedLoop(src, alt = "", classes = "") {
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/api": "api" });
   eleventyConfig.addPassthroughCopy("src/images/**/*.svg");
   eleventyConfig.addPassthroughCopy({ "src/generated/media": "generated/media" });
-  eleventyConfig.addPassthroughCopy({ "src/_server/generated.htaccess": "generated/.htaccess" });
   eleventyConfig.addPassthroughCopy({ "src/_server/_headers": "_headers" });
-  eleventyConfig.addPassthroughCopy({ "src/_server/assetsignore": ".assetsignore" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
 
   const md = markdownIt({
