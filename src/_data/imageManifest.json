@@ -808,6 +808,64 @@
         }
       ]
     },
+    "/images/updates/mishu/mishu-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "c089dc73fcb5296d94df96b23efc3be1969c4a69d3b196978b48753745db35c4",
+      "sourceBytes": 3402556,
+      "width": 2000,
+      "height": 2000,
+      "alpha": true,
+      "dominantColor": "#b5ad9c",
+      "lqip": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAADwBQCdASoYABgAPvVsqk+qpiOiMBgIAVAeiWYAtOmLLVm2q8xW24peolNqvyCfhocnbLgRLKrIAAD+3op0M2CJ9Fhl2R4a+mBkdSB/SfWSfM6IXnCgfu4JSBUmrT3akWkOn33bVuerwDYhQuXyvSOhjpTuo2CBHre9mVIpLYH4abz4jTigJCZmkbQHo9jPNRl9abgqjOvb+qD+unqXv5DLITeAq32AIDPuJ5FMjGz2s75flA7NI88wHlMdiigrgBOso78HgWYSwS7FG5av3JZ+vHt+AvsKN3u0YD/DwPWd4JbyZekAAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/mishu/mishu-01.image-w720.db6662396ea3.webp",
+          "mime": "image/webp",
+          "bytes": 36542,
+          "hash": "db6662396ea31813ba1d79e49d5665a702f54271f04112890d26b800ecc90338",
+          "width": 720,
+          "height": 720
+        },
+        {
+          "url": "/generated/media/updates/mishu/mishu-01.image-w1400.000b33491874.webp",
+          "mime": "image/webp",
+          "bytes": 87020,
+          "hash": "000b3349187494d0b6cee129ff383936741a2e5145784c5cdb49c788caa626af",
+          "width": 1400,
+          "height": 1400
+        }
+      ]
+    },
+    "/images/updates/mishu/mishu-02.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "b50b93d6aef038321c7d9a2edd9bb58f7e0baed157033eaac22272a12b69b705",
+      "sourceBytes": 2840998,
+      "width": 3840,
+      "height": 2160,
+      "alpha": false,
+      "dominantColor": "#c6bdaa",
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABwBACdASoYAA4APvVkqk4qpaOiMAgBUB6JQBdgMXmTBaGZV3/QoIBdvmIy0AD+s69cWdgqXfT6Pcg6Hi0pQUr07CfFomCWMwiYLLOdu7l9WUoNJXNcjhgP4eVsqQGpmgbYSx/vj5/y87wiLKWfsKTCyA7uzeqpVX6AgN0mOzVS+spq9zPXneWw4bOQ9+wrea/ewuUQAAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/mishu/mishu-02.image-w720.30d67a1d1ba5.webp",
+          "mime": "image/webp",
+          "bytes": 23424,
+          "hash": "30d67a1d1ba560a218f261737f1498752e861cce73c06c26c24a1a6644ca2201",
+          "width": 720,
+          "height": 405
+        },
+        {
+          "url": "/generated/media/updates/mishu/mishu-02.image-w1400.b34d7dd2336d.webp",
+          "mime": "image/webp",
+          "bytes": 59512,
+          "hash": "b34d7dd2336d48fefab7dceb14f07f122abdc7fd83e9214e00cc3821e821f32f",
+          "width": 1400,
+          "height": 788
+        }
+      ]
+    },
     "/images/updates/new-game-projects/bithunters-01.webp": {
       "type": "still",
       "sourceFormat": "webp",
