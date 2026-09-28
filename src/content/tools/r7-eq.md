@@ -1,6 +1,6 @@
 ---
 layout: layouts/tool.njk
-title: R7-EQ
+title: r7-EQ
 slug: r7-eq
 detailAccentRgb: "255, 61, 170"
 date: 2026-09-28
@@ -11,10 +11,10 @@ tags:
   - Music
 showcaseImages:
   - src: /images/tools/r7-eq/showcase.png
-    alt: R7-EQ with an EQ curve over the live analyzer and the dials underneath
+    alt: r7-EQ with an EQ curve over the live analyzer and the dials underneath
 externalLinks:
   - label: GitHub Repo
-    url: https://github.com/RyanWheeler7321/R7-EQ
+    url: https://github.com/RyanWheeler7321/r7-EQ
 dossier:
   facts:
     - label: Platform
@@ -45,6 +45,6 @@ permalink: /tools/r7-eq/index.html
 ---
 ## Overview
 
-R7-EQ is a small EQ app on top of Equalizer APO. I made it for my speakers and headphones, mostly to bring down the dynamic range on the speakers and shape the sound the way I like.
+r7-EQ is a small EQ app on top of Equalizer APO. I made it for my speakers and headphones, mostly to bring down the dynamic range on the speakers and shape the sound the way I like.
 
 It's pretty barebones and mostly made for my own setup, but it should work with any setup Equalizer APO supports. The processing runs inside Equalizer APO, so it keeps working with the window closed.
