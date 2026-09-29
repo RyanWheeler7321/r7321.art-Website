@@ -4,14 +4,14 @@ title: r7-EQ
 slug: r7-eq
 detailAccentRgb: "255, 61, 170"
 date: 2026-09-28
-summary: Custom EQ app on top of Equalizer APO, with Twitch's compressor and a profile for each playback device.
+summary: Custom EQ app for Equalizer APO, with a compressor and a profile for each playback device.
 thumbnail: /images/tools/r7-eq/icon.svg
 tags:
   - tools
   - Music
 showcaseImages:
   - src: /images/tools/r7-eq/showcase.png
-    alt: r7-EQ with an EQ curve over the live analyzer and the dials underneath
+    alt: r7-EQ, with the EQ curve over a live spectrum analyzer and the dials below it
 externalLinks:
   - label: GitHub Repo
     url: https://github.com/RyanWheeler7321/r7-EQ
@@ -27,24 +27,24 @@ dossier:
       value: GitHub
   features:
     - title: EQ Curve
-      summary: Up to 64 points, drawn over a live analyzer of what's playing.
+      summary: Up to 64 points, over a live spectrum analyzer.
       symbol: wave
     - title: Tone and Space
-      summary: Dials for tilt, warmth, presence and air, plus stereo width, 3D and a small room.
+      summary: Dials for tilt, warmth, presence and air, plus stereo width, 3D and room reverb.
       symbol: sliders
-    - title: Twitch Compressor
-      summary: Built from Chrome's own compressor code, with the Twitch settings on one button.
+    - title: Compressor
+      summary: Based on Chrome's Web Audio compressor code, and the T button sets a reasonable default for TV and dialogue.
       symbol: bolt
     - title: Device Profiles
-      summary: Each playback device keeps its own settings and presets, and the editor follows the one Windows is using.
+      summary: Each playback device has its own settings and presets, and the app switches to whichever one Windows is using.
       symbol: layers
     - title: Switches
-      summary: One switch turns everything off for all devices, and the EQ and compressor turn on or off per device.
+      summary: The All switch turns r7-EQ off for every device, and the EQ and Comp switches only affect the current device.
       symbol: toggle
 permalink: /tools/r7-eq/index.html
 ---
 ## Overview
 
-r7-EQ is a small EQ app on top of Equalizer APO. I made it for my speakers and headphones, mostly to bring down the dynamic range on the speakers and shape the sound the way I like.
+r7-EQ is a small EQ app for Equalizer APO. I made it for my speakers and headphones, mostly to bring down the dynamic range on the speakers and shape the sound the way I like.
 
-It's pretty barebones and mostly made for my own setup, but it should work with any setup Equalizer APO supports. The processing runs inside Equalizer APO, so it keeps working with the window closed.
+The processing runs inside Equalizer APO, so it keeps working with the window closed. It's pretty barebones and mostly made for my own setup, but it should work with anything Equalizer APO supports.
