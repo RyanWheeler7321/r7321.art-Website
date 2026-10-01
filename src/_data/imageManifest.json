@@ -379,6 +379,35 @@
         }
       ]
     },
+    "/images/tools/r7shell/showcase.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "a503fc3e1fd51274549e27544587e0d746e1563a7e56450a8c06b375c930fad8",
+      "sourceBytes": 177032,
+      "width": 1252,
+      "height": 664,
+      "alpha": false,
+      "dominantColor": "#110b13",
+      "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA0APvVmq04qpaQiMAgBUB6JZwAAieMEoH9jgAD+8FvQMVNwpSrbFGZyxqiA3vWGMEUUugNOgvKzGAA=",
+      "images": [
+        {
+          "url": "/generated/media/tools/r7shell/showcase.image-w720.fad79612130f.webp",
+          "mime": "image/webp",
+          "bytes": 30070,
+          "hash": "fad79612130f96f9949ff747ff1cf0ab5f77dc8301b4119492a4934157c1b804",
+          "width": 720,
+          "height": 382
+        },
+        {
+          "url": "/generated/media/tools/r7shell/showcase.image-w1252.1c74dfd7e8b7.webp",
+          "mime": "image/webp",
+          "bytes": 61416,
+          "hash": "1c74dfd7e8b7d6a6a7df2b3c2e2833ee20cca4b88bf73fa188f2289c76e32750",
+          "width": 1252,
+          "height": 664
+        }
+      ]
+    },
     "/images/tools/spotify-randomizer/showcase.webp": {
       "type": "still",
       "sourceFormat": "webp",
@@ -1180,6 +1209,64 @@
           "hash": "7281a043fd2a2940353e10a0e8517d5209d5d287e94491607186fa5b9a0be77b",
           "width": 1400,
           "height": 780
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7harness-r7shell-01.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "a503fc3e1fd51274549e27544587e0d746e1563a7e56450a8c06b375c930fad8",
+      "sourceBytes": 177032,
+      "width": 1252,
+      "height": 664,
+      "alpha": false,
+      "dominantColor": "#110b13",
+      "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA0APvVmq04qpaQiMAgBUB6JZwAAieMEoH9jgAD+8FvQMVNwpSrbFGZyxqiA3vWGMEUUugNOgvKzGAA=",
+      "images": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w720.fad79612130f.webp",
+          "mime": "image/webp",
+          "bytes": 30070,
+          "hash": "fad79612130f96f9949ff747ff1cf0ab5f77dc8301b4119492a4934157c1b804",
+          "width": 720,
+          "height": 382
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w1252.1c74dfd7e8b7.webp",
+          "mime": "image/webp",
+          "bytes": 61416,
+          "hash": "1c74dfd7e8b7d6a6a7df2b3c2e2833ee20cca4b88bf73fa188f2289c76e32750",
+          "width": 1252,
+          "height": 664
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7harness-r7shell-02.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "feab067fcedd816bb32ee23e5476d93f02457ff0e7e0065713e49fc24b07ab48",
+      "sourceBytes": 158334,
+      "width": 1644,
+      "height": 918,
+      "alpha": false,
+      "dominantColor": "#11050d",
+      "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAgCdASoYAA0APvVmq04qpaQjMAgBUB6JZQAAifQAAP7wjOwgqp4eUsRLLWvJhORkAA==",
+      "images": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-02.image-w720.aaef88dd0540.webp",
+          "mime": "image/webp",
+          "bytes": 26414,
+          "hash": "aaef88dd0540531c4edd38e69a8efb91cdeeb5371dc55364faa6c69db13f45c0",
+          "width": 720,
+          "height": 402
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-02.image-w1400.5cb12f21c94b.webp",
+          "mime": "image/webp",
+          "bytes": 73590,
+          "hash": "5cb12f21c94b204049c530bd47d73577792d8522ccb1f0eb4beaa26629b34f4d",
+          "width": 1400,
+          "height": 782
         }
       ]
     },

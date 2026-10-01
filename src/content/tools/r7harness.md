@@ -20,7 +20,7 @@ externalLinks:
 dossier:
   facts:
     - label: Platform
-      value: WSL + Windows Terminal
+      value: WSL + Windows Terminal or r7Shell
     - label: Foundation
       value: OMP
     - label: Works With
@@ -38,6 +38,9 @@ dossier:
     - title: Themes and Fonts
       summary: Idle and working themes that follow what the agent is doing, plus a list of good terminal fonts.
       symbol: sliders
+    - title: Reply Style
+      summary: Short replies with colored markers and numbered questions, every color can be changed.
+      symbol: palette
     - title: Safeguards
       summary: It won't change anything until setup checks pass, tools are limited in what they can change, and subagents can't edit the same files.
       symbol: lock
@@ -50,7 +53,7 @@ permalink: /tools/r7harness/index.html
 
 r7Harness is a simplified version of my own agent setup, built on OMP.
 
-I built it around Codex, but it isn't limited to Codex. You can use Claude or any other agent that works with OMP. Right now it runs on WSL with Windows Terminal, since that's what I use.
+I use it with Codex and Claude, and it works with any other model OMP supports. It runs on WSL with Windows Terminal or r7Shell.
 
 This repo is an unofficial modification of OMP. It isn't officially associated with OMP, Codex, or their developers.
 
