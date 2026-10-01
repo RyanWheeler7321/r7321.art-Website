@@ -21,10 +21,9 @@ Running r7Harness in r7Shell, you also get pictures inside replies, bigger title
 
 {% image "/images/updates/r7harness-r7shell/r7harness-r7shell-02.png", "An agent working in one r7Shell window, next to the launch screen in another." %}
 
-Both are on GitHub.
-
+{% ctas %}
 {% cta "https://github.com/RyanWheeler7321/r7Harness", "r7Harness on GitHub", "GitHub" %}
-
 {% cta "https://github.com/RyanWheeler7321/r7Shell", "r7Shell on GitHub", "GitHub" %}
+{% endctas %}
 
 At this point the models are so good that I have to stop myself from making more useful custom tools and actually work on my games. So, let me get to it.

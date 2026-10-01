@@ -2438,6 +2438,13 @@ body.image-zoom-active {
   justify-content: center;
 }
 
+.inline-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 .panel-link {
   white-space: nowrap;
 }

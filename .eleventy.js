@@ -174,6 +174,12 @@ ${content}
 </div>`
   );
 
+  eleventyConfig.addPairedShortcode("ctas", (content) =>
+    `<div class="inline-card-row">
+${content.trim()}
+</div>`
+  );
+
   eleventyConfig.addShortcode("youtube", (videoId, title = "YouTube video") =>
     `<figure class="embed-frame">
 <div class="embed-shell">
