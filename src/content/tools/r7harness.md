@@ -1,6 +1,6 @@
 ---
 layout: layouts/tool.njk
-title: r7Harness
+title: r7-Harness
 slug: r7harness
 detailAccentRgb: "255, 76, 139"
 date: 2026-08-24
@@ -13,14 +13,14 @@ tags:
   - Dev
 showcaseImages:
   - src: /images/tools/r7harness/showcase.png
-    alt: r7Harness terminal workspace
+    alt: r7-Harness terminal workspace
 externalLinks:
   - label: GitHub Repo
-    url: https://github.com/RyanWheeler7321/r7Harness
+    url: https://github.com/RyanWheeler7321/r7-Harness
 dossier:
   facts:
     - label: Platform
-      value: WSL + Windows Terminal or r7Shell
+      value: WSL + Windows Terminal or r7-Shell
     - label: Foundation
       value: OMP
     - label: Works With
@@ -51,9 +51,9 @@ permalink: /tools/r7harness/index.html
 ---
 ## Overview
 
-r7Harness is a simplified version of my own agent setup, built on OMP.
+r7-Harness is a simplified version of my own agent setup, built on OMP.
 
-I use it with Codex and Claude, and it works with any other model OMP supports. It runs on WSL with Windows Terminal or r7Shell.
+I use it with Codex and Claude, and it works with any other model OMP supports. It runs on WSL with Windows Terminal or r7-Shell.
 
 This repo is an unofficial modification of OMP. It isn't officially associated with OMP, Codex, or their developers.
 
