@@ -4,8 +4,8 @@ title: r7-Harness
 slug: r7harness
 detailAccentRgb: "255, 76, 139"
 date: 2026-08-24
-summary: A simplified version of my own agent setup on OMP, for Codex, Claude and other models it supports.
-description: A simplified version of my own agent setup on OMP, for Codex, Claude and other models it supports.
+summary: A simplified version of my own agent setup on OMP, for Claude and Codex.
+description: A simplified version of my own agent setup on OMP, for Claude and Codex.
 thumbnail: /images/tools/r7harness/icon.svg
 icon: fas fa-terminal
 tags:
@@ -24,7 +24,7 @@ dossier:
     - label: Foundation
       value: OMP
     - label: Works With
-      value: Codex, Claude, and others
+      value: Claude and Codex
   features:
     - title: Compact Interface
       summary: Session titles, turn timing, usage and status, with an input box that stays put.
@@ -36,7 +36,7 @@ dossier:
       summary: Global and project instructions, plus skills.
       symbol: braces
     - title: Themes and Fonts
-      summary: Idle and working themes that follow what the agent is doing, plus a list of good terminal fonts.
+      summary: Idle and working themes that follow what the agent is doing, and each model can have its own, plus a list of good terminal fonts.
       symbol: sliders
     - title: Reply Style
       summary: Short replies with colored markers and numbered questions, every color can be changed.
@@ -45,7 +45,7 @@ dossier:
       summary: It won't change anything until setup checks pass, tools are limited in what they can change, and subagents can't edit the same files.
       symbol: lock
     - title: Pinned Build
-      summary: Stays on one exact OMP version, and it's easy to roll back to an earlier one.
+      summary: Built on OMP 18.8.3 with the parts I don't use taken out, and it's easy to roll back to an earlier version.
       symbol: restore
 permalink: /tools/r7harness/index.html
 ---
@@ -53,7 +53,7 @@ permalink: /tools/r7harness/index.html
 
 r7-Harness is a simplified version of my own agent setup, built on OMP.
 
-I use it with Codex and Claude, and it works with any other model OMP supports. It runs on WSL with Windows Terminal or r7-Shell.
+It only supports Claude and Codex models, but the other OMP providers can be added back. It runs on WSL with Windows Terminal or r7-Shell.
 
 This repo is an unofficial modification of OMP. It isn't officially associated with OMP, Codex, or their developers.
 

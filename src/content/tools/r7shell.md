@@ -40,12 +40,15 @@ dossier:
       summary: Water rises while an agent starts, and what you type lands in its input box.
       symbol: play
     - title: With r7-Harness
-      summary: Bigger reply titles, pictures in replies, clickable questions and mouse editing in the input box.
+      summary: Replies and steps drawn in HTML, finished steps folded into one line, pictures in replies and mouse editing in the input box.
       symbol: tabs
+    - title: Panel
+      summary: A picture and buttons across the top of a window, like a Play button for a game.
+      symbol: preview
 permalink: /tools/r7shell/index.html
 ---
 ## Overview
 
 r7-Shell is a lean custom terminal for Windows, made for running agents like Claude Code, Codex and my own r7-Harness in WSL, as well as anything else you'd run in a terminal.
 
-Sessions run in the background in WSL, so they survive the app restarting or crashing, and the windows come back where they were. Closing a window ends its session, but `r7shell reopen` brings it back within 10 seconds. The `r7shell` command can start sessions, type into them, wait for output and take screenshots of a window, so an agent can run other terminals without touching your mouse or keyboard.
+Sessions run in the background in WSL, so they survive the app restarting or crashing, and the windows come back where they were. Closing a window keeps its session running too, and `r7shell reopen` brings the window back. The `r7shell` command can start sessions, type into them, wait for output and take screenshots of a window, so an agent can run other terminals without touching your mouse or keyboard.

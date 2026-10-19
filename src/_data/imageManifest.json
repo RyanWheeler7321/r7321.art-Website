@@ -382,29 +382,29 @@
     "/images/tools/r7shell/showcase.png": {
       "type": "still",
       "sourceFormat": "png",
-      "sourceHash": "a503fc3e1fd51274549e27544587e0d746e1563a7e56450a8c06b375c930fad8",
-      "sourceBytes": 177032,
-      "width": 1252,
-      "height": 664,
+      "sourceHash": "765f3436cadfafcb6ff15e08d2d758d2a24f2e90cc4919eb0f1e556bf39666ca",
+      "sourceBytes": 218765,
+      "width": 1350,
+      "height": 1140,
       "alpha": false,
-      "dominantColor": "#110b13",
-      "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA0APvVmq04qpaQiMAgBUB6JZwAAieMEoH9jgAD+8FvQMVNwpSrbFGZyxqiA3vWGMEUUugNOgvKzGAA=",
+      "dominantColor": "#0f050a",
+      "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoYABQAPvVkq04qpa2iMBgMAbAeiWUAyRAZdDc79InAQAD+8IocHQwUwpmvjUIWoyCEEuvBjraCkD5LRwC1Szj3W0AAAA==",
       "images": [
         {
-          "url": "/generated/media/tools/r7shell/showcase.image-w720.fad79612130f.webp",
+          "url": "/generated/media/tools/r7shell/showcase.image-w720.c404be550ca5.webp",
           "mime": "image/webp",
-          "bytes": 30070,
-          "hash": "fad79612130f96f9949ff747ff1cf0ab5f77dc8301b4119492a4934157c1b804",
+          "bytes": 32672,
+          "hash": "c404be550ca51198f41ffb28455c55ecec2d9ca03c6bfd77bc2228c2b8813d50",
           "width": 720,
-          "height": 382
+          "height": 608
         },
         {
-          "url": "/generated/media/tools/r7shell/showcase.image-w1252.1c74dfd7e8b7.webp",
+          "url": "/generated/media/tools/r7shell/showcase.image-w1350.67ffa41836b0.webp",
           "mime": "image/webp",
-          "bytes": 61416,
-          "hash": "1c74dfd7e8b7d6a6a7df2b3c2e2833ee20cca4b88bf73fa188f2289c76e32750",
-          "width": 1252,
-          "height": 664
+          "bytes": 71460,
+          "hash": "67ffa41836b0be52424846509a9246714c619612f9f17fe15d06e63a8befad0a",
+          "width": 1350,
+          "height": 1140
         }
       ]
     },
