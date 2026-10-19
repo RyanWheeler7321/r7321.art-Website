@@ -2139,12 +2139,14 @@ p {
 }
 
 .media-frame .media-still,
+.media-frame .media-loop,
 .media-gallery .media-still {
   width: var(--media-figure-width, min(100%, calc(var(--content-media-max-height) * (var(--ratio-w) / var(--ratio-h)))));
   max-height: var(--content-media-max-height);
 }
 
 .page-updates .browse-panel-prose .media-frame .media-still,
+.page-updates .browse-panel-prose .media-frame .media-loop,
 .page-updates .browse-panel-prose .media-gallery .media-still {
   clip-path: polygon(var(--bevel-sm) 0, calc(100% - var(--bevel-sm)) 0, 100% var(--bevel-sm), 100% calc(100% - var(--bevel-sm)), calc(100% - var(--bevel-sm)) 100%, var(--bevel-sm) 100%, 0 calc(100% - var(--bevel-sm)), 0 var(--bevel-sm));
   box-shadow: var(--shadow);
@@ -2241,6 +2243,7 @@ p {
 }
 
 .content-columns-media .media-frame .media-still,
+.content-columns-media .media-frame .media-loop,
 .content-columns-media .media-gallery .media-still {
   width: 100%;
   max-width: 100%;
@@ -2282,7 +2285,8 @@ p {
   max-width: 100%;
 }
 
-.content-columns-media.compare-height .media-still {
+.content-columns-media.compare-height .media-still,
+.content-columns-media.compare-height .media-loop {
   width: auto;
   height: var(--compare-media-height);
   max-width: min(100%, calc(var(--compare-media-height) * (var(--media-ratio-w, var(--ratio-w, 16)) / var(--media-ratio-h, var(--ratio-h, 9)))));
@@ -4023,6 +4027,7 @@ body.image-zoom-active {
   }
 
   .content-columns-media.compare-height .media-still,
+  .content-columns-media.compare-height .media-loop,
   .content-columns-media.compare-height .media-still img,
   .content-columns-media.compare-height .media-frame img {
     width: 100%;

@@ -1212,32 +1212,200 @@
         }
       ]
     },
+    "/images/updates/r7harness-r7shell/r7-ask.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "0be975036c7078e778b1e984be910479aae7228e55f01caf478a17221e5a58b2",
+      "sourceBytes": 328985,
+      "width": 700,
+      "height": 622,
+      "alpha": false,
+      "dominantColor": "#030002",
+      "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAgCdASoYABUAPvVwq1IqpiOjqAqpUB6JZwAAPn3AAAD+8Oh8er3xcEPpLj3xyT+WouAA",
+      "frameCount": 92,
+      "durationMs": 10220,
+      "fps": 30,
+      "poster": {
+        "url": "/generated/media/updates/r7harness-r7shell/r7-ask.poster.abbcd8c50adb.webp",
+        "mime": "image/webp",
+        "bytes": 1358,
+        "hash": "abbcd8c50adb152327c6c36ef672dcb8ea058f5394139739763f96b294185607",
+        "width": 420,
+        "height": 373
+      },
+      "videos": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-ask.loop-w360.8e7fc4b49261.mp4",
+          "mime": "video/mp4",
+          "bytes": 30790,
+          "hash": "8e7fc4b49261c2e21855746de1168e99aa12297322ec58c08cfca3b3111ce41a",
+          "width": 360,
+          "height": 320,
+          "durationMs": 10233
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-ask.loop-w700.92cd07b30afe.mp4",
+          "mime": "video/mp4",
+          "bytes": 80696,
+          "hash": "92cd07b30afe709a6e4e391e86e2430c25b3c65900926cbbd7c63dbd3c2b154a",
+          "width": 700,
+          "height": 622,
+          "durationMs": 10233
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7-console.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "126e26d13114d0174813503caf35f399f235818eb1935297d0a43e4d7fbbedaa",
+      "sourceBytes": 127056,
+      "width": 980,
+      "height": 502,
+      "alpha": false,
+      "dominantColor": "#060609",
+      "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAwCdASoYAAwAPvVkqk4qpaQiMAgBUB6JaQAAetHmvAAA/vC1IZZWsmh9vX2OVIH7cUAA",
+      "frameCount": 160,
+      "durationMs": 6560,
+      "fps": 24,
+      "poster": {
+        "url": "/generated/media/updates/r7harness-r7shell/r7-console.poster.f0a643f99eb0.webp",
+        "mime": "image/webp",
+        "bytes": 5104,
+        "hash": "f0a643f99eb00a690203a340de74461ba44ad5116d9e6ee311c1c85f58f5543d",
+        "width": 420,
+        "height": 215
+      },
+      "videos": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-console.loop-w360.33141b11803f.mp4",
+          "mime": "video/mp4",
+          "bytes": 15646,
+          "hash": "33141b11803f064573d1f59a457f047c31b3cadbade69147284aadfebceb2be1",
+          "width": 360,
+          "height": 184,
+          "durationMs": 6542
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-console.loop-w980.c88ee0db0db7.mp4",
+          "mime": "video/mp4",
+          "bytes": 49515,
+          "hash": "c88ee0db0db7f275d97d613862e134d39cda8cc8c8a4b1340d4ab254ebd68ed2",
+          "width": 980,
+          "height": 502,
+          "durationMs": 6542
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7-launch.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "ce3c3ef2145c32b9d357a48accf4adb0f3f74bfbf1f757759a7d54bf7670eacf",
+      "sourceBytes": 1393265,
+      "width": 700,
+      "height": 622,
+      "alpha": false,
+      "dominantColor": "#030203",
+      "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAAAwAwCdASoYABUAPvVgq06qry2iMBgMAeAeiWkAAD8bDsAAAP7w6Hx624Lql4XvZYioZU+0jTB6MlDgAAA=",
+      "frameCount": 135,
+      "durationMs": 7440,
+      "fps": 30,
+      "poster": {
+        "url": "/generated/media/updates/r7harness-r7shell/r7-launch.poster.991798c5e5ef.webp",
+        "mime": "image/webp",
+        "bytes": 2194,
+        "hash": "991798c5e5ef305fe76baf00499b07647c4641ff36929082c2d5a52174b9c22e",
+        "width": 420,
+        "height": 373
+      },
+      "videos": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-launch.loop-w360.d143c1afcee7.mp4",
+          "mime": "video/mp4",
+          "bytes": 94938,
+          "hash": "d143c1afcee7e86d9ce1be5b92670bddef13a75c13d18732dd0aaae8fca78b8f",
+          "width": 360,
+          "height": 320,
+          "durationMs": 7433
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-launch.loop-w700.356806ab4de2.mp4",
+          "mime": "video/mp4",
+          "bytes": 244247,
+          "hash": "356806ab4de218ca579f8f37a014752c39a67cc2850c1f8a19acfc20212730d6",
+          "width": 700,
+          "height": 622,
+          "durationMs": 7433
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7-switch.gif": {
+      "type": "loop",
+      "sourceFormat": "gif",
+      "sourceHash": "a881559336911fb70c2434b1ac20a8b5ff28be6f2e264bf596c872122ca2e05d",
+      "sourceBytes": 981614,
+      "width": 700,
+      "height": 622,
+      "alpha": false,
+      "dominantColor": "#050103",
+      "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABwAwCdASoYABUAPvVorU8qpiSiKA1RUB6JZQDOlDZCDjenmMAA/vDrHgaW0SQ67ub7ezDdyLwC1RphZtfZgAAA",
+      "frameCount": 103,
+      "durationMs": 8470,
+      "fps": 30,
+      "poster": {
+        "url": "/generated/media/updates/r7harness-r7shell/r7-switch.poster.ee96035fe000.webp",
+        "mime": "image/webp",
+        "bytes": 2234,
+        "hash": "ee96035fe000cfed68cffc076eff03771b8038ece070333514db01886d1e7b3a",
+        "width": 420,
+        "height": 373
+      },
+      "videos": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-switch.loop-w360.d30a897f2f09.mp4",
+          "mime": "video/mp4",
+          "bytes": 89251,
+          "hash": "d30a897f2f094f6d4e66de44960a68e002be0400a49cd093385a5156efbe3614",
+          "width": 360,
+          "height": 320,
+          "durationMs": 8467
+        },
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7-switch.loop-w700.6ea8871099f9.mp4",
+          "mime": "video/mp4",
+          "bytes": 238072,
+          "hash": "6ea8871099f9a4837b87022400d5c527648d31f1912adf648e7c0aec0ad9ee79",
+          "width": 700,
+          "height": 622,
+          "durationMs": 8467
+        }
+      ]
+    },
     "/images/updates/r7harness-r7shell/r7harness-r7shell-01.png": {
       "type": "still",
       "sourceFormat": "png",
-      "sourceHash": "a503fc3e1fd51274549e27544587e0d746e1563a7e56450a8c06b375c930fad8",
-      "sourceBytes": 177032,
-      "width": 1252,
-      "height": 664,
+      "sourceHash": "765f3436cadfafcb6ff15e08d2d758d2a24f2e90cc4919eb0f1e556bf39666ca",
+      "sourceBytes": 218765,
+      "width": 1350,
+      "height": 1140,
       "alpha": false,
-      "dominantColor": "#110b13",
-      "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAABQAwCdASoYAA0APvVmq04qpaQiMAgBUB6JZwAAieMEoH9jgAD+8FvQMVNwpSrbFGZyxqiA3vWGMEUUugNOgvKzGAA=",
+      "dominantColor": "#0f050a",
+      "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAwCdASoYABQAPvVkq04qpa2iMBgMAbAeiWUAyRAZdDc79InAQAD+8IocHQwUwpmvjUIWoyCEEuvBjraCkD5LRwC1Szj3W0AAAA==",
       "images": [
         {
-          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w720.fad79612130f.webp",
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w720.c404be550ca5.webp",
           "mime": "image/webp",
-          "bytes": 30070,
-          "hash": "fad79612130f96f9949ff747ff1cf0ab5f77dc8301b4119492a4934157c1b804",
+          "bytes": 32672,
+          "hash": "c404be550ca51198f41ffb28455c55ecec2d9ca03c6bfd77bc2228c2b8813d50",
           "width": 720,
-          "height": 382
+          "height": 608
         },
         {
-          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w1252.1c74dfd7e8b7.webp",
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-01.image-w1350.67ffa41836b0.webp",
           "mime": "image/webp",
-          "bytes": 61416,
-          "hash": "1c74dfd7e8b7d6a6a7df2b3c2e2833ee20cca4b88bf73fa188f2289c76e32750",
-          "width": 1252,
-          "height": 664
+          "bytes": 71460,
+          "hash": "67ffa41836b0be52424846509a9246714c619612f9f17fe15d06e63a8befad0a",
+          "width": 1350,
+          "height": 1140
         }
       ]
     },
@@ -1267,6 +1435,27 @@
           "hash": "5cb12f21c94b204049c530bd47d73577792d8522ccb1f0eb4beaa26629b34f4d",
           "width": 1400,
           "height": 782
+        }
+      ]
+    },
+    "/images/updates/r7harness-r7shell/r7harness-r7shell-thumb.png": {
+      "type": "still",
+      "sourceFormat": "png",
+      "sourceHash": "bb7938e13b7d3b54602039909861600d70ac4cc9535713eaed693ad248faa3c7",
+      "sourceBytes": 32845,
+      "width": 270,
+      "height": 270,
+      "alpha": false,
+      "dominantColor": "#18141c",
+      "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAACwBACdASoYABgAPvVurFGqpiOiqAqpUB6JZwAAKc70/hnwjiZdQAx3v1v0ulzAAP7vkRyoaOoTJEEiLyzD1/h5aODrqvdN+gEa2c9A11wd15RMUvJ+94jvLsG5Id3vHXdwN+UKdwKfGGR6sTBddUzG1i/uuR4Ul5fZe8gj5eTlgXvRiRYa5Og8755ctiaabajGvZCQlGeePegbTUU1pu9OR23CiAgA",
+      "images": [
+        {
+          "url": "/generated/media/updates/r7harness-r7shell/r7harness-r7shell-thumb.image-w270.e54182ccd19a.webp",
+          "mime": "image/webp",
+          "bytes": 12240,
+          "hash": "e54182ccd19a3ae672a3ea4c6872d031e92320c5f306c15c093c29e03321cf87",
+          "width": 270,
+          "height": 270
         }
       ]
     },

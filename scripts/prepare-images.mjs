@@ -181,11 +181,16 @@ function buildVideo(sourcePath, outputPath, width, fps) {
     "-i", toMediaPath(sourcePath),
     "-movflags", "+faststart",
     "-an",
-    "-vf", `fps=${fps.toFixed(3)},scale=${safeWidth}:-2:flags=lanczos`,
+    "-vf", `fps=${fps.toFixed(3)},scale=${safeWidth}:-2:flags=lanczos:out_color_matrix=bt709:out_range=tv`,
     "-pix_fmt", "yuv420p",
     "-c:v", "libx264",
-    "-preset", "veryfast",
-    "-crf", "26",
+    "-preset", "slow",
+    "-tune", "animation",
+    "-crf", "23",
+    "-colorspace", "bt709",
+    "-color_primaries", "bt709",
+    "-color_trc", "bt709",
+    "-color_range", "tv",
     toMediaPath(outputPath)
   ], { stdio: "ignore" });
 }
@@ -243,7 +248,7 @@ async function buildEntry(sourcePath, relPosix, sourceHash, inspection, tempRoot
   }
 
   const poster = await buildWebp(sourcePath, tempRoot, relPosix, "poster", Math.min(420, inspection.width), 58, 0);
-  const fps = 24;
+  const fps = 30;
   const videoTargets = [...new Set([Math.min(360, inspection.width), inspection.width])].sort((a, b) => a - b);
   const videos = [];
   for (const width of videoTargets) videos.push(await buildVideoVariant(sourcePath, tempRoot, relPosix, width, fps));
