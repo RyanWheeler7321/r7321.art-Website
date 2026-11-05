@@ -57,7 +57,8 @@ img, video { display: block; }
 /* A picture wipes in from a random angle (--angle) with a soft pink light on its edge (portfolio.js reveal) */
 @property --wipe { syntax: '<percentage>'; inherits: true; initial-value: 100%; }
 @property --edge { syntax: '<number>'; inherits: true; initial-value: 0; }
-.wiping :is(img, video) { mask-image: linear-gradient(var(--angle), #000 var(--wipe), #0000 calc(var(--wipe) + 1px)); }
+/* no hover zoom mid-wipe, so the light stays on the edge */
+.tile.wiping :is(img, video) { transform: none; mask-image: linear-gradient(var(--angle), #000 var(--wipe), #0000 calc(var(--wipe) + 1px)); }
 .wiping::after { content: ''; position: absolute; z-index: 2; inset: 0; pointer-events: none; opacity: var(--edge);
   background: linear-gradient(var(--angle), #0000 calc(var(--wipe) - 18px), rgb(227 0 140 / .22) calc(var(--wipe) - 1px),
     rgb(255 170 220 / .9) var(--wipe), #0000 calc(var(--wipe) + 1px)); }
