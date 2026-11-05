@@ -41,7 +41,7 @@ function best(plan, W, H) {
 }
 let shown = '';
 function layout() {
-  const phone = innerWidth <= 760;
+  const phone = innerWidth <= 900;
   const sizes = plans.map((plan) => { const W = plan.box.clientWidth; return [W, phone ? Math.round(W * 1.05) : plan.box.clientHeight - 10]; });
   const sig = sizes.join('|');
   if (sig == shown) return;
