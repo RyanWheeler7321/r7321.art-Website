@@ -43,7 +43,7 @@
     "id": "mishu",
     "cat": "3d",
     "title": "Mishu",
-    "line": "",
+    "line": "Stylized toon character with ink outlines, two outfits and a few poses, rendered in Blender.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/mishu-1.webp",
@@ -51,13 +51,18 @@
      "/images/portfolio/character/mishu-3.webp",
      "/images/portfolio/character/mishu-4.webp",
      "/images/portfolio/character/mishu-5.webp"
+    ],
+    "tags": [
+     "3D character",
+     "Rigged, 61k tris",
+     "2026"
     ]
    },
    {
     "id": "ptayah",
     "cat": "3d",
     "title": "Ptayah",
-    "line": "",
+    "line": "Realtime character, another design of my own for a future game.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/ptayah-1.webp",
@@ -67,13 +72,18 @@
      "/images/portfolio/character/ptayah-5.webp",
      "/images/portfolio/character/ptayah-6.webp",
      "/images/portfolio/character/ptayah-7.webp"
+    ],
+    "tags": [
+     "3D character",
+     "Blender, Substance",
+     "2024"
     ]
    },
    {
     "id": "veyn",
     "cat": "3d",
     "title": "Veyn",
-    "line": "",
+    "line": "Realistic realtime character, based on a design of my own for a future game.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/veyn-1.webp",
@@ -86,25 +96,35 @@
      "/images/portfolio/character/veyn-8.webp",
      "/images/portfolio/character/veyn-9.webp",
      "/images/portfolio/character/veyn-10.webp"
+    ],
+    "tags": [
+     "3D character",
+     "Rigged, 70k tris",
+     "2024"
     ]
    },
    {
     "id": "penny",
     "cat": "3d",
     "title": "Penny",
-    "line": "",
+    "line": "Stylized character concept.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/penny-1.webp",
      "sketchfab:3b051e35b7d1458d8d57034d9a74e941|/images/portfolio/character/penny-2.webp",
      "/images/portfolio/character/penny-3.webp"
+    ],
+    "tags": [
+     "3D character",
+     "ZBrush, Blender, Substance",
+     "2025"
     ]
    },
    {
     "id": "lord-valren",
     "cat": "3d",
     "title": "Lord Valren",
-    "line": "",
+    "line": "Armored fantasy character.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/lord-valren-1.webp",
@@ -114,203 +134,298 @@
      "/images/portfolio/character/lord-valren-5.webp",
      "/images/portfolio/character/lord-valren-6.webp",
      "/images/portfolio/character/lord-valren-7.webp"
+    ],
+    "tags": [
+     "3D character",
+     "60k tris",
+     "2024"
     ]
    },
    {
     "id": "nightsweeper",
     "cat": "3d",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Look dev for the sorceress in NIGHTSWEEPER, my Minesweeper-style puzzle game.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/nightsweeper-1.webp"
+    ],
+    "tags": [
+     "Game character",
+     "Look dev",
+     "2026"
     ]
    },
    {
     "id": "greyface",
     "cat": "3d",
     "title": "Greyface",
-    "line": "",
+    "line": "Creature concept.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/greyface-1.webp",
      "sketchfab:19902070311f46dbbb9335a5d26b0a7b|/images/portfolio/character/greyface-2.webp",
      "/images/portfolio/character/greyface-3.webp"
+    ],
+    "tags": [
+     "3D character",
+     "ZBrush, Blender, Substance",
+     "2025"
     ]
    },
    {
     "id": "serithor",
     "cat": "3d",
     "title": "Serithor",
-    "line": "",
+    "line": "Armored knight I made to try out Ucupaint, a texture painting addon for Blender.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/serithor-1.webp",
      "sketchfab:12945213fb8c40bd92e2286b608a31ca|/images/portfolio/character/serithor-2.webp",
      "/images/portfolio/character/serithor-3.webp"
+    ],
+    "tags": [
+     "3D character",
+     "ZBrush, Blender",
+     "2025"
     ]
    },
    {
     "id": "strego",
     "cat": "3d",
     "title": "Strego",
-    "line": "",
+    "line": "Speed sculpt of a monster I came up with, inspired by Soulsborne games and horror.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/strego-1.webp",
      "sketchfab:b8d1fe1fff424c9b89f8b0bbd006dc50|/images/portfolio/character/strego-2.webp",
      "/images/portfolio/character/strego-3.webp"
+    ],
+    "tags": [
+     "Speed sculpt",
+     "ZBrush, Blender",
+     "2024"
     ]
    },
    {
     "id": "meylin",
     "cat": "3d",
     "title": "Meylin",
-    "line": "",
+    "line": "Character concept.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/meylin-1.webp",
      "sketchfab:e0372f2e7ad3472b9d140aea7db1bc74|/images/portfolio/character/meylin-2.webp",
      "/images/portfolio/character/meylin-3.webp"
+    ],
+    "tags": [
+     "3D character",
+     "ZBrush, Blender, Substance",
+     "2025"
     ]
    },
    {
     "id": "chewed-up",
     "cat": "2d",
     "title": "Chewed Up",
-    "line": "",
+    "line": "Character painting practice.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/chewed-up-1.webp",
      "/images/portfolio/character/chewed-up-2.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "Krita",
+     "2024"
     ]
    },
    {
     "id": "egstg",
     "cat": "2d",
     "title": "Egstg",
-    "line": "",
+    "line": "Drawing test with two characters.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/egstg-1.webp",
      "/images/portfolio/character/egstg-2.webp"
+    ],
+    "tags": [
+     "Sketch",
+     "Krita",
+     "2025"
     ]
    },
    {
     "id": "uozzilvan",
     "cat": "2d",
     "title": "Uozzilvan",
-    "line": "",
+    "line": "Creature painting practice.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/uozzilvan-1.webp",
      "/images/portfolio/character/uozzilvan-2.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "Krita",
+     "2024"
     ]
    },
    {
     "id": "jt6sr",
     "cat": "2d",
     "title": "jt6sr",
-    "line": "",
+    "line": "Drawing test, with the concept sketches next to it.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/jt6sr-1.webp",
      "/images/portfolio/character/jt6sr-2.webp"
+    ],
+    "tags": [
+     "Sketch",
+     "Krita",
+     "2026"
     ]
    },
    {
     "id": "stretch",
     "cat": "2d",
     "title": "Stretch",
-    "line": "",
+    "line": "Quick character painting.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/stretch-1.webp"
+    ],
+    "tags": [
+     "Speed painting",
+     "Krita",
+     "2024"
     ]
    },
    {
     "id": "dark-mistress",
     "cat": "2d",
     "title": "Dark Mistress",
-    "line": "",
+    "line": "Character design practice.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/dark-mistress-1.webp",
      "/images/portfolio/character/dark-mistress-2.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "Krita",
+     "2022"
     ]
    },
    {
     "id": "sunfell",
     "cat": "2d",
     "title": "Sunfell",
-    "line": "",
+    "line": "Fantasy character painting.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/sunfell-1.webp",
      "/images/portfolio/character/sunfell-2.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "Krita",
+     "2024"
     ]
    },
    {
     "id": "loss-and-despair",
     "cat": "2d",
     "title": "Loss and Despair",
-    "line": "",
+    "line": "Fan art of Gerald Robotnik from Sonic Adventure 2.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/loss-and-despair-1.webp",
      "/images/portfolio/character/loss-and-despair-2.webp"
+    ],
+    "tags": [
+     "Fan art",
+     "Krita",
+     "2022"
     ]
    },
    {
     "id": "a-m",
     "cat": "2d",
     "title": "A.M.",
-    "line": "",
+    "line": "Original character from a game's lore.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/a-m-1.webp",
      "/images/portfolio/character/a-m-2.webp"
+    ],
+    "tags": [
+     "Character design",
+     "Krita",
+     "2023"
     ]
    },
    {
     "id": "p-m",
     "cat": "2d",
     "title": "P.M.",
-    "line": "",
+    "line": "Original character from a game's lore.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/p-m-1.webp"
+    ],
+    "tags": [
+     "Character design",
+     "Krita",
+     "2023"
     ]
    },
    {
     "id": "r-p",
     "cat": "2d",
     "title": "R.P.",
-    "line": "",
+    "line": "Original character from a game's lore.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/r-p-1.webp",
      "/images/portfolio/character/r-p-2.webp"
+    ],
+    "tags": [
+     "Character design",
+     "Krita",
+     "2023"
     ]
    },
    {
     "id": "fast",
     "cat": "2d",
     "title": "Fast",
-    "line": "",
+    "line": "Quick character sketch.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/fast-1.webp"
+    ],
+    "tags": [
+     "Sketch",
+     "Krita",
+     "2026"
     ]
    },
    {
     "id": "mat-doodling",
     "cat": "2d",
     "title": "Mat Doodling",
-    "line": "",
+    "line": "A page of drawing tests.",
     "text": "",
     "imgs": [
      "/images/portfolio/character/mat-doodling-1.webp"
+    ],
+    "tags": [
+     "Sketches",
+     "Krita",
+     "2025"
     ]
    }
   ]
@@ -329,14 +444,12 @@
     ]
    },
    {
-    "id": "sunrise-7",
-    "name": "Sunrise 7",
+    "id": "nightsweeper",
+    "name": "NIGHTSWEEPER",
     "works": [
-     "sunrise-7-1",
-     "sunrise-7-2",
-     "sunrise-7-3",
-     "sunrise-7-4",
-     "sunrise-7-5"
+     "nightsweeper-1",
+     "nightsweeper-2",
+     "nightsweeper-3"
     ]
    },
    {
@@ -351,12 +464,14 @@
     ]
    },
    {
-    "id": "nightsweeper",
-    "name": "NIGHTSWEEPER",
+    "id": "sunrise-7",
+    "name": "Sunrise 7",
     "works": [
-     "nightsweeper-1",
-     "nightsweeper-2",
-     "nightsweeper-3"
+     "sunrise-7-1",
+     "sunrise-7-2",
+     "sunrise-7-3",
+     "sunrise-7-4",
+     "sunrise-7-5"
     ]
    },
    {
@@ -376,10 +491,15 @@
     "group": "sidereal",
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-1.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -387,10 +507,15 @@
     "group": "sidereal",
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-2.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -398,10 +523,15 @@
     "group": "sidereal",
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-3.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -409,10 +539,15 @@
     "group": "sidereal",
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-4.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -420,120 +555,15 @@
     "group": "sidereal",
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-5.webp"
-    ]
-   },
-   {
-    "id": "sunrise-7-1",
-    "group": "sunrise-7",
-    "cat": "sunrise-7",
-    "title": "Sunrise 7",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/sunrise-7-1.webp"
-    ]
-   },
-   {
-    "id": "sunrise-7-2",
-    "group": "sunrise-7",
-    "cat": "sunrise-7",
-    "title": "Sunrise 7",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/sunrise-7-2.webp"
-    ]
-   },
-   {
-    "id": "sunrise-7-3",
-    "group": "sunrise-7",
-    "cat": "sunrise-7",
-    "title": "Sunrise 7",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/sunrise-7-3.webp"
-    ]
-   },
-   {
-    "id": "sunrise-7-4",
-    "group": "sunrise-7",
-    "cat": "sunrise-7",
-    "title": "Sunrise 7",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/sunrise-7-4.webp"
-    ]
-   },
-   {
-    "id": "sunrise-7-5",
-    "group": "sunrise-7",
-    "cat": "sunrise-7",
-    "title": "Sunrise 7",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/sunrise-7-5.webp"
-    ]
-   },
-   {
-    "id": "tears-fall-low-1",
-    "group": "tears-fall-low",
-    "cat": "tears-fall-low",
-    "title": "Tears Fall Low",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/tears-fall-low-1.webp"
-    ]
-   },
-   {
-    "id": "tears-fall-low-2",
-    "group": "tears-fall-low",
-    "cat": "tears-fall-low",
-    "title": "Tears Fall Low",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/tears-fall-low-2.webp"
-    ]
-   },
-   {
-    "id": "tears-fall-low-3",
-    "group": "tears-fall-low",
-    "cat": "tears-fall-low",
-    "title": "Tears Fall Low",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/tears-fall-low-3.webp"
-    ]
-   },
-   {
-    "id": "tears-fall-low-4",
-    "group": "tears-fall-low",
-    "cat": "tears-fall-low",
-    "title": "Tears Fall Low",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/tears-fall-low-4.webp"
-    ]
-   },
-   {
-    "id": "tears-fall-low-5",
-    "group": "tears-fall-low",
-    "cat": "tears-fall-low",
-    "title": "Tears Fall Low",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/environment/tears-fall-low-5.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -541,10 +571,15 @@
     "group": "nightsweeper",
     "cat": "nightsweeper",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Look dev for NIGHTSWEEPER's night world, built out of squares and cubes.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/nightsweeper-1.webp"
+    ],
+    "tags": [
+     "3D",
+     "Look dev",
+     "In development"
     ]
    },
    {
@@ -552,10 +587,15 @@
     "group": "nightsweeper",
     "cat": "nightsweeper",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Look dev for NIGHTSWEEPER's night world, built out of squares and cubes.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/nightsweeper-2.webp"
+    ],
+    "tags": [
+     "3D",
+     "Look dev",
+     "In development"
     ]
    },
    {
@@ -563,51 +603,235 @@
     "group": "nightsweeper",
     "cat": "nightsweeper",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Look dev for NIGHTSWEEPER's night world, built out of squares and cubes.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/nightsweeper-3.webp"
+    ],
+    "tags": [
+     "3D",
+     "Look dev",
+     "In development"
+    ]
+   },
+   {
+    "id": "sunrise-7-1",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "Light-based 2D areas, since you play a shadow running from the sunrise.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-1.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2020"
+    ]
+   },
+   {
+    "id": "sunrise-7-2",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "Light-based 2D areas, since you play a shadow running from the sunrise.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-2.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2020"
+    ]
+   },
+   {
+    "id": "sunrise-7-3",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "Light-based 2D areas, since you play a shadow running from the sunrise.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-3.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2020"
+    ]
+   },
+   {
+    "id": "sunrise-7-4",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "Light-based 2D areas, since you play a shadow running from the sunrise.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-4.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2020"
+    ]
+   },
+   {
+    "id": "sunrise-7-5",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "Light-based 2D areas, since you play a shadow running from the sunrise.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-5.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2020"
+    ]
+   },
+   {
+    "id": "tears-fall-low-1",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "Each area has its own look, on the way from the depths back up to the surface.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-1.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2023"
+    ]
+   },
+   {
+    "id": "tears-fall-low-2",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "Each area has its own look, on the way from the depths back up to the surface.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-2.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2023"
+    ]
+   },
+   {
+    "id": "tears-fall-low-3",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "Each area has its own look, on the way from the depths back up to the surface.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-3.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2023"
+    ]
+   },
+   {
+    "id": "tears-fall-low-4",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "Each area has its own look, on the way from the depths back up to the surface.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-4.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2023"
+    ]
+   },
+   {
+    "id": "tears-fall-low-5",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "Each area has its own look, on the way from the depths back up to the surface.",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-5.webp"
+    ],
+    "tags": [
+     "2D",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
     "id": "void-sky",
     "cat": "art",
     "title": "Void Sky",
-    "line": "",
+    "line": "Quick challenge painting.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/void-sky-1.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "2022"
     ]
    },
    {
     "id": "offering",
     "cat": "art",
     "title": "Offering",
-    "line": "",
+    "line": "Landscape painting practice.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/offering-1.webp"
+    ],
+    "tags": [
+     "Digital painting",
+     "Krita",
+     "2022"
     ]
    },
    {
     "id": "haemal-s-loom",
     "cat": "art",
     "title": "Haemal's Loom",
-    "line": "",
+    "line": "Concept painting over a 3D base.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/haemal-s-loom-1.webp"
+    ],
+    "tags": [
+     "Concept art",
+     "Blender, Krita",
+     "2024"
     ]
    },
    {
     "id": "bongo-bongo",
     "cat": "art",
     "title": "Bongo Bongo",
-    "line": "",
+    "line": "Fan art of the Bongo Bongo boss fight from Ocarina of Time.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/bongo-bongo-1.webp",
      "/images/portfolio/environment/bongo-bongo-2.webp"
+    ],
+    "tags": [
+     "Fan art",
+     "Krita",
+     "2022"
     ]
    },
    {
@@ -616,10 +840,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x1.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -628,10 +857,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x2.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -640,10 +874,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x3.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -652,10 +891,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x4.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -664,10 +908,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x5.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -676,10 +925,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x6.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -688,10 +942,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x7.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -700,10 +959,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x8.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -712,10 +976,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x9.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -724,10 +993,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x10.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -736,10 +1010,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x11.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    },
    {
@@ -748,10 +1027,15 @@
     "extra": true,
     "cat": "sidereal",
     "title": "Sidereal",
-    "line": "",
+    "line": "Sidereal has over 100 worlds, and each one was built to look distinct from the rest.",
     "text": "",
     "imgs": [
      "/images/portfolio/environment/sidereal-x12.webp"
+    ],
+    "tags": [
+     "3D",
+     "Released on Steam",
+     "2024"
     ]
    }
   ]
@@ -783,7 +1067,7 @@
      "bithunters-4",
      "nightsweeper-4"
     ],
-    "target": 215
+    "target": 250
    },
    {
     "id": "labs",
@@ -802,10 +1086,15 @@
     "group": "nightsweeper",
     "cat": "games",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Minesweeper rules, but with tools so the board doesn't come down to a pure guess, and hazards that keep the stakes up.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/nightsweeper-1.webp"
+    ],
+    "tags": [
+     "Puzzle",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -813,10 +1102,15 @@
     "group": "bithunters",
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-1.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -824,10 +1118,15 @@
     "group": "tears-fall-low",
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-1.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -835,10 +1134,15 @@
     "group": "sidereal",
     "cat": "games",
     "title": "Sidereal",
-    "line": "",
+    "line": "Exploration sandbox across 100 worlds, with hundreds of relics with fragments of the story.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sidereal-1.webp"
+    ],
+    "tags": [
+     "Exploration",
+     "Free on Steam",
+     "2024"
     ]
    },
    {
@@ -846,10 +1150,15 @@
     "group": "sunrise-7",
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-1.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -857,10 +1166,15 @@
     "group": "sunrise-7",
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-2.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -868,10 +1182,15 @@
     "group": "sidereal",
     "cat": "games",
     "title": "Sidereal",
-    "line": "",
+    "line": "Exploration sandbox across 100 worlds, with hundreds of relics with fragments of the story.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sidereal-2.webp"
+    ],
+    "tags": [
+     "Exploration",
+     "Free on Steam",
+     "2024"
     ]
    },
    {
@@ -879,10 +1198,15 @@
     "group": "tears-fall-low",
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-2.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -890,10 +1214,15 @@
     "group": "bithunters",
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-2.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -901,10 +1230,15 @@
     "group": "nightsweeper",
     "cat": "games",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Minesweeper rules, but with tools so the board doesn't come down to a pure guess, and hazards that keep the stakes up.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/nightsweeper-2.webp"
+    ],
+    "tags": [
+     "Puzzle",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -912,10 +1246,15 @@
     "group": "nightsweeper",
     "cat": "games",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Minesweeper rules, but with tools so the board doesn't come down to a pure guess, and hazards that keep the stakes up.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/nightsweeper-3.webp"
+    ],
+    "tags": [
+     "Puzzle",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -923,10 +1262,15 @@
     "group": "bithunters",
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-3.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -934,10 +1278,15 @@
     "group": "tears-fall-low",
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-3.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -945,10 +1294,15 @@
     "group": "sidereal",
     "cat": "games",
     "title": "Sidereal",
-    "line": "",
+    "line": "Exploration sandbox across 100 worlds, with hundreds of relics with fragments of the story.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sidereal-3.webp"
+    ],
+    "tags": [
+     "Exploration",
+     "Free on Steam",
+     "2024"
     ]
    },
    {
@@ -956,10 +1310,15 @@
     "group": "sunrise-7",
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-3.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -967,10 +1326,15 @@
     "group": "sunrise-7",
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-4.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -978,10 +1342,15 @@
     "group": "sidereal",
     "cat": "games",
     "title": "Sidereal",
-    "line": "",
+    "line": "Exploration sandbox across 100 worlds, with hundreds of relics with fragments of the story.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sidereal-4.webp"
+    ],
+    "tags": [
+     "Exploration",
+     "Free on Steam",
+     "2024"
     ]
    },
    {
@@ -989,10 +1358,15 @@
     "group": "tears-fall-low",
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-4.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -1000,10 +1374,15 @@
     "group": "bithunters",
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-4.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -1011,50 +1390,72 @@
     "group": "nightsweeper",
     "cat": "games",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Minesweeper rules, but with tools so the board doesn't come down to a pure guess, and hazards that keep the stakes up.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/nightsweeper-4.webp"
+    ],
+    "tags": [
+     "Puzzle",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
     "id": "level-paint",
     "cat": "labs",
     "title": "Level Paint",
-    "line": "",
+    "line": "Paint parts of a level with different generation styles, like rooms, caves and corridors, then edit it by hand.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/level-paint-1.webp"
+    ],
+    "tags": [
+     "Level generation",
+     "Prototype"
     ]
    },
    {
     "id": "grapple-feel",
     "cat": "labs",
     "title": "Grapple Feel",
-    "line": "",
+    "line": "Playable test for how a grapple feels, with a few swing styles to switch between.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/grapple-feel-1.webp"
+    ],
+    "tags": [
+     "Movement",
+     "Prototype"
     ]
    },
    {
     "id": "jump-feel",
     "cat": "labs",
     "title": "Jump Feel",
-    "line": "",
+    "line": "Small first-person course for tuning a double jump that boosts you forward.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/jump-feel-1.webp"
+    ],
+    "tags": [
+     "Movement",
+     "First person",
+     "Prototype"
     ]
    },
    {
     "id": "jump-arc",
     "cat": "labs",
     "title": "Jump Arc",
-    "line": "",
+    "line": "Tunes a jump's height, timing and fall speed, and draws the arc as you change them.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/jump-arc-1.webp"
+    ],
+    "tags": [
+     "Movement",
+     "Prototype"
     ]
    },
    {
@@ -1063,10 +1464,15 @@
     "extra": true,
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-x1.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -1075,10 +1481,15 @@
     "extra": true,
     "cat": "games",
     "title": "bithunters",
-    "line": "",
+    "line": "Single-player turn-based adventure, with incremental mechanics that build over the whole game.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/bithunters-x2.webp"
+    ],
+    "tags": [
+     "Turn-based",
+     "In development",
+     "Coming to Steam"
     ]
    },
    {
@@ -1087,10 +1498,15 @@
     "extra": true,
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-x1.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -1099,10 +1515,15 @@
     "extra": true,
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-x2.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -1111,10 +1532,15 @@
     "extra": true,
     "cat": "games",
     "title": "Tears Fall Low",
-    "line": "",
+    "line": "2D platformer where each area adds its own mechanics, and new abilities unlock as you climb.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/tears-fall-low-x3.webp"
+    ],
+    "tags": [
+     "Platformer",
+     "Released on Steam",
+     "2023"
     ]
    },
    {
@@ -1123,10 +1549,15 @@
     "extra": true,
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-x1.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -1135,10 +1566,15 @@
     "extra": true,
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-x2.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -1147,10 +1583,15 @@
     "extra": true,
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-x3.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -1159,10 +1600,15 @@
     "extra": true,
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-x4.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    },
    {
@@ -1171,10 +1617,15 @@
     "extra": true,
     "cat": "games",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Each run rearranges the areas and puzzles, and the shade you absorb buys abilities before the harder fights.",
     "text": "",
     "imgs": [
      "/images/portfolio/game-design/sunrise-7-x5.webp"
+    ],
+    "tags": [
+     "Action platformer",
+     "Released on Steam",
+     "2020"
     ]
    }
   ]
@@ -1232,80 +1683,112 @@
     "id": "font-map",
     "cat": "shell",
     "title": "Font Map",
-    "line": "",
+    "line": "Fonts mapped by how they look, with the picked one previewed in game menus, items and dialogue.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/font-map-1.webp"
+    ],
+    "tags": [
+     "Typography",
+     "D3"
     ]
    },
    {
     "id": "sound-layer",
     "cat": "shell",
     "title": "Sound Layer",
-    "line": "",
+    "line": "Builds a sound effect out of four layers, attack, body, tail and air, and rolls new variations to compare.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/sound-layer-1.webp"
+    ],
+    "tags": [
+     "Sound design",
+     "Web Audio"
     ]
    },
    {
     "id": "silhouettes",
     "cat": "shell",
     "title": "Silhouettes",
-    "line": "",
+    "line": "Checks animation poses as silhouettes and onion skins, and flags the pairs that read too alike.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/silhouettes-1.webp"
+    ],
+    "tags": [
+     "Animation",
+     "JavaScript"
     ]
    },
    {
     "id": "song-map",
     "cat": "shell",
     "title": "Song Map",
-    "line": "",
+    "line": "Shows an Ableton Live Set as tracks, sections and clips, and updates whenever the Set is saved.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/song-map-1.webp"
+    ],
+    "tags": [
+     "Music",
+     "Ableton"
     ]
    },
    {
     "id": "drum-map",
     "cat": "shell",
     "title": "Drum Map",
-    "line": "",
+    "line": "Drum samples plotted by length and brightness, so similar sounds sit near each other.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/drum-map-1.webp"
+    ],
+    "tags": [
+     "Music",
+     "D3"
     ]
    },
    {
     "id": "stem-mixer",
     "cat": "shell",
     "title": "Stem Mixer",
-    "line": "",
+    "line": "Plays a song's stems in sync, with mute, solo and level for each one.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/stem-mixer-1.webp"
+    ],
+    "tags": [
+     "Music",
+     "Web Audio"
     ]
    },
    {
     "id": "face-markers",
     "cat": "shell",
     "title": "Face Markers",
-    "line": "",
+    "line": "Places face landmarks on front and side renders, for building facial shapes.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/face-markers-1.webp"
+    ],
+    "tags": [
+     "3D characters",
+     "JavaScript"
     ]
    },
    {
     "id": "song-shape",
     "cat": "shell",
     "title": "Song Shape",
-    "line": "",
+    "line": "Shows a song's arrangement, with each track's rhythm patterns and note range across its sections.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/song-shape-1.webp"
+    ],
+    "tags": [
+     "Music",
+     "MIDI"
     ]
    },
    {
@@ -1313,10 +1796,15 @@
     "group": "r7-shell",
     "cat": "agent",
     "title": "r7-Shell",
-    "line": "",
+    "line": "My own terminal for running agents, with apps and pictures drawn right inside the replies.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/r7-shell-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Electron",
+     "On GitHub"
     ]
    },
    {
@@ -1324,10 +1812,15 @@
     "group": "r7-shell",
     "cat": "agent",
     "title": "r7-Shell",
-    "line": "",
+    "line": "My own terminal for running agents, with apps and pictures drawn right inside the replies.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/r7-shell-2.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Electron",
+     "On GitHub"
     ]
    },
    {
@@ -1335,10 +1828,15 @@
     "group": "r7os",
     "cat": "agent",
     "title": "R7OS",
-    "line": "",
+    "line": "My own Arch-based Linux desktop, with its own Wayland compositor and system apps.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/r7os-1.gif"
+    ],
+    "tags": [
+     "Linux",
+     "Rust",
+     "In development"
     ]
    },
    {
@@ -1346,92 +1844,132 @@
     "group": "r7os",
     "cat": "agent",
     "title": "R7OS",
-    "line": "",
+    "line": "My own Arch-based Linux desktop, with its own Wayland compositor and system apps.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/r7os-2.webp"
+    ],
+    "tags": [
+     "Linux",
+     "Rust",
+     "In development"
     ]
    },
    {
     "id": "board-studio",
     "cat": "desk",
     "title": "Board Studio",
-    "line": "",
+    "line": "Desktop board for collecting references and organizing projects, with text, images, links, audio, video and 3D models.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/board-studio-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Electron",
+     "On GitHub"
     ]
    },
    {
     "id": "paint-studio",
     "cat": "desk",
     "title": "Paint Studio",
-    "line": "",
+    "line": "Painting app I use for quick edits, thumbnails and rough concepts.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/paint-studio-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Python",
+     "On GitHub"
     ]
    },
    {
     "id": "r7-eq",
     "cat": "desk",
     "title": "r7-EQ",
-    "line": "",
+    "line": "Custom EQ app for Equalizer APO, with a compressor and a profile for each playback device.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/r7-eq-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Python, C++",
+     "On GitHub"
     ]
    },
    {
     "id": "midijam",
     "cat": "desk",
     "title": "MIDIJam",
-    "line": "",
+    "line": "Play and record a MIDI keyboard with any General MIDI instrument, outside Ableton.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/midijam-1.webp"
+    ],
+    "tags": [
+     "Music",
+     "Desktop app"
     ]
    },
    {
     "id": "sidereal",
     "cat": "game",
     "title": "Sidereal",
-    "line": "",
+    "line": "Dark, almost analog interface, for an otherworldly, evil feel.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/sidereal-1.webp"
+    ],
+    "tags": [
+     "Game UI",
+     "Released on Steam"
     ]
    },
    {
     "id": "sunrise-7",
     "cat": "game",
     "title": "Sunrise 7",
-    "line": "",
+    "line": "Pixel art style interface, to fit a light-based adventure.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/sunrise-7-1.webp",
      "/images/portfolio/ux-ui/sunrise-7-2.webp"
+    ],
+    "tags": [
+     "Game UI",
+     "Released on Steam"
     ]
    },
    {
     "id": "nightsweeper",
     "cat": "game",
     "title": "NIGHTSWEEPER",
-    "line": "",
+    "line": "Designed so the gameplay matches the characters' themes.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/nightsweeper-1.webp",
      "/images/portfolio/ux-ui/nightsweeper-2.webp"
+    ],
+    "tags": [
+     "Game UI",
+     "In development"
     ]
    },
    {
     "id": "bithunters",
     "cat": "game",
     "title": "bithunters",
-    "line": "",
+    "line": "The whole game plays on a damaged arcade machine's screen, in a distorted retro style with vector art.",
     "text": "",
     "imgs": [
      "/images/portfolio/ux-ui/bithunters-1.webp"
+    ],
+    "tags": [
+     "Game UI",
+     "In development"
     ]
    }
   ]
@@ -1475,11 +2013,15 @@
     "id": "look-dev",
     "cat": "engine",
     "title": "Look Dev",
-    "line": "",
+    "line": "Sandbox on MAZE, my custom engine, for tuning one asset's look, shape or pose with sliders before it goes into a game.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/look-dev-1.webp",
      "/images/portfolio/engine-tooling/look-dev-2.webp"
+    ],
+    "tags": [
+     "Custom engine",
+     "Look dev"
     ]
    },
    {
@@ -1487,10 +2029,14 @@
     "group": "maze-editor",
     "cat": "engine",
     "title": "MAZE editor",
-    "line": "",
+    "line": "Editor for MAZE, my custom engine, with its own scripting language that compiles down to bytecode or native code.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/maze-editor-1.webp"
+    ],
+    "tags": [
+     "Custom engine",
+     "C++"
     ]
    },
    {
@@ -1498,10 +2044,14 @@
     "group": "maze-editor",
     "cat": "engine",
     "title": "MAZE editor",
-    "line": "",
+    "line": "Editor for MAZE, my custom engine, with its own scripting language that compiles down to bytecode or native code.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/maze-editor-2.webp"
+    ],
+    "tags": [
+     "Custom engine",
+     "C++"
     ]
    },
    {
@@ -1509,10 +2059,14 @@
     "group": "maze-editor",
     "cat": "engine",
     "title": "MAZE editor",
-    "line": "",
+    "line": "Editor for MAZE, my custom engine, with its own scripting language that compiles down to bytecode or native code.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/maze-editor-3.webp"
+    ],
+    "tags": [
+     "Custom engine",
+     "C++"
     ]
    },
    {
@@ -1520,90 +2074,130 @@
     "group": "maze-editor",
     "cat": "engine",
     "title": "MAZE editor",
-    "line": "",
+    "line": "Editor for MAZE, my custom engine, with its own scripting language that compiles down to bytecode or native code.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/maze-editor-4.webp"
+    ],
+    "tags": [
+     "Custom engine",
+     "C++"
     ]
    },
    {
     "id": "engine-river",
     "cat": "engine",
     "title": "Engine River",
-    "line": "",
+    "line": "The engine's Git history as streams, each as wide as that day's commits to that part of the engine.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/engine-river-1.webp"
+    ],
+    "tags": [
+     "Data visualization",
+     "D3"
     ]
    },
    {
     "id": "r7-viewer",
     "cat": "desk",
     "title": "r7-Viewer",
-    "line": "",
+    "line": "Image and video viewer with zoom, side-by-side compare and a color picker.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/r7-viewer-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Rust"
     ]
    },
    {
     "id": "3d-viewer",
     "cat": "desk",
     "title": "3D Viewer",
-    "line": "",
+    "line": "Small viewer for quickly checking a model's lighting, textures and topology.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/3d-viewer-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Python, Three.js",
+     "On GitHub"
     ]
    },
    {
     "id": "board-studio",
     "cat": "desk",
     "title": "Board Studio",
-    "line": "",
+    "line": "Boards have a built-in terminal and command line, so scripts and agents can build and edit them.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/board-studio-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Electron",
+     "On GitHub"
     ]
    },
    {
     "id": "r7-shell",
     "cat": "agent",
     "title": "r7-Shell",
-    "line": "",
+    "line": "Terminal made for running coding agents in WSL, with sessions that keep running in the background.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/r7-shell-1.webp"
+    ],
+    "tags": [
+     "Desktop app",
+     "Electron",
+     "On GitHub"
     ]
    },
    {
     "id": "r7os",
     "cat": "agent",
     "title": "R7OS",
-    "line": "",
+    "line": "Linux desktop I'm building from the compositor up, in Rust.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/r7os-1.gif"
+    ],
+    "tags": [
+     "Linux",
+     "Rust",
+     "In development"
     ]
    },
    {
     "id": "setup",
     "cat": "agent",
     "title": "Setup",
-    "line": "",
+    "line": "Live view of what's using the PC, ranked by CPU, GPU and RAM.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/setup-1.webp"
+    ],
+    "tags": [
+     "Monitoring",
+     "JavaScript"
     ]
    },
    {
     "id": "memory-map",
     "cat": "agent",
     "title": "Memory Map",
-    "line": "",
+    "line": "Every running program sized by how much memory it uses, grouped by kind.",
     "text": "",
     "imgs": [
      "/images/portfolio/engine-tooling/memory-map-1.webp"
+    ],
+    "tags": [
+     "Monitoring",
+     "D3"
     ]
    }
   ]

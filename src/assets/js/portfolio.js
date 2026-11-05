@@ -260,7 +260,7 @@ function initWalls(data) {
     return bounded.length ? bounded : results.filter((r) => r.spread <= smallest * 1.02);
   }
 
-  function sizeHero(box, w) {
+  function sizeHero(box, w, loose) {
     const style = getComputedStyle(box), viewStyle = getComputedStyle(viewer), m = w.imgs[k], ratio = m.w / m.h;
     const frameX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight)
       + parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
@@ -268,8 +268,9 @@ function initWalls(data) {
       + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
     const full = Math.min(1800, viewer.clientWidth - parseFloat(viewStyle.paddingLeft)
       - parseFloat(viewStyle.paddingRight)) - frameX;
-    const available = viewer.clientHeight - parseFloat(viewStyle.paddingTop) - parseFloat(viewStyle.paddingBottom) - frameY;
-    const title = $('.pictures h3', box), collage = $('.collage', box), space = parseFloat(style.columnGap);
+    const line = $(':scope > .cap', box), available = viewer.clientHeight - parseFloat(viewStyle.paddingTop) - parseFloat(viewStyle.paddingBottom) - frameY
+      - (line ? line.getBoundingClientRect().height + parseFloat(style.rowGap) : 0);
+    const title = $('.head', box), collage = $('.collage', box), space = parseFloat(style.columnGap);
     const heading = () => title.getBoundingClientRect().height + parseFloat(getComputedStyle(title).marginBottom);
     if (!collage) {
       let hw = Math.min(full, m.w), hh = hw / ratio;
@@ -306,7 +307,7 @@ function initWalls(data) {
       placePictures(collage, best.packed.rects);
       return;
     }
-    const total = full - space, maxHeight = Math.min(available, m.h);
+    const total = full - space, maxHeight = loose ? available : Math.min(available, m.h);
     let rightWidth = Math.min(maxHeight * .85, total / (ratio / .85 + 1)), chosen = saved;
     box.style.setProperty('--pictures-width', `${rightWidth}px`);
     // A wrapped title changes the packing height, so measure it again at the chosen width.
@@ -326,6 +327,7 @@ function initWalls(data) {
           * (rw < stageHeight * .95 ? 1 : .15) * (rw < stageHeight * ratio ? 1 : .4) * candidate.quality;
         if (!best || score > best.score) { best = { candidate, packed, rw, stageHeight, score }; }
       }
+      if (!best) return false;
       chosen = best.candidate;
       mosaics.set(key, chosen);
       rightWidth = best.rw;
@@ -353,7 +355,44 @@ function initWalls(data) {
       `<button class="thumb" data-k="${n}" aria-pressed="${n === 0}" aria-label="${m.type === 'sketchfab' ? '3D model' : 'Picture'} ${n + 1} of ${w.imgs.length}"><img src="${m.src}"${m.srcset ? ` srcset="${m.srcset}"` : ''} sizes="160px" alt="" draggable="false">${m.type === 'sketchfab' ? '<span aria-hidden="true" style="position:absolute;left:6px;bottom:6px;padding:2px 5px;background:#09090bdd;border:1px solid #ffffff35;border-radius:2px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.04em;pointer-events:none">3D</span>' : ''}</button>`).join('')}</div>`;
     return `<button class="close" aria-label="Close project" title="Close · Esc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
       <div class="stage"><div class="hero">${media(w.imgs[0], w.title)}</div></div>
-      <div class="pictures"><h3></h3>${collage}</div>`;
+      <div class="pictures"><div class="head"><h3></h3></div>${collage}</div>`;
+  }
+
+  // Caption beside the name; when there's no room, tags beside the name and the line below it.
+  // Single pictures put it in one line along the top instead of the name.
+  function caption(box, w, mode) {
+    const head = $('.head', box);
+    head.className = `head ${mode}`;
+    $('.cap', head)?.remove();
+    head.insertAdjacentHTML('beforeend', `<div class="cap"><p>${w.line}</p><div class="tags">${w.tags.map((t) => `<span>${t}</span>`).join('')}</div></div>`);
+  }
+
+  function captionFits(box, mode) {
+    const x = $('.close', box).getBoundingClientRect().left, p = $('.cap p', box), tags = $('.tags', box).getBoundingClientRect(), name = $('h3', box).getBoundingClientRect();
+    if (mode === 'bar') return p.scrollWidth <= p.clientWidth + 1 && tags.right <= x - 8;
+    if (mode === 'beside') return $('.cap', box).getBoundingClientRect().width >= 300 && tags.right <= x - 8;
+    if (mode === 'narrow') return tags.top < name.bottom && tags.right <= x - 12;
+    return true;
+  }
+
+  function fitCaption(box, w) {
+    box.classList.remove('topline');
+    $(':scope > .cap', box)?.remove();
+    if (!w.line) { sizeHero(box, w); return; }
+    const modes = phone() ? ['narrow', 'under'] : box.classList.contains('single') ? ['bar', 'narrow', 'under'] : ['beside', 'narrow', 'under'];
+    // a short wide picture can leave no room for the caption beside its pictures, so then the frame may grow past it
+    for (const loose of [false, true]) {
+      for (const mode of modes) {
+        caption(box, w, mode);
+        if (sizeHero(box, w, loose) !== false && captionFits(box, mode)) return;
+      }
+    }
+    // a very wide, short picture beside its others leaves no room by the name, so the line goes across the top instead
+    $('.cap', box).remove();
+    $('.head', box).className = 'head';
+    box.classList.add('topline');
+    box.insertAdjacentHTML('afterbegin', `<div class="cap"><p>${w.line}</p><div class="tags">${w.tags.map((t) => `<span>${t}</span>`).join('')}</div></div>`);
+    sizeHero(box, w);
   }
 
   // Keep the old picture visible until the selected picture can draw.
@@ -366,7 +405,7 @@ function initWalls(data) {
     for (const child of [...hero.children]) { if (child !== old) { child.remove(); } }
     const from = dir > 0 ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)', oldShape = w.imgs[k];
     k = nk;
-    sizeHero(box, w);
+    fitCaption(box, w);
     $$('.thumb', box).forEach((t, i) => t.setAttribute('aria-pressed', String(i === k)));
     // embeds and clips only load once they're in the page, so they wait there hidden
     const ready = next.tagName === 'IFRAME' || next.tagName === 'VIDEO' ? new Promise((done) => {
@@ -409,7 +448,7 @@ function initWalls(data) {
     box.classList.toggle('single', w.imgs.length === 1);
     box.innerHTML = projectHtml(w);
     $('.pictures h3', box).textContent = w.title;
-    sizeHero(box, w);
+    fitCaption(box, w);
     $('.close', box).addEventListener('click', closeProject);
     $$('.thumb', box).forEach((t) => t.addEventListener('click', () => show(+t.dataset.k)));
     history.replaceState(null, '', '#' + id);
@@ -468,13 +507,13 @@ function initWalls(data) {
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
-  document.fonts.ready.then(() => { if (viewer) sizeHero($('.box', viewer), works[current]); });
+  document.fonts.ready.then(() => { if (viewer) fitCaption($('.box', viewer), works[current]); });
   let wait;
   addEventListener('resize', () => {
     clearTimeout(wait);
     wait = setTimeout(() => {
       if (innerWidth !== width) layout();
-      if (viewer) sizeHero($('.box', viewer), works[current]);
+      if (viewer) fitCaption($('.box', viewer), works[current]);
     }, 150);
   });
   const start = location.hash.slice(1);
