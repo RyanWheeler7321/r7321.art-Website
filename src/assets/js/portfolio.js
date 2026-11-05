@@ -375,7 +375,20 @@ function initWalls(data) {
     return true;
   }
 
+  // Fits measure the settled layout with the glide off, then glide from the old sizes to the new ones.
   function fitCaption(box, w) {
+    if (!box.classList.contains('live')) { fitNow(box, w); return; }
+    const parts = () => [box, ...$$('.collage, .thumb', box)], before = parts().map((e) => e.style.cssText);
+    box.classList.remove('live');
+    fitNow(box, w);
+    const after = parts().map((e) => e.style.cssText);
+    parts().forEach((e, i) => { e.style.cssText = before[i]; });
+    box.getBoundingClientRect();
+    box.classList.add('live');
+    parts().forEach((e, i) => { e.style.cssText = after[i]; });
+  }
+
+  function fitNow(box, w) {
     box.classList.remove('topline');
     $(':scope > .cap', box)?.remove();
     if (!w.line) { sizeHero(box, w); return; }
