@@ -1,0 +1,22 @@
+---
+layout: layouts/portfolio.njk
+title: Portfolio
+home: true
+description: Characters, environments, games, UI and engine tools I've made.
+permalink: /portfolio/
+eleventyExcludeFromCollections: true
+---
+<div class="hub">
+{% for s in portfolio.sections %}{% set k = s.url.split("/")[2] %}{% set titles = [] %}
+{% for w in folio[k].works %}{% if titles.indexOf(w.title) < 0 %}{% set _ = titles.push(w.title) %}{% endif %}{% endfor %}
+  <a class="slat" href="{{ s.url }}" style="--i: {{ loop.index0 }}">
+    <div class="top"><small>0{{ loop.index }}</small><h2>{{ s.name }}</h2><p>{{ titles | join(" · ") }}</p></div>
+    <div class="pics"{% if k == "ux-ui" or k == "engine-tooling" %} data-free{% endif %}>
+    {% for src in portfolio.home[k] %}{% set m = src | mediaInfo %}{% set alts = [] %}
+    {% for w in folio[k].works %}{% if src in w.imgs %}{% set _ = alts.push(w.title) %}{% endif %}{% endfor %}{% set alt = alts[0] %}
+      <div class="pic" data-w="{{ m.w }}" data-h="{{ m.h }}"><img src="{{ m.src }}" srcset="{{ m.srcset }}" sizes="(max-width: 760px) 100vw, 30vw" width="{{ m.w }}" height="{{ m.h }}" alt="{{ alt }}" decoding="async"{% if loop.index > 2 %} fetchpriority="low"{% endif %}><span>{{ alt }}</span></div>
+    {% endfor %}
+    </div>
+  </a>
+{% endfor %}
+</div>

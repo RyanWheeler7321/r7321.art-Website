@@ -26,5 +26,37 @@
       "url": "/portfolio/engine-tooling/",
       "icon": "<path d=\"M8 1.4 14 4.7v6.6L8 14.6 2 11.3V4.7z\"/><path d=\"M2 4.7l6 3.3 6-3.3M8 8v6.6\"/>"
     }
-  ]
+  ],
+  "home": {
+    "character": [
+      "/images/portfolio/character/mishu-1.webp",
+      "/images/portfolio/character/ptayah-1.webp",
+      "/images/portfolio/character/veyn-1.webp",
+      "/images/portfolio/character/penny-1.webp"
+    ],
+    "environment": [
+      "/images/portfolio/environment/sidereal-3.webp",
+      "/images/portfolio/environment/nightsweeper-1.webp",
+      "/images/portfolio/environment/sunrise-7-3.webp",
+      "/images/portfolio/environment/tears-fall-low-2.webp"
+    ],
+    "game-design": [
+      "/images/portfolio/game-design/nightsweeper-1.webp",
+      "/images/portfolio/game-design/tears-fall-low-1.webp",
+      "/images/portfolio/game-design/bithunters-3.webp",
+      "/images/portfolio/game-design/sidereal-3.webp"
+    ],
+    "ux-ui": [
+      "/images/portfolio/ux-ui/font-map-1.webp",
+      "/images/portfolio/ux-ui/r7-shell-2.webp",
+      "/images/portfolio/ux-ui/r7os-2.webp",
+      "/images/portfolio/ux-ui/midijam-1.webp"
+    ],
+    "engine-tooling": [
+      "/images/portfolio/engine-tooling/maze-editor-1.webp",
+      "/images/portfolio/engine-tooling/look-dev-1.webp",
+      "/images/portfolio/engine-tooling/engine-river-1.webp",
+      "/images/portfolio/engine-tooling/maze-editor-4.webp"
+    ]
+  }
 }

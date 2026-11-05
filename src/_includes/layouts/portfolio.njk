@@ -14,12 +14,13 @@
     rel="stylesheet"
   >
   <link rel="stylesheet" href="/assets/css/portfolio.css?v={{ site.assetVersion }}">
+  {% if home %}<link rel="stylesheet" href="/assets/css/portfolio-home.css?v={{ site.assetVersion }}">{% endif %}
 </head>
-<body>
+<body{% if home %} class="home"{% endif %}>
   <div class="backdrop" aria-hidden="true"><i></i><b class="glow"></b></div>
 
   <header class="top-bar">
-    <span class="name">Ryan Wheeler</span>
+    <a class="name" href="/portfolio/">Ryan Wheeler</a>
     <nav class="sections">
       <i class="light"></i>
       {% for s in portfolio.sections %}
@@ -40,5 +41,6 @@
   </main>
 
   <script src="/assets/js/portfolio.js?v={{ site.assetVersion }}"></script>
+  {% if home %}<script src="/assets/js/portfolio-home.js?v={{ site.assetVersion }}"></script>{% endif %}
 </body>
 </html>
