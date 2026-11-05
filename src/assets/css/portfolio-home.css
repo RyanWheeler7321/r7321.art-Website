@@ -27,7 +27,7 @@ body.home main { flex: 1; min-height: 0; display: flex; }
 .pic:hover { outline-color: #ff5cbf; }
 .pic:hover img { transform: scale(1.045); }
 .hub.wipe .pic:not(.shown) img { opacity: 0; }
-.pic.wiping img { transform: none; }
+.pic.wiping img { transform: none; transition: filter .4s; }
 .pic span { position: absolute; left: 8px; top: 8px; padding: 3px 8px; font: 600 12px 'Space Grotesk'; background: #08070bdd; border: 1px solid #ffffff22;
   opacity: 0; transform: translateY(-4px); transition: opacity .15s, transform .15s; }
 .pic:hover span { opacity: 1; transform: none; }
