@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Ryan Wheeler</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="/assets/css/portfolio.css?v={{ site.assetVersion }}">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"><i></i><b class="glow"></b></div>
+
+  <header class="top-bar">
+    <span class="name">Ryan Wheeler</span>
+    <nav class="sections">
+      <i class="light"></i>
+      {% for s in portfolio.sections %}
+        {% if s.url %}
+          <a href="{{ s.url }}" class="{% if s.name == section %}on{% endif %}" aria-label="{{ s.name }}">
+            <svg viewBox="0 0 16 16" aria-hidden="true">{{ s.icon | safe }}</svg><span>{{ s.name }}</span>
+          </a>
+        {% else %}
+          <span class="soon"><svg viewBox="0 0 16 16" aria-hidden="true">{{ s.icon | safe }}</svg><span>{{ s.name }}</span></span>
+        {% endif %}
+      {% endfor %}
+    </nav>
+    <a class="resume" href="{{ portfolio.resume }}" download>Resume</a>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <script src="/assets/js/portfolio.js?v={{ site.assetVersion }}"></script>
+</body>
+</html>

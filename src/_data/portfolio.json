@@ -1,0 +1,30 @@
+{
+  "resume": "/files/ryan-wheeler-resume.pdf",
+  "sections": [
+    {
+      "name": "Character",
+      "url": "/portfolio/character/",
+      "icon": "<circle cx=\"8\" cy=\"4.8\" r=\"2.8\"/><path d=\"M2.6 15c.7-3.5 2.8-5.2 5.4-5.2s4.7 1.7 5.4 5.2\"/>"
+    },
+    {
+      "name": "Environment",
+      "url": "/portfolio/environment/",
+      "icon": "<path d=\"M.8 14.2 5.6 6.4l3.1 4.7 2-2.6 4.5 5.7z\"/><circle cx=\"12\" cy=\"3.6\" r=\"1.7\"/>"
+    },
+    {
+      "name": "Game Design",
+      "url": "/portfolio/game-design/",
+      "icon": "<rect x=\"2\" y=\"2\" width=\"12\" height=\"12\" rx=\"2.6\"/><circle cx=\"5.4\" cy=\"5.4\" r=\".9\" fill=\"currentColor\"/><circle cx=\"10.6\" cy=\"10.6\" r=\".9\" fill=\"currentColor\"/><circle cx=\"8\" cy=\"8\" r=\".9\" fill=\"currentColor\"/>"
+    },
+    {
+      "name": "UX/UI",
+      "url": "/portfolio/ux-ui/",
+      "icon": "<rect x=\"1.4\" y=\"2.4\" width=\"13.2\" height=\"10.4\" rx=\"1.6\"/><path d=\"M1.4 5.4h13.2\"/><path d=\"M8.6 7.6v6.6l1.6-1.5 1.4 2.6 1.1-.6-1.4-2.5h2.2z\" fill=\"currentColor\"/>"
+    },
+    {
+      "name": "Game Engine & Tooling",
+      "url": "/portfolio/engine-tooling/",
+      "icon": "<path d=\"M8 1.4 14 4.7v6.6L8 14.6 2 11.3V4.7z\"/><path d=\"M2 4.7l6 3.3 6-3.3M8 8v6.6\"/>"
+    }
+  ]
+}

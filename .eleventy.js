@@ -109,6 +109,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/generated/media": "generated/media" });
   eleventyConfig.addPassthroughCopy({ "src/_server/_headers": "_headers" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.ico": "favicon.ico" });
+  eleventyConfig.addPassthroughCopy({ "src/files": "files" });
 
   const md = markdownIt({
     html: true,
@@ -121,6 +122,29 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("slugify", slugify);
   eleventyConfig.addFilter("displayTags", getDisplayTags);
   eleventyConfig.addFilter("optimizedImage", bestImageUrl);
+  // Image sizes and urls for pages that lay out pictures in the browser
+  function mediaInfo(src = "") {
+    if (src.startsWith("sketchfab:")) {  // "sketchfab:<uid>|<poster>": a live 3D viewer with its poster as the thumbnail
+      const [uid, poster] = src.slice(10).split("|");
+      return { ...mediaInfo(poster), type: "sketchfab", uid };
+    }
+    const meta = getMediaMeta(src);
+    if (meta.type === "loop") {
+      return { type: "loop", src: meta.poster.url, video: meta.videos[meta.videos.length - 1].url, w: meta.width, h: meta.height };
+    }
+    return {
+      type: "still",
+      src: meta.images[meta.images.length - 1].url,
+      srcset: meta.images.map((image) => `${image.url} ${image.width}w`).join(", "),
+      w: meta.width,
+      h: meta.height
+    };
+  }
+  eleventyConfig.addFilter("mediaInfo", mediaInfo);
+  // The first still picture, so a GIF never ends up as a blurry poster on the wall
+  eleventyConfig.addFilter("coverInfo", (srcs = []) =>
+    srcs.map(mediaInfo).find((info) => info.type === "still") || mediaInfo(srcs[0])
+  );
   eleventyConfig.addFilter("findBySlug", (items = [], slug = "") =>
     items.find((item) => item.data.slug === slug)
   );

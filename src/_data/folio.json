@@ -1,0 +1,1611 @@
+{
+ "character": {
+  "cats": [
+   {
+    "id": "3d",
+    "name": "3D characters",
+    "works": [
+     "mishu",
+     "ptayah",
+     "veyn",
+     "penny",
+     "lord-valren",
+     "nightsweeper",
+     "greyface",
+     "serithor",
+     "strego",
+     "meylin"
+    ],
+    "target": 420
+   },
+   {
+    "id": "2d",
+    "name": "2D characters",
+    "works": [
+     "chewed-up",
+     "egstg",
+     "uozzilvan",
+     "jt6sr",
+     "stretch",
+     "dark-mistress",
+     "sunfell",
+     "loss-and-despair",
+     "a-m",
+     "p-m",
+     "r-p",
+     "bongo-bongo",
+     "fast",
+     "mat-doodling"
+    ]
+   }
+  ],
+  "works": [
+   {
+    "id": "mishu",
+    "cat": "3d",
+    "title": "Mishu",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/mishu-1.webp",
+     "sketchfab:d81f585fe0e04869a8943f7bed423647|/images/portfolio/character/mishu-2.webp",
+     "/images/portfolio/character/mishu-3.webp",
+     "/images/portfolio/character/mishu-4.webp",
+     "/images/portfolio/character/mishu-5.webp"
+    ]
+   },
+   {
+    "id": "ptayah",
+    "cat": "3d",
+    "title": "Ptayah",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/ptayah-1.webp",
+     "sketchfab:d5a16c2f5724478c8eeb030e671d6ba0|/images/portfolio/character/ptayah-2.webp",
+     "/images/portfolio/character/ptayah-3.webp",
+     "/images/portfolio/character/ptayah-4.webp",
+     "/images/portfolio/character/ptayah-5.webp",
+     "/images/portfolio/character/ptayah-6.webp",
+     "/images/portfolio/character/ptayah-7.webp"
+    ]
+   },
+   {
+    "id": "veyn",
+    "cat": "3d",
+    "title": "Veyn",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/veyn-1.webp",
+     "sketchfab:a0e32994e046478ea77c8bddc66d9fea|/images/portfolio/character/veyn-2.webp",
+     "/images/portfolio/character/veyn-3.webp",
+     "/images/portfolio/character/veyn-4.webp",
+     "/images/portfolio/character/veyn-5.webp",
+     "/images/portfolio/character/veyn-6.webp",
+     "/images/portfolio/character/veyn-7.webp",
+     "/images/portfolio/character/veyn-8.webp",
+     "/images/portfolio/character/veyn-9.webp",
+     "/images/portfolio/character/veyn-10.webp"
+    ]
+   },
+   {
+    "id": "penny",
+    "cat": "3d",
+    "title": "Penny",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/penny-1.webp",
+     "sketchfab:3b051e35b7d1458d8d57034d9a74e941|/images/portfolio/character/penny-2.webp",
+     "/images/portfolio/character/penny-3.webp"
+    ]
+   },
+   {
+    "id": "lord-valren",
+    "cat": "3d",
+    "title": "Lord Valren",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/lord-valren-1.webp",
+     "sketchfab:fc8b5945c3034367852f76c71fbb1098|/images/portfolio/character/lord-valren-2.webp",
+     "/images/portfolio/character/lord-valren-3.webp",
+     "/images/portfolio/character/lord-valren-4.webp",
+     "/images/portfolio/character/lord-valren-5.webp",
+     "/images/portfolio/character/lord-valren-6.webp",
+     "/images/portfolio/character/lord-valren-7.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper",
+    "cat": "3d",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/nightsweeper-1.webp"
+    ]
+   },
+   {
+    "id": "greyface",
+    "cat": "3d",
+    "title": "Greyface",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/greyface-1.webp",
+     "sketchfab:19902070311f46dbbb9335a5d26b0a7b|/images/portfolio/character/greyface-2.webp",
+     "/images/portfolio/character/greyface-3.webp"
+    ]
+   },
+   {
+    "id": "serithor",
+    "cat": "3d",
+    "title": "Serithor",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/serithor-1.webp",
+     "sketchfab:12945213fb8c40bd92e2286b608a31ca|/images/portfolio/character/serithor-2.webp",
+     "/images/portfolio/character/serithor-3.webp"
+    ]
+   },
+   {
+    "id": "strego",
+    "cat": "3d",
+    "title": "Strego",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/strego-1.webp",
+     "sketchfab:b8d1fe1fff424c9b89f8b0bbd006dc50|/images/portfolio/character/strego-2.webp",
+     "/images/portfolio/character/strego-3.webp"
+    ]
+   },
+   {
+    "id": "meylin",
+    "cat": "3d",
+    "title": "Meylin",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/meylin-1.webp",
+     "sketchfab:e0372f2e7ad3472b9d140aea7db1bc74|/images/portfolio/character/meylin-2.webp",
+     "/images/portfolio/character/meylin-3.webp"
+    ]
+   },
+   {
+    "id": "chewed-up",
+    "cat": "2d",
+    "title": "Chewed Up",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/chewed-up-1.webp",
+     "/images/portfolio/character/chewed-up-2.webp"
+    ]
+   },
+   {
+    "id": "egstg",
+    "cat": "2d",
+    "title": "Egstg",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/egstg-1.webp",
+     "/images/portfolio/character/egstg-2.webp"
+    ]
+   },
+   {
+    "id": "uozzilvan",
+    "cat": "2d",
+    "title": "Uozzilvan",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/uozzilvan-1.webp",
+     "/images/portfolio/character/uozzilvan-2.webp"
+    ]
+   },
+   {
+    "id": "jt6sr",
+    "cat": "2d",
+    "title": "jt6sr",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/jt6sr-1.webp",
+     "/images/portfolio/character/jt6sr-2.webp"
+    ]
+   },
+   {
+    "id": "stretch",
+    "cat": "2d",
+    "title": "Stretch",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/stretch-1.webp"
+    ]
+   },
+   {
+    "id": "dark-mistress",
+    "cat": "2d",
+    "title": "Dark Mistress",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/dark-mistress-1.webp",
+     "/images/portfolio/character/dark-mistress-2.webp"
+    ]
+   },
+   {
+    "id": "sunfell",
+    "cat": "2d",
+    "title": "Sunfell",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/sunfell-1.webp",
+     "/images/portfolio/character/sunfell-2.webp"
+    ]
+   },
+   {
+    "id": "loss-and-despair",
+    "cat": "2d",
+    "title": "Loss and Despair",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/loss-and-despair-1.webp",
+     "/images/portfolio/character/loss-and-despair-2.webp"
+    ]
+   },
+   {
+    "id": "a-m",
+    "cat": "2d",
+    "title": "A.M.",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/a-m-1.webp",
+     "/images/portfolio/character/a-m-2.webp"
+    ]
+   },
+   {
+    "id": "p-m",
+    "cat": "2d",
+    "title": "P.M.",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/p-m-1.webp"
+    ]
+   },
+   {
+    "id": "r-p",
+    "cat": "2d",
+    "title": "R.P.",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/r-p-1.webp",
+     "/images/portfolio/character/r-p-2.webp"
+    ]
+   },
+   {
+    "id": "bongo-bongo",
+    "cat": "2d",
+    "title": "Bongo Bongo",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/bongo-bongo-1.webp",
+     "/images/portfolio/character/bongo-bongo-2.webp"
+    ]
+   },
+   {
+    "id": "fast",
+    "cat": "2d",
+    "title": "Fast",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/fast-1.webp"
+    ]
+   },
+   {
+    "id": "mat-doodling",
+    "cat": "2d",
+    "title": "Mat Doodling",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/character/mat-doodling-1.webp"
+    ]
+   }
+  ]
+ },
+ "environment": {
+  "cats": [
+   {
+    "id": "sidereal",
+    "name": "Sidereal",
+    "works": [
+     "sidereal-1",
+     "sidereal-2",
+     "sidereal-3",
+     "sidereal-4",
+     "sidereal-5"
+    ]
+   },
+   {
+    "id": "sunrise-7",
+    "name": "Sunrise 7",
+    "works": [
+     "sunrise-7-1",
+     "sunrise-7-2",
+     "sunrise-7-3",
+     "sunrise-7-4",
+     "sunrise-7-5"
+    ]
+   },
+   {
+    "id": "tears-fall-low",
+    "name": "Tears Fall Low",
+    "works": [
+     "tears-fall-low-1",
+     "tears-fall-low-2",
+     "tears-fall-low-3",
+     "tears-fall-low-4",
+     "tears-fall-low-5"
+    ]
+   },
+   {
+    "id": "nightsweeper",
+    "name": "NIGHTSWEEPER",
+    "works": [
+     "nightsweeper-1",
+     "nightsweeper-2",
+     "nightsweeper-3"
+    ]
+   },
+   {
+    "id": "art",
+    "name": "Paintings",
+    "works": [
+     "void-sky",
+     "offering",
+     "haemal-s-loom"
+    ]
+   }
+  ],
+  "works": [
+   {
+    "id": "sidereal-1",
+    "group": "sidereal",
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-1.webp"
+    ]
+   },
+   {
+    "id": "sidereal-2",
+    "group": "sidereal",
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-2.webp"
+    ]
+   },
+   {
+    "id": "sidereal-3",
+    "group": "sidereal",
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-3.webp"
+    ]
+   },
+   {
+    "id": "sidereal-4",
+    "group": "sidereal",
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-4.webp"
+    ]
+   },
+   {
+    "id": "sidereal-5",
+    "group": "sidereal",
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-5.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-1",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-1.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-2",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-2.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-3",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-3.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-4",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-4.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-5",
+    "group": "sunrise-7",
+    "cat": "sunrise-7",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sunrise-7-5.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-1",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-1.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-2",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-2.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-3",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-3.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-4",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-4.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-5",
+    "group": "tears-fall-low",
+    "cat": "tears-fall-low",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/tears-fall-low-5.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-1",
+    "group": "nightsweeper",
+    "cat": "nightsweeper",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/nightsweeper-1.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-2",
+    "group": "nightsweeper",
+    "cat": "nightsweeper",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/nightsweeper-2.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-3",
+    "group": "nightsweeper",
+    "cat": "nightsweeper",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/nightsweeper-3.webp"
+    ]
+   },
+   {
+    "id": "void-sky",
+    "cat": "art",
+    "title": "Void Sky",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/void-sky-1.webp"
+    ]
+   },
+   {
+    "id": "offering",
+    "cat": "art",
+    "title": "Offering",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/offering-1.webp"
+    ]
+   },
+   {
+    "id": "haemal-s-loom",
+    "cat": "art",
+    "title": "Haemal's Loom",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/haemal-s-loom-1.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x1",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x1.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x2",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x2.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x3",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x3.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x4",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x4.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x5",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x5.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x6",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x6.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x7",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x7.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x8",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x8.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x9",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x9.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x10",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x10.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x11",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x11.webp"
+    ]
+   },
+   {
+    "id": "sidereal-x12",
+    "group": "sidereal",
+    "extra": true,
+    "cat": "sidereal",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/sidereal-x12.webp"
+    ]
+   }
+  ]
+ },
+ "game-design": {
+  "cats": [
+   {
+    "id": "games",
+    "name": "Games",
+    "works": [
+     "nightsweeper-1",
+     "bithunters-1",
+     "tears-fall-low-1",
+     "sidereal-1",
+     "sunrise-7-1",
+     "sunrise-7-2",
+     "sidereal-2",
+     "tears-fall-low-2",
+     "bithunters-2",
+     "nightsweeper-2",
+     "nightsweeper-3",
+     "bithunters-3",
+     "tears-fall-low-3",
+     "sidereal-3",
+     "sunrise-7-3",
+     "sunrise-7-4",
+     "sidereal-4",
+     "tears-fall-low-4",
+     "bithunters-4",
+     "nightsweeper-4"
+    ],
+    "target": 215
+   },
+   {
+    "id": "labs",
+    "name": "Prototypes",
+    "works": [
+     "level-paint",
+     "grapple-feel",
+     "jump-feel",
+     "jump-arc"
+    ]
+   }
+  ],
+  "works": [
+   {
+    "id": "nightsweeper-1",
+    "group": "nightsweeper",
+    "cat": "games",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/nightsweeper-1.webp"
+    ]
+   },
+   {
+    "id": "bithunters-1",
+    "group": "bithunters",
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-1.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-1",
+    "group": "tears-fall-low",
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-1.webp"
+    ]
+   },
+   {
+    "id": "sidereal-1",
+    "group": "sidereal",
+    "cat": "games",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sidereal-1.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-1",
+    "group": "sunrise-7",
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-1.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-2",
+    "group": "sunrise-7",
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-2.webp"
+    ]
+   },
+   {
+    "id": "sidereal-2",
+    "group": "sidereal",
+    "cat": "games",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sidereal-2.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-2",
+    "group": "tears-fall-low",
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-2.webp"
+    ]
+   },
+   {
+    "id": "bithunters-2",
+    "group": "bithunters",
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-2.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-2",
+    "group": "nightsweeper",
+    "cat": "games",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/nightsweeper-2.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-3",
+    "group": "nightsweeper",
+    "cat": "games",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/nightsweeper-3.webp"
+    ]
+   },
+   {
+    "id": "bithunters-3",
+    "group": "bithunters",
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-3.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-3",
+    "group": "tears-fall-low",
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-3.webp"
+    ]
+   },
+   {
+    "id": "sidereal-3",
+    "group": "sidereal",
+    "cat": "games",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sidereal-3.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-3",
+    "group": "sunrise-7",
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-3.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-4",
+    "group": "sunrise-7",
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-4.webp"
+    ]
+   },
+   {
+    "id": "sidereal-4",
+    "group": "sidereal",
+    "cat": "games",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sidereal-4.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-4",
+    "group": "tears-fall-low",
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-4.webp"
+    ]
+   },
+   {
+    "id": "bithunters-4",
+    "group": "bithunters",
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-4.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper-4",
+    "group": "nightsweeper",
+    "cat": "games",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/nightsweeper-4.webp"
+    ]
+   },
+   {
+    "id": "level-paint",
+    "cat": "labs",
+    "title": "Level Paint",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/level-paint-1.webp"
+    ]
+   },
+   {
+    "id": "grapple-feel",
+    "cat": "labs",
+    "title": "Grapple Feel",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/grapple-feel-1.webp"
+    ]
+   },
+   {
+    "id": "jump-feel",
+    "cat": "labs",
+    "title": "Jump Feel",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/jump-feel-1.webp"
+    ]
+   },
+   {
+    "id": "jump-arc",
+    "cat": "labs",
+    "title": "Jump Arc",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/jump-arc-1.webp"
+    ]
+   },
+   {
+    "id": "bithunters-x1",
+    "group": "bithunters",
+    "extra": true,
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-x1.webp"
+    ]
+   },
+   {
+    "id": "bithunters-x2",
+    "group": "bithunters",
+    "extra": true,
+    "cat": "games",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/bithunters-x2.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-x1",
+    "group": "tears-fall-low",
+    "extra": true,
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-x1.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-x2",
+    "group": "tears-fall-low",
+    "extra": true,
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-x2.webp"
+    ]
+   },
+   {
+    "id": "tears-fall-low-x3",
+    "group": "tears-fall-low",
+    "extra": true,
+    "cat": "games",
+    "title": "Tears Fall Low",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/tears-fall-low-x3.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-x1",
+    "group": "sunrise-7",
+    "extra": true,
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-x1.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-x2",
+    "group": "sunrise-7",
+    "extra": true,
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-x2.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-x3",
+    "group": "sunrise-7",
+    "extra": true,
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-x3.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-x4",
+    "group": "sunrise-7",
+    "extra": true,
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-x4.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7-x5",
+    "group": "sunrise-7",
+    "extra": true,
+    "cat": "games",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/game-design/sunrise-7-x5.webp"
+    ]
+   }
+  ]
+ },
+ "ux-ui": {
+  "cats": [
+   {
+    "id": "shell",
+    "name": "Shell apps",
+    "works": [
+     "font-map",
+     "sound-layer",
+     "silhouettes",
+     "song-map",
+     "drum-map",
+     "stem-mixer",
+     "face-markers",
+     "song-shape"
+    ],
+    "target": 190
+   },
+   {
+    "id": "agent",
+    "name": "r7-Shell and R7OS",
+    "works": [
+     "r7-shell-1",
+     "r7-shell-2",
+     "r7os-1",
+     "r7os-2"
+    ]
+   },
+   {
+    "id": "desk",
+    "name": "Desktop tools",
+    "works": [
+     "board-studio",
+     "paint-studio",
+     "r7-eq",
+     "midijam"
+    ]
+   },
+   {
+    "id": "game",
+    "name": "Game UI",
+    "works": [
+     "sidereal",
+     "sunrise-7",
+     "nightsweeper",
+     "bithunters"
+    ]
+   }
+  ],
+  "works": [
+   {
+    "id": "font-map",
+    "cat": "shell",
+    "title": "Font Map",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/font-map-1.webp"
+    ]
+   },
+   {
+    "id": "sound-layer",
+    "cat": "shell",
+    "title": "Sound Layer",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/sound-layer-1.webp"
+    ]
+   },
+   {
+    "id": "silhouettes",
+    "cat": "shell",
+    "title": "Silhouettes",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/silhouettes-1.webp"
+    ]
+   },
+   {
+    "id": "song-map",
+    "cat": "shell",
+    "title": "Song Map",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/song-map-1.webp"
+    ]
+   },
+   {
+    "id": "drum-map",
+    "cat": "shell",
+    "title": "Drum Map",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/drum-map-1.webp"
+    ]
+   },
+   {
+    "id": "stem-mixer",
+    "cat": "shell",
+    "title": "Stem Mixer",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/stem-mixer-1.webp"
+    ]
+   },
+   {
+    "id": "face-markers",
+    "cat": "shell",
+    "title": "Face Markers",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/face-markers-1.webp"
+    ]
+   },
+   {
+    "id": "song-shape",
+    "cat": "shell",
+    "title": "Song Shape",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/song-shape-1.webp"
+    ]
+   },
+   {
+    "id": "r7-shell-1",
+    "group": "r7-shell",
+    "cat": "agent",
+    "title": "r7-Shell",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/r7-shell-1.webp"
+    ]
+   },
+   {
+    "id": "r7-shell-2",
+    "group": "r7-shell",
+    "cat": "agent",
+    "title": "r7-Shell",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/r7-shell-2.webp"
+    ]
+   },
+   {
+    "id": "r7os-1",
+    "group": "r7os",
+    "cat": "agent",
+    "title": "R7OS",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/r7os-1.gif"
+    ]
+   },
+   {
+    "id": "r7os-2",
+    "group": "r7os",
+    "cat": "agent",
+    "title": "R7OS",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/r7os-2.webp"
+    ]
+   },
+   {
+    "id": "board-studio",
+    "cat": "desk",
+    "title": "Board Studio",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/board-studio-1.webp"
+    ]
+   },
+   {
+    "id": "paint-studio",
+    "cat": "desk",
+    "title": "Paint Studio",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/paint-studio-1.webp"
+    ]
+   },
+   {
+    "id": "r7-eq",
+    "cat": "desk",
+    "title": "r7-EQ",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/r7-eq-1.webp"
+    ]
+   },
+   {
+    "id": "midijam",
+    "cat": "desk",
+    "title": "MIDIJam",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/midijam-1.webp"
+    ]
+   },
+   {
+    "id": "sidereal",
+    "cat": "game",
+    "title": "Sidereal",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/sidereal-1.webp"
+    ]
+   },
+   {
+    "id": "sunrise-7",
+    "cat": "game",
+    "title": "Sunrise 7",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/sunrise-7-1.webp",
+     "/images/portfolio/ux-ui/sunrise-7-2.webp"
+    ]
+   },
+   {
+    "id": "nightsweeper",
+    "cat": "game",
+    "title": "NIGHTSWEEPER",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/nightsweeper-1.webp",
+     "/images/portfolio/ux-ui/nightsweeper-2.webp"
+    ]
+   },
+   {
+    "id": "bithunters",
+    "cat": "game",
+    "title": "bithunters",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/ux-ui/bithunters-1.webp"
+    ]
+   }
+  ]
+ },
+ "engine-tooling": {
+  "cats": [
+   {
+    "id": "engine",
+    "name": "MAZE engine",
+    "works": [
+     "look-dev",
+     "maze-editor-1",
+     "maze-editor-2",
+     "maze-editor-3",
+     "maze-editor-4",
+     "engine-river"
+    ]
+   },
+   {
+    "id": "desk",
+    "name": "Desktop tools",
+    "works": [
+     "r7-viewer",
+     "3d-viewer",
+     "board-studio"
+    ]
+   },
+   {
+    "id": "agent",
+    "name": "r7-Shell and R7OS",
+    "works": [
+     "r7-shell",
+     "r7os",
+     "setup",
+     "memory-map"
+    ]
+   }
+  ],
+  "works": [
+   {
+    "id": "look-dev",
+    "cat": "engine",
+    "title": "Look Dev",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/look-dev-1.webp",
+     "/images/portfolio/engine-tooling/look-dev-2.webp"
+    ]
+   },
+   {
+    "id": "maze-editor-1",
+    "group": "maze-editor",
+    "cat": "engine",
+    "title": "MAZE editor",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/maze-editor-1.webp"
+    ]
+   },
+   {
+    "id": "maze-editor-2",
+    "group": "maze-editor",
+    "cat": "engine",
+    "title": "MAZE editor",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/maze-editor-2.webp"
+    ]
+   },
+   {
+    "id": "maze-editor-3",
+    "group": "maze-editor",
+    "cat": "engine",
+    "title": "MAZE editor",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/maze-editor-3.webp"
+    ]
+   },
+   {
+    "id": "maze-editor-4",
+    "group": "maze-editor",
+    "cat": "engine",
+    "title": "MAZE editor",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/maze-editor-4.webp"
+    ]
+   },
+   {
+    "id": "engine-river",
+    "cat": "engine",
+    "title": "Engine River",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/engine-river-1.webp"
+    ]
+   },
+   {
+    "id": "r7-viewer",
+    "cat": "desk",
+    "title": "r7-Viewer",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/r7-viewer-1.webp"
+    ]
+   },
+   {
+    "id": "3d-viewer",
+    "cat": "desk",
+    "title": "3D Viewer",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/3d-viewer-1.webp"
+    ]
+   },
+   {
+    "id": "board-studio",
+    "cat": "desk",
+    "title": "Board Studio",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/board-studio-1.webp"
+    ]
+   },
+   {
+    "id": "r7-shell",
+    "cat": "agent",
+    "title": "r7-Shell",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/r7-shell-1.webp"
+    ]
+   },
+   {
+    "id": "r7os",
+    "cat": "agent",
+    "title": "R7OS",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/r7os-1.gif"
+    ]
+   },
+   {
+    "id": "setup",
+    "cat": "agent",
+    "title": "Setup",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/setup-1.webp"
+    ]
+   },
+   {
+    "id": "memory-map",
+    "cat": "agent",
+    "title": "Memory Map",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/engine-tooling/memory-map-1.webp"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,28 @@
+{% set d = folio[key] %}
+<div class="intro" data-key="{{ key }}">
+  <h1>{{ section }}</h1>
+</div>
+
+{% for cat in d.cats %}
+<section class="group">
+  <div class="side"><h2><small>0{{ loop.index }}</small>{{ cat.name }}</h2></div>
+  <div class="wall"{% if cat.target %} data-target="{{ cat.target }}"{% endif %}>
+    {% for w in d.works %}{% if w.cat == cat.id and not w.extra %}{% set m = w.imgs | coverInfo %}
+    <a class="tile" href="#{{ w.id }}" data-id="{{ w.id }}" data-w="{{ m.w }}" data-h="{{ m.h }}" style="aspect-ratio: {{ m.w }}/{{ m.h }}">
+      {% if m.type == "loop" %}
+      <video src="{{ m.video }}" poster="{{ m.src }}" width="{{ m.w }}" height="{{ m.h }}" muted loop playsinline preload="none" aria-label="{{ w.title }}"></video>
+      {% else %}
+      <img src="{{ m.src }}" srcset="{{ m.srcset }}" sizes="(max-width: 760px) 50vw, 33vw" width="{{ m.w }}" height="{{ m.h }}" alt="{{ w.title }}" decoding="async">
+      {% endif %}
+      <span class="label">{{ w.title }}{% if w.imgs.length > 1 %}<small>{{ w.imgs.length }}</small>{% endif %}</span>
+    </a>
+    {% endif %}{% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<script type="application/json" id="works">
+{"cats": {{ d.cats | dump | safe }}, "works": [{% for w in d.works %}
+{"id": {{ w.id | dump | safe }}, "group": {{ (w.group or "") | dump | safe }}, "cat": {{ w.cat | dump | safe }}, "title": {{ w.title | dump | safe }}, "line": {{ w.line | dump | safe }}, "text": {{ w.text | dump | safe }}, "imgs": [{% for s in w.imgs %}{{ s | mediaInfo | dump | safe }}{% if not loop.last %}, {% endif %}{% endfor %}]}{% if not loop.last %},{% endif %}{% endfor %}
+]}
+</script>

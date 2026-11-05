@@ -144,6 +144,7 @@ async function loadManifest(required = false) {
 function imageQuality(relPosix) {
   if (relPosix === "brand/headerimage.png") return 84;
   if (relPosix.startsWith("tools/") || relPosix.startsWith("updates/")) return 84;
+  if (relPosix.startsWith("portfolio/")) return 88;
   return 82;
 }
 
@@ -239,7 +240,9 @@ async function buildEntry(sourcePath, relPosix, sourceHash, inspection, tempRoot
   };
 
   if (!inspection.animated) {
-    const targets = [...new Set([Math.min(720, inspection.width), Math.min(1400, inspection.width)])].sort((a, b) => a - b);
+    // Portfolio pictures also keep a near-full-size copy, so the open view shows them at their real detail
+    const full = relPosix.startsWith("portfolio/") ? [Math.min(2560, inspection.width)] : [];
+    const targets = [...new Set([Math.min(720, inspection.width), Math.min(1400, inspection.width), ...full])].sort((a, b) => a - b);
     const images = [];
     for (const width of targets) {
       images.push(await buildWebp(sourcePath, tempRoot, relPosix, `image-w${width}`, width, imageQuality(relPosix)));
