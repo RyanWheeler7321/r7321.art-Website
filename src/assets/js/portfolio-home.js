@@ -65,6 +65,14 @@ function layout() {
   });
 }
 layout();
+// Pictures wipe in band by band (portfolio.js wipeIn), each once it has loaded
+if (typeof wipeIn == 'function' && !still) {
+  $('.hub').classList.add('wipe');
+  slats.forEach((s, i) => $$('.pic', s).forEach((p, j) => {
+    const img = $('img', p);
+    (img.complete ? Promise.resolve() : img.decode().catch(() => {})).then(() => setTimeout(() => wipeIn(p), i * 90 + j * 55));
+  }));
+}
 let t;
 addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { shown = ''; layout(); }, 120); });
 document.fonts.ready.then(() => { shown = ''; layout(); });

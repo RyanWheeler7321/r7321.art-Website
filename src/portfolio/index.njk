@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 <div class="hub">
 {% for s in portfolio.sections %}{% set k = s.url.split("/")[2] %}{% set titles = [] %}
 {% for w in folio[k].works %}{% if titles.indexOf(w.title) < 0 %}{% set _ = titles.push(w.title) %}{% endif %}{% endfor %}
-  <a class="slat" href="{{ s.url }}" style="--i: {{ loop.index0 }}">
+  <a class="slat" href="{{ s.url }}">
     <div class="top"><small>0{{ loop.index }}</small><h2>{{ s.name }}</h2><p>{{ titles | join(" · ") }}</p></div>
     <div class="pics"{% if k == "ux-ui" or k == "engine-tooling" %} data-free{% endif %}>
     {% for src in portfolio.home[k] %}{% set m = src | mediaInfo %}{% set alts = [] %}

@@ -6,6 +6,14 @@ const out = 'cubic-bezier(.16,1,.3,1)', wipe = 'cubic-bezier(.77,0,.18,1)';
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const phone = () => innerWidth <= 760;
 
+// A picture wipes in from a random angle with a soft light on its edge (--wipe moves the edge, --edge fades the light)
+function wipeIn(el) {
+  el.style.setProperty('--angle', `${Math.random() * 360 | 0}deg`);
+  el.classList.add('shown', 'wiping');
+  el.animate([{ '--wipe': '-1%', '--edge': 0 }, { '--edge': 1, offset: .12 }, { '--edge': 1, offset: .8 }, { '--wipe': '100%', '--edge': 0 }],
+    { duration: 480, easing: 'cubic-bezier(.45,.05,.25,1)' }).onfinish = () => el.classList.remove('wiping');
+}
+
 // The light under the header slides to the hovered section and back to the current one
 function initHeader() {
   const nav = $('.sections'), light = $('.light', nav), on = $('a.on', nav);
@@ -136,13 +144,7 @@ function initWalls(data) {
       entries.filter((e) => e.isIntersecting).forEach((e, i) => {
         const t = e.target;
         seen.unobserve(t);
-        ready(t).then(() => setTimeout(() => {
-          t.style.setProperty('--angle', `${Math.random() * 360 | 0}deg`);
-          t.classList.add('shown', 'wiping');
-          // --wipe moves the edge across, --edge fades its light in and out
-          t.animate([{ '--wipe': '-1%', '--edge': 0 }, { '--edge': 1, offset: .12 }, { '--edge': 1, offset: .8 }, { '--wipe': '100%', '--edge': 0 }],
-            { duration: 480, easing: 'cubic-bezier(.45,.05,.25,1)' }).onfinish = () => t.classList.remove('wiping');
-        }, Math.min(i, 8) * 55));
+        ready(t).then(() => setTimeout(() => wipeIn(t), Math.min(i, 8) * 55));
       });
     }, { rootMargin: '0px 0px 12% 0px' });
     tiles.forEach((t) => seen.observe(t));
