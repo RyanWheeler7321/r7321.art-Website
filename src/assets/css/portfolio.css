@@ -181,3 +181,8 @@ body { background: #050407; }
 @media (max-width: 1500px) { .top-bar { position: static; width: fit-content; margin: 22px 40px 0 auto; } .intro { padding-top: 14px; } }
 @media (max-width: 760px) { .top-bar { width: auto; margin: 12px 12px 0; gap: 10px; padding: 0 5px 0 10px; } .name { font-size: 15px; padding-right: 10px; margin-right: auto; } .sections { gap: 12px; } .resume { padding: 8px 10px; } }
 @media (prefers-reduced-motion: reduce) { .tile { transition: none; } }
+/* Groups stay hidden until the script lays out their rows, so a reload never shows one size and then another */
+body:not(.laid) .group { visibility: hidden; }
+/* A charcoal field behind each wall, so the tiles read as frames on a surface */
+.wall { position: relative; isolation: isolate; }
+.wall::before { content: ''; position: absolute; z-index: -1; inset: -10px auto -10px -10px; width: calc(var(--used, 100%) + 20px); background: rgb(53 50 59 / var(--field, .7)); }

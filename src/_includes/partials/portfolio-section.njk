@@ -12,7 +12,7 @@
       {% if m.type == "loop" %}
       <video src="{{ m.video }}" poster="{{ m.src }}" width="{{ m.w }}" height="{{ m.h }}" muted loop playsinline preload="none" aria-label="{{ w.title }}"></video>
       {% else %}
-      <img src="{{ m.src }}" srcset="{{ m.srcset }}" sizes="(max-width: 760px) 50vw, 33vw" width="{{ m.w }}" height="{{ m.h }}" alt="{{ w.title }}" decoding="async">
+      <img data-src="{{ m.src }}" data-srcset="{{ m.srcset }}" width="{{ m.w }}" height="{{ m.h }}" alt="{{ w.title }}" decoding="async">
       {% endif %}
       <span class="label">{{ w.title }}{% if w.imgs.length > 1 %}<small>{{ w.imgs.length }}</small>{% endif %}</span>
     </a>

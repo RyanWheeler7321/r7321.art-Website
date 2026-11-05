@@ -80,6 +80,7 @@ function initWalls(data) {
       const items = $$('.tile', wall), full = wall.clientWidth;
       wall.classList.add('rows');
       wall.replaceChildren();
+      let used = 0;
       const own = !phone() && wall.dataset.target ? wall.dataset.target * (innerWidth < 1300 ? 0.8 : 1) : target;
       for (const { from, to, h } of justify(items.map((t) => t.dataset.w / t.dataset.h), full, own, gap)) {
         const row = html('<div class="row"></div>');
@@ -88,14 +89,28 @@ function initWalls(data) {
           t.style.width = `${w.toFixed(1)}px`;
           t.style.height = `${h.toFixed(1)}px`;
           const img = $('img', t);
-          if (img) img.sizes = `${Math.ceil(w)}px`;
+          if (img) fetchAt(img, w);
           row.append(t);
         }
         wall.append(row);
         shade(row);
+        used = Math.max(used, h * items.slice(from, to).reduce((a, t) => a + t.dataset.w / t.dataset.h, 0) + gap * (to - from - 1));
       }
+      // the field behind the wall ends where its widest row does
+      wall.style.setProperty('--used', `${Math.min(used, full)}px`);
     }
+    document.body.classList.add('laid');
     width = innerWidth;
+  }
+
+  // Pictures carry their sources as data until their laid-out width is known, so each loads once at the right size
+  function fetchAt(img, w) {
+    // a picture already loaded on hover is reused as it is rather than fetched again at a smaller size
+    const got = early.get(img.dataset.src)?.currentSrc;
+    if (got) { img.src = got; delete img.dataset.src; delete img.dataset.srcset; return; }
+    img.sizes = `${Math.ceil(w)}px`;
+    if (img.dataset.srcset) { img.srcset = img.dataset.srcset; delete img.dataset.srcset; }
+    if (img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
   }
 
   // A faint glow in each picture's own colour, read once from an 8px copy of it
@@ -117,22 +132,24 @@ function initWalls(data) {
   // Pictures wipe in once, starting just before they scroll into view
   function initReveal() {
     if (still) { tiles.forEach((t) => t.classList.add('shown')); return; }
+    // the wipe waits for the picture itself, so it never wipes in an empty frame and then pops
+    const ready = (t) => { const img = $('img', t); return img && !img.complete ? img.decode().catch(() => {}) : Promise.resolve(); };
     const seen = new IntersectionObserver((entries) => {
       entries.filter((e) => e.isIntersecting).forEach((e, i) => {
         const t = e.target;
         seen.unobserve(t);
-        setTimeout(() => {
+        ready(t).then(() => setTimeout(() => {
           t.classList.add('shown');
           // a crisp bottom-up wipe at the picture's own scale
           $('img, video', t).animate([{ clipPath: 'inset(100% 0 0 0)', opacity: .5 }, { clipPath: 'inset(0)', opacity: 1 }], { duration: 325, easing: out });
-        }, Math.min(i, 6) * 25);
+        }, Math.min(i, 6) * 25));
       });
     }, { rootMargin: '0px 0px 12% 0px' });
     tiles.forEach((t) => seen.observe(t));
   }
 
   // Hovering a picture starts loading its project's pictures, so the viewer opens on loaded images
-  const loaded = new Set();
+  const loaded = new Set(), early = new Map();
   function preload(id) {
     if (loaded.has(id)) return;
     loaded.add(id);
@@ -141,6 +158,7 @@ function initWalls(data) {
       img.sizes = heroSizes;
       if (m.srcset) img.srcset = m.srcset;
       img.src = m.src;
+      early.set(m.src, img);
     }
   }
 
@@ -346,13 +364,13 @@ function initWalls(data) {
       const button = collage.children[rect.i];
       Object.assign(button.style, { left: `${rect.x}px`, top: `${rect.y}px`,
         width: `${rect.w}px`, height: `${rect.h}px` });
-      $('img', button).sizes = `${Math.ceil(rect.w)}px`;
+      fetchAt($('img', button), rect.w);
     }
   }
 
   function projectHtml(w) {
     const collage = w.imgs.length < 2 ? '' : `<div class="collage" role="group" aria-label="Project pictures">${w.imgs.map((m, n) =>
-      `<button class="thumb" data-k="${n}" aria-pressed="${n === 0}" aria-label="${m.type === 'sketchfab' ? '3D model' : 'Picture'} ${n + 1} of ${w.imgs.length}"><img src="${m.src}"${m.srcset ? ` srcset="${m.srcset}"` : ''} sizes="160px" alt="" draggable="false">${m.type === 'sketchfab' ? '<span aria-hidden="true" style="position:absolute;left:6px;bottom:6px;padding:2px 5px;background:#09090bdd;border:1px solid #ffffff35;border-radius:2px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.04em;pointer-events:none">3D</span>' : ''}</button>`).join('')}</div>`;
+      `<button class="thumb" data-k="${n}" aria-pressed="${n === 0}" aria-label="${m.type === 'sketchfab' ? '3D model' : 'Picture'} ${n + 1} of ${w.imgs.length}"><img data-src="${m.src}"${m.srcset ? ` data-srcset="${m.srcset}"` : ''} alt="" draggable="false">${m.type === 'sketchfab' ? '<span aria-hidden="true" style="position:absolute;left:6px;bottom:6px;padding:2px 5px;background:#09090bdd;border:1px solid #ffffff35;border-radius:2px;font:600 10px/1.4 Manrope,sans-serif;letter-spacing:.04em;pointer-events:none">3D</span>' : ''}</button>`).join('')}</div>`;
     return `<button class="close" aria-label="Close project" title="Close · Esc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
       <div class="stage"><div class="hero">${media(w.imgs[0], w.title)}</div></div>
       <div class="pictures"><div class="head"><h3></h3></div>${collage}</div>`;
@@ -394,7 +412,7 @@ function initWalls(data) {
   function fitNow(box, w) {
     box.classList.remove('topline');
     $(':scope > .cap', box)?.remove();
-    if (!w.line) { sizeHero(box, w); return; }
+    if (!w.line) { sizeHero(box, w); unplaced(box); return; }
     const modes = phone() ? ['narrow', 'under'] : box.classList.contains('single') ? ['bar', 'narrow', 'under'] : ['beside', 'narrow', 'under'];
     // a short wide picture can leave no room for the caption beside its pictures, so then the frame may grow past it
     for (const loose of [false, true]) {
@@ -409,7 +427,11 @@ function initWalls(data) {
     box.classList.add('topline');
     box.insertAdjacentHTML('afterbegin', `<div class="cap"><p>${w.line}</p><div class="tags">${w.tags.map((t) => `<span>${t}</span>`).join('')}</div></div>`);
     sizeHero(box, w);
+    unplaced(box);
   }
+
+  // a packing that found no fit still loads its thumbnails at a small size
+  const unplaced = (box) => $$('.thumb img[data-src]', box).forEach((img) => fetchAt(img, 160));
 
   // Keep the old picture visible until the selected picture can draw.
   function show(nk) {
