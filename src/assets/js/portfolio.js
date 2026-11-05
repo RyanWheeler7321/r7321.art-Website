@@ -378,11 +378,14 @@ function initWalls(data) {
   // Fits measure the settled layout with the glide off, then glide from the old sizes to the new ones.
   function fitCaption(box, w) {
     if (!box.classList.contains('live')) { fitNow(box, w); return; }
-    const parts = () => [box, ...$$('.collage, .thumb', box)], before = parts().map((e) => e.style.cssText);
+    // start from where a glide still running has got to, not from its old target
+    const parts = () => [box, ...$$('.collage, .thumb', box)];
+    const props = (e) => e === box ? ['width', '--hero-width', '--stage-height', '--pictures-width'] : e.matches('.collage') ? ['height'] : ['left', 'top', 'width', 'height'];
+    const now = parts().map((e) => { const c = getComputedStyle(e); return props(e).map((k) => [k, c.getPropertyValue(k)]); });
     box.classList.remove('live');
     fitNow(box, w);
     const after = parts().map((e) => e.style.cssText);
-    parts().forEach((e, i) => { e.style.cssText = before[i]; });
+    parts().forEach((e, i) => now[i].forEach(([k, v]) => e.style.setProperty(k, v)));
     box.getBoundingClientRect();
     box.classList.add('live');
     parts().forEach((e, i) => { e.style.cssText = after[i]; });
