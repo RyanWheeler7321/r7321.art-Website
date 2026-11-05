@@ -105,10 +105,8 @@ function initWalls(data) {
 
   // Pictures carry their sources as data until their laid-out width is known, so each loads once at the right size
   function fetchAt(img, w) {
-    // a picture already loaded on hover is reused as it is rather than fetched again at a smaller size
-    const got = early.get(img.dataset.src)?.currentSrc;
-    if (got) { img.src = got; delete img.dataset.src; delete img.dataset.srcset; return; }
-    img.sizes = `${Math.ceil(w)}px`;
+    // a picture the viewer already asked for keeps the same sizes, so the browser picks the same file instead of a second one
+    img.sizes = early.has(img.dataset.src ?? img.getAttribute('src')) ? heroSizes : `${Math.ceil(w)}px`;
     if (img.dataset.srcset) { img.srcset = img.dataset.srcset; delete img.dataset.srcset; }
     if (img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
   }
@@ -149,7 +147,7 @@ function initWalls(data) {
   }
 
   // Hovering a picture starts loading its project's pictures, so the viewer opens on loaded images
-  const loaded = new Set(), early = new Map();
+  const loaded = new Set(), early = new Set();
   function preload(id) {
     if (loaded.has(id)) return;
     loaded.add(id);
@@ -158,7 +156,7 @@ function initWalls(data) {
       img.sizes = heroSizes;
       if (m.srcset) img.srcset = m.srcset;
       img.src = m.src;
-      early.set(m.src, img);
+      early.add(m.src);
     }
   }
 
@@ -484,13 +482,13 @@ function initWalls(data) {
     const box = $('.box', viewer);
     box.classList.remove('live');
     box.classList.toggle('single', w.imgs.length === 1);
+    preload(id);
     box.innerHTML = projectHtml(w);
     $('.pictures h3', box).textContent = w.title;
     fitCaption(box, w);
     $('.close', box).addEventListener('click', closeProject);
     $$('.thumb', box).forEach((t) => t.addEventListener('click', () => show(+t.dataset.k)));
     history.replaceState(null, '', '#' + id);
-    preload(id);
     if (fresh) {
       const t = $(`.tile[data-id="${id}"]`).getBoundingClientRect(), b = box.getBoundingClientRect();
       const dx = t.left + t.width / 2 - (b.left + b.width / 2), dy = t.top + t.height / 2 - (b.top + b.height / 2), s = Math.max(.2, t.width / b.width);
