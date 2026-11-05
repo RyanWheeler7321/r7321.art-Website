@@ -20,8 +20,9 @@
 <body{% if home %} class="home"{% endif %}>
   <div class="backdrop" aria-hidden="true"><i></i><b class="glow"></b></div>
 
+  {% if home %}<h1 class="me">Ryan Wheeler</h1>{% endif %}
   <header class="top-bar">
-    <a class="name" href="/portfolio/">Ryan Wheeler</a>
+    {% if not home %}<a class="name" href="/portfolio/">Ryan Wheeler</a>{% endif %}
     <nav class="sections">
       <i class="light"></i>
       {% for s in portfolio.sections %}

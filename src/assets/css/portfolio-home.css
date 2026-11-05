@@ -2,7 +2,12 @@
 body.home { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
 body.home main { flex: 1; min-height: 0; display: flex; }
 .hub { flex: 1; min-width: 0; display: flex; }
-@media (min-width: 1501px) { .hub { margin-top: 60px; } }
+/* the name sits large in the top left, level with the bar */
+.me { position: absolute; top: 31px; left: 16px; height: 48px; display: flex; align-items: center; margin: 0;
+  font: 700 34px/1 'Space Grotesk'; letter-spacing: -.02em; white-space: nowrap; }
+@media (max-width: 1500px) { .me { top: 22px; } }
+@media (max-width: 760px) { .me { position: static; height: auto; margin: 20px 14px 4px; font-size: 28px; } }
+@media (min-width: 1501px) { .hub { margin-top: 96px; } }
 .slat { position: relative; flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; padding: 0 14px 14px; border-right: 1px solid #ffffff10;
   transition: flex-grow .55s cubic-bezier(.2, .9, .2, 1), background-color .3s; }
 .slat:nth-child(odd) { background: #ffffff07; }
