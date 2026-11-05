@@ -33,7 +33,6 @@
      "a-m",
      "p-m",
      "r-p",
-     "bongo-bongo",
      "fast",
      "mat-doodling"
     ]
@@ -295,17 +294,6 @@
     ]
    },
    {
-    "id": "bongo-bongo",
-    "cat": "2d",
-    "title": "Bongo Bongo",
-    "line": "",
-    "text": "",
-    "imgs": [
-     "/images/portfolio/character/bongo-bongo-1.webp",
-     "/images/portfolio/character/bongo-bongo-2.webp"
-    ]
-   },
-   {
     "id": "fast",
     "cat": "2d",
     "title": "Fast",
@@ -377,7 +365,8 @@
     "works": [
      "void-sky",
      "offering",
-     "haemal-s-loom"
+     "haemal-s-loom",
+     "bongo-bongo"
     ]
    }
   ],
@@ -608,6 +597,17 @@
     "text": "",
     "imgs": [
      "/images/portfolio/environment/haemal-s-loom-1.webp"
+    ]
+   },
+   {
+    "id": "bongo-bongo",
+    "cat": "art",
+    "title": "Bongo Bongo",
+    "line": "",
+    "text": "",
+    "imgs": [
+     "/images/portfolio/environment/bongo-bongo-1.webp",
+     "/images/portfolio/environment/bongo-bongo-2.webp"
     ]
    },
    {
