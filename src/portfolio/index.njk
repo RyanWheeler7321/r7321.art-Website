@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
     <div class="pics"{% if k == "ux-ui" or k == "engine-tooling" %} data-free{% endif %}>
     {% for src in portfolio.home[k] %}{% set m = src | mediaInfo %}{% set alts = [] %}
     {% for w in folio[k].works %}{% if src in w.imgs %}{% set _ = alts.push(w.title) %}{% endif %}{% endfor %}{% set alt = alts[0] %}
-      <div class="pic" data-w="{{ m.w }}" data-h="{{ m.h }}"><img src="{{ m.src }}" srcset="{{ m.srcset }}" sizes="(max-width: 760px) 100vw, 30vw" width="{{ m.w }}" height="{{ m.h }}" alt="{{ alt }}" decoding="async"{% if loop.index > 2 %} fetchpriority="low"{% endif %}><span>{{ alt }}</span></div>
+      <div class="pic" data-w="{{ m.w }}" data-h="{{ m.h }}"{% if portfolio.focus[src] %} style="--focus: {{ portfolio.focus[src] }}"{% endif %}><img src="{{ m.src }}" srcset="{{ m.srcset }}" sizes="(max-width: 760px) 100vw, 30vw" width="{{ m.w }}" height="{{ m.h }}" alt="{{ alt }}" decoding="async"{% if loop.index > 2 %} fetchpriority="low"{% endif %}><span>{{ alt }}</span></div>
     {% endfor %}
     </div>
   </a>

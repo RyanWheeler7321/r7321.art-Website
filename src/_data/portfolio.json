@@ -58,5 +58,23 @@
       "/images/portfolio/engine-tooling/engine-river-1.webp",
       "/images/portfolio/engine-tooling/maze-editor-4.webp"
     ]
+  },
+  "focus": {
+    "/images/portfolio/character/mishu-1.webp": "58% 10%",
+    "/images/portfolio/character/ptayah-1.webp": "52% 0%",
+    "/images/portfolio/character/veyn-1.webp": "48% 2%",
+    "/images/portfolio/character/penny-1.webp": "47% 2%",
+    "/images/portfolio/environment/sidereal-3.webp": "47% 50%",
+    "/images/portfolio/environment/nightsweeper-1.webp": "30% 50%",
+    "/images/portfolio/game-design/nightsweeper-1.webp": "60% 45%",
+    "/images/portfolio/game-design/tears-fall-low-1.webp": "45% 40%",
+    "/images/portfolio/game-design/sidereal-3.webp": "38% 60%",
+    "/images/portfolio/ux-ui/r7-shell-2.webp": "50% 15%",
+    "/images/portfolio/ux-ui/r7os-2.webp": "35% 30%",
+    "/images/portfolio/ux-ui/midijam-1.webp": "50% 25%",
+    "/images/portfolio/engine-tooling/maze-editor-1.webp": "45% 50%",
+    "/images/portfolio/engine-tooling/look-dev-1.webp": "45% 45%",
+    "/images/portfolio/engine-tooling/engine-river-1.webp": "40% 50%",
+    "/images/portfolio/engine-tooling/maze-editor-4.webp": "35% 50%"
   }
 }
