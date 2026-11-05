@@ -127,7 +127,7 @@ function initWalls(data) {
     }
   }
 
-  // Pictures wipe in once, starting just before they scroll into view
+  // Pictures wipe in once from a random angle, starting just before they scroll into view
   function initReveal() {
     if (still) { tiles.forEach((t) => t.classList.add('shown')); return; }
     // the wipe waits for the picture itself, so it never wipes in an empty frame and then pops
@@ -137,10 +137,12 @@ function initWalls(data) {
         const t = e.target;
         seen.unobserve(t);
         ready(t).then(() => setTimeout(() => {
-          t.classList.add('shown');
-          // a crisp bottom-up wipe at the picture's own scale
-          $('img, video', t).animate([{ clipPath: 'inset(100% 0 0 0)', opacity: .5 }, { clipPath: 'inset(0)', opacity: 1 }], { duration: 325, easing: out });
-        }, Math.min(i, 6) * 25));
+          t.style.setProperty('--angle', `${Math.random() * 360 | 0}deg`);
+          t.classList.add('shown', 'wiping');
+          // --wipe moves the edge across, --edge fades its light in and out
+          t.animate([{ '--wipe': '-1%', '--edge': 0 }, { '--edge': 1, offset: .12 }, { '--edge': 1, offset: .8 }, { '--wipe': '100%', '--edge': 0 }],
+            { duration: 480, easing: 'cubic-bezier(.45,.05,.25,1)' }).onfinish = () => t.classList.remove('wiping');
+        }, Math.min(i, 8) * 55));
       });
     }, { rootMargin: '0px 0px 12% 0px' });
     tiles.forEach((t) => seen.observe(t));
