@@ -41,7 +41,7 @@
     {{ content | safe }}
   </main>
 
-  <script src="/assets/js/portfolio.js?v={{ site.assetVersion }}"></script>
+  <script src="/assets/js/portfolio.js?v={{ site.assetVersion }}" onerror="document.querySelectorAll('img[data-src]').forEach((i) => { i.srcset = i.dataset.srcset; i.src = i.dataset.src; }); document.body.classList.add('laid')"></script>
   {% if home %}<script src="/assets/js/portfolio-home.js?v={{ site.assetVersion }}"></script>{% endif %}
 </body>
 </html>
